@@ -10,6 +10,15 @@
   },
   "author": "Jacob Parish",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/investingwolf/alpaca-broker-api.git"
+  },
+  "bugs": {
+    "url" : "https://github.com/investingwolf/alpaca-broker-api/issues",
+    "email" : "project@hostname.com"
+  },
+  "homepage": "https://github.com/investingwolf/alpaca-broker-api#readme",
   "devDependencies": {
     "@openapitools/openapi-generator-cli": "^2.3.3",
     "@types/node": "^15.12.2",
