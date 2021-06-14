@@ -1,0 +1,10 @@
+api.ts
+api/
+model/
+tsconfig.json
+bkdocs
+.openapi-generator/
+.openapi-generator-ignore
+openapitools.json
+.gitignore
+.gitmodules
