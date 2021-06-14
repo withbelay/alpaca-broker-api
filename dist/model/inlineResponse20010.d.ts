@@ -11,10 +11,10 @@
  */
 export declare class InlineResponse20010 {
     'id'?: string;
-    'accountId'?: string;
-    'activityType'?: InlineResponse20010.ActivityTypeEnum;
+    'account_id'?: string;
+    'activity_type'?: InlineResponse20010.ActivityTypeEnum;
     'date'?: string;
-    'netAmount'?: string;
+    'net_amount'?: string;
     'description'?: string;
     'status'?: InlineResponse20010.StatusEnum;
     static discriminator: string | undefined;

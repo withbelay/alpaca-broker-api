@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 export declare class CreateOrderTakeProfit {
-    'limitPrice'?: string;
+    'limit_price'?: string;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

@@ -13,13 +13,13 @@
 import { RequestFile } from './models';
 
 export class UntypedACHTransferDataAllOf {
-    'relationshipId': string;
+    'relationship_id': string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "relationshipId",
+            "name": "relationship_id",
             "baseName": "relationship_id",
             "type": "string"
         }    ];

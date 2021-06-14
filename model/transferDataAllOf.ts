@@ -13,14 +13,14 @@
 import { RequestFile } from './models';
 
 export class TransferDataAllOf {
-    'transferType': TransferDataAllOf.TransferTypeEnum;
+    'transfer_type': TransferDataAllOf.TransferTypeEnum;
     'timing'?: TransferDataAllOf.TimingEnum;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "transferType",
+            "name": "transfer_type",
             "baseName": "transfer_type",
             "type": "TransferDataAllOf.TransferTypeEnum"
         },

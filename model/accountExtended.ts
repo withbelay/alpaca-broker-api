@@ -23,15 +23,15 @@ import { TrustedContact } from './trustedContact';
 
 export class AccountExtended {
     'id'?: string;
-    'accountNumber'?: string;
+    'account_number'?: string;
     'status'?: AccountStatus;
     /**
     * Always \"USD\"
     */
     'currency'?: string;
-    'createdAt'?: Date;
-    'lastEquity'?: string;
-    'kycResults'?: KycResult;
+    'created_at'?: Date;
+    'last_equity'?: string;
+    'kyc_results'?: KycResult;
     'contact'?: Contact;
     'identity'?: Identity;
     'disclosures'?: Disclosures;
@@ -40,7 +40,7 @@ export class AccountExtended {
     */
     'agreements'?: Array<object>;
     'documents'?: Array<ApplicationDocument>;
-    'trustedContact'?: TrustedContact;
+    'trusted_contact'?: TrustedContact;
 
     static discriminator: string | undefined = undefined;
 
@@ -51,7 +51,7 @@ export class AccountExtended {
             "type": "string"
         },
         {
-            "name": "accountNumber",
+            "name": "account_number",
             "baseName": "account_number",
             "type": "string"
         },
@@ -66,17 +66,17 @@ export class AccountExtended {
             "type": "string"
         },
         {
-            "name": "createdAt",
+            "name": "created_at",
             "baseName": "created_at",
             "type": "Date"
         },
         {
-            "name": "lastEquity",
+            "name": "last_equity",
             "baseName": "last_equity",
             "type": "string"
         },
         {
-            "name": "kycResults",
+            "name": "kyc_results",
             "baseName": "kyc_results",
             "type": "KycResult"
         },
@@ -106,7 +106,7 @@ export class AccountExtended {
             "type": "Array<ApplicationDocument>"
         },
         {
-            "name": "trustedContact",
+            "name": "trusted_contact",
             "baseName": "trusted_contact",
             "type": "TrustedContact"
         }    ];

@@ -11,9 +11,9 @@
  */
 export declare class InlineResponse2003 {
     'timestamp'?: string;
-    'isOpen'?: boolean;
-    'nextOpen'?: string;
-    'nextClose'?: string;
+    'is_open'?: boolean;
+    'next_open'?: string;
+    'next_close'?: string;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

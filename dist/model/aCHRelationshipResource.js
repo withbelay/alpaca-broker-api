@@ -26,32 +26,32 @@ ACHRelationshipResource.attributeTypeMap = [
         "type": "string"
     },
     {
-        "name": "createdAt",
+        "name": "created_at",
         "baseName": "created_at",
         "type": "Date"
     },
     {
-        "name": "updatedAt",
+        "name": "updated_at",
         "baseName": "updated_at",
         "type": "Date"
     },
     {
-        "name": "accountOwnerName",
+        "name": "account_owner_name",
         "baseName": "account_owner_name",
         "type": "string"
     },
     {
-        "name": "bankAccountType",
+        "name": "bank_account_type",
         "baseName": "bank_account_type",
         "type": "ACHRelationshipResource.BankAccountTypeEnum"
     },
     {
-        "name": "bankAccountNumber",
+        "name": "bank_account_number",
         "baseName": "bank_account_number",
         "type": "string"
     },
     {
-        "name": "bankRoutingNumber",
+        "name": "bank_routing_number",
         "baseName": "bank_routing_number",
         "type": "string"
     },
@@ -61,7 +61,7 @@ ACHRelationshipResource.attributeTypeMap = [
         "type": "string"
     },
     {
-        "name": "accountId",
+        "name": "account_id",
         "baseName": "account_id",
         "type": "string"
     },

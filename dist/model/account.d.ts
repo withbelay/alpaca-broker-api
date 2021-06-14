@@ -13,15 +13,15 @@ import { AccountStatus } from './accountStatus';
 import { KycResult } from './kycResult';
 export declare class Account {
     'id'?: string;
-    'accountNumber'?: string;
+    'account_number'?: string;
     'status'?: AccountStatus;
     /**
     * Always \"USD\"
     */
     'currency'?: string;
-    'createdAt'?: Date;
-    'lastEquity'?: string;
-    'kycResults'?: KycResult;
+    'created_at'?: Date;
+    'last_equity'?: string;
+    'kyc_results'?: KycResult;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

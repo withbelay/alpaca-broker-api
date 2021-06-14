@@ -13,19 +13,19 @@
 import { RequestFile } from './models';
 
 export class UntypedWireTransferDataAllOf {
-    'additionalInformation'?: string;
-    'bankId': string;
+    'additional_information'?: string;
+    'bank_id': string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "additionalInformation",
+            "name": "additional_information",
             "baseName": "additional_information",
             "type": "string"
         },
         {
-            "name": "bankId",
+            "name": "bank_id",
             "baseName": "bank_id",
             "type": "string"
         }    ];

@@ -17,16 +17,16 @@ export declare class CreateOrder {
     'notional'?: string;
     'side': CreateOrder.SideEnum;
     'type': CreateOrder.TypeEnum;
-    'timeInForce': CreateOrder.TimeInForceEnum;
-    'limitPrice'?: string;
-    'stopPrice'?: string;
-    'trailPrice'?: string;
-    'trailPercent'?: string;
-    'extendedHours'?: boolean;
-    'clientOrderId'?: string;
-    'orderClass'?: CreateOrder.OrderClassEnum;
-    'takeProfit'?: CreateOrderTakeProfit;
-    'stopLoss'?: CreateOrderStopLoss;
+    'time_in_force': CreateOrder.TimeInForceEnum;
+    'limit_price'?: string;
+    'stop_price'?: string;
+    'trail_price'?: string;
+    'trail_percent'?: string;
+    'extended_hours'?: boolean;
+    'client_order_id'?: string;
+    'order_class'?: CreateOrder.OrderClassEnum;
+    'take_profit'?: CreateOrderTakeProfit;
+    'stop_loss'?: CreateOrderStopLoss;
     'commission'?: string;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{

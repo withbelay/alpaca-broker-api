@@ -18,15 +18,15 @@ import { KycResult } from './kycResult';
 import { TrustedContact } from './trustedContact';
 export declare class AccountExtended {
     'id'?: string;
-    'accountNumber'?: string;
+    'account_number'?: string;
     'status'?: AccountStatus;
     /**
     * Always \"USD\"
     */
     'currency'?: string;
-    'createdAt'?: Date;
-    'lastEquity'?: string;
-    'kycResults'?: KycResult;
+    'created_at'?: Date;
+    'last_equity'?: string;
+    'kyc_results'?: KycResult;
     'contact'?: Contact;
     'identity'?: Identity;
     'disclosures'?: Disclosures;
@@ -35,7 +35,7 @@ export declare class AccountExtended {
     */
     'agreements'?: Array<object>;
     'documents'?: Array<ApplicationDocument>;
-    'trustedContact'?: TrustedContact;
+    'trusted_contact'?: TrustedContact;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

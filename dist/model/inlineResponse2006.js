@@ -21,7 +21,7 @@ exports.InlineResponse2006 = InlineResponse2006;
 InlineResponse2006.discriminator = undefined;
 InlineResponse2006.attributeTypeMap = [
     {
-        "name": "eventId",
+        "name": "event_id",
         "baseName": "event_id",
         "type": "number"
     },
@@ -31,17 +31,17 @@ InlineResponse2006.attributeTypeMap = [
         "type": "Date"
     },
     {
-        "name": "journalId",
+        "name": "journal_id",
         "baseName": "journal_id",
         "type": "string"
     },
     {
-        "name": "statusFrom",
+        "name": "status_from",
         "baseName": "status_from",
         "type": "string"
     },
     {
-        "name": "statusTo",
+        "name": "status_to",
         "baseName": "status_to",
         "type": "string"
     }

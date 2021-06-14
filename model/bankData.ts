@@ -14,14 +14,14 @@ import { RequestFile } from './models';
 
 export class BankData {
     'name': string;
-    'bankCode': string;
-    'bankCodeType': BankData.BankCodeTypeEnum;
+    'bank_code': string;
+    'bank_code_type': BankData.BankCodeTypeEnum;
     'country'?: string;
-    'stateProvince'?: string;
-    'postalCode'?: string;
+    'state_province'?: string;
+    'postal_code'?: string;
     'city'?: string;
-    'streetAddress'?: string;
-    'accountNumber': string;
+    'street_address'?: string;
+    'account_number': string;
 
     static discriminator: string | undefined = undefined;
 
@@ -32,12 +32,12 @@ export class BankData {
             "type": "string"
         },
         {
-            "name": "bankCode",
+            "name": "bank_code",
             "baseName": "bank_code",
             "type": "string"
         },
         {
-            "name": "bankCodeType",
+            "name": "bank_code_type",
             "baseName": "bank_code_type",
             "type": "BankData.BankCodeTypeEnum"
         },
@@ -47,12 +47,12 @@ export class BankData {
             "type": "string"
         },
         {
-            "name": "stateProvince",
+            "name": "state_province",
             "baseName": "state_province",
             "type": "string"
         },
         {
-            "name": "postalCode",
+            "name": "postal_code",
             "baseName": "postal_code",
             "type": "string"
         },
@@ -62,12 +62,12 @@ export class BankData {
             "type": "string"
         },
         {
-            "name": "streetAddress",
+            "name": "street_address",
             "baseName": "street_address",
             "type": "string"
         },
         {
-            "name": "accountNumber",
+            "name": "account_number",
             "baseName": "account_number",
             "type": "string"
         }    ];

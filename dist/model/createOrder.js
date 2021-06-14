@@ -46,52 +46,52 @@ CreateOrder.attributeTypeMap = [
         "type": "CreateOrder.TypeEnum"
     },
     {
-        "name": "timeInForce",
+        "name": "time_in_force",
         "baseName": "time_in_force",
         "type": "CreateOrder.TimeInForceEnum"
     },
     {
-        "name": "limitPrice",
+        "name": "limit_price",
         "baseName": "limit_price",
         "type": "string"
     },
     {
-        "name": "stopPrice",
+        "name": "stop_price",
         "baseName": "stop_price",
         "type": "string"
     },
     {
-        "name": "trailPrice",
+        "name": "trail_price",
         "baseName": "trail_price",
         "type": "string"
     },
     {
-        "name": "trailPercent",
+        "name": "trail_percent",
         "baseName": "trail_percent",
         "type": "string"
     },
     {
-        "name": "extendedHours",
+        "name": "extended_hours",
         "baseName": "extended_hours",
         "type": "boolean"
     },
     {
-        "name": "clientOrderId",
+        "name": "client_order_id",
         "baseName": "client_order_id",
         "type": "string"
     },
     {
-        "name": "orderClass",
+        "name": "order_class",
         "baseName": "order_class",
         "type": "CreateOrder.OrderClassEnum"
     },
     {
-        "name": "takeProfit",
+        "name": "take_profit",
         "baseName": "take_profit",
         "type": "CreateOrderTakeProfit"
     },
     {
-        "name": "stopLoss",
+        "name": "stop_loss",
         "baseName": "stop_loss",
         "type": "CreateOrderStopLoss"
     },

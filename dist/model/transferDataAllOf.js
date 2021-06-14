@@ -21,7 +21,7 @@ exports.TransferDataAllOf = TransferDataAllOf;
 TransferDataAllOf.discriminator = undefined;
 TransferDataAllOf.attributeTypeMap = [
     {
-        "name": "transferType",
+        "name": "transfer_type",
         "baseName": "transfer_type",
         "type": "TransferDataAllOf.TransferTypeEnum"
     },

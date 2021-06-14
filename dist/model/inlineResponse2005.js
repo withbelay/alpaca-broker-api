@@ -21,22 +21,22 @@ exports.InlineResponse2005 = InlineResponse2005;
 InlineResponse2005.discriminator = undefined;
 InlineResponse2005.attributeTypeMap = [
     {
-        "name": "accountId",
+        "name": "account_id",
         "baseName": "account_id",
         "type": "string"
     },
     {
-        "name": "accountNumber",
+        "name": "account_number",
         "baseName": "account_number",
         "type": "string"
     },
     {
-        "name": "statusFrom",
+        "name": "status_from",
         "baseName": "status_from",
         "type": "string"
     },
     {
-        "name": "statusTo",
+        "name": "status_to",
         "baseName": "status_to",
         "type": "string"
     },

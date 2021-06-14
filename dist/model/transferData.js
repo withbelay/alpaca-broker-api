@@ -18,10 +18,10 @@ class TransferData {
     }
 }
 exports.TransferData = TransferData;
-TransferData.discriminator = "transferType";
+TransferData.discriminator = "transfer_type";
 TransferData.attributeTypeMap = [
     {
-        "name": "transferType",
+        "name": "transfer_type",
         "baseName": "transfer_type",
         "type": "TransferData.TransferTypeEnum"
     },
@@ -41,17 +41,17 @@ TransferData.attributeTypeMap = [
         "type": "TransferData.DirectionEnum"
     },
     {
-        "name": "relationshipId",
+        "name": "relationship_id",
         "baseName": "relationship_id",
         "type": "string"
     },
     {
-        "name": "additionalInformation",
+        "name": "additional_information",
         "baseName": "additional_information",
         "type": "string"
     },
     {
-        "name": "bankId",
+        "name": "bank_id",
         "baseName": "bank_id",
         "type": "string"
     }

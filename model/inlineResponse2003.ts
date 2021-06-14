@@ -14,9 +14,9 @@ import { RequestFile } from './models';
 
 export class InlineResponse2003 {
     'timestamp'?: string;
-    'isOpen'?: boolean;
-    'nextOpen'?: string;
-    'nextClose'?: string;
+    'is_open'?: boolean;
+    'next_open'?: string;
+    'next_close'?: string;
 
     static discriminator: string | undefined = undefined;
 
@@ -27,17 +27,17 @@ export class InlineResponse2003 {
             "type": "string"
         },
         {
-            "name": "isOpen",
+            "name": "is_open",
             "baseName": "is_open",
             "type": "boolean"
         },
         {
-            "name": "nextOpen",
+            "name": "next_open",
             "baseName": "next_open",
             "type": "string"
         },
         {
-            "name": "nextClose",
+            "name": "next_close",
             "baseName": "next_close",
             "type": "string"
         }    ];

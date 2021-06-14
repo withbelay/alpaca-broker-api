@@ -46,7 +46,7 @@ AccountCreationObject.attributeTypeMap = [
         "type": "Array<DocumentUpload>"
     },
     {
-        "name": "trustedContact",
+        "name": "trusted_contact",
         "baseName": "trusted_contact",
         "type": "TrustedContact"
     }

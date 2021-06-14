@@ -12,7 +12,7 @@
 export declare class UntypedACHTransferData {
     'amount': string;
     'direction': UntypedACHTransferData.DirectionEnum;
-    'relationshipId': string;
+    'relationship_id': string;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

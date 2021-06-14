@@ -31,7 +31,7 @@ TransferResourceAllOf.attributeTypeMap = [
         "type": "TransferResourceAllOf.StatusEnum"
     },
     {
-        "name": "accountId",
+        "name": "account_id",
         "baseName": "account_id",
         "type": "string"
     },
@@ -41,7 +41,7 @@ TransferResourceAllOf.attributeTypeMap = [
         "type": "string"
     },
     {
-        "name": "expiresAt",
+        "name": "expires_at",
         "baseName": "expires_at",
         "type": "Date"
     }

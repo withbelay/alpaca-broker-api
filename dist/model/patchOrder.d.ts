@@ -11,13 +11,13 @@
  */
 export declare class PatchOrder {
     'qty'?: string;
-    'timeInForce'?: PatchOrder.TimeInForceEnum;
-    'limitPrice'?: string;
-    'stopPrice'?: string;
+    'time_in_force'?: PatchOrder.TimeInForceEnum;
+    'limit_price'?: string;
+    'stop_price'?: string;
     'trail'?: string;
-    'clientOrderId'?: string;
-    'createdAt': Date;
-    'updatedAt': Date;
+    'client_order_id'?: string;
+    'created_at': Date;
+    'updated_at': Date;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

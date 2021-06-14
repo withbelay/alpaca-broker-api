@@ -13,14 +13,14 @@
 * Disclosures fields denote if the account owner falls under each category defined by FINRA rule. The client has to ask questions for the end user and the values should reflect their answers.  If one of the answers is true (yes), the account goes into ACTION_REQUIRED status.
 */
 export declare class Disclosures {
-    'employmentStatus'?: Disclosures.EmploymentStatusEnum;
-    'employerName'?: string;
-    'employerAddress'?: string;
-    'employmentPosition'?: string;
-    'isControlPerson': boolean;
-    'isAffiliatedExchangeOrFinra': boolean;
-    'isPoliticallyExposed': boolean;
-    'immediateFamilyExposed': boolean;
+    'employment_status'?: Disclosures.EmploymentStatusEnum;
+    'employer_name'?: string;
+    'employer_address'?: string;
+    'employment_position'?: string;
+    'is_control_person': boolean;
+    'is_affiliated_exchange_or_finra': boolean;
+    'is_politically_exposed': boolean;
+    'immediate_family_exposed': boolean;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

@@ -11,14 +11,14 @@
  */
 export declare class ACHRelationshipResource {
     'id': string;
-    'createdAt': Date;
-    'updatedAt': Date;
-    'accountOwnerName': string;
-    'bankAccountType': ACHRelationshipResource.BankAccountTypeEnum;
-    'bankAccountNumber': string;
-    'bankRoutingNumber': string;
+    'created_at': Date;
+    'updated_at': Date;
+    'account_owner_name': string;
+    'bank_account_type': ACHRelationshipResource.BankAccountTypeEnum;
+    'bank_account_number': string;
+    'bank_routing_number': string;
     'nickname'?: string;
-    'accountId': string;
+    'account_id': string;
     'status': ACHRelationshipResource.StatusEnum;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{

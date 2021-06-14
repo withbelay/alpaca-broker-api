@@ -17,7 +17,7 @@ export declare class InlineResponse2009 {
     /**
     * redirect URI
     */
-    'redirectUri'?: string;
+    'redirect_uri'?: string;
     /**
     * granted scopes
     */

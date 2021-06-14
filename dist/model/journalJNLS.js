@@ -26,22 +26,22 @@ JournalJNLS.attributeTypeMap = [
         "type": "string"
     },
     {
-        "name": "entryType",
+        "name": "entry_type",
         "baseName": "entry_type",
         "type": "string"
     },
     {
-        "name": "fromAccount",
+        "name": "from_account",
         "baseName": "from_account",
         "type": "string"
     },
     {
-        "name": "toAccount",
+        "name": "to_account",
         "baseName": "to_account",
         "type": "string"
     },
     {
-        "name": "settleDate",
+        "name": "settle_date",
         "baseName": "settle_date",
         "type": "string"
     },

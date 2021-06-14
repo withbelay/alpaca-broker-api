@@ -21,7 +21,7 @@ exports.CreateOrderTakeProfit = CreateOrderTakeProfit;
 CreateOrderTakeProfit.discriminator = undefined;
 CreateOrderTakeProfit.attributeTypeMap = [
     {
-        "name": "limitPrice",
+        "name": "limit_price",
         "baseName": "limit_price",
         "type": "string"
     }

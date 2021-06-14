@@ -26,7 +26,7 @@ InlineResponse2009.attributeTypeMap = [
         "type": "string"
     },
     {
-        "name": "redirectUri",
+        "name": "redirect_uri",
         "baseName": "redirect_uri",
         "type": "string"
     },

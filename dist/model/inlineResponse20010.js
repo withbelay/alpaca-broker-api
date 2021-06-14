@@ -26,12 +26,12 @@ InlineResponse20010.attributeTypeMap = [
         "type": "string"
     },
     {
-        "name": "accountId",
+        "name": "account_id",
         "baseName": "account_id",
         "type": "string"
     },
     {
-        "name": "activityType",
+        "name": "activity_type",
         "baseName": "activity_type",
         "type": "InlineResponse20010.ActivityTypeEnum"
     },
@@ -41,7 +41,7 @@ InlineResponse20010.attributeTypeMap = [
         "type": "string"
     },
     {
-        "name": "netAmount",
+        "name": "net_amount",
         "baseName": "net_amount",
         "type": "string"
     },

@@ -13,11 +13,11 @@
 import { RequestFile } from './models';
 
 export class InlineResponse2008 {
-    'accessToken'?: string;
+    'access_token'?: string;
     /**
     * constant `Bearer`
     */
-    'tokenType'?: string;
+    'token_type'?: string;
     /**
     * token\'s scope
     */
@@ -27,12 +27,12 @@ export class InlineResponse2008 {
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "accessToken",
+            "name": "access_token",
             "baseName": "access_token",
             "type": "string"
         },
         {
-            "name": "tokenType",
+            "name": "token_type",
             "baseName": "token_type",
             "type": "string"
         },

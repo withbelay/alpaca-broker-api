@@ -15,10 +15,10 @@ import { DocumentType } from './documentType';
 */
 export declare class ApplicationDocument {
     'id': string;
-    'documentType': DocumentType;
-    'documentSubType'?: string;
-    'mimeType': string;
-    'createdAt': Date;
+    'document_type': DocumentType;
+    'document_sub_type'?: string;
+    'mime_type': string;
+    'created_at': Date;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

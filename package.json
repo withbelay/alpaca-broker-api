@@ -1,11 +1,11 @@
 {
-  "name": "alpaca-broker-api",
+  "name": "@investingwolf/alpaca-broker-api",
   "version": "0.1.0",
   "description": "Node.js client for alpaca broker API",
   "main": "dist/api.js",
   "types": "dist/api.d.ts",
   "scripts": {
-    "build": "npx openapi-generator-cli generate -i bkdocs/assets/openapi.yaml -g typescript-node && npx tsc",
+    "build": "npx openapi-generator-cli generate && npx tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Jacob Parish",

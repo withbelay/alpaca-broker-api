@@ -13,30 +13,30 @@
 * Identity is the model to provide account owner’s identity information.
 */
 export declare class Identity {
-    'givenName': string;
-    'familyName': string;
-    'dateOfBirth': string;
-    'taxId'?: string;
-    'taxIdType'?: Identity.TaxIdTypeEnum;
+    'given_name': string;
+    'family_name': string;
+    'date_of_birth': string;
+    'tax_id'?: string;
+    'tax_id_type'?: Identity.TaxIdTypeEnum;
     /**
     * [ISO 3166-1 alpha-3](https://www.iso.org/iso-3166-country-codes.html).
     */
-    'countryOfCitizenship'?: string;
+    'country_of_citizenship'?: string;
     /**
     * [ISO 3166-1 alpha-3](https://www.iso.org/iso-3166-country-codes.html).
     */
-    'countryOfBirth'?: string;
+    'country_of_birth'?: string;
     /**
     * [ISO 3166-1 alpha-3](https://www.iso.org/iso-3166-country-codes.html).
     */
-    'countryOfTaxResidence': string;
-    'fundingSource': Array<Identity.FundingSourceEnum>;
-    'annualIncomeMin'?: number;
-    'annualIncomeMax'?: number;
-    'liquidNetWorthMin'?: number;
-    'liquidNetWorthMax'?: number;
-    'totalNetWorthMin'?: number;
-    'totalNetWorthMax'?: number;
+    'country_of_tax_residence': string;
+    'funding_source': Array<Identity.FundingSourceEnum>;
+    'annual_income_min'?: number;
+    'annual_income_max'?: number;
+    'liquid_net_worth_min'?: number;
+    'liquid_net_worth_max'?: number;
+    'total_net_worth_min'?: number;
+    'total_net_worth_max'?: number;
     /**
     * any extra information used for KYC purposes
     */

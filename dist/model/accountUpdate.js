@@ -21,17 +21,17 @@ exports.AccountUpdate = AccountUpdate;
 AccountUpdate.discriminator = undefined;
 AccountUpdate.attributeTypeMap = [
     {
-        "name": "emailAddress",
+        "name": "email_address",
         "baseName": "email_address",
         "type": "string"
     },
     {
-        "name": "phoneNumber",
+        "name": "phone_number",
         "baseName": "phone_number",
         "type": "string"
     },
     {
-        "name": "streetAddress",
+        "name": "street_address",
         "baseName": "street_address",
         "type": "Array<string>"
     },
@@ -46,7 +46,7 @@ AccountUpdate.attributeTypeMap = [
         "type": "string"
     },
     {
-        "name": "postalCode",
+        "name": "postal_code",
         "baseName": "postal_code",
         "type": "string"
     },
@@ -56,77 +56,77 @@ AccountUpdate.attributeTypeMap = [
         "type": "string"
     },
     {
-        "name": "givenName",
+        "name": "given_name",
         "baseName": "given_name",
         "type": "string"
     },
     {
-        "name": "familyName",
+        "name": "family_name",
         "baseName": "family_name",
         "type": "string"
     },
     {
-        "name": "dateOfBirth",
+        "name": "date_of_birth",
         "baseName": "date_of_birth",
         "type": "string"
     },
     {
-        "name": "taxId",
+        "name": "tax_id",
         "baseName": "tax_id",
         "type": "string"
     },
     {
-        "name": "taxIdType",
+        "name": "tax_id_type",
         "baseName": "tax_id_type",
         "type": "AccountUpdate.TaxIdTypeEnum"
     },
     {
-        "name": "countryOfCitizenship",
+        "name": "country_of_citizenship",
         "baseName": "country_of_citizenship",
         "type": "string"
     },
     {
-        "name": "countryOfBirth",
+        "name": "country_of_birth",
         "baseName": "country_of_birth",
         "type": "string"
     },
     {
-        "name": "countryOfTaxResidence",
+        "name": "country_of_tax_residence",
         "baseName": "country_of_tax_residence",
         "type": "string"
     },
     {
-        "name": "fundingSource",
+        "name": "funding_source",
         "baseName": "funding_source",
         "type": "Array<AccountUpdate.FundingSourceEnum>"
     },
     {
-        "name": "annualIncomeMin",
+        "name": "annual_income_min",
         "baseName": "annual_income_min",
         "type": "number"
     },
     {
-        "name": "annualIncomeMax",
+        "name": "annual_income_max",
         "baseName": "annual_income_max",
         "type": "number"
     },
     {
-        "name": "liquidNetWorthMin",
+        "name": "liquid_net_worth_min",
         "baseName": "liquid_net_worth_min",
         "type": "number"
     },
     {
-        "name": "liquidNetWorthMax",
+        "name": "liquid_net_worth_max",
         "baseName": "liquid_net_worth_max",
         "type": "number"
     },
     {
-        "name": "totalNetWorthMin",
+        "name": "total_net_worth_min",
         "baseName": "total_net_worth_min",
         "type": "number"
     },
     {
-        "name": "totalNetWorthMax",
+        "name": "total_net_worth_max",
         "baseName": "total_net_worth_max",
         "type": "number"
     },
@@ -136,42 +136,42 @@ AccountUpdate.attributeTypeMap = [
         "type": "object"
     },
     {
-        "name": "employmentStatus",
+        "name": "employment_status",
         "baseName": "employment_status",
         "type": "AccountUpdate.EmploymentStatusEnum"
     },
     {
-        "name": "employerName",
+        "name": "employer_name",
         "baseName": "employer_name",
         "type": "string"
     },
     {
-        "name": "employerAddress",
+        "name": "employer_address",
         "baseName": "employer_address",
         "type": "string"
     },
     {
-        "name": "employmentPosition",
+        "name": "employment_position",
         "baseName": "employment_position",
         "type": "string"
     },
     {
-        "name": "isControlPerson",
+        "name": "is_control_person",
         "baseName": "is_control_person",
         "type": "boolean"
     },
     {
-        "name": "isAffiliatedExchangeOrFinra",
+        "name": "is_affiliated_exchange_or_finra",
         "baseName": "is_affiliated_exchange_or_finra",
         "type": "boolean"
     },
     {
-        "name": "isPoliticallyExposed",
+        "name": "is_politically_exposed",
         "baseName": "is_politically_exposed",
         "type": "boolean"
     },
     {
-        "name": "immediateFamilyExposed",
+        "name": "immediate_family_exposed",
         "baseName": "immediate_family_exposed",
         "type": "boolean"
     }

@@ -14,8 +14,8 @@ import { RequestFile } from './models';
 
 export class IdentifiedResource {
     'id': string;
-    'createdAt': Date;
-    'updatedAt': Date;
+    'created_at': Date;
+    'updated_at': Date;
 
     static discriminator: string | undefined = undefined;
 
@@ -26,12 +26,12 @@ export class IdentifiedResource {
             "type": "string"
         },
         {
-            "name": "createdAt",
+            "name": "created_at",
             "baseName": "created_at",
             "type": "Date"
         },
         {
-            "name": "updatedAt",
+            "name": "updated_at",
             "baseName": "updated_at",
             "type": "Date"
         }    ];

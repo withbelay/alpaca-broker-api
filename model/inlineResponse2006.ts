@@ -13,17 +13,17 @@
 import { RequestFile } from './models';
 
 export class InlineResponse2006 {
-    'eventId'?: number;
+    'event_id'?: number;
     'at'?: Date;
-    'journalId'?: string;
-    'statusFrom'?: string;
-    'statusTo'?: string;
+    'journal_id'?: string;
+    'status_from'?: string;
+    'status_to'?: string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "eventId",
+            "name": "event_id",
             "baseName": "event_id",
             "type": "number"
         },
@@ -33,17 +33,17 @@ export class InlineResponse2006 {
             "type": "Date"
         },
         {
-            "name": "journalId",
+            "name": "journal_id",
             "baseName": "journal_id",
             "type": "string"
         },
         {
-            "name": "statusFrom",
+            "name": "status_from",
             "baseName": "status_from",
             "type": "string"
         },
         {
-            "name": "statusTo",
+            "name": "status_to",
             "baseName": "status_to",
             "type": "string"
         }    ];

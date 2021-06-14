@@ -16,15 +16,15 @@ import { KycResult } from './kycResult';
 
 export class Account {
     'id'?: string;
-    'accountNumber'?: string;
+    'account_number'?: string;
     'status'?: AccountStatus;
     /**
     * Always \"USD\"
     */
     'currency'?: string;
-    'createdAt'?: Date;
-    'lastEquity'?: string;
-    'kycResults'?: KycResult;
+    'created_at'?: Date;
+    'last_equity'?: string;
+    'kyc_results'?: KycResult;
 
     static discriminator: string | undefined = undefined;
 
@@ -35,7 +35,7 @@ export class Account {
             "type": "string"
         },
         {
-            "name": "accountNumber",
+            "name": "account_number",
             "baseName": "account_number",
             "type": "string"
         },
@@ -50,17 +50,17 @@ export class Account {
             "type": "string"
         },
         {
-            "name": "createdAt",
+            "name": "created_at",
             "baseName": "created_at",
             "type": "Date"
         },
         {
-            "name": "lastEquity",
+            "name": "last_equity",
             "baseName": "last_equity",
             "type": "string"
         },
         {
-            "name": "kycResults",
+            "name": "kyc_results",
             "baseName": "kyc_results",
             "type": "KycResult"
         }    ];

@@ -14,13 +14,13 @@ import { RequestFile } from './models';
 
 export class PatchOrder {
     'qty'?: string;
-    'timeInForce'?: PatchOrder.TimeInForceEnum;
-    'limitPrice'?: string;
-    'stopPrice'?: string;
+    'time_in_force'?: PatchOrder.TimeInForceEnum;
+    'limit_price'?: string;
+    'stop_price'?: string;
     'trail'?: string;
-    'clientOrderId'?: string;
-    'createdAt': Date;
-    'updatedAt': Date;
+    'client_order_id'?: string;
+    'created_at': Date;
+    'updated_at': Date;
 
     static discriminator: string | undefined = undefined;
 
@@ -31,17 +31,17 @@ export class PatchOrder {
             "type": "string"
         },
         {
-            "name": "timeInForce",
+            "name": "time_in_force",
             "baseName": "time_in_force",
             "type": "PatchOrder.TimeInForceEnum"
         },
         {
-            "name": "limitPrice",
+            "name": "limit_price",
             "baseName": "limit_price",
             "type": "string"
         },
         {
-            "name": "stopPrice",
+            "name": "stop_price",
             "baseName": "stop_price",
             "type": "string"
         },
@@ -51,17 +51,17 @@ export class PatchOrder {
             "type": "string"
         },
         {
-            "name": "clientOrderId",
+            "name": "client_order_id",
             "baseName": "client_order_id",
             "type": "string"
         },
         {
-            "name": "createdAt",
+            "name": "created_at",
             "baseName": "created_at",
             "type": "Date"
         },
         {
-            "name": "updatedAt",
+            "name": "updated_at",
             "baseName": "updated_at",
             "type": "Date"
         }    ];

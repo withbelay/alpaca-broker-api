@@ -29,22 +29,22 @@ ApplicationDocument.attributeTypeMap = [
         "type": "string"
     },
     {
-        "name": "documentType",
+        "name": "document_type",
         "baseName": "document_type",
         "type": "DocumentType"
     },
     {
-        "name": "documentSubType",
+        "name": "document_sub_type",
         "baseName": "document_sub_type",
         "type": "string"
     },
     {
-        "name": "mimeType",
+        "name": "mime_type",
         "baseName": "mime_type",
         "type": "string"
     },
     {
-        "name": "createdAt",
+        "name": "created_at",
         "baseName": "created_at",
         "type": "Date"
     }

@@ -31,12 +31,12 @@ UntypedWireTransferData.attributeTypeMap = [
         "type": "UntypedWireTransferData.DirectionEnum"
     },
     {
-        "name": "additionalInformation",
+        "name": "additional_information",
         "baseName": "additional_information",
         "type": "string"
     },
     {
-        "name": "bankId",
+        "name": "bank_id",
         "baseName": "bank_id",
         "type": "string"
     }

@@ -17,18 +17,18 @@ import { IdentifiedResource } from './identifiedResource';
 
 export class BankResource {
     'id': string;
-    'createdAt': Date;
-    'updatedAt': Date;
+    'created_at': Date;
+    'updated_at': Date;
     'name': string;
-    'bankCode': string;
-    'bankCodeType': BankResource.BankCodeTypeEnum;
+    'bank_code': string;
+    'bank_code_type': BankResource.BankCodeTypeEnum;
     'country'?: string;
-    'stateProvince'?: string;
-    'postalCode'?: string;
+    'state_province'?: string;
+    'postal_code'?: string;
     'city'?: string;
-    'streetAddress'?: string;
-    'accountNumber': string;
-    'accountId': string;
+    'street_address'?: string;
+    'account_number': string;
+    'account_id': string;
     'status': BankResource.StatusEnum;
 
     static discriminator: string | undefined = undefined;
@@ -40,12 +40,12 @@ export class BankResource {
             "type": "string"
         },
         {
-            "name": "createdAt",
+            "name": "created_at",
             "baseName": "created_at",
             "type": "Date"
         },
         {
-            "name": "updatedAt",
+            "name": "updated_at",
             "baseName": "updated_at",
             "type": "Date"
         },
@@ -55,12 +55,12 @@ export class BankResource {
             "type": "string"
         },
         {
-            "name": "bankCode",
+            "name": "bank_code",
             "baseName": "bank_code",
             "type": "string"
         },
         {
-            "name": "bankCodeType",
+            "name": "bank_code_type",
             "baseName": "bank_code_type",
             "type": "BankResource.BankCodeTypeEnum"
         },
@@ -70,12 +70,12 @@ export class BankResource {
             "type": "string"
         },
         {
-            "name": "stateProvince",
+            "name": "state_province",
             "baseName": "state_province",
             "type": "string"
         },
         {
-            "name": "postalCode",
+            "name": "postal_code",
             "baseName": "postal_code",
             "type": "string"
         },
@@ -85,17 +85,17 @@ export class BankResource {
             "type": "string"
         },
         {
-            "name": "streetAddress",
+            "name": "street_address",
             "baseName": "street_address",
             "type": "string"
         },
         {
-            "name": "accountNumber",
+            "name": "account_number",
             "baseName": "account_number",
             "type": "string"
         },
         {
-            "name": "accountId",
+            "name": "account_id",
             "baseName": "account_id",
             "type": "string"
         },

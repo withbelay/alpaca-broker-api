@@ -13,15 +13,15 @@
 * Contact is the model for the account owner contact information.
 */
 export declare class Contact {
-    'emailAddress'?: string;
+    'email_address'?: string;
     /**
     * with country code, no hyphen or space
     */
-    'phoneNumber'?: string;
-    'streetAddress'?: Array<string>;
+    'phone_number'?: string;
+    'street_address'?: Array<string>;
     'city'?: string;
     'state'?: string;
-    'postalCode'?: string;
+    'postal_code'?: string;
     'country'?: string;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{

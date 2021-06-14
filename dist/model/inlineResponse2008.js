@@ -21,12 +21,12 @@ exports.InlineResponse2008 = InlineResponse2008;
 InlineResponse2008.discriminator = undefined;
 InlineResponse2008.attributeTypeMap = [
     {
-        "name": "accessToken",
+        "name": "access_token",
         "baseName": "access_token",
         "type": "string"
     },
     {
-        "name": "tokenType",
+        "name": "token_type",
         "baseName": "token_type",
         "type": "string"
     },

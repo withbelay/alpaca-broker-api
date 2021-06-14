@@ -16,15 +16,15 @@ export class InlineObject2 {
     /**
     * OAuth client ID
     */
-    'clientId'?: string;
+    'client_id'?: string;
     /**
     * OAuth client secret
     */
-    'clientSecret'?: string;
+    'client_secret'?: string;
     /**
     * redirect URI for the OAuth flow
     */
-    'redirectUri'?: string;
+    'redirect_uri'?: string;
     /**
     * scopes requested by the OAuth flow
     */
@@ -32,23 +32,23 @@ export class InlineObject2 {
     /**
     * end-user account ID
     */
-    'accountId'?: string;
+    'account_id'?: string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "clientId",
+            "name": "client_id",
             "baseName": "client_id",
             "type": "string"
         },
         {
-            "name": "clientSecret",
+            "name": "client_secret",
             "baseName": "client_secret",
             "type": "string"
         },
         {
-            "name": "redirectUri",
+            "name": "redirect_uri",
             "baseName": "redirect_uri",
             "type": "string"
         },
@@ -58,7 +58,7 @@ export class InlineObject2 {
             "type": "string"
         },
         {
-            "name": "accountId",
+            "name": "account_id",
             "baseName": "account_id",
             "type": "string"
         }    ];

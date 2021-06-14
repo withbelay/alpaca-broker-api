@@ -21,12 +21,12 @@ exports.UntypedWireTransferDataAllOf = UntypedWireTransferDataAllOf;
 UntypedWireTransferDataAllOf.discriminator = undefined;
 UntypedWireTransferDataAllOf.attributeTypeMap = [
     {
-        "name": "additionalInformation",
+        "name": "additional_information",
         "baseName": "additional_information",
         "type": "string"
     },
     {
-        "name": "bankId",
+        "name": "bank_id",
         "baseName": "bank_id",
         "type": "string"
     }

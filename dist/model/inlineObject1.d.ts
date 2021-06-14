@@ -10,9 +10,9 @@
  * Do not edit the class manually.
  */
 export declare class InlineObject1 {
-    'entryType': InlineObject1.EntryTypeEnum;
-    'fromAccount': string;
-    'toAccount': string;
+    'entry_type': InlineObject1.EntryTypeEnum;
+    'from_account': string;
+    'to_account': string;
     /**
     * Required for JNLC. The dollar amount to move. It has to be a positive value.
     */

@@ -26,17 +26,17 @@ JournalJNLC.attributeTypeMap = [
         "type": "string"
     },
     {
-        "name": "entryType",
+        "name": "entry_type",
         "baseName": "entry_type",
         "type": "string"
     },
     {
-        "name": "fromAccount",
+        "name": "from_account",
         "baseName": "from_account",
         "type": "string"
     },
     {
-        "name": "toAccount",
+        "name": "to_account",
         "baseName": "to_account",
         "type": "string"
     },
@@ -46,7 +46,7 @@ JournalJNLC.attributeTypeMap = [
         "type": "string"
     },
     {
-        "name": "settleDate",
+        "name": "settle_date",
         "baseName": "settle_date",
         "type": "string"
     },
@@ -56,32 +56,32 @@ JournalJNLC.attributeTypeMap = [
         "type": "JournalJNLC.StatusEnum"
     },
     {
-        "name": "netAmount",
+        "name": "net_amount",
         "baseName": "net_amount",
         "type": "string"
     },
     {
-        "name": "transmitterName",
+        "name": "transmitter_name",
         "baseName": "transmitter_name",
         "type": "string"
     },
     {
-        "name": "transmitterAccountNumber",
+        "name": "transmitter_account_number",
         "baseName": "transmitter_account_number",
         "type": "string"
     },
     {
-        "name": "transmitterAddress",
+        "name": "transmitter_address",
         "baseName": "transmitter_address",
         "type": "string"
     },
     {
-        "name": "transmitterFinancialInstitution",
+        "name": "transmitter_financial_institution",
         "baseName": "transmitter_financial_institution",
         "type": "string"
     },
     {
-        "name": "transmitterTimestamp",
+        "name": "transmitter_timestamp",
         "baseName": "transmitter_timestamp",
         "type": "Date"
     }

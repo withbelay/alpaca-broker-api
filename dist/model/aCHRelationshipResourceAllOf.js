@@ -21,7 +21,7 @@ exports.ACHRelationshipResourceAllOf = ACHRelationshipResourceAllOf;
 ACHRelationshipResourceAllOf.discriminator = undefined;
 ACHRelationshipResourceAllOf.attributeTypeMap = [
     {
-        "name": "accountId",
+        "name": "account_id",
         "baseName": "account_id",
         "type": "string"
     },

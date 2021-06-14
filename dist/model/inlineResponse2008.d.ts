@@ -10,11 +10,11 @@
  * Do not edit the class manually.
  */
 export declare class InlineResponse2008 {
-    'accessToken'?: string;
+    'access_token'?: string;
     /**
     * constant `Bearer`
     */
-    'tokenType'?: string;
+    'token_type'?: string;
     /**
     * token\'s scope
     */

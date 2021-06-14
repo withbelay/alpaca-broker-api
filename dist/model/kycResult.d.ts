@@ -16,7 +16,7 @@ export declare class KycResult {
     'reject'?: object;
     'accept'?: object;
     'indeterminate'?: object;
-    'addidionalInformation'?: string;
+    'addidional_information'?: string;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

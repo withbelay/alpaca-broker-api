@@ -13,13 +13,13 @@
 import { RequestFile } from './models';
 
 export class CreateOrderTakeProfit {
-    'limitPrice'?: string;
+    'limit_price'?: string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "limitPrice",
+            "name": "limit_price",
             "baseName": "limit_price",
             "type": "string"
         }    ];

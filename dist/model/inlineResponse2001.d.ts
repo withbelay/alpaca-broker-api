@@ -19,7 +19,7 @@ export declare class InlineResponse2001 {
     'tradable'?: boolean;
     'marginable'?: boolean;
     'shortable'?: boolean;
-    'easyToBorrow'?: boolean;
+    'easy_to_borrow'?: boolean;
     'fractionable'?: boolean;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{

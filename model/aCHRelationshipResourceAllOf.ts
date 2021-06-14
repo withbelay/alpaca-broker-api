@@ -13,14 +13,14 @@
 import { RequestFile } from './models';
 
 export class ACHRelationshipResourceAllOf {
-    'accountId': string;
+    'account_id': string;
     'status': ACHRelationshipResourceAllOf.StatusEnum;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "accountId",
+            "name": "account_id",
             "baseName": "account_id",
             "type": "string"
         },

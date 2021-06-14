@@ -26,52 +26,52 @@ OrderObject.attributeTypeMap = [
         "type": "string"
     },
     {
-        "name": "clientOrderId",
+        "name": "client_order_id",
         "baseName": "client_order_id",
         "type": "string"
     },
     {
-        "name": "createdAt",
+        "name": "created_at",
         "baseName": "created_at",
         "type": "Date"
     },
     {
-        "name": "updatedAt",
+        "name": "updated_at",
         "baseName": "updated_at",
         "type": "Date"
     },
     {
-        "name": "submittedAt",
+        "name": "submitted_at",
         "baseName": "submitted_at",
         "type": "Date"
     },
     {
-        "name": "filledAt",
+        "name": "filled_at",
         "baseName": "filled_at",
         "type": "Date"
     },
     {
-        "name": "expiredAt",
+        "name": "expired_at",
         "baseName": "expired_at",
         "type": "Date"
     },
     {
-        "name": "canceledAt",
+        "name": "canceled_at",
         "baseName": "canceled_at",
         "type": "Date"
     },
     {
-        "name": "failedAt",
+        "name": "failed_at",
         "baseName": "failed_at",
         "type": "Date"
     },
     {
-        "name": "replacedAt",
+        "name": "replaced_at",
         "baseName": "replaced_at",
         "type": "Date"
     },
     {
-        "name": "replacedBy",
+        "name": "replaced_by",
         "baseName": "replaced_by",
         "type": "string"
     },
@@ -81,7 +81,7 @@ OrderObject.attributeTypeMap = [
         "type": "string"
     },
     {
-        "name": "assetId",
+        "name": "asset_id",
         "baseName": "asset_id",
         "type": "string"
     },
@@ -91,7 +91,7 @@ OrderObject.attributeTypeMap = [
         "type": "string"
     },
     {
-        "name": "assetClass",
+        "name": "asset_class",
         "baseName": "asset_class",
         "type": "string"
     },
@@ -106,22 +106,22 @@ OrderObject.attributeTypeMap = [
         "type": "string"
     },
     {
-        "name": "filledQty",
+        "name": "filled_qty",
         "baseName": "filled_qty",
         "type": "string"
     },
     {
-        "name": "filledAvgPrice",
+        "name": "filled_avg_price",
         "baseName": "filled_avg_price",
         "type": "string"
     },
     {
-        "name": "orderClass",
+        "name": "order_class",
         "baseName": "order_class",
         "type": "OrderObject.OrderClassEnum"
     },
     {
-        "name": "orderType",
+        "name": "order_type",
         "baseName": "order_type",
         "type": "OrderObject.OrderTypeEnum"
     },
@@ -136,17 +136,17 @@ OrderObject.attributeTypeMap = [
         "type": "OrderObject.SideEnum"
     },
     {
-        "name": "timeInForce",
+        "name": "time_in_force",
         "baseName": "time_in_force",
         "type": "OrderObject.TimeInForceEnum"
     },
     {
-        "name": "limitPrice",
+        "name": "limit_price",
         "baseName": "limit_price",
         "type": "string"
     },
     {
-        "name": "stopPrice",
+        "name": "stop_price",
         "baseName": "stop_price",
         "type": "string"
     },
@@ -156,7 +156,7 @@ OrderObject.attributeTypeMap = [
         "type": "OrderObject.StatusEnum"
     },
     {
-        "name": "extendedHours",
+        "name": "extended_hours",
         "baseName": "extended_hours",
         "type": "boolean"
     },
@@ -166,12 +166,12 @@ OrderObject.attributeTypeMap = [
         "type": "Array<OrderObject>"
     },
     {
-        "name": "trailPrice",
+        "name": "trail_price",
         "baseName": "trail_price",
         "type": "string"
     },
     {
-        "name": "trailPercent",
+        "name": "trail_percent",
         "baseName": "trail_percent",
         "type": "string"
     },

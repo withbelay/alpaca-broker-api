@@ -26,7 +26,7 @@ AccountExtended.attributeTypeMap = [
         "type": "string"
     },
     {
-        "name": "accountNumber",
+        "name": "account_number",
         "baseName": "account_number",
         "type": "string"
     },
@@ -41,17 +41,17 @@ AccountExtended.attributeTypeMap = [
         "type": "string"
     },
     {
-        "name": "createdAt",
+        "name": "created_at",
         "baseName": "created_at",
         "type": "Date"
     },
     {
-        "name": "lastEquity",
+        "name": "last_equity",
         "baseName": "last_equity",
         "type": "string"
     },
     {
-        "name": "kycResults",
+        "name": "kyc_results",
         "baseName": "kyc_results",
         "type": "KycResult"
     },
@@ -81,7 +81,7 @@ AccountExtended.attributeTypeMap = [
         "type": "Array<ApplicationDocument>"
     },
     {
-        "name": "trustedContact",
+        "name": "trusted_contact",
         "baseName": "trusted_contact",
         "type": "TrustedContact"
     }

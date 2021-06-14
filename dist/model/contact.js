@@ -24,17 +24,17 @@ exports.Contact = Contact;
 Contact.discriminator = undefined;
 Contact.attributeTypeMap = [
     {
-        "name": "emailAddress",
+        "name": "email_address",
         "baseName": "email_address",
         "type": "string"
     },
     {
-        "name": "phoneNumber",
+        "name": "phone_number",
         "baseName": "phone_number",
         "type": "string"
     },
     {
-        "name": "streetAddress",
+        "name": "street_address",
         "baseName": "street_address",
         "type": "Array<string>"
     },
@@ -49,7 +49,7 @@ Contact.attributeTypeMap = [
         "type": "string"
     },
     {
-        "name": "postalCode",
+        "name": "postal_code",
         "baseName": "postal_code",
         "type": "string"
     },

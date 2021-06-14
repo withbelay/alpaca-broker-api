@@ -12,9 +12,9 @@
 export declare class TransferResourceAllOf {
     'type': TransferResourceAllOf.TypeEnum;
     'status': TransferResourceAllOf.StatusEnum;
-    'accountId': string;
+    'account_id': string;
     'reason'?: string | null;
-    'expiresAt': Date;
+    'expires_at': Date;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

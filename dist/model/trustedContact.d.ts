@@ -13,20 +13,20 @@
 * This model input is optional. However, the client should make reasonable effort to obtain the trusted contact information. See more details in [FINRA Notice 17-11](https://www.finra.org/sites/default/files/Regulatory-Notice-17-11.pdf)
 */
 export declare class TrustedContact {
-    'givenName': string;
-    'familyName': string;
+    'given_name': string;
+    'family_name': string;
     /**
     * at least one of `email_address`, `phone_number` or `street_address` is required
     */
-    'emailAddress'?: string;
+    'email_address'?: string;
     /**
     * at least one of `email_address`, `phone_number` or `street_address` is required
     */
-    'phoneNumber'?: string;
+    'phone_number'?: string;
     /**
     * at least one of `email_address`, `phone_number` or `street_address` is required
     */
-    'streetAddress'?: Array<string>;
+    'street_address'?: Array<string>;
     /**
     * required if `street_address` is set
     */
@@ -38,7 +38,7 @@ export declare class TrustedContact {
     /**
     * required if `street_address` is set
     */
-    'postalCode'?: string;
+    'postal_code'?: string;
     /**
     * [ISO 3166-1 alpha-3](https://www.iso.org/iso-3166-country-codes.html). required if `street_address` is set
     */

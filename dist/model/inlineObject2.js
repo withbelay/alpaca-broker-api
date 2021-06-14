@@ -21,17 +21,17 @@ exports.InlineObject2 = InlineObject2;
 InlineObject2.discriminator = undefined;
 InlineObject2.attributeTypeMap = [
     {
-        "name": "clientId",
+        "name": "client_id",
         "baseName": "client_id",
         "type": "string"
     },
     {
-        "name": "clientSecret",
+        "name": "client_secret",
         "baseName": "client_secret",
         "type": "string"
     },
     {
-        "name": "redirectUri",
+        "name": "redirect_uri",
         "baseName": "redirect_uri",
         "type": "string"
     },
@@ -41,7 +41,7 @@ InlineObject2.attributeTypeMap = [
         "type": "string"
     },
     {
-        "name": "accountId",
+        "name": "account_id",
         "baseName": "account_id",
         "type": "string"
     }

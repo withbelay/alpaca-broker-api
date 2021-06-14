@@ -17,8 +17,8 @@ import { UntypedWireTransferDataAllOf } from './untypedWireTransferDataAllOf';
 export class UntypedWireTransferData {
     'amount': string;
     'direction': UntypedWireTransferData.DirectionEnum;
-    'additionalInformation'?: string;
-    'bankId': string;
+    'additional_information'?: string;
+    'bank_id': string;
 
     static discriminator: string | undefined = undefined;
 
@@ -34,12 +34,12 @@ export class UntypedWireTransferData {
             "type": "UntypedWireTransferData.DirectionEnum"
         },
         {
-            "name": "additionalInformation",
+            "name": "additional_information",
             "baseName": "additional_information",
             "type": "string"
         },
         {
-            "name": "bankId",
+            "name": "bank_id",
             "baseName": "bank_id",
             "type": "string"
         }    ];

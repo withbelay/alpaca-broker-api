@@ -13,32 +13,32 @@
 import { RequestFile } from './models';
 
 export class ACHRelationshipData {
-    'accountOwnerName': string;
-    'bankAccountType': ACHRelationshipData.BankAccountTypeEnum;
-    'bankAccountNumber': string;
-    'bankRoutingNumber': string;
+    'account_owner_name': string;
+    'bank_account_type': ACHRelationshipData.BankAccountTypeEnum;
+    'bank_account_number': string;
+    'bank_routing_number': string;
     'nickname'?: string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "accountOwnerName",
+            "name": "account_owner_name",
             "baseName": "account_owner_name",
             "type": "string"
         },
         {
-            "name": "bankAccountType",
+            "name": "bank_account_type",
             "baseName": "bank_account_type",
             "type": "ACHRelationshipData.BankAccountTypeEnum"
         },
         {
-            "name": "bankAccountNumber",
+            "name": "bank_account_number",
             "baseName": "bank_account_number",
             "type": "string"
         },
         {
-            "name": "bankRoutingNumber",
+            "name": "bank_routing_number",
             "baseName": "bank_routing_number",
             "type": "string"
         },

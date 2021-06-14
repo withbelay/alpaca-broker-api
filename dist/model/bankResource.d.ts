@@ -11,18 +11,18 @@
  */
 export declare class BankResource {
     'id': string;
-    'createdAt': Date;
-    'updatedAt': Date;
+    'created_at': Date;
+    'updated_at': Date;
     'name': string;
-    'bankCode': string;
-    'bankCodeType': BankResource.BankCodeTypeEnum;
+    'bank_code': string;
+    'bank_code_type': BankResource.BankCodeTypeEnum;
     'country'?: string;
-    'stateProvince'?: string;
-    'postalCode'?: string;
+    'state_province'?: string;
+    'postal_code'?: string;
     'city'?: string;
-    'streetAddress'?: string;
-    'accountNumber': string;
-    'accountId': string;
+    'street_address'?: string;
+    'account_number': string;
+    'account_id': string;
     'status': BankResource.StatusEnum;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{

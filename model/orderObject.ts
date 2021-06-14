@@ -14,36 +14,36 @@ import { RequestFile } from './models';
 
 export class OrderObject {
     'id'?: string;
-    'clientOrderId'?: string;
-    'createdAt'?: Date;
-    'updatedAt'?: Date;
-    'submittedAt'?: Date;
-    'filledAt'?: Date | null;
-    'expiredAt'?: Date | null;
-    'canceledAt'?: Date | null;
-    'failedAt'?: Date | null;
-    'replacedAt'?: Date | null;
-    'replacedBy'?: string | null;
+    'client_order_id'?: string;
+    'created_at'?: Date;
+    'updated_at'?: Date;
+    'submitted_at'?: Date;
+    'filled_at'?: Date | null;
+    'expired_at'?: Date | null;
+    'canceled_at'?: Date | null;
+    'failed_at'?: Date | null;
+    'replaced_at'?: Date | null;
+    'replaced_by'?: string | null;
     'replaces'?: string | null;
-    'assetId'?: string;
+    'asset_id'?: string;
     'symbol'?: string;
-    'assetClass'?: string;
+    'asset_class'?: string;
     'notional'?: string | null;
     'qty'?: string | null;
-    'filledQty'?: string;
-    'filledAvgPrice'?: string | null;
-    'orderClass'?: OrderObject.OrderClassEnum;
-    'orderType'?: OrderObject.OrderTypeEnum;
+    'filled_qty'?: string;
+    'filled_avg_price'?: string | null;
+    'order_class'?: OrderObject.OrderClassEnum;
+    'order_type'?: OrderObject.OrderTypeEnum;
     'type'?: OrderObject.TypeEnum;
     'side'?: OrderObject.SideEnum;
-    'timeInForce'?: OrderObject.TimeInForceEnum;
-    'limitPrice'?: string | null;
-    'stopPrice'?: string | null;
+    'time_in_force'?: OrderObject.TimeInForceEnum;
+    'limit_price'?: string | null;
+    'stop_price'?: string | null;
     'status'?: OrderObject.StatusEnum;
-    'extendedHours'?: boolean;
+    'extended_hours'?: boolean;
     'legs'?: Array<OrderObject> | null;
-    'trailPrice'?: string | null;
-    'trailPercent'?: string | null;
+    'trail_price'?: string | null;
+    'trail_percent'?: string | null;
     'hwm'?: string | null;
     'commission'?: string;
 
@@ -56,52 +56,52 @@ export class OrderObject {
             "type": "string"
         },
         {
-            "name": "clientOrderId",
+            "name": "client_order_id",
             "baseName": "client_order_id",
             "type": "string"
         },
         {
-            "name": "createdAt",
+            "name": "created_at",
             "baseName": "created_at",
             "type": "Date"
         },
         {
-            "name": "updatedAt",
+            "name": "updated_at",
             "baseName": "updated_at",
             "type": "Date"
         },
         {
-            "name": "submittedAt",
+            "name": "submitted_at",
             "baseName": "submitted_at",
             "type": "Date"
         },
         {
-            "name": "filledAt",
+            "name": "filled_at",
             "baseName": "filled_at",
             "type": "Date"
         },
         {
-            "name": "expiredAt",
+            "name": "expired_at",
             "baseName": "expired_at",
             "type": "Date"
         },
         {
-            "name": "canceledAt",
+            "name": "canceled_at",
             "baseName": "canceled_at",
             "type": "Date"
         },
         {
-            "name": "failedAt",
+            "name": "failed_at",
             "baseName": "failed_at",
             "type": "Date"
         },
         {
-            "name": "replacedAt",
+            "name": "replaced_at",
             "baseName": "replaced_at",
             "type": "Date"
         },
         {
-            "name": "replacedBy",
+            "name": "replaced_by",
             "baseName": "replaced_by",
             "type": "string"
         },
@@ -111,7 +111,7 @@ export class OrderObject {
             "type": "string"
         },
         {
-            "name": "assetId",
+            "name": "asset_id",
             "baseName": "asset_id",
             "type": "string"
         },
@@ -121,7 +121,7 @@ export class OrderObject {
             "type": "string"
         },
         {
-            "name": "assetClass",
+            "name": "asset_class",
             "baseName": "asset_class",
             "type": "string"
         },
@@ -136,22 +136,22 @@ export class OrderObject {
             "type": "string"
         },
         {
-            "name": "filledQty",
+            "name": "filled_qty",
             "baseName": "filled_qty",
             "type": "string"
         },
         {
-            "name": "filledAvgPrice",
+            "name": "filled_avg_price",
             "baseName": "filled_avg_price",
             "type": "string"
         },
         {
-            "name": "orderClass",
+            "name": "order_class",
             "baseName": "order_class",
             "type": "OrderObject.OrderClassEnum"
         },
         {
-            "name": "orderType",
+            "name": "order_type",
             "baseName": "order_type",
             "type": "OrderObject.OrderTypeEnum"
         },
@@ -166,17 +166,17 @@ export class OrderObject {
             "type": "OrderObject.SideEnum"
         },
         {
-            "name": "timeInForce",
+            "name": "time_in_force",
             "baseName": "time_in_force",
             "type": "OrderObject.TimeInForceEnum"
         },
         {
-            "name": "limitPrice",
+            "name": "limit_price",
             "baseName": "limit_price",
             "type": "string"
         },
         {
-            "name": "stopPrice",
+            "name": "stop_price",
             "baseName": "stop_price",
             "type": "string"
         },
@@ -186,7 +186,7 @@ export class OrderObject {
             "type": "OrderObject.StatusEnum"
         },
         {
-            "name": "extendedHours",
+            "name": "extended_hours",
             "baseName": "extended_hours",
             "type": "boolean"
         },
@@ -196,12 +196,12 @@ export class OrderObject {
             "type": "Array<OrderObject>"
         },
         {
-            "name": "trailPrice",
+            "name": "trail_price",
             "baseName": "trail_price",
             "type": "string"
         },
         {
-            "name": "trailPercent",
+            "name": "trail_percent",
             "baseName": "trail_percent",
             "type": "string"
         },

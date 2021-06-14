@@ -20,7 +20,7 @@ export class InlineResponse2009 {
     /**
     * redirect URI
     */
-    'redirectUri'?: string;
+    'redirect_uri'?: string;
     /**
     * granted scopes
     */
@@ -35,7 +35,7 @@ export class InlineResponse2009 {
             "type": "string"
         },
         {
-            "name": "redirectUri",
+            "name": "redirect_uri",
             "baseName": "redirect_uri",
             "type": "string"
         },

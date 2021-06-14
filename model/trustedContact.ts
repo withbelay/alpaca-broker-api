@@ -16,20 +16,20 @@ import { RequestFile } from './models';
 * This model input is optional. However, the client should make reasonable effort to obtain the trusted contact information. See more details in [FINRA Notice 17-11](https://www.finra.org/sites/default/files/Regulatory-Notice-17-11.pdf) 
 */
 export class TrustedContact {
-    'givenName': string;
-    'familyName': string;
+    'given_name': string;
+    'family_name': string;
     /**
     * at least one of `email_address`, `phone_number` or `street_address` is required 
     */
-    'emailAddress'?: string;
+    'email_address'?: string;
     /**
     * at least one of `email_address`, `phone_number` or `street_address` is required 
     */
-    'phoneNumber'?: string;
+    'phone_number'?: string;
     /**
     * at least one of `email_address`, `phone_number` or `street_address` is required 
     */
-    'streetAddress'?: Array<string>;
+    'street_address'?: Array<string>;
     /**
     * required if `street_address` is set 
     */
@@ -41,7 +41,7 @@ export class TrustedContact {
     /**
     * required if `street_address` is set 
     */
-    'postalCode'?: string;
+    'postal_code'?: string;
     /**
     * [ISO 3166-1 alpha-3](https://www.iso.org/iso-3166-country-codes.html). required if `street_address` is set 
     */
@@ -51,27 +51,27 @@ export class TrustedContact {
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "givenName",
+            "name": "given_name",
             "baseName": "given_name",
             "type": "string"
         },
         {
-            "name": "familyName",
+            "name": "family_name",
             "baseName": "family_name",
             "type": "string"
         },
         {
-            "name": "emailAddress",
+            "name": "email_address",
             "baseName": "email_address",
             "type": "string"
         },
         {
-            "name": "phoneNumber",
+            "name": "phone_number",
             "baseName": "phone_number",
             "type": "string"
         },
         {
-            "name": "streetAddress",
+            "name": "street_address",
             "baseName": "street_address",
             "type": "Array<string>"
         },
@@ -86,7 +86,7 @@ export class TrustedContact {
             "type": "string"
         },
         {
-            "name": "postalCode",
+            "name": "postal_code",
             "baseName": "postal_code",
             "type": "string"
         },

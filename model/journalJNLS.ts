@@ -20,16 +20,16 @@ export class JournalJNLS {
     /**
     * JNLS (constant)
     */
-    'entryType': string;
+    'entry_type': string;
     /**
     * account ID the shares go from
     */
-    'fromAccount': string;
+    'from_account': string;
     /**
     * account ID the shares go to
     */
-    'toAccount': string;
-    'settleDate': string;
+    'to_account': string;
+    'settle_date': string;
     'status'?: JournalJNLS.StatusEnum;
     'symbol': string;
     'qty': string;
@@ -44,22 +44,22 @@ export class JournalJNLS {
             "type": "string"
         },
         {
-            "name": "entryType",
+            "name": "entry_type",
             "baseName": "entry_type",
             "type": "string"
         },
         {
-            "name": "fromAccount",
+            "name": "from_account",
             "baseName": "from_account",
             "type": "string"
         },
         {
-            "name": "toAccount",
+            "name": "to_account",
             "baseName": "to_account",
             "type": "string"
         },
         {
-            "name": "settleDate",
+            "name": "settle_date",
             "baseName": "settle_date",
             "type": "string"
         },

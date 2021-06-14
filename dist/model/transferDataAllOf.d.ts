@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 export declare class TransferDataAllOf {
-    'transferType': TransferDataAllOf.TransferTypeEnum;
+    'transfer_type': TransferDataAllOf.TransferTypeEnum;
     'timing'?: TransferDataAllOf.TimingEnum;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{

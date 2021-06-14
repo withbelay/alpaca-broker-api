@@ -10,11 +10,11 @@
  * Do not edit the class manually.
  */
 export declare class InlineResponse2006 {
-    'eventId'?: number;
+    'event_id'?: number;
     'at'?: Date;
-    'journalId'?: string;
-    'statusFrom'?: string;
-    'statusTo'?: string;
+    'journal_id'?: string;
+    'status_from'?: string;
+    'status_to'?: string;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

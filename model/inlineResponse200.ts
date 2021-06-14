@@ -15,44 +15,44 @@ import { AccountStatus } from './accountStatus';
 
 export class InlineResponse200 {
     'id'?: string;
-    'accountNumber'?: string;
+    'account_number'?: string;
     'status'?: AccountStatus;
     'currency'?: string;
-    'buyingPower'?: string;
-    'regtBuyingPower'?: string;
-    'daytradingBuyingPower'?: string;
+    'buying_power'?: string;
+    'regt_buying_power'?: string;
+    'daytrading_buying_power'?: string;
     'cash'?: string;
-    'cashWithdrawable'?: string;
-    'cashTransferable'?: string;
-    'pendingTransferOut'?: string;
-    'portfolioValue'?: string;
-    'patternDayTrader'?: boolean;
-    'tradingBlocked'?: boolean;
-    'transfersBlocked'?: boolean;
-    'accountBlocked'?: boolean;
-    'createdAt'?: string;
-    'tradeSuspendedByUser'?: boolean;
+    'cash_withdrawable'?: string;
+    'cash_transferable'?: string;
+    'pending_transfer_out'?: string;
+    'portfolio_value'?: string;
+    'pattern_day_trader'?: boolean;
+    'trading_blocked'?: boolean;
+    'transfers_blocked'?: boolean;
+    'account_blocked'?: boolean;
+    'created_at'?: string;
+    'trade_suspended_by_user'?: boolean;
     'multiplier'?: string;
-    'shortingEnabled'?: boolean;
+    'shorting_enabled'?: boolean;
     'equity'?: string;
-    'lastEquity'?: string;
-    'longMarketValue'?: string;
-    'shortMarketValue'?: string;
-    'initialMargin'?: string;
-    'maintenanceMargin'?: string;
-    'lastMaintenanceMargin'?: string;
+    'last_equity'?: string;
+    'long_market_value'?: string;
+    'short_market_value'?: string;
+    'initial_margin'?: string;
+    'maintenance_margin'?: string;
+    'last_maintenance_margin'?: string;
     'sma'?: string;
-    'daytradeCount'?: number;
-    'previousClose'?: string;
-    'lastLongMarketValue'?: string;
-    'lastShortMarketValue'?: string;
-    'lastCash'?: string;
-    'lastInitialMargin'?: string;
-    'lastRegtBuyingPower'?: string;
-    'lastDaytradingBuyingPower'?: string;
-    'lastBuyingPower'?: string;
-    'lastDaytradeCount'?: number;
-    'clearingBroker'?: string;
+    'daytrade_count'?: number;
+    'previous_close'?: string;
+    'last_long_market_value'?: string;
+    'last_short_market_value'?: string;
+    'last_cash'?: string;
+    'last_initial_margin'?: string;
+    'last_regt_buying_power'?: string;
+    'last_daytrading_buying_power'?: string;
+    'last_buying_power'?: string;
+    'last_daytrade_count'?: number;
+    'clearing_broker'?: string;
 
     static discriminator: string | undefined = undefined;
 
@@ -63,7 +63,7 @@ export class InlineResponse200 {
             "type": "string"
         },
         {
-            "name": "accountNumber",
+            "name": "account_number",
             "baseName": "account_number",
             "type": "string"
         },
@@ -78,17 +78,17 @@ export class InlineResponse200 {
             "type": "string"
         },
         {
-            "name": "buyingPower",
+            "name": "buying_power",
             "baseName": "buying_power",
             "type": "string"
         },
         {
-            "name": "regtBuyingPower",
+            "name": "regt_buying_power",
             "baseName": "regt_buying_power",
             "type": "string"
         },
         {
-            "name": "daytradingBuyingPower",
+            "name": "daytrading_buying_power",
             "baseName": "daytrading_buying_power",
             "type": "string"
         },
@@ -98,52 +98,52 @@ export class InlineResponse200 {
             "type": "string"
         },
         {
-            "name": "cashWithdrawable",
+            "name": "cash_withdrawable",
             "baseName": "cash_withdrawable",
             "type": "string"
         },
         {
-            "name": "cashTransferable",
+            "name": "cash_transferable",
             "baseName": "cash_transferable",
             "type": "string"
         },
         {
-            "name": "pendingTransferOut",
+            "name": "pending_transfer_out",
             "baseName": "pending_transfer_out",
             "type": "string"
         },
         {
-            "name": "portfolioValue",
+            "name": "portfolio_value",
             "baseName": "portfolio_value",
             "type": "string"
         },
         {
-            "name": "patternDayTrader",
+            "name": "pattern_day_trader",
             "baseName": "pattern_day_trader",
             "type": "boolean"
         },
         {
-            "name": "tradingBlocked",
+            "name": "trading_blocked",
             "baseName": "trading_blocked",
             "type": "boolean"
         },
         {
-            "name": "transfersBlocked",
+            "name": "transfers_blocked",
             "baseName": "transfers_blocked",
             "type": "boolean"
         },
         {
-            "name": "accountBlocked",
+            "name": "account_blocked",
             "baseName": "account_blocked",
             "type": "boolean"
         },
         {
-            "name": "createdAt",
+            "name": "created_at",
             "baseName": "created_at",
             "type": "string"
         },
         {
-            "name": "tradeSuspendedByUser",
+            "name": "trade_suspended_by_user",
             "baseName": "trade_suspended_by_user",
             "type": "boolean"
         },
@@ -153,7 +153,7 @@ export class InlineResponse200 {
             "type": "string"
         },
         {
-            "name": "shortingEnabled",
+            "name": "shorting_enabled",
             "baseName": "shorting_enabled",
             "type": "boolean"
         },
@@ -163,32 +163,32 @@ export class InlineResponse200 {
             "type": "string"
         },
         {
-            "name": "lastEquity",
+            "name": "last_equity",
             "baseName": "last_equity",
             "type": "string"
         },
         {
-            "name": "longMarketValue",
+            "name": "long_market_value",
             "baseName": "long_market_value",
             "type": "string"
         },
         {
-            "name": "shortMarketValue",
+            "name": "short_market_value",
             "baseName": "short_market_value",
             "type": "string"
         },
         {
-            "name": "initialMargin",
+            "name": "initial_margin",
             "baseName": "initial_margin",
             "type": "string"
         },
         {
-            "name": "maintenanceMargin",
+            "name": "maintenance_margin",
             "baseName": "maintenance_margin",
             "type": "string"
         },
         {
-            "name": "lastMaintenanceMargin",
+            "name": "last_maintenance_margin",
             "baseName": "last_maintenance_margin",
             "type": "string"
         },
@@ -198,57 +198,57 @@ export class InlineResponse200 {
             "type": "string"
         },
         {
-            "name": "daytradeCount",
+            "name": "daytrade_count",
             "baseName": "daytrade_count",
             "type": "number"
         },
         {
-            "name": "previousClose",
+            "name": "previous_close",
             "baseName": "previous_close",
             "type": "string"
         },
         {
-            "name": "lastLongMarketValue",
+            "name": "last_long_market_value",
             "baseName": "last_long_market_value",
             "type": "string"
         },
         {
-            "name": "lastShortMarketValue",
+            "name": "last_short_market_value",
             "baseName": "last_short_market_value",
             "type": "string"
         },
         {
-            "name": "lastCash",
+            "name": "last_cash",
             "baseName": "last_cash",
             "type": "string"
         },
         {
-            "name": "lastInitialMargin",
+            "name": "last_initial_margin",
             "baseName": "last_initial_margin",
             "type": "string"
         },
         {
-            "name": "lastRegtBuyingPower",
+            "name": "last_regt_buying_power",
             "baseName": "last_regt_buying_power",
             "type": "string"
         },
         {
-            "name": "lastDaytradingBuyingPower",
+            "name": "last_daytrading_buying_power",
             "baseName": "last_daytrading_buying_power",
             "type": "string"
         },
         {
-            "name": "lastBuyingPower",
+            "name": "last_buying_power",
             "baseName": "last_buying_power",
             "type": "string"
         },
         {
-            "name": "lastDaytradeCount",
+            "name": "last_daytrade_count",
             "baseName": "last_daytrade_count",
             "type": "number"
         },
         {
-            "name": "clearingBroker",
+            "name": "clearing_broker",
             "baseName": "clearing_broker",
             "type": "string"
         }    ];

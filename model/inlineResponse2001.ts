@@ -22,7 +22,7 @@ export class InlineResponse2001 {
     'tradable'?: boolean;
     'marginable'?: boolean;
     'shortable'?: boolean;
-    'easyToBorrow'?: boolean;
+    'easy_to_borrow'?: boolean;
     'fractionable'?: boolean;
 
     static discriminator: string | undefined = undefined;
@@ -74,7 +74,7 @@ export class InlineResponse2001 {
             "type": "boolean"
         },
         {
-            "name": "easyToBorrow",
+            "name": "easy_to_borrow",
             "baseName": "easy_to_borrow",
             "type": "boolean"
         },

@@ -24,42 +24,42 @@ exports.Disclosures = Disclosures;
 Disclosures.discriminator = undefined;
 Disclosures.attributeTypeMap = [
     {
-        "name": "employmentStatus",
+        "name": "employment_status",
         "baseName": "employment_status",
         "type": "Disclosures.EmploymentStatusEnum"
     },
     {
-        "name": "employerName",
+        "name": "employer_name",
         "baseName": "employer_name",
         "type": "string"
     },
     {
-        "name": "employerAddress",
+        "name": "employer_address",
         "baseName": "employer_address",
         "type": "string"
     },
     {
-        "name": "employmentPosition",
+        "name": "employment_position",
         "baseName": "employment_position",
         "type": "string"
     },
     {
-        "name": "isControlPerson",
+        "name": "is_control_person",
         "baseName": "is_control_person",
         "type": "boolean"
     },
     {
-        "name": "isAffiliatedExchangeOrFinra",
+        "name": "is_affiliated_exchange_or_finra",
         "baseName": "is_affiliated_exchange_or_finra",
         "type": "boolean"
     },
     {
-        "name": "isPoliticallyExposed",
+        "name": "is_politically_exposed",
         "baseName": "is_politically_exposed",
         "type": "boolean"
     },
     {
-        "name": "immediateFamilyExposed",
+        "name": "immediate_family_exposed",
         "baseName": "immediate_family_exposed",
         "type": "boolean"
     }

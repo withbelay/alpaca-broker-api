@@ -31,7 +31,7 @@ UntypedACHTransferData.attributeTypeMap = [
         "type": "UntypedACHTransferData.DirectionEnum"
     },
     {
-        "name": "relationshipId",
+        "name": "relationship_id",
         "baseName": "relationship_id",
         "type": "string"
     }

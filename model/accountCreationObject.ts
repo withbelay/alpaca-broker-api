@@ -26,7 +26,7 @@ export class AccountCreationObject {
     */
     'agreements'?: Array<object>;
     'documents'?: Array<DocumentUpload>;
-    'trustedContact'?: TrustedContact;
+    'trusted_contact'?: TrustedContact;
 
     static discriminator: string | undefined = undefined;
 
@@ -57,7 +57,7 @@ export class AccountCreationObject {
             "type": "Array<DocumentUpload>"
         },
         {
-            "name": "trustedContact",
+            "name": "trusted_contact",
             "baseName": "trusted_contact",
             "type": "TrustedContact"
         }    ];

@@ -21,7 +21,7 @@ exports.UntypedACHTransferDataAllOf = UntypedACHTransferDataAllOf;
 UntypedACHTransferDataAllOf.discriminator = undefined;
 UntypedACHTransferDataAllOf.attributeTypeMap = [
     {
-        "name": "relationshipId",
+        "name": "relationship_id",
         "baseName": "relationship_id",
         "type": "string"
     }

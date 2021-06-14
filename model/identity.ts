@@ -16,30 +16,30 @@ import { RequestFile } from './models';
 * Identity is the model to provide account owner’s identity information. 
 */
 export class Identity {
-    'givenName': string;
-    'familyName': string;
-    'dateOfBirth': string;
-    'taxId'?: string;
-    'taxIdType'?: Identity.TaxIdTypeEnum;
+    'given_name': string;
+    'family_name': string;
+    'date_of_birth': string;
+    'tax_id'?: string;
+    'tax_id_type'?: Identity.TaxIdTypeEnum;
     /**
     * [ISO 3166-1 alpha-3](https://www.iso.org/iso-3166-country-codes.html). 
     */
-    'countryOfCitizenship'?: string;
+    'country_of_citizenship'?: string;
     /**
     * [ISO 3166-1 alpha-3](https://www.iso.org/iso-3166-country-codes.html). 
     */
-    'countryOfBirth'?: string;
+    'country_of_birth'?: string;
     /**
     * [ISO 3166-1 alpha-3](https://www.iso.org/iso-3166-country-codes.html). 
     */
-    'countryOfTaxResidence': string;
-    'fundingSource': Array<Identity.FundingSourceEnum>;
-    'annualIncomeMin'?: number;
-    'annualIncomeMax'?: number;
-    'liquidNetWorthMin'?: number;
-    'liquidNetWorthMax'?: number;
-    'totalNetWorthMin'?: number;
-    'totalNetWorthMax'?: number;
+    'country_of_tax_residence': string;
+    'funding_source': Array<Identity.FundingSourceEnum>;
+    'annual_income_min'?: number;
+    'annual_income_max'?: number;
+    'liquid_net_worth_min'?: number;
+    'liquid_net_worth_max'?: number;
+    'total_net_worth_min'?: number;
+    'total_net_worth_max'?: number;
     /**
     * any extra information used for KYC purposes 
     */
@@ -49,77 +49,77 @@ export class Identity {
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "givenName",
+            "name": "given_name",
             "baseName": "given_name",
             "type": "string"
         },
         {
-            "name": "familyName",
+            "name": "family_name",
             "baseName": "family_name",
             "type": "string"
         },
         {
-            "name": "dateOfBirth",
+            "name": "date_of_birth",
             "baseName": "date_of_birth",
             "type": "string"
         },
         {
-            "name": "taxId",
+            "name": "tax_id",
             "baseName": "tax_id",
             "type": "string"
         },
         {
-            "name": "taxIdType",
+            "name": "tax_id_type",
             "baseName": "tax_id_type",
             "type": "Identity.TaxIdTypeEnum"
         },
         {
-            "name": "countryOfCitizenship",
+            "name": "country_of_citizenship",
             "baseName": "country_of_citizenship",
             "type": "string"
         },
         {
-            "name": "countryOfBirth",
+            "name": "country_of_birth",
             "baseName": "country_of_birth",
             "type": "string"
         },
         {
-            "name": "countryOfTaxResidence",
+            "name": "country_of_tax_residence",
             "baseName": "country_of_tax_residence",
             "type": "string"
         },
         {
-            "name": "fundingSource",
+            "name": "funding_source",
             "baseName": "funding_source",
             "type": "Array<Identity.FundingSourceEnum>"
         },
         {
-            "name": "annualIncomeMin",
+            "name": "annual_income_min",
             "baseName": "annual_income_min",
             "type": "number"
         },
         {
-            "name": "annualIncomeMax",
+            "name": "annual_income_max",
             "baseName": "annual_income_max",
             "type": "number"
         },
         {
-            "name": "liquidNetWorthMin",
+            "name": "liquid_net_worth_min",
             "baseName": "liquid_net_worth_min",
             "type": "number"
         },
         {
-            "name": "liquidNetWorthMax",
+            "name": "liquid_net_worth_max",
             "baseName": "liquid_net_worth_max",
             "type": "number"
         },
         {
-            "name": "totalNetWorthMin",
+            "name": "total_net_worth_min",
             "baseName": "total_net_worth_min",
             "type": "number"
         },
         {
-            "name": "totalNetWorthMax",
+            "name": "total_net_worth_max",
             "baseName": "total_net_worth_max",
             "type": "number"
         },

@@ -24,27 +24,27 @@ exports.TrustedContact = TrustedContact;
 TrustedContact.discriminator = undefined;
 TrustedContact.attributeTypeMap = [
     {
-        "name": "givenName",
+        "name": "given_name",
         "baseName": "given_name",
         "type": "string"
     },
     {
-        "name": "familyName",
+        "name": "family_name",
         "baseName": "family_name",
         "type": "string"
     },
     {
-        "name": "emailAddress",
+        "name": "email_address",
         "baseName": "email_address",
         "type": "string"
     },
     {
-        "name": "phoneNumber",
+        "name": "phone_number",
         "baseName": "phone_number",
         "type": "string"
     },
     {
-        "name": "streetAddress",
+        "name": "street_address",
         "baseName": "street_address",
         "type": "Array<string>"
     },
@@ -59,7 +59,7 @@ TrustedContact.attributeTypeMap = [
         "type": "string"
     },
     {
-        "name": "postalCode",
+        "name": "postal_code",
         "baseName": "postal_code",
         "type": "string"
     },

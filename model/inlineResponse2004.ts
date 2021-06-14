@@ -13,28 +13,28 @@
 import { RequestFile } from './models';
 
 export class InlineResponse2004 {
-    'documentId'?: string;
+    'document_id'?: string;
     /**
     * such as \"account_statement\" and \"trade_confirmation\"
     */
-    'documentType'?: string;
-    'documentDate'?: string;
+    'document_type'?: string;
+    'document_date'?: string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "documentId",
+            "name": "document_id",
             "baseName": "document_id",
             "type": "string"
         },
         {
-            "name": "documentType",
+            "name": "document_type",
             "baseName": "document_type",
             "type": "string"
         },
         {
-            "name": "documentDate",
+            "name": "document_date",
             "baseName": "document_date",
             "type": "string"
         }    ];

@@ -14,19 +14,19 @@ import { RequestFile } from './models';
 import { TransferDataAllOf } from './transferDataAllOf';
 
 export class TransferData {
-    'transferType': TransferData.TransferTypeEnum;
+    'transfer_type': TransferData.TransferTypeEnum;
     'timing'?: TransferData.TimingEnum;
     'amount': string;
     'direction': TransferData.DirectionEnum;
-    'relationshipId': string;
-    'additionalInformation'?: string;
-    'bankId': string;
+    'relationship_id': string;
+    'additional_information'?: string;
+    'bank_id': string;
 
-    static discriminator: string | undefined = "transferType";
+    static discriminator: string | undefined = "transfer_type";
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "transferType",
+            "name": "transfer_type",
             "baseName": "transfer_type",
             "type": "TransferData.TransferTypeEnum"
         },
@@ -46,17 +46,17 @@ export class TransferData {
             "type": "TransferData.DirectionEnum"
         },
         {
-            "name": "relationshipId",
+            "name": "relationship_id",
             "baseName": "relationship_id",
             "type": "string"
         },
         {
-            "name": "additionalInformation",
+            "name": "additional_information",
             "baseName": "additional_information",
             "type": "string"
         },
         {
-            "name": "bankId",
+            "name": "bank_id",
             "baseName": "bank_id",
             "type": "string"
         }    ];

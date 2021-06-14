@@ -17,21 +17,21 @@ import { DocumentType } from './documentType';
 * If an account has documents after the submission, it has the Document model in exchange with DocumentUpload. 
 */
 export class DocumentUpload {
-    'documentType': DocumentType;
-    'documentSubType'?: string;
+    'document_type': DocumentType;
+    'document_sub_type'?: string;
     'content': string;
-    'mimeType': string;
+    'mime_type': string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "documentType",
+            "name": "document_type",
             "baseName": "document_type",
             "type": "DocumentType"
         },
         {
-            "name": "documentSubType",
+            "name": "document_sub_type",
             "baseName": "document_sub_type",
             "type": "string"
         },
@@ -41,7 +41,7 @@ export class DocumentUpload {
             "type": "string"
         },
         {
-            "name": "mimeType",
+            "name": "mime_type",
             "baseName": "mime_type",
             "type": "string"
         }    ];

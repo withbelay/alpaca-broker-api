@@ -66,7 +66,7 @@ InlineResponse2001.attributeTypeMap = [
         "type": "boolean"
     },
     {
-        "name": "easyToBorrow",
+        "name": "easy_to_borrow",
         "baseName": "easy_to_borrow",
         "type": "boolean"
     },

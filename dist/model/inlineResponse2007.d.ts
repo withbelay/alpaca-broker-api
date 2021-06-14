@@ -10,21 +10,21 @@
  * Do not edit the class manually.
  */
 export declare class InlineResponse2007 {
-    'clientId'?: string;
+    'client_id'?: string;
     'name'?: string;
     'description'?: string;
     'url'?: string;
     /**
     * URL of Terms of Use
     */
-    'termsOfUse'?: string;
+    'terms_of_use'?: string;
     /**
     * URL of Privacy Policy
     */
-    'privacyPolicy'?: string;
+    'privacy_policy'?: string;
     'status'?: InlineResponse2007.StatusEnum;
-    'redirectUri'?: Array<string>;
-    'liveTradingApproved'?: boolean;
+    'redirect_uri'?: Array<string>;
+    'live_trading_approved'?: boolean;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

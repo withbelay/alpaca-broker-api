@@ -16,18 +16,18 @@ import { TransferResourceAllOf } from './transferResourceAllOf';
 
 export class TransferResource {
     'id': string;
-    'createdAt': Date;
-    'updatedAt': Date;
+    'created_at': Date;
+    'updated_at': Date;
     'type': TransferResource.TypeEnum;
     'status': TransferResource.StatusEnum;
-    'accountId': string;
+    'account_id': string;
     'reason'?: string | null;
-    'expiresAt': Date;
+    'expires_at': Date;
     'amount': string;
     'direction': TransferResource.DirectionEnum;
-    'relationshipId': string;
-    'additionalInformation'?: string;
-    'bankId': string;
+    'relationship_id': string;
+    'additional_information'?: string;
+    'bank_id': string;
 
     static discriminator: string | undefined = "type";
 
@@ -38,12 +38,12 @@ export class TransferResource {
             "type": "string"
         },
         {
-            "name": "createdAt",
+            "name": "created_at",
             "baseName": "created_at",
             "type": "Date"
         },
         {
-            "name": "updatedAt",
+            "name": "updated_at",
             "baseName": "updated_at",
             "type": "Date"
         },
@@ -58,7 +58,7 @@ export class TransferResource {
             "type": "TransferResource.StatusEnum"
         },
         {
-            "name": "accountId",
+            "name": "account_id",
             "baseName": "account_id",
             "type": "string"
         },
@@ -68,7 +68,7 @@ export class TransferResource {
             "type": "string"
         },
         {
-            "name": "expiresAt",
+            "name": "expires_at",
             "baseName": "expires_at",
             "type": "Date"
         },
@@ -83,17 +83,17 @@ export class TransferResource {
             "type": "TransferResource.DirectionEnum"
         },
         {
-            "name": "relationshipId",
+            "name": "relationship_id",
             "baseName": "relationship_id",
             "type": "string"
         },
         {
-            "name": "additionalInformation",
+            "name": "additional_information",
             "baseName": "additional_information",
             "type": "string"
         },
         {
-            "name": "bankId",
+            "name": "bank_id",
             "baseName": "bank_id",
             "type": "string"
         }    ];

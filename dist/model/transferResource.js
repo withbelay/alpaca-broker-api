@@ -26,12 +26,12 @@ TransferResource.attributeTypeMap = [
         "type": "string"
     },
     {
-        "name": "createdAt",
+        "name": "created_at",
         "baseName": "created_at",
         "type": "Date"
     },
     {
-        "name": "updatedAt",
+        "name": "updated_at",
         "baseName": "updated_at",
         "type": "Date"
     },
@@ -46,7 +46,7 @@ TransferResource.attributeTypeMap = [
         "type": "TransferResource.StatusEnum"
     },
     {
-        "name": "accountId",
+        "name": "account_id",
         "baseName": "account_id",
         "type": "string"
     },
@@ -56,7 +56,7 @@ TransferResource.attributeTypeMap = [
         "type": "string"
     },
     {
-        "name": "expiresAt",
+        "name": "expires_at",
         "baseName": "expires_at",
         "type": "Date"
     },
@@ -71,17 +71,17 @@ TransferResource.attributeTypeMap = [
         "type": "TransferResource.DirectionEnum"
     },
     {
-        "name": "relationshipId",
+        "name": "relationship_id",
         "baseName": "relationship_id",
         "type": "string"
     },
     {
-        "name": "additionalInformation",
+        "name": "additional_information",
         "baseName": "additional_information",
         "type": "string"
     },
     {
-        "name": "bankId",
+        "name": "bank_id",
         "baseName": "bank_id",
         "type": "string"
     }

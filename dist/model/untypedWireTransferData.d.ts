@@ -12,8 +12,8 @@
 export declare class UntypedWireTransferData {
     'amount': string;
     'direction': UntypedWireTransferData.DirectionEnum;
-    'additionalInformation'?: string;
-    'bankId': string;
+    'additional_information'?: string;
+    'bank_id': string;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

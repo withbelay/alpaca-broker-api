@@ -13,14 +13,14 @@
 import { RequestFile } from './models';
 
 export class BankResourceAllOf {
-    'accountId': string;
+    'account_id': string;
     'status': BankResourceAllOf.StatusEnum;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "accountId",
+            "name": "account_id",
             "baseName": "account_id",
             "type": "string"
         },

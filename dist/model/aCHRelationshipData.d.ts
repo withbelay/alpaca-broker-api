@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 export declare class ACHRelationshipData {
-    'accountOwnerName': string;
-    'bankAccountType': ACHRelationshipData.BankAccountTypeEnum;
-    'bankAccountNumber': string;
-    'bankRoutingNumber': string;
+    'account_owner_name': string;
+    'bank_account_type': ACHRelationshipData.BankAccountTypeEnum;
+    'bank_account_number': string;
+    'bank_routing_number': string;
     'nickname'?: string;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{

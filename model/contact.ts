@@ -16,32 +16,32 @@ import { RequestFile } from './models';
 * Contact is the model for the account owner contact information. 
 */
 export class Contact {
-    'emailAddress'?: string;
+    'email_address'?: string;
     /**
     * with country code, no hyphen or space
     */
-    'phoneNumber'?: string;
-    'streetAddress'?: Array<string>;
+    'phone_number'?: string;
+    'street_address'?: Array<string>;
     'city'?: string;
     'state'?: string;
-    'postalCode'?: string;
+    'postal_code'?: string;
     'country'?: string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "emailAddress",
+            "name": "email_address",
             "baseName": "email_address",
             "type": "string"
         },
         {
-            "name": "phoneNumber",
+            "name": "phone_number",
             "baseName": "phone_number",
             "type": "string"
         },
         {
-            "name": "streetAddress",
+            "name": "street_address",
             "baseName": "street_address",
             "type": "Array<string>"
         },
@@ -56,7 +56,7 @@ export class Contact {
             "type": "string"
         },
         {
-            "name": "postalCode",
+            "name": "postal_code",
             "baseName": "postal_code",
             "type": "string"
         },

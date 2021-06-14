@@ -13,9 +13,9 @@
 import { RequestFile } from './models';
 
 export class InlineObject1 {
-    'entryType': InlineObject1.EntryTypeEnum;
-    'fromAccount': string;
-    'toAccount': string;
+    'entry_type': InlineObject1.EntryTypeEnum;
+    'from_account': string;
+    'to_account': string;
     /**
     * Required for JNLC. The dollar amount to move. It has to be a positive value. 
     */
@@ -33,17 +33,17 @@ export class InlineObject1 {
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "entryType",
+            "name": "entry_type",
             "baseName": "entry_type",
             "type": "InlineObject1.EntryTypeEnum"
         },
         {
-            "name": "fromAccount",
+            "name": "from_account",
             "baseName": "from_account",
             "type": "string"
         },
         {
-            "name": "toAccount",
+            "name": "to_account",
             "baseName": "to_account",
             "type": "string"
         },

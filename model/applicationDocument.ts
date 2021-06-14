@@ -18,10 +18,10 @@ import { DocumentType } from './documentType';
 */
 export class ApplicationDocument {
     'id': string;
-    'documentType': DocumentType;
-    'documentSubType'?: string;
-    'mimeType': string;
-    'createdAt': Date;
+    'document_type': DocumentType;
+    'document_sub_type'?: string;
+    'mime_type': string;
+    'created_at': Date;
 
     static discriminator: string | undefined = undefined;
 
@@ -32,22 +32,22 @@ export class ApplicationDocument {
             "type": "string"
         },
         {
-            "name": "documentType",
+            "name": "document_type",
             "baseName": "document_type",
             "type": "DocumentType"
         },
         {
-            "name": "documentSubType",
+            "name": "document_sub_type",
             "baseName": "document_sub_type",
             "type": "string"
         },
         {
-            "name": "mimeType",
+            "name": "mime_type",
             "baseName": "mime_type",
             "type": "string"
         },
         {
-            "name": "createdAt",
+            "name": "created_at",
             "baseName": "created_at",
             "type": "Date"
         }    ];

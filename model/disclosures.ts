@@ -16,55 +16,55 @@ import { RequestFile } from './models';
 * Disclosures fields denote if the account owner falls under each category defined by FINRA rule. The client has to ask questions for the end user and the values should reflect their answers.  If one of the answers is true (yes), the account goes into ACTION_REQUIRED status. 
 */
 export class Disclosures {
-    'employmentStatus'?: Disclosures.EmploymentStatusEnum;
-    'employerName'?: string;
-    'employerAddress'?: string;
-    'employmentPosition'?: string;
-    'isControlPerson': boolean;
-    'isAffiliatedExchangeOrFinra': boolean;
-    'isPoliticallyExposed': boolean;
-    'immediateFamilyExposed': boolean;
+    'employment_status'?: Disclosures.EmploymentStatusEnum;
+    'employer_name'?: string;
+    'employer_address'?: string;
+    'employment_position'?: string;
+    'is_control_person': boolean;
+    'is_affiliated_exchange_or_finra': boolean;
+    'is_politically_exposed': boolean;
+    'immediate_family_exposed': boolean;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "employmentStatus",
+            "name": "employment_status",
             "baseName": "employment_status",
             "type": "Disclosures.EmploymentStatusEnum"
         },
         {
-            "name": "employerName",
+            "name": "employer_name",
             "baseName": "employer_name",
             "type": "string"
         },
         {
-            "name": "employerAddress",
+            "name": "employer_address",
             "baseName": "employer_address",
             "type": "string"
         },
         {
-            "name": "employmentPosition",
+            "name": "employment_position",
             "baseName": "employment_position",
             "type": "string"
         },
         {
-            "name": "isControlPerson",
+            "name": "is_control_person",
             "baseName": "is_control_person",
             "type": "boolean"
         },
         {
-            "name": "isAffiliatedExchangeOrFinra",
+            "name": "is_affiliated_exchange_or_finra",
             "baseName": "is_affiliated_exchange_or_finra",
             "type": "boolean"
         },
         {
-            "name": "isPoliticallyExposed",
+            "name": "is_politically_exposed",
             "baseName": "is_politically_exposed",
             "type": "boolean"
         },
         {
-            "name": "immediateFamilyExposed",
+            "name": "immediate_family_exposed",
             "baseName": "immediate_family_exposed",
             "type": "boolean"
         }    ];

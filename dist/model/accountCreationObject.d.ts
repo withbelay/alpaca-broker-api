@@ -23,7 +23,7 @@ export declare class AccountCreationObject {
     */
     'agreements'?: Array<object>;
     'documents'?: Array<DocumentUpload>;
-    'trustedContact'?: TrustedContact;
+    'trusted_contact'?: TrustedContact;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

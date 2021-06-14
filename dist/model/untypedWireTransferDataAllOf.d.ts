@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 export declare class UntypedWireTransferDataAllOf {
-    'additionalInformation'?: string;
-    'bankId': string;
+    'additional_information'?: string;
+    'bank_id': string;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

@@ -21,7 +21,7 @@ exports.InlineResponse2007 = InlineResponse2007;
 InlineResponse2007.discriminator = undefined;
 InlineResponse2007.attributeTypeMap = [
     {
-        "name": "clientId",
+        "name": "client_id",
         "baseName": "client_id",
         "type": "string"
     },
@@ -41,12 +41,12 @@ InlineResponse2007.attributeTypeMap = [
         "type": "string"
     },
     {
-        "name": "termsOfUse",
+        "name": "terms_of_use",
         "baseName": "terms_of_use",
         "type": "string"
     },
     {
-        "name": "privacyPolicy",
+        "name": "privacy_policy",
         "baseName": "privacy_policy",
         "type": "string"
     },
@@ -56,12 +56,12 @@ InlineResponse2007.attributeTypeMap = [
         "type": "InlineResponse2007.StatusEnum"
     },
     {
-        "name": "redirectUri",
+        "name": "redirect_uri",
         "baseName": "redirect_uri",
         "type": "Array<string>"
     },
     {
-        "name": "liveTradingApproved",
+        "name": "live_trading_approved",
         "baseName": "live_trading_approved",
         "type": "boolean"
     }

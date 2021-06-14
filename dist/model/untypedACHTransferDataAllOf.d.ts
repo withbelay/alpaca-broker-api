@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 export declare class UntypedACHTransferDataAllOf {
-    'relationshipId': string;
+    'relationship_id': string;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

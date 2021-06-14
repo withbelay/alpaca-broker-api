@@ -11,14 +11,14 @@
  */
 export declare class BankData {
     'name': string;
-    'bankCode': string;
-    'bankCodeType': BankData.BankCodeTypeEnum;
+    'bank_code': string;
+    'bank_code_type': BankData.BankCodeTypeEnum;
     'country'?: string;
-    'stateProvince'?: string;
-    'postalCode'?: string;
+    'state_province'?: string;
+    'postal_code'?: string;
     'city'?: string;
-    'streetAddress'?: string;
-    'accountNumber': string;
+    'street_address'?: string;
+    'account_number': string;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

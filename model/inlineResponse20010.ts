@@ -14,10 +14,10 @@ import { RequestFile } from './models';
 
 export class InlineResponse20010 {
     'id'?: string;
-    'accountId'?: string;
-    'activityType'?: InlineResponse20010.ActivityTypeEnum;
+    'account_id'?: string;
+    'activity_type'?: InlineResponse20010.ActivityTypeEnum;
     'date'?: string;
-    'netAmount'?: string;
+    'net_amount'?: string;
     'description'?: string;
     'status'?: InlineResponse20010.StatusEnum;
 
@@ -30,12 +30,12 @@ export class InlineResponse20010 {
             "type": "string"
         },
         {
-            "name": "accountId",
+            "name": "account_id",
             "baseName": "account_id",
             "type": "string"
         },
         {
-            "name": "activityType",
+            "name": "activity_type",
             "baseName": "activity_type",
             "type": "InlineResponse20010.ActivityTypeEnum"
         },
@@ -45,7 +45,7 @@ export class InlineResponse20010 {
             "type": "string"
         },
         {
-            "name": "netAmount",
+            "name": "net_amount",
             "baseName": "net_amount",
             "type": "string"
         },

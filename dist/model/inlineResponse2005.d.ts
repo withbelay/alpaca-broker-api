@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 export declare class InlineResponse2005 {
-    'accountId'?: string;
-    'accountNumber'?: string;
-    'statusFrom'?: string;
-    'statusTo'?: string;
+    'account_id'?: string;
+    'account_number'?: string;
+    'status_from'?: string;
+    'status_to'?: string;
     'reason'?: string;
     'at'?: Date;
     static discriminator: string | undefined;

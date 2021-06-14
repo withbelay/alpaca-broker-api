@@ -39,7 +39,7 @@ KycResult.attributeTypeMap = [
         "type": "object"
     },
     {
-        "name": "addidionalInformation",
+        "name": "addidional_information",
         "baseName": "addidional_information",
         "type": "string"
     }

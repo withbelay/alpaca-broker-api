@@ -21,17 +21,17 @@ exports.InlineObject1 = InlineObject1;
 InlineObject1.discriminator = undefined;
 InlineObject1.attributeTypeMap = [
     {
-        "name": "entryType",
+        "name": "entry_type",
         "baseName": "entry_type",
         "type": "InlineObject1.EntryTypeEnum"
     },
     {
-        "name": "fromAccount",
+        "name": "from_account",
         "baseName": "from_account",
         "type": "string"
     },
     {
-        "name": "toAccount",
+        "name": "to_account",
         "baseName": "to_account",
         "type": "string"
     },

@@ -21,12 +21,12 @@ exports.CreateOrderStopLoss = CreateOrderStopLoss;
 CreateOrderStopLoss.discriminator = undefined;
 CreateOrderStopLoss.attributeTypeMap = [
     {
-        "name": "stopPrice",
+        "name": "stop_price",
         "baseName": "stop_price",
         "type": "string"
     },
     {
-        "name": "limitPrice",
+        "name": "limit_price",
         "baseName": "limit_price",
         "type": "string"
     }

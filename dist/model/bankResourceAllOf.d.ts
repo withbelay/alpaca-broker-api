@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 export declare class BankResourceAllOf {
-    'accountId': string;
+    'account_id': string;
     'status': BankResourceAllOf.StatusEnum;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{

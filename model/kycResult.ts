@@ -19,7 +19,7 @@ export class KycResult {
     'reject'?: object;
     'accept'?: object;
     'indeterminate'?: object;
-    'addidionalInformation'?: string;
+    'addidional_information'?: string;
 
     static discriminator: string | undefined = undefined;
 
@@ -40,7 +40,7 @@ export class KycResult {
             "type": "object"
         },
         {
-            "name": "addidionalInformation",
+            "name": "addidional_information",
             "baseName": "addidional_information",
             "type": "string"
         }    ];

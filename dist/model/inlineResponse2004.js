@@ -21,17 +21,17 @@ exports.InlineResponse2004 = InlineResponse2004;
 InlineResponse2004.discriminator = undefined;
 InlineResponse2004.attributeTypeMap = [
     {
-        "name": "documentId",
+        "name": "document_id",
         "baseName": "document_id",
         "type": "string"
     },
     {
-        "name": "documentType",
+        "name": "document_type",
         "baseName": "document_type",
         "type": "string"
     },
     {
-        "name": "documentDate",
+        "name": "document_date",
         "baseName": "document_date",
         "type": "string"
     }

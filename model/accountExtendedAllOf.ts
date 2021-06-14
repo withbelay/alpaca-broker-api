@@ -26,7 +26,7 @@ export class AccountExtendedAllOf {
     */
     'agreements'?: Array<object>;
     'documents'?: Array<ApplicationDocument>;
-    'trustedContact'?: TrustedContact;
+    'trusted_contact'?: TrustedContact;
 
     static discriminator: string | undefined = undefined;
 
@@ -57,7 +57,7 @@ export class AccountExtendedAllOf {
             "type": "Array<ApplicationDocument>"
         },
         {
-            "name": "trustedContact",
+            "name": "trusted_contact",
             "baseName": "trusted_contact",
             "type": "TrustedContact"
         }    ];

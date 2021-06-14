@@ -15,9 +15,9 @@ import { RequestFile } from './models';
 export class TransferResourceAllOf {
     'type': TransferResourceAllOf.TypeEnum;
     'status': TransferResourceAllOf.StatusEnum;
-    'accountId': string;
+    'account_id': string;
     'reason'?: string | null;
-    'expiresAt': Date;
+    'expires_at': Date;
 
     static discriminator: string | undefined = undefined;
 
@@ -33,7 +33,7 @@ export class TransferResourceAllOf {
             "type": "TransferResourceAllOf.StatusEnum"
         },
         {
-            "name": "accountId",
+            "name": "account_id",
             "baseName": "account_id",
             "type": "string"
         },
@@ -43,7 +43,7 @@ export class TransferResourceAllOf {
             "type": "string"
         },
         {
-            "name": "expiresAt",
+            "name": "expires_at",
             "baseName": "expires_at",
             "type": "Date"
         }    ];

@@ -13,15 +13,15 @@ export declare class InlineObject3 {
     /**
     * OAuth client ID
     */
-    'clientId'?: string;
+    'client_id'?: string;
     /**
     * OAuth client secret
     */
-    'clientSecret'?: string;
+    'client_secret'?: string;
     /**
     * redirect URI for the OAuth flow
     */
-    'redirectUri'?: string;
+    'redirect_uri'?: string;
     /**
     * scopes requested by the OAuth flow
     */
@@ -29,7 +29,7 @@ export declare class InlineObject3 {
     /**
     * end-user account ID
     */
-    'accountId'?: string;
+    'account_id'?: string;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

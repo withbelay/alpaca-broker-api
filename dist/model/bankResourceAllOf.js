@@ -21,7 +21,7 @@ exports.BankResourceAllOf = BankResourceAllOf;
 BankResourceAllOf.discriminator = undefined;
 BankResourceAllOf.attributeTypeMap = [
     {
-        "name": "accountId",
+        "name": "account_id",
         "baseName": "account_id",
         "type": "string"
     },

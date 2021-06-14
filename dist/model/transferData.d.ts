@@ -10,13 +10,13 @@
  * Do not edit the class manually.
  */
 export declare class TransferData {
-    'transferType': TransferData.TransferTypeEnum;
+    'transfer_type': TransferData.TransferTypeEnum;
     'timing'?: TransferData.TimingEnum;
     'amount': string;
     'direction': TransferData.DirectionEnum;
-    'relationshipId': string;
-    'additionalInformation'?: string;
-    'bankId': string;
+    'relationship_id': string;
+    'additional_information'?: string;
+    'bank_id': string;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

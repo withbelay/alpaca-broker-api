@@ -1,7 +1,17 @@
 {
-  "$schema": "node_modules/@openapitools/openapi-generator-cli/config.schema.json",
+  "$schema": "./node_modules/@openapitools/openapi-generator-cli/config.schema.json",
   "spaces": 2,
   "generator-cli": {
-    "version": "5.1.1"
+    "version": "5.1.1",
+    "generators": {
+      "alpaca": {
+        "generatorName": "typescript-node",
+        "glob": "bkdocs/assets/openapi.yaml",
+        "output": ".",
+        "additionalProperties": {
+          "modelPropertyNaming": "original"
+        }
+      }
+    }
   }
 }

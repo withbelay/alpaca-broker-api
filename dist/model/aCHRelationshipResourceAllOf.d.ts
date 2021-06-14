@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 export declare class ACHRelationshipResourceAllOf {
-    'accountId': string;
+    'account_id': string;
     'status': ACHRelationshipResourceAllOf.StatusEnum;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{

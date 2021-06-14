@@ -13,19 +13,19 @@
 import { RequestFile } from './models';
 
 export class CreateOrderStopLoss {
-    'stopPrice'?: string;
-    'limitPrice'?: string;
+    'stop_price'?: string;
+    'limit_price'?: string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "stopPrice",
+            "name": "stop_price",
             "baseName": "stop_price",
             "type": "string"
         },
         {
-            "name": "limitPrice",
+            "name": "limit_price",
             "baseName": "limit_price",
             "type": "string"
         }    ];

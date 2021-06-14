@@ -26,17 +26,17 @@ PatchOrder.attributeTypeMap = [
         "type": "string"
     },
     {
-        "name": "timeInForce",
+        "name": "time_in_force",
         "baseName": "time_in_force",
         "type": "PatchOrder.TimeInForceEnum"
     },
     {
-        "name": "limitPrice",
+        "name": "limit_price",
         "baseName": "limit_price",
         "type": "string"
     },
     {
-        "name": "stopPrice",
+        "name": "stop_price",
         "baseName": "stop_price",
         "type": "string"
     },
@@ -46,17 +46,17 @@ PatchOrder.attributeTypeMap = [
         "type": "string"
     },
     {
-        "name": "clientOrderId",
+        "name": "client_order_id",
         "baseName": "client_order_id",
         "type": "string"
     },
     {
-        "name": "createdAt",
+        "name": "created_at",
         "baseName": "created_at",
         "type": "Date"
     },
     {
-        "name": "updatedAt",
+        "name": "updated_at",
         "baseName": "updated_at",
         "type": "Date"
     }

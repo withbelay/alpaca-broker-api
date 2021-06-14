@@ -13,10 +13,10 @@
 import { RequestFile } from './models';
 
 export class InlineResponse2005 {
-    'accountId'?: string;
-    'accountNumber'?: string;
-    'statusFrom'?: string;
-    'statusTo'?: string;
+    'account_id'?: string;
+    'account_number'?: string;
+    'status_from'?: string;
+    'status_to'?: string;
     'reason'?: string;
     'at'?: Date;
 
@@ -24,22 +24,22 @@ export class InlineResponse2005 {
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "accountId",
+            "name": "account_id",
             "baseName": "account_id",
             "type": "string"
         },
         {
-            "name": "accountNumber",
+            "name": "account_number",
             "baseName": "account_number",
             "type": "string"
         },
         {
-            "name": "statusFrom",
+            "name": "status_from",
             "baseName": "status_from",
             "type": "string"
         },
         {
-            "name": "statusTo",
+            "name": "status_to",
             "baseName": "status_to",
             "type": "string"
         },

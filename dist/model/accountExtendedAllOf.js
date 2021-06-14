@@ -46,7 +46,7 @@ AccountExtendedAllOf.attributeTypeMap = [
         "type": "Array<ApplicationDocument>"
     },
     {
-        "name": "trustedContact",
+        "name": "trusted_contact",
         "baseName": "trusted_contact",
         "type": "TrustedContact"
     }

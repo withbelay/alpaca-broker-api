@@ -23,7 +23,7 @@ export declare class AccountExtendedAllOf {
     */
     'agreements'?: Array<object>;
     'documents'?: Array<ApplicationDocument>;
-    'trustedContact'?: TrustedContact;
+    'trusted_contact'?: TrustedContact;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

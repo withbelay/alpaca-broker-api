@@ -13,27 +13,27 @@
 import { RequestFile } from './models';
 
 export class InlineResponse2007 {
-    'clientId'?: string;
+    'client_id'?: string;
     'name'?: string;
     'description'?: string;
     'url'?: string;
     /**
     * URL of Terms of Use
     */
-    'termsOfUse'?: string;
+    'terms_of_use'?: string;
     /**
     * URL of Privacy Policy
     */
-    'privacyPolicy'?: string;
+    'privacy_policy'?: string;
     'status'?: InlineResponse2007.StatusEnum;
-    'redirectUri'?: Array<string>;
-    'liveTradingApproved'?: boolean;
+    'redirect_uri'?: Array<string>;
+    'live_trading_approved'?: boolean;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "clientId",
+            "name": "client_id",
             "baseName": "client_id",
             "type": "string"
         },
@@ -53,12 +53,12 @@ export class InlineResponse2007 {
             "type": "string"
         },
         {
-            "name": "termsOfUse",
+            "name": "terms_of_use",
             "baseName": "terms_of_use",
             "type": "string"
         },
         {
-            "name": "privacyPolicy",
+            "name": "privacy_policy",
             "baseName": "privacy_policy",
             "type": "string"
         },
@@ -68,12 +68,12 @@ export class InlineResponse2007 {
             "type": "InlineResponse2007.StatusEnum"
         },
         {
-            "name": "redirectUri",
+            "name": "redirect_uri",
             "baseName": "redirect_uri",
             "type": "Array<string>"
         },
         {
-            "name": "liveTradingApproved",
+            "name": "live_trading_approved",
             "baseName": "live_trading_approved",
             "type": "boolean"
         }    ];

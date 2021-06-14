@@ -26,7 +26,7 @@ InlineResponse200.attributeTypeMap = [
         "type": "string"
     },
     {
-        "name": "accountNumber",
+        "name": "account_number",
         "baseName": "account_number",
         "type": "string"
     },
@@ -41,17 +41,17 @@ InlineResponse200.attributeTypeMap = [
         "type": "string"
     },
     {
-        "name": "buyingPower",
+        "name": "buying_power",
         "baseName": "buying_power",
         "type": "string"
     },
     {
-        "name": "regtBuyingPower",
+        "name": "regt_buying_power",
         "baseName": "regt_buying_power",
         "type": "string"
     },
     {
-        "name": "daytradingBuyingPower",
+        "name": "daytrading_buying_power",
         "baseName": "daytrading_buying_power",
         "type": "string"
     },
@@ -61,52 +61,52 @@ InlineResponse200.attributeTypeMap = [
         "type": "string"
     },
     {
-        "name": "cashWithdrawable",
+        "name": "cash_withdrawable",
         "baseName": "cash_withdrawable",
         "type": "string"
     },
     {
-        "name": "cashTransferable",
+        "name": "cash_transferable",
         "baseName": "cash_transferable",
         "type": "string"
     },
     {
-        "name": "pendingTransferOut",
+        "name": "pending_transfer_out",
         "baseName": "pending_transfer_out",
         "type": "string"
     },
     {
-        "name": "portfolioValue",
+        "name": "portfolio_value",
         "baseName": "portfolio_value",
         "type": "string"
     },
     {
-        "name": "patternDayTrader",
+        "name": "pattern_day_trader",
         "baseName": "pattern_day_trader",
         "type": "boolean"
     },
     {
-        "name": "tradingBlocked",
+        "name": "trading_blocked",
         "baseName": "trading_blocked",
         "type": "boolean"
     },
     {
-        "name": "transfersBlocked",
+        "name": "transfers_blocked",
         "baseName": "transfers_blocked",
         "type": "boolean"
     },
     {
-        "name": "accountBlocked",
+        "name": "account_blocked",
         "baseName": "account_blocked",
         "type": "boolean"
     },
     {
-        "name": "createdAt",
+        "name": "created_at",
         "baseName": "created_at",
         "type": "string"
     },
     {
-        "name": "tradeSuspendedByUser",
+        "name": "trade_suspended_by_user",
         "baseName": "trade_suspended_by_user",
         "type": "boolean"
     },
@@ -116,7 +116,7 @@ InlineResponse200.attributeTypeMap = [
         "type": "string"
     },
     {
-        "name": "shortingEnabled",
+        "name": "shorting_enabled",
         "baseName": "shorting_enabled",
         "type": "boolean"
     },
@@ -126,32 +126,32 @@ InlineResponse200.attributeTypeMap = [
         "type": "string"
     },
     {
-        "name": "lastEquity",
+        "name": "last_equity",
         "baseName": "last_equity",
         "type": "string"
     },
     {
-        "name": "longMarketValue",
+        "name": "long_market_value",
         "baseName": "long_market_value",
         "type": "string"
     },
     {
-        "name": "shortMarketValue",
+        "name": "short_market_value",
         "baseName": "short_market_value",
         "type": "string"
     },
     {
-        "name": "initialMargin",
+        "name": "initial_margin",
         "baseName": "initial_margin",
         "type": "string"
     },
     {
-        "name": "maintenanceMargin",
+        "name": "maintenance_margin",
         "baseName": "maintenance_margin",
         "type": "string"
     },
     {
-        "name": "lastMaintenanceMargin",
+        "name": "last_maintenance_margin",
         "baseName": "last_maintenance_margin",
         "type": "string"
     },
@@ -161,57 +161,57 @@ InlineResponse200.attributeTypeMap = [
         "type": "string"
     },
     {
-        "name": "daytradeCount",
+        "name": "daytrade_count",
         "baseName": "daytrade_count",
         "type": "number"
     },
     {
-        "name": "previousClose",
+        "name": "previous_close",
         "baseName": "previous_close",
         "type": "string"
     },
     {
-        "name": "lastLongMarketValue",
+        "name": "last_long_market_value",
         "baseName": "last_long_market_value",
         "type": "string"
     },
     {
-        "name": "lastShortMarketValue",
+        "name": "last_short_market_value",
         "baseName": "last_short_market_value",
         "type": "string"
     },
     {
-        "name": "lastCash",
+        "name": "last_cash",
         "baseName": "last_cash",
         "type": "string"
     },
     {
-        "name": "lastInitialMargin",
+        "name": "last_initial_margin",
         "baseName": "last_initial_margin",
         "type": "string"
     },
     {
-        "name": "lastRegtBuyingPower",
+        "name": "last_regt_buying_power",
         "baseName": "last_regt_buying_power",
         "type": "string"
     },
     {
-        "name": "lastDaytradingBuyingPower",
+        "name": "last_daytrading_buying_power",
         "baseName": "last_daytrading_buying_power",
         "type": "string"
     },
     {
-        "name": "lastBuyingPower",
+        "name": "last_buying_power",
         "baseName": "last_buying_power",
         "type": "string"
     },
     {
-        "name": "lastDaytradeCount",
+        "name": "last_daytrade_count",
         "baseName": "last_daytrade_count",
         "type": "number"
     },
     {
-        "name": "clearingBroker",
+        "name": "clearing_broker",
         "baseName": "clearing_broker",
         "type": "string"
     }

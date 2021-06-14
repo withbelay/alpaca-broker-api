@@ -13,15 +13,15 @@ export declare class AccountUpdate {
     /**
     * at least one of `email_address`, `phone_number` or `street_address` is required
     */
-    'emailAddress'?: string;
+    'email_address'?: string;
     /**
     * at least one of `email_address`, `phone_number` or `street_address` is required
     */
-    'phoneNumber'?: string;
+    'phone_number'?: string;
     /**
     * at least one of `email_address`, `phone_number` or `street_address` is required
     */
-    'streetAddress'?: Array<string>;
+    'street_address'?: Array<string>;
     /**
     * required if `street_address` is set
     */
@@ -33,47 +33,47 @@ export declare class AccountUpdate {
     /**
     * required if `street_address` is set
     */
-    'postalCode'?: string;
+    'postal_code'?: string;
     /**
     * [ISO 3166-1 alpha-3](https://www.iso.org/iso-3166-country-codes.html). required if `street_address` is set
     */
     'country'?: string;
-    'givenName': string;
-    'familyName': string;
-    'dateOfBirth': string;
-    'taxId'?: string;
-    'taxIdType'?: AccountUpdate.TaxIdTypeEnum;
+    'given_name': string;
+    'family_name': string;
+    'date_of_birth': string;
+    'tax_id'?: string;
+    'tax_id_type'?: AccountUpdate.TaxIdTypeEnum;
     /**
     * [ISO 3166-1 alpha-3](https://www.iso.org/iso-3166-country-codes.html).
     */
-    'countryOfCitizenship'?: string;
+    'country_of_citizenship'?: string;
     /**
     * [ISO 3166-1 alpha-3](https://www.iso.org/iso-3166-country-codes.html).
     */
-    'countryOfBirth'?: string;
+    'country_of_birth'?: string;
     /**
     * [ISO 3166-1 alpha-3](https://www.iso.org/iso-3166-country-codes.html).
     */
-    'countryOfTaxResidence': string;
-    'fundingSource': Array<AccountUpdate.FundingSourceEnum>;
-    'annualIncomeMin'?: number;
-    'annualIncomeMax'?: number;
-    'liquidNetWorthMin'?: number;
-    'liquidNetWorthMax'?: number;
-    'totalNetWorthMin'?: number;
-    'totalNetWorthMax'?: number;
+    'country_of_tax_residence': string;
+    'funding_source': Array<AccountUpdate.FundingSourceEnum>;
+    'annual_income_min'?: number;
+    'annual_income_max'?: number;
+    'liquid_net_worth_min'?: number;
+    'liquid_net_worth_max'?: number;
+    'total_net_worth_min'?: number;
+    'total_net_worth_max'?: number;
     /**
     * any extra information used for KYC purposes
     */
     'extra'?: object;
-    'employmentStatus'?: AccountUpdate.EmploymentStatusEnum;
-    'employerName'?: string;
-    'employerAddress'?: string;
-    'employmentPosition'?: string;
-    'isControlPerson': boolean;
-    'isAffiliatedExchangeOrFinra': boolean;
-    'isPoliticallyExposed': boolean;
-    'immediateFamilyExposed': boolean;
+    'employment_status'?: AccountUpdate.EmploymentStatusEnum;
+    'employer_name'?: string;
+    'employer_address'?: string;
+    'employment_position'?: string;
+    'is_control_person': boolean;
+    'is_affiliated_exchange_or_finra': boolean;
+    'is_politically_exposed': boolean;
+    'immediate_family_exposed': boolean;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

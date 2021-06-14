@@ -21,22 +21,22 @@ exports.ACHRelationshipData = ACHRelationshipData;
 ACHRelationshipData.discriminator = undefined;
 ACHRelationshipData.attributeTypeMap = [
     {
-        "name": "accountOwnerName",
+        "name": "account_owner_name",
         "baseName": "account_owner_name",
         "type": "string"
     },
     {
-        "name": "bankAccountType",
+        "name": "bank_account_type",
         "baseName": "bank_account_type",
         "type": "ACHRelationshipData.BankAccountTypeEnum"
     },
     {
-        "name": "bankAccountNumber",
+        "name": "bank_account_number",
         "baseName": "bank_account_number",
         "type": "string"
     },
     {
-        "name": "bankRoutingNumber",
+        "name": "bank_routing_number",
         "baseName": "bank_routing_number",
         "type": "string"
     },

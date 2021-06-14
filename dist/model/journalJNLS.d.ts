@@ -17,16 +17,16 @@ export declare class JournalJNLS {
     /**
     * JNLS (constant)
     */
-    'entryType': string;
+    'entry_type': string;
     /**
     * account ID the shares go from
     */
-    'fromAccount': string;
+    'from_account': string;
     /**
     * account ID the shares go to
     */
-    'toAccount': string;
-    'settleDate': string;
+    'to_account': string;
+    'settle_date': string;
     'status'?: JournalJNLS.StatusEnum;
     'symbol': string;
     'qty': string;

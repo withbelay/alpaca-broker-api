@@ -17,36 +17,36 @@ export declare class JournalJNLC {
     /**
     * JNLC (constant)
     */
-    'entryType': string;
+    'entry_type': string;
     /**
     * account ID the amount goes from
     */
-    'fromAccount': string;
-    'toAccount': string;
+    'from_account': string;
+    'to_account': string;
     /**
     * ID the amount goes to
     */
     'description'?: string;
-    'settleDate': string;
+    'settle_date': string;
     'status'?: JournalJNLC.StatusEnum;
-    'netAmount': string;
+    'net_amount': string;
     /**
     * max 255 characters
     */
-    'transmitterName'?: string;
+    'transmitter_name'?: string;
     /**
     * max 255 characters
     */
-    'transmitterAccountNumber'?: string;
+    'transmitter_account_number'?: string;
     /**
     * max 255 characters
     */
-    'transmitterAddress'?: string;
+    'transmitter_address'?: string;
     /**
     * max 255 characters
     */
-    'transmitterFinancialInstitution'?: string;
-    'transmitterTimestamp'?: Date;
+    'transmitter_financial_institution'?: string;
+    'transmitter_timestamp'?: Date;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

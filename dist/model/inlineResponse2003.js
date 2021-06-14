@@ -26,17 +26,17 @@ InlineResponse2003.attributeTypeMap = [
         "type": "string"
     },
     {
-        "name": "isOpen",
+        "name": "is_open",
         "baseName": "is_open",
         "type": "boolean"
     },
     {
-        "name": "nextOpen",
+        "name": "next_open",
         "baseName": "next_open",
         "type": "string"
     },
     {
-        "name": "nextClose",
+        "name": "next_close",
         "baseName": "next_close",
         "type": "string"
     }

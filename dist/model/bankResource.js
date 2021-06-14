@@ -26,12 +26,12 @@ BankResource.attributeTypeMap = [
         "type": "string"
     },
     {
-        "name": "createdAt",
+        "name": "created_at",
         "baseName": "created_at",
         "type": "Date"
     },
     {
-        "name": "updatedAt",
+        "name": "updated_at",
         "baseName": "updated_at",
         "type": "Date"
     },
@@ -41,12 +41,12 @@ BankResource.attributeTypeMap = [
         "type": "string"
     },
     {
-        "name": "bankCode",
+        "name": "bank_code",
         "baseName": "bank_code",
         "type": "string"
     },
     {
-        "name": "bankCodeType",
+        "name": "bank_code_type",
         "baseName": "bank_code_type",
         "type": "BankResource.BankCodeTypeEnum"
     },
@@ -56,12 +56,12 @@ BankResource.attributeTypeMap = [
         "type": "string"
     },
     {
-        "name": "stateProvince",
+        "name": "state_province",
         "baseName": "state_province",
         "type": "string"
     },
     {
-        "name": "postalCode",
+        "name": "postal_code",
         "baseName": "postal_code",
         "type": "string"
     },
@@ -71,17 +71,17 @@ BankResource.attributeTypeMap = [
         "type": "string"
     },
     {
-        "name": "streetAddress",
+        "name": "street_address",
         "baseName": "street_address",
         "type": "string"
     },
     {
-        "name": "accountNumber",
+        "name": "account_number",
         "baseName": "account_number",
         "type": "string"
     },
     {
-        "name": "accountId",
+        "name": "account_id",
         "baseName": "account_id",
         "type": "string"
     },

@@ -11,8 +11,8 @@
  */
 export declare class IdentifiedResource {
     'id': string;
-    'createdAt': Date;
-    'updatedAt': Date;
+    'created_at': Date;
+    'updated_at': Date;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

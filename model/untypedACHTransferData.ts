@@ -17,7 +17,7 @@ import { UntypedTransferData } from './untypedTransferData';
 export class UntypedACHTransferData {
     'amount': string;
     'direction': UntypedACHTransferData.DirectionEnum;
-    'relationshipId': string;
+    'relationship_id': string;
 
     static discriminator: string | undefined = undefined;
 
@@ -33,7 +33,7 @@ export class UntypedACHTransferData {
             "type": "UntypedACHTransferData.DirectionEnum"
         },
         {
-            "name": "relationshipId",
+            "name": "relationship_id",
             "baseName": "relationship_id",
             "type": "string"
         }    ];

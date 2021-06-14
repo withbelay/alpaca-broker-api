@@ -17,14 +17,14 @@ import { IdentifiedResource } from './identifiedResource';
 
 export class ACHRelationshipResource {
     'id': string;
-    'createdAt': Date;
-    'updatedAt': Date;
-    'accountOwnerName': string;
-    'bankAccountType': ACHRelationshipResource.BankAccountTypeEnum;
-    'bankAccountNumber': string;
-    'bankRoutingNumber': string;
+    'created_at': Date;
+    'updated_at': Date;
+    'account_owner_name': string;
+    'bank_account_type': ACHRelationshipResource.BankAccountTypeEnum;
+    'bank_account_number': string;
+    'bank_routing_number': string;
     'nickname'?: string;
-    'accountId': string;
+    'account_id': string;
     'status': ACHRelationshipResource.StatusEnum;
 
     static discriminator: string | undefined = undefined;
@@ -36,32 +36,32 @@ export class ACHRelationshipResource {
             "type": "string"
         },
         {
-            "name": "createdAt",
+            "name": "created_at",
             "baseName": "created_at",
             "type": "Date"
         },
         {
-            "name": "updatedAt",
+            "name": "updated_at",
             "baseName": "updated_at",
             "type": "Date"
         },
         {
-            "name": "accountOwnerName",
+            "name": "account_owner_name",
             "baseName": "account_owner_name",
             "type": "string"
         },
         {
-            "name": "bankAccountType",
+            "name": "bank_account_type",
             "baseName": "bank_account_type",
             "type": "ACHRelationshipResource.BankAccountTypeEnum"
         },
         {
-            "name": "bankAccountNumber",
+            "name": "bank_account_number",
             "baseName": "bank_account_number",
             "type": "string"
         },
         {
-            "name": "bankRoutingNumber",
+            "name": "bank_routing_number",
             "baseName": "bank_routing_number",
             "type": "string"
         },
@@ -71,7 +71,7 @@ export class ACHRelationshipResource {
             "type": "string"
         },
         {
-            "name": "accountId",
+            "name": "account_id",
             "baseName": "account_id",
             "type": "string"
         },

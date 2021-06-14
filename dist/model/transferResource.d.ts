@@ -11,18 +11,18 @@
  */
 export declare class TransferResource {
     'id': string;
-    'createdAt': Date;
-    'updatedAt': Date;
+    'created_at': Date;
+    'updated_at': Date;
     'type': TransferResource.TypeEnum;
     'status': TransferResource.StatusEnum;
-    'accountId': string;
+    'account_id': string;
     'reason'?: string | null;
-    'expiresAt': Date;
+    'expires_at': Date;
     'amount': string;
     'direction': TransferResource.DirectionEnum;
-    'relationshipId': string;
-    'additionalInformation'?: string;
-    'bankId': string;
+    'relationship_id': string;
+    'additional_information'?: string;
+    'bank_id': string;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;
