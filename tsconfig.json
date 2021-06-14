@@ -1,0 +1,10 @@
+{
+    "files": ["api.ts"],
+    "compilerOptions": {
+        "outDir": "dist",
+        "target": "es6",
+        "module": "commonjs",
+        "esModuleInterop": true,
+        "declaration": true
+    }
+}
