@@ -19,6 +19,7 @@
     "email": "project@hostname.com"
   },
   "homepage": "https://github.com/investingwolf/alpaca-broker-api#readme",
+  "keywords": ["alpaca", "broker"],
   "devDependencies": {
     "@openapitools/openapi-generator-cli": "^2.3.3",
     "@types/node": "^15.12.2",
