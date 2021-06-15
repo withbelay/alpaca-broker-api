@@ -1,5 +1,5 @@
 {
-    "files": ["api.ts"],
+    "files": ["index.ts"],
     "compilerOptions": {
         "outDir": "dist",
         "target": "es6",

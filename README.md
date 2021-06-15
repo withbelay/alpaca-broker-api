@@ -12,4 +12,14 @@ npm install @investingwolf/alpaca-broker-api
 
 ## Usage
 
+```js
+const {AlpacaApi, AlpacaEnvironments} = require('@investingwolf/alpaca-broker-api');
+
+const alpaca = new AlpacaApi({
+    apiKey: 'your-api-key',
+    apiSecret: 'your-api-secret',
+    basePath: AlpacaEnvironments.sandbox, // or production
+});
+```
+
 Coming soon
