@@ -163,9 +163,15 @@ class TradingApi {
      * Retrieves a list of orders for the account, filtered by the supplied query parameters.
      * @summary Retrieves a list of orders for the account, filtered by the supplied query parameters.
      * @param accountId Account identifier.
-     * @param inlineObject
+     * @param status Status of the orders to list.
+     * @param limit The maximum number of orders in response.
+     * @param after The response will include only ones submitted after this timestamp (exclusive.)
+     * @param until The response will include only ones submitted until this timestamp (exclusive.)
+     * @param direction The chronological order of response based on the submission time. asc or desc. Defaults to desc.
+     * @param nested If true, the result will roll up multi-leg orders under the legs field of primary order.
+     * @param symbols A comma-separated list of symbols to filter by.
      */
-    tradingAccountsAccountIdOrdersGet(accountId, inlineObject, options = { headers: {} }) {
+    tradingAccountsAccountIdOrdersGet(accountId, status, limit, after, until, direction, nested, symbols, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/trading/accounts/{account_id}/orders'
                 .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)));
@@ -184,6 +190,27 @@ class TradingApi {
             if (accountId === null || accountId === undefined) {
                 throw new Error('Required parameter accountId was null or undefined when calling tradingAccountsAccountIdOrdersGet.');
             }
+            if (status !== undefined) {
+                localVarQueryParameters['status'] = models_1.ObjectSerializer.serialize(status, "'open' | 'closed' | 'all'");
+            }
+            if (limit !== undefined) {
+                localVarQueryParameters['limit'] = models_1.ObjectSerializer.serialize(limit, "number");
+            }
+            if (after !== undefined) {
+                localVarQueryParameters['after'] = models_1.ObjectSerializer.serialize(after, "Date");
+            }
+            if (until !== undefined) {
+                localVarQueryParameters['until'] = models_1.ObjectSerializer.serialize(until, "Date");
+            }
+            if (direction !== undefined) {
+                localVarQueryParameters['direction'] = models_1.ObjectSerializer.serialize(direction, "'asc' | 'desc'");
+            }
+            if (nested !== undefined) {
+                localVarQueryParameters['nested'] = models_1.ObjectSerializer.serialize(nested, "boolean");
+            }
+            if (symbols !== undefined) {
+                localVarQueryParameters['symbols'] = models_1.ObjectSerializer.serialize(symbols, "string");
+            }
             Object.assign(localVarHeaderParams, options.headers);
             let localVarUseFormData = false;
             let localVarRequestOptions = {
@@ -193,7 +220,6 @@ class TradingApi {
                 uri: localVarPath,
                 useQuerystring: this._useQuerystring,
                 json: true,
-                body: models_1.ObjectSerializer.serialize(inlineObject, "InlineObject")
             };
             let authenticationPromise = Promise.resolve();
             if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {

@@ -254,16 +254,8 @@ See [Alpaca trading documentation](https://alpaca.markets/docs/broker/api-refere
 // tradingAccountsAccountIdOrdersDelete(String, Options?)
 alpaca.trading.tradingAccountsAccountIdOrdersDelete(accountId);
 
-// tradingAccountsAccountIdOrdersGet(String, Params?, Options?)
-alpaca.trading.tradingAccountsAccountIdOrdersGet(accountId, {
-    status,
-    limit,
-    after,
-    until,
-    direction,
-    nested,
-    symbols,
-});
+// tradingAccountsAccountIdOrdersGet(String, String?, Number?, Date?, Date?, String?, Boolean?, String?, Options?)
+alpaca.trading.tradingAccountsAccountIdOrdersGet(accountId, status, limit, after, until, direction, nested, symbols);
 
 // tradingAccountsAccountIdOrdersOrderIdDelete(String, String, Options?)
 alpaca.trading.tradingAccountsAccountIdOrdersOrderIdDelete(accountId, orderId);

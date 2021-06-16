@@ -25,7 +25,6 @@ export * from './identity';
 export * from './inlineObject';
 export * from './inlineObject1';
 export * from './inlineObject2';
-export * from './inlineObject3';
 export * from './inlineResponse200';
 export * from './inlineResponse2001';
 export * from './inlineResponse20010';
@@ -93,7 +92,6 @@ import { Identity } from './identity';
 import { InlineObject } from './inlineObject';
 import { InlineObject1 } from './inlineObject1';
 import { InlineObject2 } from './inlineObject2';
-import { InlineObject3 } from './inlineObject3';
 import { InlineResponse200 } from './inlineResponse200';
 import { InlineResponse2001 } from './inlineResponse2001';
 import { InlineResponse20010 } from './inlineResponse20010';
@@ -156,9 +154,7 @@ let enumsMap: {[index: string]: any} = {
         "DocumentType": DocumentType,
         "Identity.TaxIdTypeEnum": Identity.TaxIdTypeEnum,
         "Identity.FundingSourceEnum": Identity.FundingSourceEnum,
-        "InlineObject.StatusEnum": InlineObject.StatusEnum,
-        "InlineObject.DirectionEnum": InlineObject.DirectionEnum,
-        "InlineObject1.EntryTypeEnum": InlineObject1.EntryTypeEnum,
+        "InlineObject.EntryTypeEnum": InlineObject.EntryTypeEnum,
         "InlineResponse20010.ActivityTypeEnum": InlineResponse20010.ActivityTypeEnum,
         "InlineResponse20010.StatusEnum": InlineResponse20010.StatusEnum,
         "InlineResponse2007.StatusEnum": InlineResponse2007.StatusEnum,
@@ -210,7 +206,6 @@ let typeMap: {[index: string]: any} = {
     "InlineObject": InlineObject,
     "InlineObject1": InlineObject1,
     "InlineObject2": InlineObject2,
-    "InlineObject3": InlineObject3,
     "InlineResponse200": InlineResponse200,
     "InlineResponse2001": InlineResponse2001,
     "InlineResponse20010": InlineResponse20010,

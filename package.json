@@ -6,6 +6,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "npx openapi-generator-cli generate && npx tsc",
+    "clean": "rm -rf dist api model",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Jacob Parish",
@@ -15,8 +16,7 @@
     "url": "https://github.com/investingwolf/alpaca-broker-api.git"
   },
   "bugs": {
-    "url": "https://github.com/investingwolf/alpaca-broker-api/issues",
-    "email": "project@hostname.com"
+    "url": "https://github.com/investingwolf/alpaca-broker-api/issues"
   },
   "homepage": "https://github.com/investingwolf/alpaca-broker-api#readme",
   "keywords": [

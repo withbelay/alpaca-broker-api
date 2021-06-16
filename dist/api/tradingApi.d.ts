@@ -12,7 +12,6 @@
 /// <reference types="node" />
 import http from 'http';
 import { CreateOrder } from '../model/createOrder';
-import { InlineObject } from '../model/inlineObject';
 import { InlineResponse207 } from '../model/inlineResponse207';
 import { OrderObject } from '../model/orderObject';
 import { PatchOrder } from '../model/patchOrder';
@@ -58,9 +57,15 @@ export declare class TradingApi {
      * Retrieves a list of orders for the account, filtered by the supplied query parameters.
      * @summary Retrieves a list of orders for the account, filtered by the supplied query parameters.
      * @param accountId Account identifier.
-     * @param inlineObject
+     * @param status Status of the orders to list.
+     * @param limit The maximum number of orders in response.
+     * @param after The response will include only ones submitted after this timestamp (exclusive.)
+     * @param until The response will include only ones submitted until this timestamp (exclusive.)
+     * @param direction The chronological order of response based on the submission time. asc or desc. Defaults to desc.
+     * @param nested If true, the result will roll up multi-leg orders under the legs field of primary order.
+     * @param symbols A comma-separated list of symbols to filter by.
      */
-    tradingAccountsAccountIdOrdersGet(accountId: string, inlineObject?: InlineObject, options?: {
+    tradingAccountsAccountIdOrdersGet(accountId: string, status?: 'open' | 'closed' | 'all', limit?: number, after?: Date, until?: Date, direction?: 'asc' | 'desc', nested?: boolean, symbols?: string, options?: {
         headers: {
             [name: string]: string;
         };

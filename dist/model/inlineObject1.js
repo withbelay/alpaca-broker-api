@@ -21,40 +21,28 @@ exports.InlineObject1 = InlineObject1;
 InlineObject1.discriminator = undefined;
 InlineObject1.attributeTypeMap = [
     {
-        "name": "entry_type",
-        "baseName": "entry_type",
-        "type": "InlineObject1.EntryTypeEnum"
-    },
-    {
-        "name": "from_account",
-        "baseName": "from_account",
+        "name": "client_id",
+        "baseName": "client_id",
         "type": "string"
     },
     {
-        "name": "to_account",
-        "baseName": "to_account",
+        "name": "client_secret",
+        "baseName": "client_secret",
         "type": "string"
     },
     {
-        "name": "amount",
-        "baseName": "amount",
+        "name": "redirect_uri",
+        "baseName": "redirect_uri",
         "type": "string"
     },
     {
-        "name": "symbol",
-        "baseName": "symbol",
+        "name": "scope",
+        "baseName": "scope",
         "type": "string"
     },
     {
-        "name": "qty",
-        "baseName": "qty",
+        "name": "account_id",
+        "baseName": "account_id",
         "type": "string"
     }
 ];
-(function (InlineObject1) {
-    let EntryTypeEnum;
-    (function (EntryTypeEnum) {
-        EntryTypeEnum[EntryTypeEnum["Jnlc"] = 'JNLC'] = "Jnlc";
-        EntryTypeEnum[EntryTypeEnum["Jnls"] = 'JNLS'] = "Jnls";
-    })(EntryTypeEnum = InlineObject1.EntryTypeEnum || (InlineObject1.EntryTypeEnum = {}));
-})(InlineObject1 = exports.InlineObject1 || (exports.InlineObject1 = {}));

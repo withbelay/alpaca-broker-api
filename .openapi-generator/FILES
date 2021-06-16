@@ -35,7 +35,6 @@ model/identity.ts
 model/inlineObject.ts
 model/inlineObject1.ts
 model/inlineObject2.ts
-model/inlineObject3.ts
 model/inlineResponse200.ts
 model/inlineResponse2001.ts
 model/inlineResponse20010.ts

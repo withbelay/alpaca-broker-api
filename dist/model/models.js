@@ -36,7 +36,6 @@ __exportStar(require("./identity"), exports);
 __exportStar(require("./inlineObject"), exports);
 __exportStar(require("./inlineObject1"), exports);
 __exportStar(require("./inlineObject2"), exports);
-__exportStar(require("./inlineObject3"), exports);
 __exportStar(require("./inlineResponse200"), exports);
 __exportStar(require("./inlineResponse2001"), exports);
 __exportStar(require("./inlineResponse20010"), exports);
@@ -90,7 +89,6 @@ const identity_1 = require("./identity");
 const inlineObject_1 = require("./inlineObject");
 const inlineObject1_1 = require("./inlineObject1");
 const inlineObject2_1 = require("./inlineObject2");
-const inlineObject3_1 = require("./inlineObject3");
 const inlineResponse200_1 = require("./inlineResponse200");
 const inlineResponse2001_1 = require("./inlineResponse2001");
 const inlineResponse20010_1 = require("./inlineResponse20010");
@@ -151,9 +149,7 @@ let enumsMap = {
     "DocumentType": documentType_1.DocumentType,
     "Identity.TaxIdTypeEnum": identity_1.Identity.TaxIdTypeEnum,
     "Identity.FundingSourceEnum": identity_1.Identity.FundingSourceEnum,
-    "InlineObject.StatusEnum": inlineObject_1.InlineObject.StatusEnum,
-    "InlineObject.DirectionEnum": inlineObject_1.InlineObject.DirectionEnum,
-    "InlineObject1.EntryTypeEnum": inlineObject1_1.InlineObject1.EntryTypeEnum,
+    "InlineObject.EntryTypeEnum": inlineObject_1.InlineObject.EntryTypeEnum,
     "InlineResponse20010.ActivityTypeEnum": inlineResponse20010_1.InlineResponse20010.ActivityTypeEnum,
     "InlineResponse20010.StatusEnum": inlineResponse20010_1.InlineResponse20010.StatusEnum,
     "InlineResponse2007.StatusEnum": inlineResponse2007_1.InlineResponse2007.StatusEnum,
@@ -204,7 +200,6 @@ let typeMap = {
     "InlineObject": inlineObject_1.InlineObject,
     "InlineObject1": inlineObject1_1.InlineObject1,
     "InlineObject2": inlineObject2_1.InlineObject2,
-    "InlineObject3": inlineObject3_1.InlineObject3,
     "InlineResponse200": inlineResponse200_1.InlineResponse200,
     "InlineResponse2001": inlineResponse2001_1.InlineResponse2001,
     "InlineResponse20010": inlineResponse20010_1.InlineResponse20010,

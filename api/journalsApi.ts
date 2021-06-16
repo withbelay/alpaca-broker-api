@@ -15,7 +15,7 @@ import localVarRequest from 'request';
 import http from 'http';
 
 /* tslint:disable:no-unused-locals */
-import { InlineObject1 } from '../model/inlineObject1';
+import { InlineObject } from '../model/inlineObject';
 import { InlineResponse2006 } from '../model/inlineResponse2006';
 import { JournalJNLC } from '../model/journalJNLC';
 import { JournalJNLS } from '../model/journalJNLS';
@@ -364,9 +364,9 @@ export class JournalsApi {
     /**
      * A journal can be JNLC (move cash) or JNLS (move shares), dictated by `entry_type`. Generally, journal requests are subject to approval and starts from the `pending` status. The status changes are propagated through the Event API. Under certain conditions agreed for the partner, such journal transactions that meet the criteria are executed right away. 
      * @summary Request a journal.
-     * @param inlineObject1 
+     * @param inlineObject 
      */
-    public async journalsPost (inlineObject1: InlineObject1, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: JournalJNLC | JournalJNLS;  }> {
+    public async journalsPost (inlineObject: InlineObject, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: JournalJNLC | JournalJNLS;  }> {
         const localVarPath = this.basePath + '/journals';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -379,9 +379,9 @@ export class JournalsApi {
         }
         let localVarFormParams: any = {};
 
-        // verify required parameter 'inlineObject1' is not null or undefined
-        if (inlineObject1 === null || inlineObject1 === undefined) {
-            throw new Error('Required parameter inlineObject1 was null or undefined when calling journalsPost.');
+        // verify required parameter 'inlineObject' is not null or undefined
+        if (inlineObject === null || inlineObject === undefined) {
+            throw new Error('Required parameter inlineObject was null or undefined when calling journalsPost.');
         }
 
         (<any>Object).assign(localVarHeaderParams, options.headers);
@@ -395,7 +395,7 @@ export class JournalsApi {
             uri: localVarPath,
             useQuerystring: this._useQuerystring,
             json: true,
-            body: ObjectSerializer.serialize(inlineObject1, "InlineObject1")
+            body: ObjectSerializer.serialize(inlineObject, "InlineObject")
         };
 
         let authenticationPromise = Promise.resolve();

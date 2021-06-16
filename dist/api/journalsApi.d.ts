@@ -11,7 +11,7 @@
  */
 /// <reference types="node" />
 import http from 'http';
-import { InlineObject1 } from '../model/inlineObject1';
+import { InlineObject } from '../model/inlineObject';
 import { InlineResponse2006 } from '../model/inlineResponse2006';
 import { JournalJNLC } from '../model/journalJNLC';
 import { JournalJNLS } from '../model/journalJNLS';
@@ -90,9 +90,9 @@ export declare class JournalsApi {
     /**
      * A journal can be JNLC (move cash) or JNLS (move shares), dictated by `entry_type`. Generally, journal requests are subject to approval and starts from the `pending` status. The status changes are propagated through the Event API. Under certain conditions agreed for the partner, such journal transactions that meet the criteria are executed right away.
      * @summary Request a journal.
-     * @param inlineObject1
+     * @param inlineObject
      */
-    journalsPost(inlineObject1: InlineObject1, options?: {
+    journalsPost(inlineObject: InlineObject, options?: {
         headers: {
             [name: string]: string;
         };

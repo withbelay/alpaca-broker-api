@@ -21,51 +21,40 @@ exports.InlineObject = InlineObject;
 InlineObject.discriminator = undefined;
 InlineObject.attributeTypeMap = [
     {
-        "name": "status",
-        "baseName": "status",
-        "type": "InlineObject.StatusEnum"
+        "name": "entry_type",
+        "baseName": "entry_type",
+        "type": "InlineObject.EntryTypeEnum"
     },
     {
-        "name": "limit",
-        "baseName": "limit",
-        "type": "number"
+        "name": "from_account",
+        "baseName": "from_account",
+        "type": "string"
     },
     {
-        "name": "after",
-        "baseName": "after",
-        "type": "Date"
+        "name": "to_account",
+        "baseName": "to_account",
+        "type": "string"
     },
     {
-        "name": "until",
-        "baseName": "until",
-        "type": "Date"
+        "name": "amount",
+        "baseName": "amount",
+        "type": "string"
     },
     {
-        "name": "direction",
-        "baseName": "direction",
-        "type": "InlineObject.DirectionEnum"
+        "name": "symbol",
+        "baseName": "symbol",
+        "type": "string"
     },
     {
-        "name": "nested",
-        "baseName": "nested",
-        "type": "boolean"
-    },
-    {
-        "name": "symbols",
-        "baseName": "symbols",
+        "name": "qty",
+        "baseName": "qty",
         "type": "string"
     }
 ];
 (function (InlineObject) {
-    let StatusEnum;
-    (function (StatusEnum) {
-        StatusEnum[StatusEnum["Open"] = 'open'] = "Open";
-        StatusEnum[StatusEnum["Closed"] = 'closed'] = "Closed";
-        StatusEnum[StatusEnum["All"] = 'all'] = "All";
-    })(StatusEnum = InlineObject.StatusEnum || (InlineObject.StatusEnum = {}));
-    let DirectionEnum;
-    (function (DirectionEnum) {
-        DirectionEnum[DirectionEnum["Asc"] = 'asc'] = "Asc";
-        DirectionEnum[DirectionEnum["Desc"] = 'desc'] = "Desc";
-    })(DirectionEnum = InlineObject.DirectionEnum || (InlineObject.DirectionEnum = {}));
+    let EntryTypeEnum;
+    (function (EntryTypeEnum) {
+        EntryTypeEnum[EntryTypeEnum["Jnlc"] = 'JNLC'] = "Jnlc";
+        EntryTypeEnum[EntryTypeEnum["Jnls"] = 'JNLS'] = "Jnls";
+    })(EntryTypeEnum = InlineObject.EntryTypeEnum || (InlineObject.EntryTypeEnum = {}));
 })(InlineObject = exports.InlineObject || (exports.InlineObject = {}));

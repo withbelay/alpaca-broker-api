@@ -335,9 +335,9 @@ class JournalsApi {
     /**
      * A journal can be JNLC (move cash) or JNLS (move shares), dictated by `entry_type`. Generally, journal requests are subject to approval and starts from the `pending` status. The status changes are propagated through the Event API. Under certain conditions agreed for the partner, such journal transactions that meet the criteria are executed right away.
      * @summary Request a journal.
-     * @param inlineObject1
+     * @param inlineObject
      */
-    journalsPost(inlineObject1, options = { headers: {} }) {
+    journalsPost(inlineObject, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/journals';
             let localVarQueryParameters = {};
@@ -351,9 +351,9 @@ class JournalsApi {
                 localVarHeaderParams.Accept = produces.join(',');
             }
             let localVarFormParams = {};
-            // verify required parameter 'inlineObject1' is not null or undefined
-            if (inlineObject1 === null || inlineObject1 === undefined) {
-                throw new Error('Required parameter inlineObject1 was null or undefined when calling journalsPost.');
+            // verify required parameter 'inlineObject' is not null or undefined
+            if (inlineObject === null || inlineObject === undefined) {
+                throw new Error('Required parameter inlineObject was null or undefined when calling journalsPost.');
             }
             Object.assign(localVarHeaderParams, options.headers);
             let localVarUseFormData = false;
@@ -364,7 +364,7 @@ class JournalsApi {
                 uri: localVarPath,
                 useQuerystring: this._useQuerystring,
                 json: true,
-                body: models_1.ObjectSerializer.serialize(inlineObject1, "InlineObject1")
+                body: models_1.ObjectSerializer.serialize(inlineObject, "InlineObject")
             };
             let authenticationPromise = Promise.resolve();
             if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {

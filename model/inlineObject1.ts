@@ -13,53 +13,53 @@
 import { RequestFile } from './models';
 
 export class InlineObject1 {
-    'entry_type': InlineObject1.EntryTypeEnum;
-    'from_account': string;
-    'to_account': string;
     /**
-    * Required for JNLC. The dollar amount to move. It has to be a positive value. 
+    * OAuth client ID
     */
-    'amount'?: string;
+    'client_id'?: string;
     /**
-    * Required for JNLS. 
+    * OAuth client secret
     */
-    'symbol'?: string;
+    'client_secret'?: string;
     /**
-    * Required for JNLS. The number of shares to move. It has to be a positive value. 
+    * redirect URI for the OAuth flow
     */
-    'qty'?: string;
+    'redirect_uri'?: string;
+    /**
+    * scopes requested by the OAuth flow
+    */
+    'scope'?: string;
+    /**
+    * end-user account ID
+    */
+    'account_id'?: string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "entry_type",
-            "baseName": "entry_type",
-            "type": "InlineObject1.EntryTypeEnum"
-        },
-        {
-            "name": "from_account",
-            "baseName": "from_account",
+            "name": "client_id",
+            "baseName": "client_id",
             "type": "string"
         },
         {
-            "name": "to_account",
-            "baseName": "to_account",
+            "name": "client_secret",
+            "baseName": "client_secret",
             "type": "string"
         },
         {
-            "name": "amount",
-            "baseName": "amount",
+            "name": "redirect_uri",
+            "baseName": "redirect_uri",
             "type": "string"
         },
         {
-            "name": "symbol",
-            "baseName": "symbol",
+            "name": "scope",
+            "baseName": "scope",
             "type": "string"
         },
         {
-            "name": "qty",
-            "baseName": "qty",
+            "name": "account_id",
+            "baseName": "account_id",
             "type": "string"
         }    ];
 
@@ -68,9 +68,3 @@ export class InlineObject1 {
     }
 }
 
-export namespace InlineObject1 {
-    export enum EntryTypeEnum {
-        Jnlc = <any> 'JNLC',
-        Jnls = <any> 'JNLS'
-    }
-}

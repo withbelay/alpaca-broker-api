@@ -10,21 +10,26 @@
  * Do not edit the class manually.
  */
 export declare class InlineObject1 {
-    'entry_type': InlineObject1.EntryTypeEnum;
-    'from_account': string;
-    'to_account': string;
     /**
-    * Required for JNLC. The dollar amount to move. It has to be a positive value.
+    * OAuth client ID
     */
-    'amount'?: string;
+    'client_id'?: string;
     /**
-    * Required for JNLS.
+    * OAuth client secret
     */
-    'symbol'?: string;
+    'client_secret'?: string;
     /**
-    * Required for JNLS. The number of shares to move. It has to be a positive value.
+    * redirect URI for the OAuth flow
     */
-    'qty'?: string;
+    'redirect_uri'?: string;
+    /**
+    * scopes requested by the OAuth flow
+    */
+    'scope'?: string;
+    /**
+    * end-user account ID
+    */
+    'account_id'?: string;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;
@@ -36,10 +41,4 @@ export declare class InlineObject1 {
         baseName: string;
         type: string;
     }[];
-}
-export declare namespace InlineObject1 {
-    enum EntryTypeEnum {
-        Jnlc,
-        Jnls
-    }
 }

@@ -16,7 +16,6 @@ import http from 'http';
 
 /* tslint:disable:no-unused-locals */
 import { CreateOrder } from '../model/createOrder';
-import { InlineObject } from '../model/inlineObject';
 import { InlineResponse207 } from '../model/inlineResponse207';
 import { OrderObject } from '../model/orderObject';
 import { PatchOrder } from '../model/patchOrder';
@@ -179,9 +178,15 @@ export class TradingApi {
      * Retrieves a list of orders for the account, filtered by the supplied query parameters.
      * @summary Retrieves a list of orders for the account, filtered by the supplied query parameters.
      * @param accountId Account identifier.
-     * @param inlineObject 
+     * @param status Status of the orders to list.
+     * @param limit The maximum number of orders in response.
+     * @param after The response will include only ones submitted after this timestamp (exclusive.)
+     * @param until The response will include only ones submitted until this timestamp (exclusive.)
+     * @param direction The chronological order of response based on the submission time. asc or desc. Defaults to desc.
+     * @param nested If true, the result will roll up multi-leg orders under the legs field of primary order.
+     * @param symbols A comma-separated list of symbols to filter by.
      */
-    public async tradingAccountsAccountIdOrdersGet (accountId: string, inlineObject?: InlineObject, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: Array<OrderObject>;  }> {
+    public async tradingAccountsAccountIdOrdersGet (accountId: string, status?: 'open' | 'closed' | 'all', limit?: number, after?: Date, until?: Date, direction?: 'asc' | 'desc', nested?: boolean, symbols?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: Array<OrderObject>;  }> {
         const localVarPath = this.basePath + '/trading/accounts/{account_id}/orders'
             .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)));
         let localVarQueryParameters: any = {};
@@ -200,6 +205,34 @@ export class TradingApi {
             throw new Error('Required parameter accountId was null or undefined when calling tradingAccountsAccountIdOrdersGet.');
         }
 
+        if (status !== undefined) {
+            localVarQueryParameters['status'] = ObjectSerializer.serialize(status, "'open' | 'closed' | 'all'");
+        }
+
+        if (limit !== undefined) {
+            localVarQueryParameters['limit'] = ObjectSerializer.serialize(limit, "number");
+        }
+
+        if (after !== undefined) {
+            localVarQueryParameters['after'] = ObjectSerializer.serialize(after, "Date");
+        }
+
+        if (until !== undefined) {
+            localVarQueryParameters['until'] = ObjectSerializer.serialize(until, "Date");
+        }
+
+        if (direction !== undefined) {
+            localVarQueryParameters['direction'] = ObjectSerializer.serialize(direction, "'asc' | 'desc'");
+        }
+
+        if (nested !== undefined) {
+            localVarQueryParameters['nested'] = ObjectSerializer.serialize(nested, "boolean");
+        }
+
+        if (symbols !== undefined) {
+            localVarQueryParameters['symbols'] = ObjectSerializer.serialize(symbols, "string");
+        }
+
         (<any>Object).assign(localVarHeaderParams, options.headers);
 
         let localVarUseFormData = false;
@@ -211,7 +244,6 @@ export class TradingApi {
             uri: localVarPath,
             useQuerystring: this._useQuerystring,
             json: true,
-            body: ObjectSerializer.serialize(inlineObject, "InlineObject")
         };
 
         let authenticationPromise = Promise.resolve();
