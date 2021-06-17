@@ -21,198 +21,23 @@ exports.AccountUpdate = AccountUpdate;
 AccountUpdate.discriminator = undefined;
 AccountUpdate.attributeTypeMap = [
     {
-        "name": "email_address",
-        "baseName": "email_address",
-        "type": "string"
+        "name": "contact",
+        "baseName": "contact",
+        "type": "Contact"
     },
     {
-        "name": "phone_number",
-        "baseName": "phone_number",
-        "type": "string"
+        "name": "identity",
+        "baseName": "identity",
+        "type": "Identity"
     },
     {
-        "name": "street_address",
-        "baseName": "street_address",
-        "type": "Array<string>"
+        "name": "disclosures",
+        "baseName": "disclosures",
+        "type": "Disclosures"
     },
     {
-        "name": "city",
-        "baseName": "city",
-        "type": "string"
-    },
-    {
-        "name": "state",
-        "baseName": "state",
-        "type": "string"
-    },
-    {
-        "name": "postal_code",
-        "baseName": "postal_code",
-        "type": "string"
-    },
-    {
-        "name": "country",
-        "baseName": "country",
-        "type": "string"
-    },
-    {
-        "name": "given_name",
-        "baseName": "given_name",
-        "type": "string"
-    },
-    {
-        "name": "family_name",
-        "baseName": "family_name",
-        "type": "string"
-    },
-    {
-        "name": "date_of_birth",
-        "baseName": "date_of_birth",
-        "type": "string"
-    },
-    {
-        "name": "tax_id",
-        "baseName": "tax_id",
-        "type": "string"
-    },
-    {
-        "name": "tax_id_type",
-        "baseName": "tax_id_type",
-        "type": "AccountUpdate.TaxIdTypeEnum"
-    },
-    {
-        "name": "country_of_citizenship",
-        "baseName": "country_of_citizenship",
-        "type": "string"
-    },
-    {
-        "name": "country_of_birth",
-        "baseName": "country_of_birth",
-        "type": "string"
-    },
-    {
-        "name": "country_of_tax_residence",
-        "baseName": "country_of_tax_residence",
-        "type": "string"
-    },
-    {
-        "name": "funding_source",
-        "baseName": "funding_source",
-        "type": "Array<AccountUpdate.FundingSourceEnum>"
-    },
-    {
-        "name": "annual_income_min",
-        "baseName": "annual_income_min",
-        "type": "number"
-    },
-    {
-        "name": "annual_income_max",
-        "baseName": "annual_income_max",
-        "type": "number"
-    },
-    {
-        "name": "liquid_net_worth_min",
-        "baseName": "liquid_net_worth_min",
-        "type": "number"
-    },
-    {
-        "name": "liquid_net_worth_max",
-        "baseName": "liquid_net_worth_max",
-        "type": "number"
-    },
-    {
-        "name": "total_net_worth_min",
-        "baseName": "total_net_worth_min",
-        "type": "number"
-    },
-    {
-        "name": "total_net_worth_max",
-        "baseName": "total_net_worth_max",
-        "type": "number"
-    },
-    {
-        "name": "extra",
-        "baseName": "extra",
-        "type": "object"
-    },
-    {
-        "name": "employment_status",
-        "baseName": "employment_status",
-        "type": "AccountUpdate.EmploymentStatusEnum"
-    },
-    {
-        "name": "employer_name",
-        "baseName": "employer_name",
-        "type": "string"
-    },
-    {
-        "name": "employer_address",
-        "baseName": "employer_address",
-        "type": "string"
-    },
-    {
-        "name": "employment_position",
-        "baseName": "employment_position",
-        "type": "string"
-    },
-    {
-        "name": "is_control_person",
-        "baseName": "is_control_person",
-        "type": "boolean"
-    },
-    {
-        "name": "is_affiliated_exchange_or_finra",
-        "baseName": "is_affiliated_exchange_or_finra",
-        "type": "boolean"
-    },
-    {
-        "name": "is_politically_exposed",
-        "baseName": "is_politically_exposed",
-        "type": "boolean"
-    },
-    {
-        "name": "immediate_family_exposed",
-        "baseName": "immediate_family_exposed",
-        "type": "boolean"
+        "name": "trustedContact",
+        "baseName": "trustedContact",
+        "type": "TrustedContact"
     }
 ];
-(function (AccountUpdate) {
-    let TaxIdTypeEnum;
-    (function (TaxIdTypeEnum) {
-        TaxIdTypeEnum[TaxIdTypeEnum["UsaSsn"] = 'USA_SSN'] = "UsaSsn";
-        TaxIdTypeEnum[TaxIdTypeEnum["AusTfn"] = 'AUS_TFN'] = "AusTfn";
-        TaxIdTypeEnum[TaxIdTypeEnum["AusAbn"] = 'AUS_ABN'] = "AusAbn";
-        TaxIdTypeEnum[TaxIdTypeEnum["DeuTaxId"] = 'DEU_TAX_ID'] = "DeuTaxId";
-        TaxIdTypeEnum[TaxIdTypeEnum["FraSpi"] = 'FRA_SPI'] = "FraSpi";
-        TaxIdTypeEnum[TaxIdTypeEnum["GbrUtr"] = 'GBR_UTR'] = "GbrUtr";
-        TaxIdTypeEnum[TaxIdTypeEnum["GbrNino"] = 'GBR_NINO'] = "GbrNino";
-        TaxIdTypeEnum[TaxIdTypeEnum["HunTin"] = 'HUN_TIN'] = "HunTin";
-        TaxIdTypeEnum[TaxIdTypeEnum["IndPan"] = 'IND_PAN'] = "IndPan";
-        TaxIdTypeEnum[TaxIdTypeEnum["IsrTaxId"] = 'ISR_TAX_ID'] = "IsrTaxId";
-        TaxIdTypeEnum[TaxIdTypeEnum["ItaTaxId"] = 'ITA_TAX_ID'] = "ItaTaxId";
-        TaxIdTypeEnum[TaxIdTypeEnum["JpnTaxId"] = 'JPN_TAX_ID'] = "JpnTaxId";
-        TaxIdTypeEnum[TaxIdTypeEnum["NldTin"] = 'NLD_TIN'] = "NldTin";
-        TaxIdTypeEnum[TaxIdTypeEnum["SgpNric"] = 'SGP_NRIC'] = "SgpNric";
-        TaxIdTypeEnum[TaxIdTypeEnum["SgpFin"] = 'SGP_FIN'] = "SgpFin";
-        TaxIdTypeEnum[TaxIdTypeEnum["SgpAsgd"] = 'SGP_ASGD'] = "SgpAsgd";
-        TaxIdTypeEnum[TaxIdTypeEnum["SgpItr"] = 'SGP_ITR'] = "SgpItr";
-        TaxIdTypeEnum[TaxIdTypeEnum["SweTaxId"] = 'SWE_TAX_ID'] = "SweTaxId";
-        TaxIdTypeEnum[TaxIdTypeEnum["NotSpecified"] = 'NOT_SPECIFIED'] = "NotSpecified";
-    })(TaxIdTypeEnum = AccountUpdate.TaxIdTypeEnum || (AccountUpdate.TaxIdTypeEnum = {}));
-    let FundingSourceEnum;
-    (function (FundingSourceEnum) {
-        FundingSourceEnum[FundingSourceEnum["EmploymentIncome"] = 'employment_income'] = "EmploymentIncome";
-        FundingSourceEnum[FundingSourceEnum["Investments"] = 'investments'] = "Investments";
-        FundingSourceEnum[FundingSourceEnum["Inheritance"] = 'inheritance'] = "Inheritance";
-        FundingSourceEnum[FundingSourceEnum["BusinessIncome"] = 'business_income'] = "BusinessIncome";
-        FundingSourceEnum[FundingSourceEnum["Savings"] = 'savings'] = "Savings";
-        FundingSourceEnum[FundingSourceEnum["Family"] = 'family'] = "Family";
-    })(FundingSourceEnum = AccountUpdate.FundingSourceEnum || (AccountUpdate.FundingSourceEnum = {}));
-    let EmploymentStatusEnum;
-    (function (EmploymentStatusEnum) {
-        EmploymentStatusEnum[EmploymentStatusEnum["Unemployed"] = 'unemployed'] = "Unemployed";
-        EmploymentStatusEnum[EmploymentStatusEnum["Employed"] = 'employed'] = "Employed";
-        EmploymentStatusEnum[EmploymentStatusEnum["Student"] = 'student'] = "Student";
-        EmploymentStatusEnum[EmploymentStatusEnum["Retired"] = 'retired'] = "Retired";
-    })(EmploymentStatusEnum = AccountUpdate.EmploymentStatusEnum || (AccountUpdate.EmploymentStatusEnum = {}));
-})(AccountUpdate = exports.AccountUpdate || (exports.AccountUpdate = {}));

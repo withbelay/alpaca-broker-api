@@ -9,71 +9,15 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { Contact } from './contact';
+import { Disclosures } from './disclosures';
+import { Identity } from './identity';
+import { TrustedContact } from './trustedContact';
 export declare class AccountUpdate {
-    /**
-    * at least one of `email_address`, `phone_number` or `street_address` is required
-    */
-    'email_address'?: string;
-    /**
-    * at least one of `email_address`, `phone_number` or `street_address` is required
-    */
-    'phone_number'?: string;
-    /**
-    * at least one of `email_address`, `phone_number` or `street_address` is required
-    */
-    'street_address'?: Array<string>;
-    /**
-    * required if `street_address` is set
-    */
-    'city'?: string;
-    /**
-    * required if `street_address` is set
-    */
-    'state'?: string;
-    /**
-    * required if `street_address` is set
-    */
-    'postal_code'?: string;
-    /**
-    * [ISO 3166-1 alpha-3](https://www.iso.org/iso-3166-country-codes.html). required if `street_address` is set
-    */
-    'country'?: string;
-    'given_name': string;
-    'family_name': string;
-    'date_of_birth': string;
-    'tax_id'?: string;
-    'tax_id_type'?: AccountUpdate.TaxIdTypeEnum;
-    /**
-    * [ISO 3166-1 alpha-3](https://www.iso.org/iso-3166-country-codes.html).
-    */
-    'country_of_citizenship'?: string;
-    /**
-    * [ISO 3166-1 alpha-3](https://www.iso.org/iso-3166-country-codes.html).
-    */
-    'country_of_birth'?: string;
-    /**
-    * [ISO 3166-1 alpha-3](https://www.iso.org/iso-3166-country-codes.html).
-    */
-    'country_of_tax_residence': string;
-    'funding_source': Array<AccountUpdate.FundingSourceEnum>;
-    'annual_income_min'?: number;
-    'annual_income_max'?: number;
-    'liquid_net_worth_min'?: number;
-    'liquid_net_worth_max'?: number;
-    'total_net_worth_min'?: number;
-    'total_net_worth_max'?: number;
-    /**
-    * any extra information used for KYC purposes
-    */
-    'extra'?: object;
-    'employment_status'?: AccountUpdate.EmploymentStatusEnum;
-    'employer_name'?: string;
-    'employer_address'?: string;
-    'employment_position'?: string;
-    'is_control_person': boolean;
-    'is_affiliated_exchange_or_finra': boolean;
-    'is_politically_exposed': boolean;
-    'immediate_family_exposed': boolean;
+    'contact'?: Contact;
+    'identity'?: Identity;
+    'disclosures'?: Disclosures;
+    'trustedContact'?: TrustedContact;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;
@@ -85,41 +29,4 @@ export declare class AccountUpdate {
         baseName: string;
         type: string;
     }[];
-}
-export declare namespace AccountUpdate {
-    enum TaxIdTypeEnum {
-        UsaSsn,
-        AusTfn,
-        AusAbn,
-        DeuTaxId,
-        FraSpi,
-        GbrUtr,
-        GbrNino,
-        HunTin,
-        IndPan,
-        IsrTaxId,
-        ItaTaxId,
-        JpnTaxId,
-        NldTin,
-        SgpNric,
-        SgpFin,
-        SgpAsgd,
-        SgpItr,
-        SweTaxId,
-        NotSpecified
-    }
-    enum FundingSourceEnum {
-        EmploymentIncome,
-        Investments,
-        Inheritance,
-        BusinessIncome,
-        Savings,
-        Family
-    }
-    enum EmploymentStatusEnum {
-        Unemployed,
-        Employed,
-        Student,
-        Retired
-    }
 }

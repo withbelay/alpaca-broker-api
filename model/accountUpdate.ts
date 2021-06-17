@@ -17,228 +17,33 @@ import { Identity } from './identity';
 import { TrustedContact } from './trustedContact';
 
 export class AccountUpdate {
-    /**
-    * at least one of `email_address`, `phone_number` or `street_address` is required 
-    */
-    'email_address'?: string;
-    /**
-    * at least one of `email_address`, `phone_number` or `street_address` is required 
-    */
-    'phone_number'?: string;
-    /**
-    * at least one of `email_address`, `phone_number` or `street_address` is required 
-    */
-    'street_address'?: Array<string>;
-    /**
-    * required if `street_address` is set 
-    */
-    'city'?: string;
-    /**
-    * required if `street_address` is set 
-    */
-    'state'?: string;
-    /**
-    * required if `street_address` is set 
-    */
-    'postal_code'?: string;
-    /**
-    * [ISO 3166-1 alpha-3](https://www.iso.org/iso-3166-country-codes.html). required if `street_address` is set 
-    */
-    'country'?: string;
-    'given_name': string;
-    'family_name': string;
-    'date_of_birth': string;
-    'tax_id'?: string;
-    'tax_id_type'?: AccountUpdate.TaxIdTypeEnum;
-    /**
-    * [ISO 3166-1 alpha-3](https://www.iso.org/iso-3166-country-codes.html). 
-    */
-    'country_of_citizenship'?: string;
-    /**
-    * [ISO 3166-1 alpha-3](https://www.iso.org/iso-3166-country-codes.html). 
-    */
-    'country_of_birth'?: string;
-    /**
-    * [ISO 3166-1 alpha-3](https://www.iso.org/iso-3166-country-codes.html). 
-    */
-    'country_of_tax_residence': string;
-    'funding_source': Array<AccountUpdate.FundingSourceEnum>;
-    'annual_income_min'?: number;
-    'annual_income_max'?: number;
-    'liquid_net_worth_min'?: number;
-    'liquid_net_worth_max'?: number;
-    'total_net_worth_min'?: number;
-    'total_net_worth_max'?: number;
-    /**
-    * any extra information used for KYC purposes 
-    */
-    'extra'?: object;
-    'employment_status'?: AccountUpdate.EmploymentStatusEnum;
-    'employer_name'?: string;
-    'employer_address'?: string;
-    'employment_position'?: string;
-    'is_control_person': boolean;
-    'is_affiliated_exchange_or_finra': boolean;
-    'is_politically_exposed': boolean;
-    'immediate_family_exposed': boolean;
+    'contact'?: Contact;
+    'identity'?: Identity;
+    'disclosures'?: Disclosures;
+    'trustedContact'?: TrustedContact;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "email_address",
-            "baseName": "email_address",
-            "type": "string"
+            "name": "contact",
+            "baseName": "contact",
+            "type": "Contact"
         },
         {
-            "name": "phone_number",
-            "baseName": "phone_number",
-            "type": "string"
+            "name": "identity",
+            "baseName": "identity",
+            "type": "Identity"
         },
         {
-            "name": "street_address",
-            "baseName": "street_address",
-            "type": "Array<string>"
+            "name": "disclosures",
+            "baseName": "disclosures",
+            "type": "Disclosures"
         },
         {
-            "name": "city",
-            "baseName": "city",
-            "type": "string"
-        },
-        {
-            "name": "state",
-            "baseName": "state",
-            "type": "string"
-        },
-        {
-            "name": "postal_code",
-            "baseName": "postal_code",
-            "type": "string"
-        },
-        {
-            "name": "country",
-            "baseName": "country",
-            "type": "string"
-        },
-        {
-            "name": "given_name",
-            "baseName": "given_name",
-            "type": "string"
-        },
-        {
-            "name": "family_name",
-            "baseName": "family_name",
-            "type": "string"
-        },
-        {
-            "name": "date_of_birth",
-            "baseName": "date_of_birth",
-            "type": "string"
-        },
-        {
-            "name": "tax_id",
-            "baseName": "tax_id",
-            "type": "string"
-        },
-        {
-            "name": "tax_id_type",
-            "baseName": "tax_id_type",
-            "type": "AccountUpdate.TaxIdTypeEnum"
-        },
-        {
-            "name": "country_of_citizenship",
-            "baseName": "country_of_citizenship",
-            "type": "string"
-        },
-        {
-            "name": "country_of_birth",
-            "baseName": "country_of_birth",
-            "type": "string"
-        },
-        {
-            "name": "country_of_tax_residence",
-            "baseName": "country_of_tax_residence",
-            "type": "string"
-        },
-        {
-            "name": "funding_source",
-            "baseName": "funding_source",
-            "type": "Array<AccountUpdate.FundingSourceEnum>"
-        },
-        {
-            "name": "annual_income_min",
-            "baseName": "annual_income_min",
-            "type": "number"
-        },
-        {
-            "name": "annual_income_max",
-            "baseName": "annual_income_max",
-            "type": "number"
-        },
-        {
-            "name": "liquid_net_worth_min",
-            "baseName": "liquid_net_worth_min",
-            "type": "number"
-        },
-        {
-            "name": "liquid_net_worth_max",
-            "baseName": "liquid_net_worth_max",
-            "type": "number"
-        },
-        {
-            "name": "total_net_worth_min",
-            "baseName": "total_net_worth_min",
-            "type": "number"
-        },
-        {
-            "name": "total_net_worth_max",
-            "baseName": "total_net_worth_max",
-            "type": "number"
-        },
-        {
-            "name": "extra",
-            "baseName": "extra",
-            "type": "object"
-        },
-        {
-            "name": "employment_status",
-            "baseName": "employment_status",
-            "type": "AccountUpdate.EmploymentStatusEnum"
-        },
-        {
-            "name": "employer_name",
-            "baseName": "employer_name",
-            "type": "string"
-        },
-        {
-            "name": "employer_address",
-            "baseName": "employer_address",
-            "type": "string"
-        },
-        {
-            "name": "employment_position",
-            "baseName": "employment_position",
-            "type": "string"
-        },
-        {
-            "name": "is_control_person",
-            "baseName": "is_control_person",
-            "type": "boolean"
-        },
-        {
-            "name": "is_affiliated_exchange_or_finra",
-            "baseName": "is_affiliated_exchange_or_finra",
-            "type": "boolean"
-        },
-        {
-            "name": "is_politically_exposed",
-            "baseName": "is_politically_exposed",
-            "type": "boolean"
-        },
-        {
-            "name": "immediate_family_exposed",
-            "baseName": "immediate_family_exposed",
-            "type": "boolean"
+            "name": "trustedContact",
+            "baseName": "trustedContact",
+            "type": "TrustedContact"
         }    ];
 
     static getAttributeTypeMap() {
@@ -246,40 +51,3 @@ export class AccountUpdate {
     }
 }
 
-export namespace AccountUpdate {
-    export enum TaxIdTypeEnum {
-        UsaSsn = <any> 'USA_SSN',
-        AusTfn = <any> 'AUS_TFN',
-        AusAbn = <any> 'AUS_ABN',
-        DeuTaxId = <any> 'DEU_TAX_ID',
-        FraSpi = <any> 'FRA_SPI',
-        GbrUtr = <any> 'GBR_UTR',
-        GbrNino = <any> 'GBR_NINO',
-        HunTin = <any> 'HUN_TIN',
-        IndPan = <any> 'IND_PAN',
-        IsrTaxId = <any> 'ISR_TAX_ID',
-        ItaTaxId = <any> 'ITA_TAX_ID',
-        JpnTaxId = <any> 'JPN_TAX_ID',
-        NldTin = <any> 'NLD_TIN',
-        SgpNric = <any> 'SGP_NRIC',
-        SgpFin = <any> 'SGP_FIN',
-        SgpAsgd = <any> 'SGP_ASGD',
-        SgpItr = <any> 'SGP_ITR',
-        SweTaxId = <any> 'SWE_TAX_ID',
-        NotSpecified = <any> 'NOT_SPECIFIED'
-    }
-    export enum FundingSourceEnum {
-        EmploymentIncome = <any> 'employment_income',
-        Investments = <any> 'investments',
-        Inheritance = <any> 'inheritance',
-        BusinessIncome = <any> 'business_income',
-        Savings = <any> 'savings',
-        Family = <any> 'family'
-    }
-    export enum EmploymentStatusEnum {
-        Unemployed = <any> 'unemployed',
-        Employed = <any> 'employed',
-        Student = <any> 'student',
-        Retired = <any> 'retired'
-    }
-}

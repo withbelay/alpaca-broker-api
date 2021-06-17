@@ -49,16 +49,6 @@ PatchOrder.attributeTypeMap = [
         "name": "client_order_id",
         "baseName": "client_order_id",
         "type": "string"
-    },
-    {
-        "name": "created_at",
-        "baseName": "created_at",
-        "type": "Date"
-    },
-    {
-        "name": "updated_at",
-        "baseName": "updated_at",
-        "type": "Date"
     }
 ];
 (function (PatchOrder) {
