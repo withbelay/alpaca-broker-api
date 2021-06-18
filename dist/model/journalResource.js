@@ -11,15 +11,15 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.JournalJNLC = void 0;
-class JournalJNLC {
+exports.JournalResource = void 0;
+class JournalResource {
     static getAttributeTypeMap() {
-        return JournalJNLC.attributeTypeMap;
+        return JournalResource.attributeTypeMap;
     }
 }
-exports.JournalJNLC = JournalJNLC;
-JournalJNLC.discriminator = undefined;
-JournalJNLC.attributeTypeMap = [
+exports.JournalResource = JournalResource;
+JournalResource.discriminator = "entry_type";
+JournalResource.attributeTypeMap = [
     {
         "name": "id",
         "baseName": "id",
@@ -53,7 +53,7 @@ JournalJNLC.attributeTypeMap = [
     {
         "name": "status",
         "baseName": "status",
-        "type": "JournalJNLC.StatusEnum"
+        "type": "JournalResource.StatusEnum"
     },
     {
         "name": "net_amount",
@@ -84,9 +84,24 @@ JournalJNLC.attributeTypeMap = [
         "name": "transmitter_timestamp",
         "baseName": "transmitter_timestamp",
         "type": "Date"
+    },
+    {
+        "name": "symbol",
+        "baseName": "symbol",
+        "type": "string"
+    },
+    {
+        "name": "qty",
+        "baseName": "qty",
+        "type": "string"
+    },
+    {
+        "name": "price",
+        "baseName": "price",
+        "type": "string"
     }
 ];
-(function (JournalJNLC) {
+(function (JournalResource) {
     let StatusEnum;
     (function (StatusEnum) {
         StatusEnum[StatusEnum["Pending"] = 'pending'] = "Pending";
@@ -94,5 +109,5 @@ JournalJNLC.attributeTypeMap = [
         StatusEnum[StatusEnum["Executed"] = 'executed'] = "Executed";
         StatusEnum[StatusEnum["Queued"] = 'queued'] = "Queued";
         StatusEnum[StatusEnum["Rejected"] = 'rejected'] = "Rejected";
-    })(StatusEnum = JournalJNLC.StatusEnum || (JournalJNLC.StatusEnum = {}));
-})(JournalJNLC = exports.JournalJNLC || (exports.JournalJNLC = {}));
+    })(StatusEnum = JournalResource.StatusEnum || (JournalResource.StatusEnum = {}));
+})(JournalResource = exports.JournalResource || (exports.JournalResource = {}));

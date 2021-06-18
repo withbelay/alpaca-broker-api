@@ -9,22 +9,22 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { Agreement } from './agreement';
-import { Contact } from './contact';
-import { Disclosures } from './disclosures';
-import { DocumentUpload } from './documentUpload';
-import { Identity } from './identity';
-import { TrustedContact } from './trustedContact';
-export declare class AccountCreationObject {
-    'contact'?: Contact;
-    'identity'?: Identity;
-    'disclosures'?: Disclosures;
+export declare class JournalData {
+    'entry_type': JournalData.EntryTypeEnum;
+    'from_account': string;
+    'to_account': string;
     /**
-    * The client has to present Alpaca Account Agreement and Margin Agreement to the end user, and have them read full sentences.
+    * Required for JNLC. The dollar amount to move. It has to be a positive value.
     */
-    'agreements'?: Array<Agreement>;
-    'documents'?: Array<DocumentUpload>;
-    'trusted_contact'?: TrustedContact;
+    'amount'?: string;
+    /**
+    * Required for JNLS.
+    */
+    'symbol'?: string;
+    /**
+    * Required for JNLS. The number of shares to move. It has to be a positive value.
+    */
+    'qty'?: string;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;
@@ -36,4 +36,10 @@ export declare class AccountCreationObject {
         baseName: string;
         type: string;
     }[];
+}
+export declare namespace JournalData {
+    enum EntryTypeEnum {
+        Jnlc,
+        Jnls
+    }
 }

@@ -9,22 +9,13 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { Agreement } from './agreement';
-import { Contact } from './contact';
-import { Disclosures } from './disclosures';
-import { DocumentUpload } from './documentUpload';
-import { Identity } from './identity';
-import { TrustedContact } from './trustedContact';
-export declare class AccountCreationObject {
-    'contact'?: Contact;
-    'identity'?: Identity;
-    'disclosures'?: Disclosures;
+export declare class Agreement {
     /**
-    * The client has to present Alpaca Account Agreement and Margin Agreement to the end user, and have them read full sentences.
+    * - margin_agreement: Alpaca Margin Agreement - account_agreement: Alpaca Account Agreement - customer_agreement: Alpaca Customer Agreement
     */
-    'agreements'?: Array<Agreement>;
-    'documents'?: Array<DocumentUpload>;
-    'trusted_contact'?: TrustedContact;
+    'agreement': Agreement.AgreementEnum;
+    'signed_at': string;
+    'ip_address': string;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;
@@ -36,4 +27,11 @@ export declare class AccountCreationObject {
         baseName: string;
         type: string;
     }[];
+}
+export declare namespace Agreement {
+    enum AgreementEnum {
+        MarginAgreement,
+        AccountAgreement,
+        CustomerAgreement
+    }
 }

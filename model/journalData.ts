@@ -12,41 +12,30 @@
 
 import { RequestFile } from './models';
 
-export class JournalJNLS {
-    /**
-    * journal ID
-    */
-    'id': string;
-    /**
-    * JNLS (constant)
-    */
-    'entry_type': string;
-    /**
-    * account ID the shares go from
-    */
+export class JournalData {
+    'entry_type': JournalData.EntryTypeEnum;
     'from_account': string;
-    /**
-    * account ID the shares go to
-    */
     'to_account': string;
-    'settle_date': string | null;
-    'status'?: JournalJNLS.StatusEnum;
-    'symbol': string;
-    'qty': string;
-    'price': string;
+    /**
+    * Required for JNLC. The dollar amount to move. It has to be a positive value. 
+    */
+    'amount'?: string;
+    /**
+    * Required for JNLS. 
+    */
+    'symbol'?: string;
+    /**
+    * Required for JNLS. The number of shares to move. It has to be a positive value. 
+    */
+    'qty'?: string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "id",
-            "baseName": "id",
-            "type": "string"
-        },
-        {
             "name": "entry_type",
             "baseName": "entry_type",
-            "type": "string"
+            "type": "JournalData.EntryTypeEnum"
         },
         {
             "name": "from_account",
@@ -59,14 +48,9 @@ export class JournalJNLS {
             "type": "string"
         },
         {
-            "name": "settle_date",
-            "baseName": "settle_date",
+            "name": "amount",
+            "baseName": "amount",
             "type": "string"
-        },
-        {
-            "name": "status",
-            "baseName": "status",
-            "type": "JournalJNLS.StatusEnum"
         },
         {
             "name": "symbol",
@@ -77,24 +61,16 @@ export class JournalJNLS {
             "name": "qty",
             "baseName": "qty",
             "type": "string"
-        },
-        {
-            "name": "price",
-            "baseName": "price",
-            "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
-        return JournalJNLS.attributeTypeMap;
+        return JournalData.attributeTypeMap;
     }
 }
 
-export namespace JournalJNLS {
-    export enum StatusEnum {
-        Pending = <any> 'pending',
-        Canceled = <any> 'canceled',
-        Executed = <any> 'executed',
-        Queued = <any> 'queued',
-        Rejected = <any> 'rejected'
+export namespace JournalData {
+    export enum EntryTypeEnum {
+        Jnlc = <any> 'JNLC',
+        Jnls = <any> 'JNLS'
     }
 }

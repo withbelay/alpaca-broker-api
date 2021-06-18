@@ -9,26 +9,29 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-export declare class JournalJNLC {
+export declare class JournalResource {
     /**
     * journal ID
     */
     'id': string;
     /**
-    * JNLC (constant)
+    * JNLS (constant)
     */
     'entry_type': string;
     /**
-    * account ID the amount goes from
+    * account ID the shares go from
     */
     'from_account': string;
+    /**
+    * account ID the shares go to
+    */
     'to_account': string;
     /**
     * ID the amount goes to
     */
     'description'?: string;
     'settle_date': string | null;
-    'status'?: JournalJNLC.StatusEnum;
+    'status'?: JournalResource.StatusEnum;
     'net_amount': string;
     /**
     * max 255 characters
@@ -47,6 +50,9 @@ export declare class JournalJNLC {
     */
     'transmitter_financial_institution'?: string;
     'transmitter_timestamp'?: Date;
+    'symbol': string;
+    'qty': string;
+    'price': string;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;
@@ -59,7 +65,7 @@ export declare class JournalJNLC {
         type: string;
     }[];
 }
-export declare namespace JournalJNLC {
+export declare namespace JournalResource {
     enum StatusEnum {
         Pending,
         Canceled,

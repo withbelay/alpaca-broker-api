@@ -25,7 +25,6 @@ export class Contact {
     'city'?: string;
     'state'?: string;
     'postal_code'?: string;
-    'country'?: string;
 
     static discriminator: string | undefined = undefined;
 
@@ -58,11 +57,6 @@ export class Contact {
         {
             "name": "postal_code",
             "baseName": "postal_code",
-            "type": "string"
-        },
-        {
-            "name": "country",
-            "baseName": "country",
             "type": "string"
         }    ];
 

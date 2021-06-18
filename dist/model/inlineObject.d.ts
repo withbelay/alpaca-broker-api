@@ -10,21 +10,13 @@
  * Do not edit the class manually.
  */
 export declare class InlineObject {
-    'entry_type': InlineObject.EntryTypeEnum;
-    'from_account': string;
-    'to_account': string;
-    /**
-    * Required for JNLC. The dollar amount to move. It has to be a positive value.
-    */
-    'amount'?: string;
-    /**
-    * Required for JNLS.
-    */
-    'symbol'?: string;
-    /**
-    * Required for JNLS. The number of shares to move. It has to be a positive value.
-    */
-    'qty'?: string;
+    'status'?: InlineObject.StatusEnum;
+    'limit'?: number;
+    'after'?: Date;
+    'until'?: Date;
+    'direction'?: InlineObject.DirectionEnum;
+    'nested'?: boolean;
+    'symbols'?: string;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;
@@ -38,8 +30,13 @@ export declare class InlineObject {
     }[];
 }
 export declare namespace InlineObject {
-    enum EntryTypeEnum {
-        Jnlc,
-        Jnls
+    enum StatusEnum {
+        Open,
+        Closed,
+        All
+    }
+    enum DirectionEnum {
+        Asc,
+        Desc
     }
 }

@@ -30,7 +30,7 @@ export class JournalJNLC {
     * ID the amount goes to
     */
     'description'?: string;
-    'settle_date': string;
+    'settle_date': string | null;
     'status'?: JournalJNLC.StatusEnum;
     'net_amount': string;
     /**
@@ -129,6 +129,8 @@ export namespace JournalJNLC {
     export enum StatusEnum {
         Pending = <any> 'pending',
         Canceled = <any> 'canceled',
-        Executed = <any> 'executed'
+        Executed = <any> 'executed',
+        Queued = <any> 'queued',
+        Rejected = <any> 'rejected'
     }
 }

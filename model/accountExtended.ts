@@ -14,6 +14,7 @@ import { RequestFile } from './models';
 import { Account } from './account';
 import { AccountExtendedAllOf } from './accountExtendedAllOf';
 import { AccountStatus } from './accountStatus';
+import { Agreement } from './agreement';
 import { ApplicationDocument } from './applicationDocument';
 import { Contact } from './contact';
 import { Disclosures } from './disclosures';
@@ -38,7 +39,7 @@ export class AccountExtended {
     /**
     * The client has to present Alpaca Account Agreement and Margin Agreement to the end user, and have them read full sentences. 
     */
-    'agreements'?: Array<object>;
+    'agreements'?: Array<Agreement>;
     'documents'?: Array<ApplicationDocument>;
     'trusted_contact'?: TrustedContact;
 
@@ -98,7 +99,7 @@ export class AccountExtended {
         {
             "name": "agreements",
             "baseName": "agreements",
-            "type": "Array<object>"
+            "type": "Array<Agreement>"
         },
         {
             "name": "documents",

@@ -174,12 +174,12 @@ class JournalsApi {
      * @summary Return a list of requested journals.
      * @param after by settle_date
      * @param before by settle_date
-     * @param entryType
      * @param status
+     * @param entryType
      * @param toAccount
      * @param fromAccount
      */
-    journalsGet(after, before, entryType, status, toAccount, fromAccount, options = { headers: {} }) {
+    getJournals(after, before, status, entryType, toAccount, fromAccount, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/journals';
             let localVarQueryParameters = {};
@@ -193,18 +193,6 @@ class JournalsApi {
                 localVarHeaderParams.Accept = produces.join(',');
             }
             let localVarFormParams = {};
-            // verify required parameter 'after' is not null or undefined
-            if (after === null || after === undefined) {
-                throw new Error('Required parameter after was null or undefined when calling journalsGet.');
-            }
-            // verify required parameter 'before' is not null or undefined
-            if (before === null || before === undefined) {
-                throw new Error('Required parameter before was null or undefined when calling journalsGet.');
-            }
-            // verify required parameter 'entryType' is not null or undefined
-            if (entryType === null || entryType === undefined) {
-                throw new Error('Required parameter entryType was null or undefined when calling journalsGet.');
-            }
             if (after !== undefined) {
                 localVarQueryParameters['after'] = models_1.ObjectSerializer.serialize(after, "string");
             }
@@ -257,7 +245,7 @@ class JournalsApi {
                             reject(error);
                         }
                         else {
-                            body = models_1.ObjectSerializer.deserialize(body, "JournalJNLC | JournalJNLS");
+                            body = models_1.ObjectSerializer.deserialize(body, "Array<JournalResource>");
                             if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                                 resolve({ response: response, body: body });
                             }
@@ -335,9 +323,9 @@ class JournalsApi {
     /**
      * A journal can be JNLC (move cash) or JNLS (move shares), dictated by `entry_type`. Generally, journal requests are subject to approval and starts from the `pending` status. The status changes are propagated through the Event API. Under certain conditions agreed for the partner, such journal transactions that meet the criteria are executed right away.
      * @summary Request a journal.
-     * @param inlineObject
+     * @param journalData
      */
-    journalsPost(inlineObject, options = { headers: {} }) {
+    postJournals(journalData, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/journals';
             let localVarQueryParameters = {};
@@ -351,9 +339,9 @@ class JournalsApi {
                 localVarHeaderParams.Accept = produces.join(',');
             }
             let localVarFormParams = {};
-            // verify required parameter 'inlineObject' is not null or undefined
-            if (inlineObject === null || inlineObject === undefined) {
-                throw new Error('Required parameter inlineObject was null or undefined when calling journalsPost.');
+            // verify required parameter 'journalData' is not null or undefined
+            if (journalData === null || journalData === undefined) {
+                throw new Error('Required parameter journalData was null or undefined when calling postJournals.');
             }
             Object.assign(localVarHeaderParams, options.headers);
             let localVarUseFormData = false;
@@ -364,7 +352,7 @@ class JournalsApi {
                 uri: localVarPath,
                 useQuerystring: this._useQuerystring,
                 json: true,
-                body: models_1.ObjectSerializer.serialize(inlineObject, "InlineObject")
+                body: models_1.ObjectSerializer.serialize(journalData, "JournalData")
             };
             let authenticationPromise = Promise.resolve();
             if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {
@@ -390,7 +378,7 @@ class JournalsApi {
                             reject(error);
                         }
                         else {
-                            body = models_1.ObjectSerializer.deserialize(body, "JournalJNLC | JournalJNLS");
+                            body = models_1.ObjectSerializer.deserialize(body, "JournalResource");
                             if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                                 resolve({ response: response, body: body });
                             }

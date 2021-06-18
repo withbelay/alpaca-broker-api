@@ -26,7 +26,7 @@ export declare class JournalJNLS {
     * account ID the shares go to
     */
     'to_account': string;
-    'settle_date': string;
+    'settle_date': string | null;
     'status'?: JournalJNLS.StatusEnum;
     'symbol': string;
     'qty': string;
@@ -47,6 +47,8 @@ export declare namespace JournalJNLS {
     enum StatusEnum {
         Pending,
         Canceled,
-        Executed
+        Executed,
+        Queued,
+        Rejected
     }
 }

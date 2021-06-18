@@ -11,6 +11,7 @@
  */
 
 import { RequestFile } from './models';
+import { Agreement } from './agreement';
 import { Contact } from './contact';
 import { Disclosures } from './disclosures';
 import { DocumentUpload } from './documentUpload';
@@ -24,7 +25,7 @@ export class AccountCreationObject {
     /**
     * The client has to present Alpaca Account Agreement and Margin Agreement to the end user, and have them read full sentences. 
     */
-    'agreements'?: Array<object>;
+    'agreements'?: Array<Agreement>;
     'documents'?: Array<DocumentUpload>;
     'trusted_contact'?: TrustedContact;
 
@@ -49,7 +50,7 @@ export class AccountCreationObject {
         {
             "name": "agreements",
             "baseName": "agreements",
-            "type": "Array<object>"
+            "type": "Array<Agreement>"
         },
         {
             "name": "documents",

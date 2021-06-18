@@ -22,7 +22,6 @@ export declare class Contact {
     'city'?: string;
     'state'?: string;
     'postal_code'?: string;
-    'country'?: string;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

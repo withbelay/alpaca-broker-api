@@ -52,10 +52,5 @@ Contact.attributeTypeMap = [
         "name": "postal_code",
         "baseName": "postal_code",
         "type": "string"
-    },
-    {
-        "name": "country",
-        "baseName": "country",
-        "type": "string"
     }
 ];

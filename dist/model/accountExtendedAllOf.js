@@ -38,7 +38,7 @@ AccountExtendedAllOf.attributeTypeMap = [
     {
         "name": "agreements",
         "baseName": "agreements",
-        "type": "Array<object>"
+        "type": "Array<Agreement>"
     },
     {
         "name": "documents",

@@ -19,6 +19,7 @@ model/accountExtended.ts
 model/accountExtendedAllOf.ts
 model/accountStatus.ts
 model/accountUpdate.ts
+model/agreement.ts
 model/applicationDocument.ts
 model/bankData.ts
 model/bankResource.ts
@@ -47,8 +48,10 @@ model/inlineResponse2007.ts
 model/inlineResponse2008.ts
 model/inlineResponse2009.ts
 model/inlineResponse207.ts
+model/journalData.ts
 model/journalJNLC.ts
 model/journalJNLS.ts
+model/journalResource.ts
 model/kycResult.ts
 model/modelError.ts
 model/models.ts

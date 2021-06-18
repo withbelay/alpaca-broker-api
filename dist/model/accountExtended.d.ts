@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import { AccountStatus } from './accountStatus';
+import { Agreement } from './agreement';
 import { ApplicationDocument } from './applicationDocument';
 import { Contact } from './contact';
 import { Disclosures } from './disclosures';
@@ -33,7 +34,7 @@ export declare class AccountExtended {
     /**
     * The client has to present Alpaca Account Agreement and Margin Agreement to the end user, and have them read full sentences.
     */
-    'agreements'?: Array<object>;
+    'agreements'?: Array<Agreement>;
     'documents'?: Array<ApplicationDocument>;
     'trusted_contact'?: TrustedContact;
     static discriminator: string | undefined;

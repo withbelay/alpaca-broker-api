@@ -16,6 +16,7 @@ import http from 'http';
 
 /* tslint:disable:no-unused-locals */
 import { CreateOrder } from '../model/createOrder';
+import { InlineObject } from '../model/inlineObject';
 import { InlineResponse207 } from '../model/inlineResponse207';
 import { OrderObject } from '../model/orderObject';
 import { PatchOrder } from '../model/patchOrder';
@@ -103,11 +104,89 @@ export class TradingApi {
     }
 
     /**
+     * Attempts to cancel an open order.
+     * @summary Attempts to cancel an open order.
+     * @param accountId Account identifier.
+     * @param orderId Order identifier.
+     */
+    public async deleteOrder (accountId: string, orderId: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+        const localVarPath = this.basePath + '/trading/accounts/{account_id}/orders/{order_id}'
+            .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)))
+            .replace('{' + 'order_id' + '}', encodeURIComponent(String(orderId)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        const produces = ['application/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams.Accept = 'application/json';
+        } else {
+            localVarHeaderParams.Accept = produces.join(',');
+        }
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'accountId' is not null or undefined
+        if (accountId === null || accountId === undefined) {
+            throw new Error('Required parameter accountId was null or undefined when calling deleteOrder.');
+        }
+
+        // verify required parameter 'orderId' is not null or undefined
+        if (orderId === null || orderId === undefined) {
+            throw new Error('Required parameter orderId was null or undefined when calling deleteOrder.');
+        }
+
+        (<any>Object).assign(localVarHeaderParams, options.headers);
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'DELETE',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        let authenticationPromise = Promise.resolve();
+        if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.BasicAuth.applyToRequest(localVarRequestOptions));
+        }
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+
+        let interceptorPromise = authenticationPromise;
+        for (const interceptor of this.interceptors) {
+            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+        }
+
+        return interceptorPromise.then(() => {
+            if (Object.keys(localVarFormParams).length) {
+                if (localVarUseFormData) {
+                    (<any>localVarRequestOptions).formData = localVarFormParams;
+                } else {
+                    localVarRequestOptions.form = localVarFormParams;
+                }
+            }
+            return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve({ response: response, body: body });
+                        } else {
+                            reject(new HttpError(response, body, response.statusCode));
+                        }
+                    }
+                });
+            });
+        });
+    }
+    /**
      * Attempts to cancel all open orders. A response will be provided for each order that is attempted to be cancelled.
      * @summary Attempts to cancel all open orders. A response will be provided for each order that is attempted to be cancelled.
      * @param accountId Account identifier.
      */
-    public async tradingAccountsAccountIdOrdersDelete (accountId: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: Array<InlineResponse207>;  }> {
+    public async deleteOrders (accountId: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: Array<InlineResponse207>;  }> {
         const localVarPath = this.basePath + '/trading/accounts/{account_id}/orders'
             .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)));
         let localVarQueryParameters: any = {};
@@ -123,7 +202,7 @@ export class TradingApi {
 
         // verify required parameter 'accountId' is not null or undefined
         if (accountId === null || accountId === undefined) {
-            throw new Error('Required parameter accountId was null or undefined when calling tradingAccountsAccountIdOrdersDelete.');
+            throw new Error('Required parameter accountId was null or undefined when calling deleteOrders.');
         }
 
         (<any>Object).assign(localVarHeaderParams, options.headers);
@@ -175,197 +254,12 @@ export class TradingApi {
         });
     }
     /**
-     * Retrieves a list of orders for the account, filtered by the supplied query parameters.
-     * @summary Retrieves a list of orders for the account, filtered by the supplied query parameters.
-     * @param accountId Account identifier.
-     * @param status Status of the orders to list.
-     * @param limit The maximum number of orders in response.
-     * @param after The response will include only ones submitted after this timestamp (exclusive.)
-     * @param until The response will include only ones submitted until this timestamp (exclusive.)
-     * @param direction The chronological order of response based on the submission time. asc or desc. Defaults to desc.
-     * @param nested If true, the result will roll up multi-leg orders under the legs field of primary order.
-     * @param symbols A comma-separated list of symbols to filter by.
-     */
-    public async tradingAccountsAccountIdOrdersGet (accountId: string, status?: 'open' | 'closed' | 'all', limit?: number, after?: Date, until?: Date, direction?: 'asc' | 'desc', nested?: boolean, symbols?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: Array<OrderObject>;  }> {
-        const localVarPath = this.basePath + '/trading/accounts/{account_id}/orders'
-            .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)));
-        let localVarQueryParameters: any = {};
-        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
-        const produces = ['application/json'];
-        // give precedence to 'application/json'
-        if (produces.indexOf('application/json') >= 0) {
-            localVarHeaderParams.Accept = 'application/json';
-        } else {
-            localVarHeaderParams.Accept = produces.join(',');
-        }
-        let localVarFormParams: any = {};
-
-        // verify required parameter 'accountId' is not null or undefined
-        if (accountId === null || accountId === undefined) {
-            throw new Error('Required parameter accountId was null or undefined when calling tradingAccountsAccountIdOrdersGet.');
-        }
-
-        if (status !== undefined) {
-            localVarQueryParameters['status'] = ObjectSerializer.serialize(status, "'open' | 'closed' | 'all'");
-        }
-
-        if (limit !== undefined) {
-            localVarQueryParameters['limit'] = ObjectSerializer.serialize(limit, "number");
-        }
-
-        if (after !== undefined) {
-            localVarQueryParameters['after'] = ObjectSerializer.serialize(after, "Date");
-        }
-
-        if (until !== undefined) {
-            localVarQueryParameters['until'] = ObjectSerializer.serialize(until, "Date");
-        }
-
-        if (direction !== undefined) {
-            localVarQueryParameters['direction'] = ObjectSerializer.serialize(direction, "'asc' | 'desc'");
-        }
-
-        if (nested !== undefined) {
-            localVarQueryParameters['nested'] = ObjectSerializer.serialize(nested, "boolean");
-        }
-
-        if (symbols !== undefined) {
-            localVarQueryParameters['symbols'] = ObjectSerializer.serialize(symbols, "string");
-        }
-
-        (<any>Object).assign(localVarHeaderParams, options.headers);
-
-        let localVarUseFormData = false;
-
-        let localVarRequestOptions: localVarRequest.Options = {
-            method: 'GET',
-            qs: localVarQueryParameters,
-            headers: localVarHeaderParams,
-            uri: localVarPath,
-            useQuerystring: this._useQuerystring,
-            json: true,
-        };
-
-        let authenticationPromise = Promise.resolve();
-        if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {
-            authenticationPromise = authenticationPromise.then(() => this.authentications.BasicAuth.applyToRequest(localVarRequestOptions));
-        }
-        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-
-        let interceptorPromise = authenticationPromise;
-        for (const interceptor of this.interceptors) {
-            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
-        }
-
-        return interceptorPromise.then(() => {
-            if (Object.keys(localVarFormParams).length) {
-                if (localVarUseFormData) {
-                    (<any>localVarRequestOptions).formData = localVarFormParams;
-                } else {
-                    localVarRequestOptions.form = localVarFormParams;
-                }
-            }
-            return new Promise<{ response: http.IncomingMessage; body: Array<OrderObject>;  }>((resolve, reject) => {
-                localVarRequest(localVarRequestOptions, (error, response, body) => {
-                    if (error) {
-                        reject(error);
-                    } else {
-                        body = ObjectSerializer.deserialize(body, "Array<OrderObject>");
-                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                            resolve({ response: response, body: body });
-                        } else {
-                            reject(new HttpError(response, body, response.statusCode));
-                        }
-                    }
-                });
-            });
-        });
-    }
-    /**
-     * Attempts to cancel an open order.
-     * @summary Attempts to cancel an open order.
-     * @param accountId Account identifier.
-     * @param orderId Order identifier.
-     */
-    public async tradingAccountsAccountIdOrdersOrderIdDelete (accountId: string, orderId: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
-        const localVarPath = this.basePath + '/trading/accounts/{account_id}/orders/{order_id}'
-            .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)))
-            .replace('{' + 'order_id' + '}', encodeURIComponent(String(orderId)));
-        let localVarQueryParameters: any = {};
-        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
-        const produces = ['application/json'];
-        // give precedence to 'application/json'
-        if (produces.indexOf('application/json') >= 0) {
-            localVarHeaderParams.Accept = 'application/json';
-        } else {
-            localVarHeaderParams.Accept = produces.join(',');
-        }
-        let localVarFormParams: any = {};
-
-        // verify required parameter 'accountId' is not null or undefined
-        if (accountId === null || accountId === undefined) {
-            throw new Error('Required parameter accountId was null or undefined when calling tradingAccountsAccountIdOrdersOrderIdDelete.');
-        }
-
-        // verify required parameter 'orderId' is not null or undefined
-        if (orderId === null || orderId === undefined) {
-            throw new Error('Required parameter orderId was null or undefined when calling tradingAccountsAccountIdOrdersOrderIdDelete.');
-        }
-
-        (<any>Object).assign(localVarHeaderParams, options.headers);
-
-        let localVarUseFormData = false;
-
-        let localVarRequestOptions: localVarRequest.Options = {
-            method: 'DELETE',
-            qs: localVarQueryParameters,
-            headers: localVarHeaderParams,
-            uri: localVarPath,
-            useQuerystring: this._useQuerystring,
-            json: true,
-        };
-
-        let authenticationPromise = Promise.resolve();
-        if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {
-            authenticationPromise = authenticationPromise.then(() => this.authentications.BasicAuth.applyToRequest(localVarRequestOptions));
-        }
-        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-
-        let interceptorPromise = authenticationPromise;
-        for (const interceptor of this.interceptors) {
-            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
-        }
-
-        return interceptorPromise.then(() => {
-            if (Object.keys(localVarFormParams).length) {
-                if (localVarUseFormData) {
-                    (<any>localVarRequestOptions).formData = localVarFormParams;
-                } else {
-                    localVarRequestOptions.form = localVarFormParams;
-                }
-            }
-            return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
-                localVarRequest(localVarRequestOptions, (error, response, body) => {
-                    if (error) {
-                        reject(error);
-                    } else {
-                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                            resolve({ response: response, body: body });
-                        } else {
-                            reject(new HttpError(response, body, response.statusCode));
-                        }
-                    }
-                });
-            });
-        });
-    }
-    /**
      * Retrieves a single order for the given order_id.
      * @summary Retrieves a single order for the given order_id.
      * @param accountId Account identifier.
      * @param orderId Order identifier.
      */
-    public async tradingAccountsAccountIdOrdersOrderIdGet (accountId: string, orderId: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: OrderObject;  }> {
+    public async getOrder (accountId: string, orderId: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: OrderObject;  }> {
         const localVarPath = this.basePath + '/trading/accounts/{account_id}/orders/{order_id}'
             .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)))
             .replace('{' + 'order_id' + '}', encodeURIComponent(String(orderId)));
@@ -382,12 +276,12 @@ export class TradingApi {
 
         // verify required parameter 'accountId' is not null or undefined
         if (accountId === null || accountId === undefined) {
-            throw new Error('Required parameter accountId was null or undefined when calling tradingAccountsAccountIdOrdersOrderIdGet.');
+            throw new Error('Required parameter accountId was null or undefined when calling getOrder.');
         }
 
         // verify required parameter 'orderId' is not null or undefined
         if (orderId === null || orderId === undefined) {
-            throw new Error('Required parameter orderId was null or undefined when calling tradingAccountsAccountIdOrdersOrderIdGet.');
+            throw new Error('Required parameter orderId was null or undefined when calling getOrder.');
         }
 
         (<any>Object).assign(localVarHeaderParams, options.headers);
@@ -439,13 +333,122 @@ export class TradingApi {
         });
     }
     /**
+     * Retrieves a list of orders for the account, filtered by the supplied query parameters.
+     * @summary Retrieves a list of orders for the account, filtered by the supplied query parameters.
+     * @param accountId Account identifier.
+     * @param status Status of the orders to list.
+     * @param limit The maximum number of orders in response.
+     * @param after The response will include only ones submitted after this timestamp (exclusive.)
+     * @param until The response will include only ones submitted until this timestamp (exclusive.)
+     * @param direction The chronological order of response based on the submission time. asc or desc. Defaults to desc.
+     * @param nested If true, the result will roll up multi-leg orders under the legs field of primary order.
+     * @param symbols A comma-separated list of symbols to filter by.
+     * @param inlineObject 
+     */
+    public async getOrders (accountId: string, status?: 'open' | 'closed' | 'all', limit?: number, after?: Date, until?: Date, direction?: 'asc' | 'desc', nested?: boolean, symbols?: string, inlineObject?: InlineObject, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: Array<OrderObject>;  }> {
+        const localVarPath = this.basePath + '/trading/accounts/{account_id}/orders'
+            .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        const produces = ['application/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams.Accept = 'application/json';
+        } else {
+            localVarHeaderParams.Accept = produces.join(',');
+        }
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'accountId' is not null or undefined
+        if (accountId === null || accountId === undefined) {
+            throw new Error('Required parameter accountId was null or undefined when calling getOrders.');
+        }
+
+        if (status !== undefined) {
+            localVarQueryParameters['status'] = ObjectSerializer.serialize(status, "'open' | 'closed' | 'all'");
+        }
+
+        if (limit !== undefined) {
+            localVarQueryParameters['limit'] = ObjectSerializer.serialize(limit, "number");
+        }
+
+        if (after !== undefined) {
+            localVarQueryParameters['after'] = ObjectSerializer.serialize(after, "Date");
+        }
+
+        if (until !== undefined) {
+            localVarQueryParameters['until'] = ObjectSerializer.serialize(until, "Date");
+        }
+
+        if (direction !== undefined) {
+            localVarQueryParameters['direction'] = ObjectSerializer.serialize(direction, "'asc' | 'desc'");
+        }
+
+        if (nested !== undefined) {
+            localVarQueryParameters['nested'] = ObjectSerializer.serialize(nested, "boolean");
+        }
+
+        if (symbols !== undefined) {
+            localVarQueryParameters['symbols'] = ObjectSerializer.serialize(symbols, "string");
+        }
+
+        (<any>Object).assign(localVarHeaderParams, options.headers);
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(inlineObject, "InlineObject")
+        };
+
+        let authenticationPromise = Promise.resolve();
+        if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.BasicAuth.applyToRequest(localVarRequestOptions));
+        }
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+
+        let interceptorPromise = authenticationPromise;
+        for (const interceptor of this.interceptors) {
+            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+        }
+
+        return interceptorPromise.then(() => {
+            if (Object.keys(localVarFormParams).length) {
+                if (localVarUseFormData) {
+                    (<any>localVarRequestOptions).formData = localVarFormParams;
+                } else {
+                    localVarRequestOptions.form = localVarFormParams;
+                }
+            }
+            return new Promise<{ response: http.IncomingMessage; body: Array<OrderObject>;  }>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<OrderObject>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve({ response: response, body: body });
+                        } else {
+                            reject(new HttpError(response, body, response.statusCode));
+                        }
+                    }
+                });
+            });
+        });
+    }
+    /**
      * Replaces a single order with updated parameters. Each parameter overrides the corresponding attribute of the existing order.
      * @summary Replaces a single order with updated parameters. Each parameter overrides the corresponding attribute of the existing order.
      * @param accountId Account identifier.
      * @param orderId Order identifier.
      * @param patchOrder 
      */
-    public async tradingAccountsAccountIdOrdersOrderIdPatch (accountId: string, orderId: string, patchOrder: PatchOrder, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: OrderObject;  }> {
+    public async patchOrder (accountId: string, orderId: string, patchOrder: PatchOrder, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: OrderObject;  }> {
         const localVarPath = this.basePath + '/trading/accounts/{account_id}/orders/{order_id}'
             .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)))
             .replace('{' + 'order_id' + '}', encodeURIComponent(String(orderId)));
@@ -462,17 +465,17 @@ export class TradingApi {
 
         // verify required parameter 'accountId' is not null or undefined
         if (accountId === null || accountId === undefined) {
-            throw new Error('Required parameter accountId was null or undefined when calling tradingAccountsAccountIdOrdersOrderIdPatch.');
+            throw new Error('Required parameter accountId was null or undefined when calling patchOrder.');
         }
 
         // verify required parameter 'orderId' is not null or undefined
         if (orderId === null || orderId === undefined) {
-            throw new Error('Required parameter orderId was null or undefined when calling tradingAccountsAccountIdOrdersOrderIdPatch.');
+            throw new Error('Required parameter orderId was null or undefined when calling patchOrder.');
         }
 
         // verify required parameter 'patchOrder' is not null or undefined
         if (patchOrder === null || patchOrder === undefined) {
-            throw new Error('Required parameter patchOrder was null or undefined when calling tradingAccountsAccountIdOrdersOrderIdPatch.');
+            throw new Error('Required parameter patchOrder was null or undefined when calling patchOrder.');
         }
 
         (<any>Object).assign(localVarHeaderParams, options.headers);
@@ -530,7 +533,7 @@ export class TradingApi {
      * @param accountId Account identifier.
      * @param createOrder 
      */
-    public async tradingAccountsAccountIdOrdersPost (accountId: string, createOrder: CreateOrder, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: OrderObject;  }> {
+    public async postOrders (accountId: string, createOrder: CreateOrder, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: OrderObject;  }> {
         const localVarPath = this.basePath + '/trading/accounts/{account_id}/orders'
             .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)));
         let localVarQueryParameters: any = {};
@@ -546,12 +549,12 @@ export class TradingApi {
 
         // verify required parameter 'accountId' is not null or undefined
         if (accountId === null || accountId === undefined) {
-            throw new Error('Required parameter accountId was null or undefined when calling tradingAccountsAccountIdOrdersPost.');
+            throw new Error('Required parameter accountId was null or undefined when calling postOrders.');
         }
 
         // verify required parameter 'createOrder' is not null or undefined
         if (createOrder === null || createOrder === undefined) {
-            throw new Error('Required parameter createOrder was null or undefined when calling tradingAccountsAccountIdOrdersPost.');
+            throw new Error('Required parameter createOrder was null or undefined when calling postOrders.');
         }
 
         (<any>Object).assign(localVarHeaderParams, options.headers);

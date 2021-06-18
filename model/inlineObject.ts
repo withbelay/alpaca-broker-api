@@ -13,53 +13,50 @@
 import { RequestFile } from './models';
 
 export class InlineObject {
-    'entry_type': InlineObject.EntryTypeEnum;
-    'from_account': string;
-    'to_account': string;
-    /**
-    * Required for JNLC. The dollar amount to move. It has to be a positive value. 
-    */
-    'amount'?: string;
-    /**
-    * Required for JNLS. 
-    */
-    'symbol'?: string;
-    /**
-    * Required for JNLS. The number of shares to move. It has to be a positive value. 
-    */
-    'qty'?: string;
+    'status'?: InlineObject.StatusEnum;
+    'limit'?: number;
+    'after'?: Date;
+    'until'?: Date;
+    'direction'?: InlineObject.DirectionEnum;
+    'nested'?: boolean;
+    'symbols'?: string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "entry_type",
-            "baseName": "entry_type",
-            "type": "InlineObject.EntryTypeEnum"
+            "name": "status",
+            "baseName": "status",
+            "type": "InlineObject.StatusEnum"
         },
         {
-            "name": "from_account",
-            "baseName": "from_account",
-            "type": "string"
+            "name": "limit",
+            "baseName": "limit",
+            "type": "number"
         },
         {
-            "name": "to_account",
-            "baseName": "to_account",
-            "type": "string"
+            "name": "after",
+            "baseName": "after",
+            "type": "Date"
         },
         {
-            "name": "amount",
-            "baseName": "amount",
-            "type": "string"
+            "name": "until",
+            "baseName": "until",
+            "type": "Date"
         },
         {
-            "name": "symbol",
-            "baseName": "symbol",
-            "type": "string"
+            "name": "direction",
+            "baseName": "direction",
+            "type": "InlineObject.DirectionEnum"
         },
         {
-            "name": "qty",
-            "baseName": "qty",
+            "name": "nested",
+            "baseName": "nested",
+            "type": "boolean"
+        },
+        {
+            "name": "symbols",
+            "baseName": "symbols",
             "type": "string"
         }    ];
 
@@ -69,8 +66,13 @@ export class InlineObject {
 }
 
 export namespace InlineObject {
-    export enum EntryTypeEnum {
-        Jnlc = <any> 'JNLC',
-        Jnls = <any> 'JNLS'
+    export enum StatusEnum {
+        Open = <any> 'open',
+        Closed = <any> 'closed',
+        All = <any> 'all'
+    }
+    export enum DirectionEnum {
+        Asc = <any> 'asc',
+        Desc = <any> 'desc'
     }
 }

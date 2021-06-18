@@ -72,5 +72,7 @@ JournalJNLS.attributeTypeMap = [
         StatusEnum[StatusEnum["Pending"] = 'pending'] = "Pending";
         StatusEnum[StatusEnum["Canceled"] = 'canceled'] = "Canceled";
         StatusEnum[StatusEnum["Executed"] = 'executed'] = "Executed";
+        StatusEnum[StatusEnum["Queued"] = 'queued'] = "Queued";
+        StatusEnum[StatusEnum["Rejected"] = 'rejected'] = "Rejected";
     })(StatusEnum = JournalJNLS.StatusEnum || (JournalJNLS.StatusEnum = {}));
 })(JournalJNLS = exports.JournalJNLS || (exports.JournalJNLS = {}));

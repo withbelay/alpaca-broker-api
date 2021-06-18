@@ -12,6 +12,7 @@
 /// <reference types="node" />
 import http from 'http';
 import { CreateOrder } from '../model/createOrder';
+import { InlineObject } from '../model/inlineObject';
 import { InlineResponse207 } from '../model/inlineResponse207';
 import { OrderObject } from '../model/orderObject';
 import { PatchOrder } from '../model/patchOrder';
@@ -41,17 +42,45 @@ export declare class TradingApi {
     set password(password: string);
     addInterceptor(interceptor: Interceptor): void;
     /**
+     * Attempts to cancel an open order.
+     * @summary Attempts to cancel an open order.
+     * @param accountId Account identifier.
+     * @param orderId Order identifier.
+     */
+    deleteOrder(accountId: string, orderId: string, options?: {
+        headers: {
+            [name: string]: string;
+        };
+    }): Promise<{
+        response: http.IncomingMessage;
+        body?: any;
+    }>;
+    /**
      * Attempts to cancel all open orders. A response will be provided for each order that is attempted to be cancelled.
      * @summary Attempts to cancel all open orders. A response will be provided for each order that is attempted to be cancelled.
      * @param accountId Account identifier.
      */
-    tradingAccountsAccountIdOrdersDelete(accountId: string, options?: {
+    deleteOrders(accountId: string, options?: {
         headers: {
             [name: string]: string;
         };
     }): Promise<{
         response: http.IncomingMessage;
         body: Array<InlineResponse207>;
+    }>;
+    /**
+     * Retrieves a single order for the given order_id.
+     * @summary Retrieves a single order for the given order_id.
+     * @param accountId Account identifier.
+     * @param orderId Order identifier.
+     */
+    getOrder(accountId: string, orderId: string, options?: {
+        headers: {
+            [name: string]: string;
+        };
+    }): Promise<{
+        response: http.IncomingMessage;
+        body: OrderObject;
     }>;
     /**
      * Retrieves a list of orders for the account, filtered by the supplied query parameters.
@@ -64,8 +93,9 @@ export declare class TradingApi {
      * @param direction The chronological order of response based on the submission time. asc or desc. Defaults to desc.
      * @param nested If true, the result will roll up multi-leg orders under the legs field of primary order.
      * @param symbols A comma-separated list of symbols to filter by.
+     * @param inlineObject
      */
-    tradingAccountsAccountIdOrdersGet(accountId: string, status?: 'open' | 'closed' | 'all', limit?: number, after?: Date, until?: Date, direction?: 'asc' | 'desc', nested?: boolean, symbols?: string, options?: {
+    getOrders(accountId: string, status?: 'open' | 'closed' | 'all', limit?: number, after?: Date, until?: Date, direction?: 'asc' | 'desc', nested?: boolean, symbols?: string, inlineObject?: InlineObject, options?: {
         headers: {
             [name: string]: string;
         };
@@ -74,41 +104,13 @@ export declare class TradingApi {
         body: Array<OrderObject>;
     }>;
     /**
-     * Attempts to cancel an open order.
-     * @summary Attempts to cancel an open order.
-     * @param accountId Account identifier.
-     * @param orderId Order identifier.
-     */
-    tradingAccountsAccountIdOrdersOrderIdDelete(accountId: string, orderId: string, options?: {
-        headers: {
-            [name: string]: string;
-        };
-    }): Promise<{
-        response: http.IncomingMessage;
-        body?: any;
-    }>;
-    /**
-     * Retrieves a single order for the given order_id.
-     * @summary Retrieves a single order for the given order_id.
-     * @param accountId Account identifier.
-     * @param orderId Order identifier.
-     */
-    tradingAccountsAccountIdOrdersOrderIdGet(accountId: string, orderId: string, options?: {
-        headers: {
-            [name: string]: string;
-        };
-    }): Promise<{
-        response: http.IncomingMessage;
-        body: OrderObject;
-    }>;
-    /**
      * Replaces a single order with updated parameters. Each parameter overrides the corresponding attribute of the existing order.
      * @summary Replaces a single order with updated parameters. Each parameter overrides the corresponding attribute of the existing order.
      * @param accountId Account identifier.
      * @param orderId Order identifier.
      * @param patchOrder
      */
-    tradingAccountsAccountIdOrdersOrderIdPatch(accountId: string, orderId: string, patchOrder: PatchOrder, options?: {
+    patchOrder(accountId: string, orderId: string, patchOrder: PatchOrder, options?: {
         headers: {
             [name: string]: string;
         };
@@ -122,7 +124,7 @@ export declare class TradingApi {
      * @param accountId Account identifier.
      * @param createOrder
      */
-    tradingAccountsAccountIdOrdersPost(accountId: string, createOrder: CreateOrder, options?: {
+    postOrders(accountId: string, createOrder: CreateOrder, options?: {
         headers: {
             [name: string]: string;
         };

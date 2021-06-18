@@ -9,6 +9,7 @@ export * from './accountExtended';
 export * from './accountExtendedAllOf';
 export * from './accountStatus';
 export * from './accountUpdate';
+export * from './agreement';
 export * from './applicationDocument';
 export * from './bankData';
 export * from './bankResource';
@@ -37,8 +38,10 @@ export * from './inlineResponse2007';
 export * from './inlineResponse2008';
 export * from './inlineResponse2009';
 export * from './inlineResponse207';
+export * from './journalData';
 export * from './journalJNLC';
 export * from './journalJNLS';
+export * from './journalResource';
 export * from './kycResult';
 export * from './modelError';
 export * from './orderObject';
@@ -76,6 +79,7 @@ import { AccountExtended } from './accountExtended';
 import { AccountExtendedAllOf } from './accountExtendedAllOf';
 import { AccountStatus } from './accountStatus';
 import { AccountUpdate } from './accountUpdate';
+import { Agreement } from './agreement';
 import { ApplicationDocument } from './applicationDocument';
 import { BankData } from './bankData';
 import { BankResource } from './bankResource';
@@ -104,8 +108,10 @@ import { InlineResponse2007 } from './inlineResponse2007';
 import { InlineResponse2008 } from './inlineResponse2008';
 import { InlineResponse2009 } from './inlineResponse2009';
 import { InlineResponse207 } from './inlineResponse207';
+import { JournalData } from './journalData';
 import { JournalJNLC } from './journalJNLC';
 import { JournalJNLS } from './journalJNLS';
+import { JournalResource } from './journalResource';
 import { KycResult } from './kycResult';
 import { ModelError } from './modelError';
 import { OrderObject } from './orderObject';
@@ -139,6 +145,7 @@ let enumsMap: {[index: string]: any} = {
         "ACHRelationshipResource.StatusEnum": ACHRelationshipResource.StatusEnum,
         "ACHRelationshipResourceAllOf.StatusEnum": ACHRelationshipResourceAllOf.StatusEnum,
         "AccountStatus": AccountStatus,
+        "Agreement.AgreementEnum": Agreement.AgreementEnum,
         "BankData.BankCodeTypeEnum": BankData.BankCodeTypeEnum,
         "BankResource.BankCodeTypeEnum": BankResource.BankCodeTypeEnum,
         "BankResource.StatusEnum": BankResource.StatusEnum,
@@ -151,12 +158,15 @@ let enumsMap: {[index: string]: any} = {
         "DocumentType": DocumentType,
         "Identity.TaxIdTypeEnum": Identity.TaxIdTypeEnum,
         "Identity.FundingSourceEnum": Identity.FundingSourceEnum,
-        "InlineObject.EntryTypeEnum": InlineObject.EntryTypeEnum,
+        "InlineObject.StatusEnum": InlineObject.StatusEnum,
+        "InlineObject.DirectionEnum": InlineObject.DirectionEnum,
         "InlineResponse20010.ActivityTypeEnum": InlineResponse20010.ActivityTypeEnum,
         "InlineResponse20010.StatusEnum": InlineResponse20010.StatusEnum,
         "InlineResponse2007.StatusEnum": InlineResponse2007.StatusEnum,
+        "JournalData.EntryTypeEnum": JournalData.EntryTypeEnum,
         "JournalJNLC.StatusEnum": JournalJNLC.StatusEnum,
         "JournalJNLS.StatusEnum": JournalJNLS.StatusEnum,
+        "JournalResource.StatusEnum": JournalResource.StatusEnum,
         "OrderObject.OrderClassEnum": OrderObject.OrderClassEnum,
         "OrderObject.OrderTypeEnum": OrderObject.OrderTypeEnum,
         "OrderObject.TypeEnum": OrderObject.TypeEnum,
@@ -188,6 +198,7 @@ let typeMap: {[index: string]: any} = {
     "AccountExtended": AccountExtended,
     "AccountExtendedAllOf": AccountExtendedAllOf,
     "AccountUpdate": AccountUpdate,
+    "Agreement": Agreement,
     "ApplicationDocument": ApplicationDocument,
     "BankData": BankData,
     "BankResource": BankResource,
@@ -215,8 +226,10 @@ let typeMap: {[index: string]: any} = {
     "InlineResponse2008": InlineResponse2008,
     "InlineResponse2009": InlineResponse2009,
     "InlineResponse207": InlineResponse207,
+    "JournalData": JournalData,
     "JournalJNLC": JournalJNLC,
     "JournalJNLS": JournalJNLS,
+    "JournalResource": JournalResource,
     "KycResult": KycResult,
     "ModelError": ModelError,
     "OrderObject": OrderObject,

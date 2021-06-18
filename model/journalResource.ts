@@ -11,8 +11,10 @@
  */
 
 import { RequestFile } from './models';
+import { JournalJNLC } from './journalJNLC';
+import { JournalJNLS } from './journalJNLS';
 
-export class JournalJNLS {
+export class JournalResource {
     /**
     * journal ID
     */
@@ -29,13 +31,35 @@ export class JournalJNLS {
     * account ID the shares go to
     */
     'to_account': string;
+    /**
+    * ID the amount goes to
+    */
+    'description'?: string;
     'settle_date': string | null;
-    'status'?: JournalJNLS.StatusEnum;
+    'status'?: JournalResource.StatusEnum;
+    'net_amount': string;
+    /**
+    * max 255 characters
+    */
+    'transmitter_name'?: string;
+    /**
+    * max 255 characters
+    */
+    'transmitter_account_number'?: string;
+    /**
+    * max 255 characters
+    */
+    'transmitter_address'?: string;
+    /**
+    * max 255 characters
+    */
+    'transmitter_financial_institution'?: string;
+    'transmitter_timestamp'?: Date;
     'symbol': string;
     'qty': string;
     'price': string;
 
-    static discriminator: string | undefined = undefined;
+    static discriminator: string | undefined = "entry_type";
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
@@ -59,6 +83,11 @@ export class JournalJNLS {
             "type": "string"
         },
         {
+            "name": "description",
+            "baseName": "description",
+            "type": "string"
+        },
+        {
             "name": "settle_date",
             "baseName": "settle_date",
             "type": "string"
@@ -66,7 +95,37 @@ export class JournalJNLS {
         {
             "name": "status",
             "baseName": "status",
-            "type": "JournalJNLS.StatusEnum"
+            "type": "JournalResource.StatusEnum"
+        },
+        {
+            "name": "net_amount",
+            "baseName": "net_amount",
+            "type": "string"
+        },
+        {
+            "name": "transmitter_name",
+            "baseName": "transmitter_name",
+            "type": "string"
+        },
+        {
+            "name": "transmitter_account_number",
+            "baseName": "transmitter_account_number",
+            "type": "string"
+        },
+        {
+            "name": "transmitter_address",
+            "baseName": "transmitter_address",
+            "type": "string"
+        },
+        {
+            "name": "transmitter_financial_institution",
+            "baseName": "transmitter_financial_institution",
+            "type": "string"
+        },
+        {
+            "name": "transmitter_timestamp",
+            "baseName": "transmitter_timestamp",
+            "type": "Date"
         },
         {
             "name": "symbol",
@@ -85,11 +144,11 @@ export class JournalJNLS {
         }    ];
 
     static getAttributeTypeMap() {
-        return JournalJNLS.attributeTypeMap;
+        return JournalResource.attributeTypeMap;
     }
 }
 
-export namespace JournalJNLS {
+export namespace JournalResource {
     export enum StatusEnum {
         Pending = <any> 'pending',
         Canceled = <any> 'canceled',

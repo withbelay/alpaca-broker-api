@@ -221,14 +221,14 @@ See [Alpaca journals documentation](https://alpaca.markets/docs/broker/api-refer
 // eventsJournalsStatusGet(Date?, Date?, Number?, Number?, Options?)
 alpaca.journals.eventsJournalsStatusGet(since, until, sinceId, untilId);
 
-// journalsGet(String, String, String, String?, String?, String?, Options?)
-alpaca.journals.journalsGet(after, before, entryType, status, toAccount, fromAccount);
+// getJournals(String?, String?, String?, String?, String?, String?, Options?)
+alpaca.journals.getJournals(after, before, status, entryType, toAccount, fromAccount);
 
 // journalsJournalIdDelete(String, Options?)
 alpaca.journals.journalsJournalIdDelete(journalId);
 
-// journalsPost(JournalCreationObject, Options?)
-alpaca.journals.journalsPost(journalCreationObject);
+// postJournals(JournalData, Options?)
+alpaca.journals.postJournals(journalData);
 ```
 
 ### OAuth API
@@ -251,21 +251,21 @@ alpaca.oauth.oauthTokenPost(oauthTokenObject);
 See [Alpaca trading documentation](https://alpaca.markets/docs/broker/api-references/trading/orders/) for descriptions of each endpoint.
 
 ```js
-// tradingAccountsAccountIdOrdersDelete(String, Options?)
-alpaca.trading.tradingAccountsAccountIdOrdersDelete(accountId);
+// deleteOrder(String, String, Options?)
+alpaca.trading.deleteOrder(accountId, orderId);
 
-// tradingAccountsAccountIdOrdersGet(String, String?, Number?, Date?, Date?, String?, Boolean?, String?, Options?)
-alpaca.trading.tradingAccountsAccountIdOrdersGet(accountId, status, limit, after, until, direction, nested, symbols);
+// deleteOrders(String, Options?)
+alpaca.trading.deleteOrders(accountId);
 
-// tradingAccountsAccountIdOrdersOrderIdDelete(String, String, Options?)
-alpaca.trading.tradingAccountsAccountIdOrdersOrderIdDelete(accountId, orderId);
+// getOrder(String, String, Options?)
+alpaca.trading.getOrder(accountId, orderId);
 
-// tradingAccountsAccountIdOrdersOrderIdGet(String, String, Options?)
-alpaca.trading.tradingAccountsAccountIdOrdersOrderIdGet(accountId, orderId);
+// getOrders(String, String?, Number?, Date?, Date?, String?, Boolean?, String?, Options?)
+alpaca.trading.getOrders(accountId, status, limit, after, until, direction, nested, symbols);
 
-// tradingAccountsAccountIdOrdersOrderIdPatch(String, String, PatchOrder, Options?)
-alpaca.trading.tradingAccountsAccountIdOrdersOrderIdPatch(accountId, orderId, patchOrder);
+// patchOrder(String, String, PatchOrder, Options?)
+alpaca.trading.patchOrder(accountId, orderId, patchOrder);
 
-// tradingAccountsAccountIdOrdersPost(String, CreateOrder, Options?)
-alpaca.trading.tradingAccountsAccountIdOrdersPost(accountId, createOrder);
+// postOrders(String, CreateOrder, Options?)
+alpaca.trading.postOrders(accountId, createOrder);
 ```

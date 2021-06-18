@@ -16,6 +16,8 @@ export declare class PatchOrder {
     'stop_price'?: string;
     'trail'?: string;
     'client_order_id'?: string;
+    'created_at': Date;
+    'updated_at': Date;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

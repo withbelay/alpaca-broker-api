@@ -20,6 +20,7 @@ __exportStar(require("./accountExtended"), exports);
 __exportStar(require("./accountExtendedAllOf"), exports);
 __exportStar(require("./accountStatus"), exports);
 __exportStar(require("./accountUpdate"), exports);
+__exportStar(require("./agreement"), exports);
 __exportStar(require("./applicationDocument"), exports);
 __exportStar(require("./bankData"), exports);
 __exportStar(require("./bankResource"), exports);
@@ -48,8 +49,10 @@ __exportStar(require("./inlineResponse2007"), exports);
 __exportStar(require("./inlineResponse2008"), exports);
 __exportStar(require("./inlineResponse2009"), exports);
 __exportStar(require("./inlineResponse207"), exports);
+__exportStar(require("./journalData"), exports);
 __exportStar(require("./journalJNLC"), exports);
 __exportStar(require("./journalJNLS"), exports);
+__exportStar(require("./journalResource"), exports);
 __exportStar(require("./kycResult"), exports);
 __exportStar(require("./modelError"), exports);
 __exportStar(require("./orderObject"), exports);
@@ -73,6 +76,7 @@ const accountExtended_1 = require("./accountExtended");
 const accountExtendedAllOf_1 = require("./accountExtendedAllOf");
 const accountStatus_1 = require("./accountStatus");
 const accountUpdate_1 = require("./accountUpdate");
+const agreement_1 = require("./agreement");
 const applicationDocument_1 = require("./applicationDocument");
 const bankData_1 = require("./bankData");
 const bankResource_1 = require("./bankResource");
@@ -101,8 +105,10 @@ const inlineResponse2007_1 = require("./inlineResponse2007");
 const inlineResponse2008_1 = require("./inlineResponse2008");
 const inlineResponse2009_1 = require("./inlineResponse2009");
 const inlineResponse207_1 = require("./inlineResponse207");
+const journalData_1 = require("./journalData");
 const journalJNLC_1 = require("./journalJNLC");
 const journalJNLS_1 = require("./journalJNLS");
+const journalResource_1 = require("./journalResource");
 const kycResult_1 = require("./kycResult");
 const modelError_1 = require("./modelError");
 const orderObject_1 = require("./orderObject");
@@ -134,6 +140,7 @@ let enumsMap = {
     "ACHRelationshipResource.StatusEnum": aCHRelationshipResource_1.ACHRelationshipResource.StatusEnum,
     "ACHRelationshipResourceAllOf.StatusEnum": aCHRelationshipResourceAllOf_1.ACHRelationshipResourceAllOf.StatusEnum,
     "AccountStatus": accountStatus_1.AccountStatus,
+    "Agreement.AgreementEnum": agreement_1.Agreement.AgreementEnum,
     "BankData.BankCodeTypeEnum": bankData_1.BankData.BankCodeTypeEnum,
     "BankResource.BankCodeTypeEnum": bankResource_1.BankResource.BankCodeTypeEnum,
     "BankResource.StatusEnum": bankResource_1.BankResource.StatusEnum,
@@ -146,12 +153,15 @@ let enumsMap = {
     "DocumentType": documentType_1.DocumentType,
     "Identity.TaxIdTypeEnum": identity_1.Identity.TaxIdTypeEnum,
     "Identity.FundingSourceEnum": identity_1.Identity.FundingSourceEnum,
-    "InlineObject.EntryTypeEnum": inlineObject_1.InlineObject.EntryTypeEnum,
+    "InlineObject.StatusEnum": inlineObject_1.InlineObject.StatusEnum,
+    "InlineObject.DirectionEnum": inlineObject_1.InlineObject.DirectionEnum,
     "InlineResponse20010.ActivityTypeEnum": inlineResponse20010_1.InlineResponse20010.ActivityTypeEnum,
     "InlineResponse20010.StatusEnum": inlineResponse20010_1.InlineResponse20010.StatusEnum,
     "InlineResponse2007.StatusEnum": inlineResponse2007_1.InlineResponse2007.StatusEnum,
+    "JournalData.EntryTypeEnum": journalData_1.JournalData.EntryTypeEnum,
     "JournalJNLC.StatusEnum": journalJNLC_1.JournalJNLC.StatusEnum,
     "JournalJNLS.StatusEnum": journalJNLS_1.JournalJNLS.StatusEnum,
+    "JournalResource.StatusEnum": journalResource_1.JournalResource.StatusEnum,
     "OrderObject.OrderClassEnum": orderObject_1.OrderObject.OrderClassEnum,
     "OrderObject.OrderTypeEnum": orderObject_1.OrderObject.OrderTypeEnum,
     "OrderObject.TypeEnum": orderObject_1.OrderObject.TypeEnum,
@@ -182,6 +192,7 @@ let typeMap = {
     "AccountExtended": accountExtended_1.AccountExtended,
     "AccountExtendedAllOf": accountExtendedAllOf_1.AccountExtendedAllOf,
     "AccountUpdate": accountUpdate_1.AccountUpdate,
+    "Agreement": agreement_1.Agreement,
     "ApplicationDocument": applicationDocument_1.ApplicationDocument,
     "BankData": bankData_1.BankData,
     "BankResource": bankResource_1.BankResource,
@@ -209,8 +220,10 @@ let typeMap = {
     "InlineResponse2008": inlineResponse2008_1.InlineResponse2008,
     "InlineResponse2009": inlineResponse2009_1.InlineResponse2009,
     "InlineResponse207": inlineResponse207_1.InlineResponse207,
+    "JournalData": journalData_1.JournalData,
     "JournalJNLC": journalJNLC_1.JournalJNLC,
     "JournalJNLS": journalJNLS_1.JournalJNLS,
+    "JournalResource": journalResource_1.JournalResource,
     "KycResult": kycResult_1.KycResult,
     "ModelError": modelError_1.ModelError,
     "OrderObject": orderObject_1.OrderObject,

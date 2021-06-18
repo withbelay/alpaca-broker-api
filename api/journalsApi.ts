@@ -15,10 +15,9 @@ import localVarRequest from 'request';
 import http from 'http';
 
 /* tslint:disable:no-unused-locals */
-import { InlineObject } from '../model/inlineObject';
 import { InlineResponse2006 } from '../model/inlineResponse2006';
-import { JournalJNLC } from '../model/journalJNLC';
-import { JournalJNLS } from '../model/journalJNLS';
+import { JournalData } from '../model/journalData';
+import { JournalResource } from '../model/journalResource';
 
 import { ObjectSerializer, Authentication, VoidAuth, Interceptor } from '../model/models';
 import { HttpBasicAuth, HttpBearerAuth, ApiKeyAuth, OAuth } from '../model/models';
@@ -192,12 +191,12 @@ export class JournalsApi {
      * @summary Return a list of requested journals.
      * @param after by settle_date
      * @param before by settle_date
-     * @param entryType 
      * @param status 
+     * @param entryType 
      * @param toAccount 
      * @param fromAccount 
      */
-    public async journalsGet (after: string, before: string, entryType: 'JNLC' | 'JNLS', status?: 'pending' | 'canceled' | 'executed', toAccount?: string, fromAccount?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: JournalJNLC | JournalJNLS;  }> {
+    public async getJournals (after?: string, before?: string, status?: 'pending' | 'canceled' | 'executed', entryType?: 'JNLC' | 'JNLS', toAccount?: string, fromAccount?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: Array<JournalResource>;  }> {
         const localVarPath = this.basePath + '/journals';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -209,21 +208,6 @@ export class JournalsApi {
             localVarHeaderParams.Accept = produces.join(',');
         }
         let localVarFormParams: any = {};
-
-        // verify required parameter 'after' is not null or undefined
-        if (after === null || after === undefined) {
-            throw new Error('Required parameter after was null or undefined when calling journalsGet.');
-        }
-
-        // verify required parameter 'before' is not null or undefined
-        if (before === null || before === undefined) {
-            throw new Error('Required parameter before was null or undefined when calling journalsGet.');
-        }
-
-        // verify required parameter 'entryType' is not null or undefined
-        if (entryType === null || entryType === undefined) {
-            throw new Error('Required parameter entryType was null or undefined when calling journalsGet.');
-        }
 
         if (after !== undefined) {
             localVarQueryParameters['after'] = ObjectSerializer.serialize(after, "string");
@@ -281,12 +265,12 @@ export class JournalsApi {
                     localVarRequestOptions.form = localVarFormParams;
                 }
             }
-            return new Promise<{ response: http.IncomingMessage; body: JournalJNLC | JournalJNLS;  }>((resolve, reject) => {
+            return new Promise<{ response: http.IncomingMessage; body: Array<JournalResource>;  }>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     if (error) {
                         reject(error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "JournalJNLC | JournalJNLS");
+                        body = ObjectSerializer.deserialize(body, "Array<JournalResource>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve({ response: response, body: body });
                         } else {
@@ -364,9 +348,9 @@ export class JournalsApi {
     /**
      * A journal can be JNLC (move cash) or JNLS (move shares), dictated by `entry_type`. Generally, journal requests are subject to approval and starts from the `pending` status. The status changes are propagated through the Event API. Under certain conditions agreed for the partner, such journal transactions that meet the criteria are executed right away. 
      * @summary Request a journal.
-     * @param inlineObject 
+     * @param journalData 
      */
-    public async journalsPost (inlineObject: InlineObject, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: JournalJNLC | JournalJNLS;  }> {
+    public async postJournals (journalData: JournalData, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: JournalResource;  }> {
         const localVarPath = this.basePath + '/journals';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -379,9 +363,9 @@ export class JournalsApi {
         }
         let localVarFormParams: any = {};
 
-        // verify required parameter 'inlineObject' is not null or undefined
-        if (inlineObject === null || inlineObject === undefined) {
-            throw new Error('Required parameter inlineObject was null or undefined when calling journalsPost.');
+        // verify required parameter 'journalData' is not null or undefined
+        if (journalData === null || journalData === undefined) {
+            throw new Error('Required parameter journalData was null or undefined when calling postJournals.');
         }
 
         (<any>Object).assign(localVarHeaderParams, options.headers);
@@ -395,7 +379,7 @@ export class JournalsApi {
             uri: localVarPath,
             useQuerystring: this._useQuerystring,
             json: true,
-            body: ObjectSerializer.serialize(inlineObject, "InlineObject")
+            body: ObjectSerializer.serialize(journalData, "JournalData")
         };
 
         let authenticationPromise = Promise.resolve();
@@ -417,12 +401,12 @@ export class JournalsApi {
                     localVarRequestOptions.form = localVarFormParams;
                 }
             }
-            return new Promise<{ response: http.IncomingMessage; body: JournalJNLC | JournalJNLS;  }>((resolve, reject) => {
+            return new Promise<{ response: http.IncomingMessage; body: JournalResource;  }>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     if (error) {
                         reject(error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "JournalJNLC | JournalJNLS");
+                        body = ObjectSerializer.deserialize(body, "JournalResource");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve({ response: response, body: body });
                         } else {

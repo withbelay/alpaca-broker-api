@@ -11,10 +11,9 @@
  */
 /// <reference types="node" />
 import http from 'http';
-import { InlineObject } from '../model/inlineObject';
 import { InlineResponse2006 } from '../model/inlineResponse2006';
-import { JournalJNLC } from '../model/journalJNLC';
-import { JournalJNLS } from '../model/journalJNLS';
+import { JournalData } from '../model/journalData';
+import { JournalResource } from '../model/journalResource';
 import { Authentication, Interceptor } from '../model/models';
 import { HttpBasicAuth } from '../model/models';
 export declare enum JournalsApiApiKeys {
@@ -61,18 +60,18 @@ export declare class JournalsApi {
      * @summary Return a list of requested journals.
      * @param after by settle_date
      * @param before by settle_date
-     * @param entryType
      * @param status
+     * @param entryType
      * @param toAccount
      * @param fromAccount
      */
-    journalsGet(after: string, before: string, entryType: 'JNLC' | 'JNLS', status?: 'pending' | 'canceled' | 'executed', toAccount?: string, fromAccount?: string, options?: {
+    getJournals(after?: string, before?: string, status?: 'pending' | 'canceled' | 'executed', entryType?: 'JNLC' | 'JNLS', toAccount?: string, fromAccount?: string, options?: {
         headers: {
             [name: string]: string;
         };
     }): Promise<{
         response: http.IncomingMessage;
-        body: JournalJNLC | JournalJNLS;
+        body: Array<JournalResource>;
     }>;
     /**
      * You can cancel journals while they are in the pending status. An attempt to cancel already-executed journals will return an error.
@@ -90,14 +89,14 @@ export declare class JournalsApi {
     /**
      * A journal can be JNLC (move cash) or JNLS (move shares), dictated by `entry_type`. Generally, journal requests are subject to approval and starts from the `pending` status. The status changes are propagated through the Event API. Under certain conditions agreed for the partner, such journal transactions that meet the criteria are executed right away.
      * @summary Request a journal.
-     * @param inlineObject
+     * @param journalData
      */
-    journalsPost(inlineObject: InlineObject, options?: {
+    postJournals(journalData: JournalData, options?: {
         headers: {
             [name: string]: string;
         };
     }): Promise<{
         response: http.IncomingMessage;
-        body: JournalJNLC | JournalJNLS;
+        body: JournalResource;
     }>;
 }
