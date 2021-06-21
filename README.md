@@ -191,7 +191,7 @@ alpaca.funding.deleteAchRelationship(accountId, achRelationshipId);
 // deleteRecipientBank(String, String, Options?)
 alpaca.funding.deleteRecipientBank(accountId, bankId);
 
-// deleteTransfer(Options?)
+// deleteTransfer(String, String, Options?)
 alpaca.funding.deleteTransfer(accountId, transferId);
 
 // getAchRelationships(String, String? Options?)
