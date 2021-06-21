@@ -40,6 +40,19 @@ export declare class JournalsApi {
     set password(password: string);
     addInterceptor(interceptor: Interceptor): void;
     /**
+     * You can cancel journals while they are in the pending status. An attempt to cancel already-executed journals will return an error.
+     * @summary Cancel a pending journal.
+     * @param journalId
+     */
+    deleteJournal(journalId: string, options?: {
+        headers: {
+            [name: string]: string;
+        };
+    }): Promise<{
+        response: http.IncomingMessage;
+        body?: any;
+    }>;
+    /**
      * Query Params Rules: - `since` required if `until` specified - `since_id` required if `until_id` specified - `since` and `since_id` can’t be used at the same time Behavior: - if `since` or `since_id` not specified this will not return any historic data - if `until` or `until_id` reached stream will end (status 200)
      * @summary Subscribe to journal events (SSE).
      * @param since
@@ -72,19 +85,6 @@ export declare class JournalsApi {
     }): Promise<{
         response: http.IncomingMessage;
         body: Array<JournalResource>;
-    }>;
-    /**
-     * You can cancel journals while they are in the pending status. An attempt to cancel already-executed journals will return an error.
-     * @summary Cancel a pending journal.
-     * @param journalId
-     */
-    journalsJournalIdDelete(journalId: string, options?: {
-        headers: {
-            [name: string]: string;
-        };
-    }): Promise<{
-        response: http.IncomingMessage;
-        body?: any;
     }>;
     /**
      * A journal can be JNLC (move cash) or JNLS (move shares), dictated by `entry_type`. Generally, journal requests are subject to approval and starts from the `pending` status. The status changes are propagated through the Event API. Under certain conditions agreed for the partner, such journal transactions that meet the criteria are executed right away.

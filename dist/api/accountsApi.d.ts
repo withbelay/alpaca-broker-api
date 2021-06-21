@@ -103,7 +103,7 @@ export declare class AccountsApi {
         };
     }): Promise<{
         response: http.IncomingMessage;
-        body: Array<AccountExtended>;
+        body: Array<Account>;
     }>;
     /**
      *

@@ -16,7 +16,6 @@ model/aCHRelationshipResourceAllOf.ts
 model/account.ts
 model/accountCreationObject.ts
 model/accountExtended.ts
-model/accountExtendedAllOf.ts
 model/accountStatus.ts
 model/accountUpdate.ts
 model/agreement.ts

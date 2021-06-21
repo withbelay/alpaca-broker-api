@@ -6,7 +6,6 @@ export * from './aCHRelationshipResourceAllOf';
 export * from './account';
 export * from './accountCreationObject';
 export * from './accountExtended';
-export * from './accountExtendedAllOf';
 export * from './accountStatus';
 export * from './accountUpdate';
 export * from './agreement';
@@ -76,7 +75,6 @@ import { ACHRelationshipResourceAllOf } from './aCHRelationshipResourceAllOf';
 import { Account } from './account';
 import { AccountCreationObject } from './accountCreationObject';
 import { AccountExtended } from './accountExtended';
-import { AccountExtendedAllOf } from './accountExtendedAllOf';
 import { AccountStatus } from './accountStatus';
 import { AccountUpdate } from './accountUpdate';
 import { Agreement } from './agreement';
@@ -196,7 +194,6 @@ let typeMap: {[index: string]: any} = {
     "Account": Account,
     "AccountCreationObject": AccountCreationObject,
     "AccountExtended": AccountExtended,
-    "AccountExtendedAllOf": AccountExtendedAllOf,
     "AccountUpdate": AccountUpdate,
     "Agreement": Agreement,
     "ApplicationDocument": ApplicationDocument,

@@ -11,8 +11,6 @@
  */
 
 import { RequestFile } from './models';
-import { Account } from './account';
-import { AccountExtendedAllOf } from './accountExtendedAllOf';
 import { AccountStatus } from './accountStatus';
 import { Agreement } from './agreement';
 import { ApplicationDocument } from './applicationDocument';

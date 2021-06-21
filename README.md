@@ -218,14 +218,14 @@ alpaca.funding.postTransfers(accountId, transferData);
 See [Alpaca journals documentation](https://alpaca.markets/docs/broker/api-references/journals/) for descriptions of each endpoint.
 
 ```js
+// deleteJournal(String, Options?)
+alpaca.journals.deleteJournal(journalId);
+
 // eventsJournalsStatusGet(Date?, Date?, Number?, Number?, Options?)
 alpaca.journals.eventsJournalsStatusGet(since, until, sinceId, untilId);
 
 // getJournals(String?, String?, String?, String?, String?, String?, Options?)
 alpaca.journals.getJournals(after, before, status, entryType, toAccount, fromAccount);
-
-// journalsJournalIdDelete(String, Options?)
-alpaca.journals.journalsJournalIdDelete(journalId);
 
 // postJournals(JournalData, Options?)
 alpaca.journals.postJournals(journalData);

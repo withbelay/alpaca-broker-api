@@ -17,7 +17,6 @@ __exportStar(require("./aCHRelationshipResourceAllOf"), exports);
 __exportStar(require("./account"), exports);
 __exportStar(require("./accountCreationObject"), exports);
 __exportStar(require("./accountExtended"), exports);
-__exportStar(require("./accountExtendedAllOf"), exports);
 __exportStar(require("./accountStatus"), exports);
 __exportStar(require("./accountUpdate"), exports);
 __exportStar(require("./agreement"), exports);
@@ -73,7 +72,6 @@ const aCHRelationshipResourceAllOf_1 = require("./aCHRelationshipResourceAllOf")
 const account_1 = require("./account");
 const accountCreationObject_1 = require("./accountCreationObject");
 const accountExtended_1 = require("./accountExtended");
-const accountExtendedAllOf_1 = require("./accountExtendedAllOf");
 const accountStatus_1 = require("./accountStatus");
 const accountUpdate_1 = require("./accountUpdate");
 const agreement_1 = require("./agreement");
@@ -190,7 +188,6 @@ let typeMap = {
     "Account": account_1.Account,
     "AccountCreationObject": accountCreationObject_1.AccountCreationObject,
     "AccountExtended": accountExtended_1.AccountExtended,
-    "AccountExtendedAllOf": accountExtendedAllOf_1.AccountExtendedAllOf,
     "AccountUpdate": accountUpdate_1.AccountUpdate,
     "Agreement": agreement_1.Agreement,
     "ApplicationDocument": applicationDocument_1.ApplicationDocument,

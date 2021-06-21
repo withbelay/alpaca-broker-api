@@ -6,7 +6,6 @@ export * from './aCHRelationshipResourceAllOf';
 export * from './account';
 export * from './accountCreationObject';
 export * from './accountExtended';
-export * from './accountExtendedAllOf';
 export * from './accountStatus';
 export * from './accountUpdate';
 export * from './agreement';
