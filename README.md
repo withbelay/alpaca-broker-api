@@ -66,10 +66,10 @@ See [Alpaca accounts documentation](https://alpaca.markets/docs/broker/api-refer
 // accountsAccountIdDocumentsUploadPost(String, DocumentUpload, Options?)
 alpaca.accounts.accountsAccountIdDocumentsUploadPost(accountId, documentUpload);
 
-// accountsActivitiesActivityTypeGet(String, String?, String?, String?, String?, String?, String?, String?, Options?)
+// accountsActivitiesActivityTypeGet(String, String?, String?, String?, String?, String?, Number?, String?, Options?)
 alpaca.accounts.accountsActivitiesActivityTypeGet(activityType, date, until, after, direction, accountId, pageSize, pageToken);
 
-// accountsActivitiesGet(String?, String?, String?, String?, String?, String?, String?, Options?)
+// accountsActivitiesGet(String?, String?, String?, String?, String?, Number?, String?, Options?)
 alpaca.accounts.accountsActivitiesGet(date, until, after, direction, accountId, pageSize, pageToken);
 
 // accountsGet(String?, Options?)
