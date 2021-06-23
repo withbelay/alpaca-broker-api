@@ -16,7 +16,6 @@ import http from 'http';
 
 /* tslint:disable:no-unused-locals */
 import { CreateOrder } from '../model/createOrder';
-import { InlineObject } from '../model/inlineObject';
 import { InlineResponse207 } from '../model/inlineResponse207';
 import { OrderObject } from '../model/orderObject';
 import { PatchOrder } from '../model/patchOrder';
@@ -343,9 +342,8 @@ export class TradingApi {
      * @param direction The chronological order of response based on the submission time. asc or desc. Defaults to desc.
      * @param nested If true, the result will roll up multi-leg orders under the legs field of primary order.
      * @param symbols A comma-separated list of symbols to filter by.
-     * @param inlineObject 
      */
-    public async getOrders (accountId: string, status?: 'open' | 'closed' | 'all', limit?: number, after?: Date, until?: Date, direction?: 'asc' | 'desc', nested?: boolean, symbols?: string, inlineObject?: InlineObject, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: Array<OrderObject>;  }> {
+    public async getOrders (accountId: string, status?: 'open' | 'closed' | 'all', limit?: number, after?: Date, until?: Date, direction?: 'asc' | 'desc', nested?: boolean, symbols?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: Array<OrderObject>;  }> {
         const localVarPath = this.basePath + '/trading/accounts/{account_id}/orders'
             .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)));
         let localVarQueryParameters: any = {};
@@ -403,7 +401,6 @@ export class TradingApi {
             uri: localVarPath,
             useQuerystring: this._useQuerystring,
             json: true,
-            body: ObjectSerializer.serialize(inlineObject, "InlineObject")
         };
 
         let authenticationPromise = Promise.resolve();

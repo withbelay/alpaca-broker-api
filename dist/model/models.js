@@ -19,6 +19,9 @@ __exportStar(require("./accountCreationObject"), exports);
 __exportStar(require("./accountExtended"), exports);
 __exportStar(require("./accountStatus"), exports);
 __exportStar(require("./accountUpdate"), exports);
+__exportStar(require("./activity"), exports);
+__exportStar(require("./activityItem"), exports);
+__exportStar(require("./activityType"), exports);
 __exportStar(require("./agreement"), exports);
 __exportStar(require("./applicationDocument"), exports);
 __exportStar(require("./bankData"), exports);
@@ -35,10 +38,8 @@ __exportStar(require("./identifiedResource"), exports);
 __exportStar(require("./identity"), exports);
 __exportStar(require("./inlineObject"), exports);
 __exportStar(require("./inlineObject1"), exports);
-__exportStar(require("./inlineObject2"), exports);
 __exportStar(require("./inlineResponse200"), exports);
 __exportStar(require("./inlineResponse2001"), exports);
-__exportStar(require("./inlineResponse20010"), exports);
 __exportStar(require("./inlineResponse2002"), exports);
 __exportStar(require("./inlineResponse2003"), exports);
 __exportStar(require("./inlineResponse2004"), exports);
@@ -54,8 +55,12 @@ __exportStar(require("./journalJNLS"), exports);
 __exportStar(require("./journalResource"), exports);
 __exportStar(require("./kycResult"), exports);
 __exportStar(require("./modelError"), exports);
+__exportStar(require("./nonTradeActivity"), exports);
+__exportStar(require("./nonTradeActivityAllOf"), exports);
 __exportStar(require("./orderObject"), exports);
 __exportStar(require("./patchOrder"), exports);
+__exportStar(require("./tradeActivity"), exports);
+__exportStar(require("./tradeActivityAllOf"), exports);
 __exportStar(require("./transferData"), exports);
 __exportStar(require("./transferDataAllOf"), exports);
 __exportStar(require("./transferResource"), exports);
@@ -74,6 +79,9 @@ const accountCreationObject_1 = require("./accountCreationObject");
 const accountExtended_1 = require("./accountExtended");
 const accountStatus_1 = require("./accountStatus");
 const accountUpdate_1 = require("./accountUpdate");
+const activity_1 = require("./activity");
+const activityItem_1 = require("./activityItem");
+const activityType_1 = require("./activityType");
 const agreement_1 = require("./agreement");
 const applicationDocument_1 = require("./applicationDocument");
 const bankData_1 = require("./bankData");
@@ -90,10 +98,8 @@ const identifiedResource_1 = require("./identifiedResource");
 const identity_1 = require("./identity");
 const inlineObject_1 = require("./inlineObject");
 const inlineObject1_1 = require("./inlineObject1");
-const inlineObject2_1 = require("./inlineObject2");
 const inlineResponse200_1 = require("./inlineResponse200");
 const inlineResponse2001_1 = require("./inlineResponse2001");
-const inlineResponse20010_1 = require("./inlineResponse20010");
 const inlineResponse2002_1 = require("./inlineResponse2002");
 const inlineResponse2003_1 = require("./inlineResponse2003");
 const inlineResponse2004_1 = require("./inlineResponse2004");
@@ -109,8 +115,12 @@ const journalJNLS_1 = require("./journalJNLS");
 const journalResource_1 = require("./journalResource");
 const kycResult_1 = require("./kycResult");
 const modelError_1 = require("./modelError");
+const nonTradeActivity_1 = require("./nonTradeActivity");
+const nonTradeActivityAllOf_1 = require("./nonTradeActivityAllOf");
 const orderObject_1 = require("./orderObject");
 const patchOrder_1 = require("./patchOrder");
+const tradeActivity_1 = require("./tradeActivity");
+const tradeActivityAllOf_1 = require("./tradeActivityAllOf");
 const transferData_1 = require("./transferData");
 const transferDataAllOf_1 = require("./transferDataAllOf");
 const transferResource_1 = require("./transferResource");
@@ -138,6 +148,11 @@ let enumsMap = {
     "ACHRelationshipResource.StatusEnum": aCHRelationshipResource_1.ACHRelationshipResource.StatusEnum,
     "ACHRelationshipResourceAllOf.StatusEnum": aCHRelationshipResourceAllOf_1.ACHRelationshipResourceAllOf.StatusEnum,
     "AccountStatus": accountStatus_1.AccountStatus,
+    "ActivityItem.TypeEnum": activityItem_1.ActivityItem.TypeEnum,
+    "ActivityItem.SideEnum": activityItem_1.ActivityItem.SideEnum,
+    "ActivityItem.OrderStatusEnum": activityItem_1.ActivityItem.OrderStatusEnum,
+    "ActivityItem.StatusEnum": activityItem_1.ActivityItem.StatusEnum,
+    "ActivityType": activityType_1.ActivityType,
     "Agreement.AgreementEnum": agreement_1.Agreement.AgreementEnum,
     "BankData.BankCodeTypeEnum": bankData_1.BankData.BankCodeTypeEnum,
     "BankResource.BankCodeTypeEnum": bankResource_1.BankResource.BankCodeTypeEnum,
@@ -151,15 +166,13 @@ let enumsMap = {
     "DocumentType": documentType_1.DocumentType,
     "Identity.TaxIdTypeEnum": identity_1.Identity.TaxIdTypeEnum,
     "Identity.FundingSourceEnum": identity_1.Identity.FundingSourceEnum,
-    "InlineObject.StatusEnum": inlineObject_1.InlineObject.StatusEnum,
-    "InlineObject.DirectionEnum": inlineObject_1.InlineObject.DirectionEnum,
-    "InlineResponse20010.ActivityTypeEnum": inlineResponse20010_1.InlineResponse20010.ActivityTypeEnum,
-    "InlineResponse20010.StatusEnum": inlineResponse20010_1.InlineResponse20010.StatusEnum,
     "InlineResponse2007.StatusEnum": inlineResponse2007_1.InlineResponse2007.StatusEnum,
     "JournalData.EntryTypeEnum": journalData_1.JournalData.EntryTypeEnum,
     "JournalJNLC.StatusEnum": journalJNLC_1.JournalJNLC.StatusEnum,
     "JournalJNLS.StatusEnum": journalJNLS_1.JournalJNLS.StatusEnum,
     "JournalResource.StatusEnum": journalResource_1.JournalResource.StatusEnum,
+    "NonTradeActivity.StatusEnum": nonTradeActivity_1.NonTradeActivity.StatusEnum,
+    "NonTradeActivityAllOf.StatusEnum": nonTradeActivityAllOf_1.NonTradeActivityAllOf.StatusEnum,
     "OrderObject.OrderClassEnum": orderObject_1.OrderObject.OrderClassEnum,
     "OrderObject.OrderTypeEnum": orderObject_1.OrderObject.OrderTypeEnum,
     "OrderObject.TypeEnum": orderObject_1.OrderObject.TypeEnum,
@@ -167,6 +180,12 @@ let enumsMap = {
     "OrderObject.TimeInForceEnum": orderObject_1.OrderObject.TimeInForceEnum,
     "OrderObject.StatusEnum": orderObject_1.OrderObject.StatusEnum,
     "PatchOrder.TimeInForceEnum": patchOrder_1.PatchOrder.TimeInForceEnum,
+    "TradeActivity.TypeEnum": tradeActivity_1.TradeActivity.TypeEnum,
+    "TradeActivity.SideEnum": tradeActivity_1.TradeActivity.SideEnum,
+    "TradeActivity.OrderStatusEnum": tradeActivity_1.TradeActivity.OrderStatusEnum,
+    "TradeActivityAllOf.TypeEnum": tradeActivityAllOf_1.TradeActivityAllOf.TypeEnum,
+    "TradeActivityAllOf.SideEnum": tradeActivityAllOf_1.TradeActivityAllOf.SideEnum,
+    "TradeActivityAllOf.OrderStatusEnum": tradeActivityAllOf_1.TradeActivityAllOf.OrderStatusEnum,
     "TransferData.TransferTypeEnum": transferData_1.TransferData.TransferTypeEnum,
     "TransferData.TimingEnum": transferData_1.TransferData.TimingEnum,
     "TransferData.DirectionEnum": transferData_1.TransferData.DirectionEnum,
@@ -189,6 +208,8 @@ let typeMap = {
     "AccountCreationObject": accountCreationObject_1.AccountCreationObject,
     "AccountExtended": accountExtended_1.AccountExtended,
     "AccountUpdate": accountUpdate_1.AccountUpdate,
+    "Activity": activity_1.Activity,
+    "ActivityItem": activityItem_1.ActivityItem,
     "Agreement": agreement_1.Agreement,
     "ApplicationDocument": applicationDocument_1.ApplicationDocument,
     "BankData": bankData_1.BankData,
@@ -204,10 +225,8 @@ let typeMap = {
     "Identity": identity_1.Identity,
     "InlineObject": inlineObject_1.InlineObject,
     "InlineObject1": inlineObject1_1.InlineObject1,
-    "InlineObject2": inlineObject2_1.InlineObject2,
     "InlineResponse200": inlineResponse200_1.InlineResponse200,
     "InlineResponse2001": inlineResponse2001_1.InlineResponse2001,
-    "InlineResponse20010": inlineResponse20010_1.InlineResponse20010,
     "InlineResponse2002": inlineResponse2002_1.InlineResponse2002,
     "InlineResponse2003": inlineResponse2003_1.InlineResponse2003,
     "InlineResponse2004": inlineResponse2004_1.InlineResponse2004,
@@ -223,8 +242,12 @@ let typeMap = {
     "JournalResource": journalResource_1.JournalResource,
     "KycResult": kycResult_1.KycResult,
     "ModelError": modelError_1.ModelError,
+    "NonTradeActivity": nonTradeActivity_1.NonTradeActivity,
+    "NonTradeActivityAllOf": nonTradeActivityAllOf_1.NonTradeActivityAllOf,
     "OrderObject": orderObject_1.OrderObject,
     "PatchOrder": patchOrder_1.PatchOrder,
+    "TradeActivity": tradeActivity_1.TradeActivity,
+    "TradeActivityAllOf": tradeActivityAllOf_1.TradeActivityAllOf,
     "TransferData": transferData_1.TransferData,
     "TransferDataAllOf": transferDataAllOf_1.TransferDataAllOf,
     "TransferResource": transferResource_1.TransferResource,

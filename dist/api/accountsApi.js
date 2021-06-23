@@ -168,8 +168,15 @@ class AccountsApi {
      *
      * @summary Retrieve specific account activities
      * @param activityType
+     * @param date
+     * @param until
+     * @param after
+     * @param direction
+     * @param accountId
+     * @param pageSize
+     * @param pageToken
      */
-    accountsActivitiesActivityTypeGet(activityType, options = { headers: {} }) {
+    accountsActivitiesActivityTypeGet(activityType, date, until, after, direction, accountId, pageSize, pageToken, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/accounts/activities/{activity_type}'
                 .replace('{' + 'activity_type' + '}', encodeURIComponent(String(activityType)));
@@ -188,6 +195,27 @@ class AccountsApi {
             if (activityType === null || activityType === undefined) {
                 throw new Error('Required parameter activityType was null or undefined when calling accountsActivitiesActivityTypeGet.');
             }
+            if (date !== undefined) {
+                localVarQueryParameters['date'] = models_1.ObjectSerializer.serialize(date, "string");
+            }
+            if (until !== undefined) {
+                localVarQueryParameters['until'] = models_1.ObjectSerializer.serialize(until, "string");
+            }
+            if (after !== undefined) {
+                localVarQueryParameters['after'] = models_1.ObjectSerializer.serialize(after, "string");
+            }
+            if (direction !== undefined) {
+                localVarQueryParameters['direction'] = models_1.ObjectSerializer.serialize(direction, "'asc' | 'desc'");
+            }
+            if (accountId !== undefined) {
+                localVarQueryParameters['account_id'] = models_1.ObjectSerializer.serialize(accountId, "string");
+            }
+            if (pageSize !== undefined) {
+                localVarQueryParameters['page_size'] = models_1.ObjectSerializer.serialize(pageSize, "number");
+            }
+            if (pageToken !== undefined) {
+                localVarQueryParameters['page_token'] = models_1.ObjectSerializer.serialize(pageToken, "string");
+            }
             Object.assign(localVarHeaderParams, options.headers);
             let localVarUseFormData = false;
             let localVarRequestOptions = {
@@ -222,7 +250,7 @@ class AccountsApi {
                             reject(error);
                         }
                         else {
-                            body = models_1.ObjectSerializer.deserialize(body, "InlineResponse20010");
+                            body = models_1.ObjectSerializer.deserialize(body, "Array<ActivityItem>");
                             if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                                 resolve({ response: response, body: body });
                             }
@@ -238,11 +266,15 @@ class AccountsApi {
     /**
      *
      * @summary Retrieve account activities
-     * @param activityType The type of activity you wish to query
      * @param date
      * @param until
+     * @param after
+     * @param direction
+     * @param accountId
+     * @param pageSize
+     * @param pageToken
      */
-    accountsActivitiesGet(activityType, date, until, options = { headers: {} }) {
+    accountsActivitiesGet(date, until, after, direction, accountId, pageSize, pageToken, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/accounts/activities';
             let localVarQueryParameters = {};
@@ -256,14 +288,26 @@ class AccountsApi {
                 localVarHeaderParams.Accept = produces.join(',');
             }
             let localVarFormParams = {};
-            if (activityType !== undefined) {
-                localVarQueryParameters['activity_type'] = models_1.ObjectSerializer.serialize(activityType, "'FILL' | 'ACATC' | 'ACATS' | 'CSD' | 'CSR' | 'CSW' | 'DIV' | 'DIVCGL' | 'DIVCGS' | 'DIVNRA' | 'DIVROC' | 'DIVTXEX' | 'INT' | 'JNLC' | 'JNLS' | 'MA' | 'NC' | 'PTC' | 'REORG' | 'SSO' | 'SSP'");
-            }
             if (date !== undefined) {
                 localVarQueryParameters['date'] = models_1.ObjectSerializer.serialize(date, "string");
             }
             if (until !== undefined) {
                 localVarQueryParameters['until'] = models_1.ObjectSerializer.serialize(until, "string");
+            }
+            if (after !== undefined) {
+                localVarQueryParameters['after'] = models_1.ObjectSerializer.serialize(after, "string");
+            }
+            if (direction !== undefined) {
+                localVarQueryParameters['direction'] = models_1.ObjectSerializer.serialize(direction, "'asc' | 'desc'");
+            }
+            if (accountId !== undefined) {
+                localVarQueryParameters['account_id'] = models_1.ObjectSerializer.serialize(accountId, "string");
+            }
+            if (pageSize !== undefined) {
+                localVarQueryParameters['page_size'] = models_1.ObjectSerializer.serialize(pageSize, "number");
+            }
+            if (pageToken !== undefined) {
+                localVarQueryParameters['page_token'] = models_1.ObjectSerializer.serialize(pageToken, "string");
             }
             Object.assign(localVarHeaderParams, options.headers);
             let localVarUseFormData = false;
@@ -299,7 +343,7 @@ class AccountsApi {
                             reject(error);
                         }
                         else {
-                            body = models_1.ObjectSerializer.deserialize(body, "InlineResponse20010");
+                            body = models_1.ObjectSerializer.deserialize(body, "Array<ActivityItem>");
                             if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                                 resolve({ response: response, body: body });
                             }

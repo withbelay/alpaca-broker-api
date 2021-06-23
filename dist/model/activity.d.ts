@@ -9,14 +9,14 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-export declare class InlineResponse20010 {
+import { ActivityType } from './activityType';
+/**
+* Base for activity types
+*/
+export declare class Activity {
     'id'?: string;
     'account_id'?: string;
-    'activity_type'?: InlineResponse20010.ActivityTypeEnum;
-    'date'?: string;
-    'net_amount'?: string;
-    'description'?: string;
-    'status'?: InlineResponse20010.StatusEnum;
+    'activity_type'?: ActivityType;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;
@@ -28,33 +28,4 @@ export declare class InlineResponse20010 {
         baseName: string;
         type: string;
     }[];
-}
-export declare namespace InlineResponse20010 {
-    enum ActivityTypeEnum {
-        Fill,
-        Acatc,
-        Acats,
-        Csd,
-        Csr,
-        Csw,
-        Div,
-        Divcgl,
-        Divcgs,
-        Divnra,
-        Divroc,
-        Divtxex,
-        Int,
-        Jnlc,
-        Jnls,
-        Ma,
-        Nc,
-        Ptc,
-        Reorg,
-        Sso,
-        Ssp
-    }
-    enum StatusEnum {
-        Executed,
-        Canceled
-    }
 }

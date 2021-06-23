@@ -11,38 +11,31 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.InlineObject2 = void 0;
-class InlineObject2 {
+exports.Activity = void 0;
+/**
+* Base for activity types
+*/
+class Activity {
     static getAttributeTypeMap() {
-        return InlineObject2.attributeTypeMap;
+        return Activity.attributeTypeMap;
     }
 }
-exports.InlineObject2 = InlineObject2;
-InlineObject2.discriminator = undefined;
-InlineObject2.attributeTypeMap = [
+exports.Activity = Activity;
+Activity.discriminator = undefined;
+Activity.attributeTypeMap = [
     {
-        "name": "client_id",
-        "baseName": "client_id",
-        "type": "string"
-    },
-    {
-        "name": "client_secret",
-        "baseName": "client_secret",
-        "type": "string"
-    },
-    {
-        "name": "redirect_uri",
-        "baseName": "redirect_uri",
-        "type": "string"
-    },
-    {
-        "name": "scope",
-        "baseName": "scope",
+        "name": "id",
+        "baseName": "id",
         "type": "string"
     },
     {
         "name": "account_id",
         "baseName": "account_id",
         "type": "string"
+    },
+    {
+        "name": "activity_type",
+        "baseName": "activity_type",
+        "type": "ActivityType"
     }
 ];

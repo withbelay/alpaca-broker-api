@@ -323,9 +323,8 @@ class TradingApi {
      * @param direction The chronological order of response based on the submission time. asc or desc. Defaults to desc.
      * @param nested If true, the result will roll up multi-leg orders under the legs field of primary order.
      * @param symbols A comma-separated list of symbols to filter by.
-     * @param inlineObject
      */
-    getOrders(accountId, status, limit, after, until, direction, nested, symbols, inlineObject, options = { headers: {} }) {
+    getOrders(accountId, status, limit, after, until, direction, nested, symbols, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/trading/accounts/{account_id}/orders'
                 .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)));
@@ -374,7 +373,6 @@ class TradingApi {
                 uri: localVarPath,
                 useQuerystring: this._useQuerystring,
                 json: true,
-                body: models_1.ObjectSerializer.serialize(inlineObject, "InlineObject")
             };
             let authenticationPromise = Promise.resolve();
             if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {

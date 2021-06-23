@@ -13,50 +13,53 @@
 import { RequestFile } from './models';
 
 export class InlineObject {
-    'status'?: InlineObject.StatusEnum;
-    'limit'?: number;
-    'after'?: Date;
-    'until'?: Date;
-    'direction'?: InlineObject.DirectionEnum;
-    'nested'?: boolean;
-    'symbols'?: string;
+    /**
+    * OAuth client ID
+    */
+    'client_id'?: string;
+    /**
+    * OAuth client secret
+    */
+    'client_secret'?: string;
+    /**
+    * redirect URI for the OAuth flow
+    */
+    'redirect_uri'?: string;
+    /**
+    * scopes requested by the OAuth flow
+    */
+    'scope'?: string;
+    /**
+    * end-user account ID
+    */
+    'account_id'?: string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "status",
-            "baseName": "status",
-            "type": "InlineObject.StatusEnum"
+            "name": "client_id",
+            "baseName": "client_id",
+            "type": "string"
         },
         {
-            "name": "limit",
-            "baseName": "limit",
-            "type": "number"
+            "name": "client_secret",
+            "baseName": "client_secret",
+            "type": "string"
         },
         {
-            "name": "after",
-            "baseName": "after",
-            "type": "Date"
+            "name": "redirect_uri",
+            "baseName": "redirect_uri",
+            "type": "string"
         },
         {
-            "name": "until",
-            "baseName": "until",
-            "type": "Date"
+            "name": "scope",
+            "baseName": "scope",
+            "type": "string"
         },
         {
-            "name": "direction",
-            "baseName": "direction",
-            "type": "InlineObject.DirectionEnum"
-        },
-        {
-            "name": "nested",
-            "baseName": "nested",
-            "type": "boolean"
-        },
-        {
-            "name": "symbols",
-            "baseName": "symbols",
+            "name": "account_id",
+            "baseName": "account_id",
             "type": "string"
         }    ];
 
@@ -65,14 +68,3 @@ export class InlineObject {
     }
 }
 
-export namespace InlineObject {
-    export enum StatusEnum {
-        Open = <any> 'open',
-        Closed = <any> 'closed',
-        All = <any> 'all'
-    }
-    export enum DirectionEnum {
-        Asc = <any> 'asc',
-        Desc = <any> 'desc'
-    }
-}

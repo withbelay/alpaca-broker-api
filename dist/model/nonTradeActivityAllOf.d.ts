@@ -9,27 +9,14 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-export declare class InlineObject {
-    /**
-    * OAuth client ID
-    */
-    'client_id'?: string;
-    /**
-    * OAuth client secret
-    */
-    'client_secret'?: string;
-    /**
-    * redirect URI for the OAuth flow
-    */
-    'redirect_uri'?: string;
-    /**
-    * scopes requested by the OAuth flow
-    */
-    'scope'?: string;
-    /**
-    * end-user account ID
-    */
-    'account_id'?: string;
+export declare class NonTradeActivityAllOf {
+    'date'?: string;
+    'net_amount'?: string;
+    'description'?: string;
+    'status'?: NonTradeActivityAllOf.StatusEnum;
+    'symbol'?: string;
+    'qty'?: string;
+    'per_share_amount'?: string;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;
@@ -41,4 +28,11 @@ export declare class InlineObject {
         baseName: string;
         type: string;
     }[];
+}
+export declare namespace NonTradeActivityAllOf {
+    enum StatusEnum {
+        Executed,
+        Correct,
+        Canceled
+    }
 }

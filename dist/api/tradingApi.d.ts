@@ -12,7 +12,6 @@
 /// <reference types="node" />
 import http from 'http';
 import { CreateOrder } from '../model/createOrder';
-import { InlineObject } from '../model/inlineObject';
 import { InlineResponse207 } from '../model/inlineResponse207';
 import { OrderObject } from '../model/orderObject';
 import { PatchOrder } from '../model/patchOrder';
@@ -93,9 +92,8 @@ export declare class TradingApi {
      * @param direction The chronological order of response based on the submission time. asc or desc. Defaults to desc.
      * @param nested If true, the result will roll up multi-leg orders under the legs field of primary order.
      * @param symbols A comma-separated list of symbols to filter by.
-     * @param inlineObject
      */
-    getOrders(accountId: string, status?: 'open' | 'closed' | 'all', limit?: number, after?: Date, until?: Date, direction?: 'asc' | 'desc', nested?: boolean, symbols?: string, inlineObject?: InlineObject, options?: {
+    getOrders(accountId: string, status?: 'open' | 'closed' | 'all', limit?: number, after?: Date, until?: Date, direction?: 'asc' | 'desc', nested?: boolean, symbols?: string, options?: {
         headers: {
             [name: string]: string;
         };

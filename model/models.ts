@@ -8,6 +8,9 @@ export * from './accountCreationObject';
 export * from './accountExtended';
 export * from './accountStatus';
 export * from './accountUpdate';
+export * from './activity';
+export * from './activityItem';
+export * from './activityType';
 export * from './agreement';
 export * from './applicationDocument';
 export * from './bankData';
@@ -24,10 +27,8 @@ export * from './identifiedResource';
 export * from './identity';
 export * from './inlineObject';
 export * from './inlineObject1';
-export * from './inlineObject2';
 export * from './inlineResponse200';
 export * from './inlineResponse2001';
-export * from './inlineResponse20010';
 export * from './inlineResponse2002';
 export * from './inlineResponse2003';
 export * from './inlineResponse2004';
@@ -43,8 +44,12 @@ export * from './journalJNLS';
 export * from './journalResource';
 export * from './kycResult';
 export * from './modelError';
+export * from './nonTradeActivity';
+export * from './nonTradeActivityAllOf';
 export * from './orderObject';
 export * from './patchOrder';
+export * from './tradeActivity';
+export * from './tradeActivityAllOf';
 export * from './transferData';
 export * from './transferDataAllOf';
 export * from './transferResource';
@@ -77,6 +82,9 @@ import { AccountCreationObject } from './accountCreationObject';
 import { AccountExtended } from './accountExtended';
 import { AccountStatus } from './accountStatus';
 import { AccountUpdate } from './accountUpdate';
+import { Activity } from './activity';
+import { ActivityItem } from './activityItem';
+import { ActivityType } from './activityType';
 import { Agreement } from './agreement';
 import { ApplicationDocument } from './applicationDocument';
 import { BankData } from './bankData';
@@ -93,10 +101,8 @@ import { IdentifiedResource } from './identifiedResource';
 import { Identity } from './identity';
 import { InlineObject } from './inlineObject';
 import { InlineObject1 } from './inlineObject1';
-import { InlineObject2 } from './inlineObject2';
 import { InlineResponse200 } from './inlineResponse200';
 import { InlineResponse2001 } from './inlineResponse2001';
-import { InlineResponse20010 } from './inlineResponse20010';
 import { InlineResponse2002 } from './inlineResponse2002';
 import { InlineResponse2003 } from './inlineResponse2003';
 import { InlineResponse2004 } from './inlineResponse2004';
@@ -112,8 +118,12 @@ import { JournalJNLS } from './journalJNLS';
 import { JournalResource } from './journalResource';
 import { KycResult } from './kycResult';
 import { ModelError } from './modelError';
+import { NonTradeActivity } from './nonTradeActivity';
+import { NonTradeActivityAllOf } from './nonTradeActivityAllOf';
 import { OrderObject } from './orderObject';
 import { PatchOrder } from './patchOrder';
+import { TradeActivity } from './tradeActivity';
+import { TradeActivityAllOf } from './tradeActivityAllOf';
 import { TransferData } from './transferData';
 import { TransferDataAllOf } from './transferDataAllOf';
 import { TransferResource } from './transferResource';
@@ -143,6 +153,11 @@ let enumsMap: {[index: string]: any} = {
         "ACHRelationshipResource.StatusEnum": ACHRelationshipResource.StatusEnum,
         "ACHRelationshipResourceAllOf.StatusEnum": ACHRelationshipResourceAllOf.StatusEnum,
         "AccountStatus": AccountStatus,
+        "ActivityItem.TypeEnum": ActivityItem.TypeEnum,
+        "ActivityItem.SideEnum": ActivityItem.SideEnum,
+        "ActivityItem.OrderStatusEnum": ActivityItem.OrderStatusEnum,
+        "ActivityItem.StatusEnum": ActivityItem.StatusEnum,
+        "ActivityType": ActivityType,
         "Agreement.AgreementEnum": Agreement.AgreementEnum,
         "BankData.BankCodeTypeEnum": BankData.BankCodeTypeEnum,
         "BankResource.BankCodeTypeEnum": BankResource.BankCodeTypeEnum,
@@ -156,15 +171,13 @@ let enumsMap: {[index: string]: any} = {
         "DocumentType": DocumentType,
         "Identity.TaxIdTypeEnum": Identity.TaxIdTypeEnum,
         "Identity.FundingSourceEnum": Identity.FundingSourceEnum,
-        "InlineObject.StatusEnum": InlineObject.StatusEnum,
-        "InlineObject.DirectionEnum": InlineObject.DirectionEnum,
-        "InlineResponse20010.ActivityTypeEnum": InlineResponse20010.ActivityTypeEnum,
-        "InlineResponse20010.StatusEnum": InlineResponse20010.StatusEnum,
         "InlineResponse2007.StatusEnum": InlineResponse2007.StatusEnum,
         "JournalData.EntryTypeEnum": JournalData.EntryTypeEnum,
         "JournalJNLC.StatusEnum": JournalJNLC.StatusEnum,
         "JournalJNLS.StatusEnum": JournalJNLS.StatusEnum,
         "JournalResource.StatusEnum": JournalResource.StatusEnum,
+        "NonTradeActivity.StatusEnum": NonTradeActivity.StatusEnum,
+        "NonTradeActivityAllOf.StatusEnum": NonTradeActivityAllOf.StatusEnum,
         "OrderObject.OrderClassEnum": OrderObject.OrderClassEnum,
         "OrderObject.OrderTypeEnum": OrderObject.OrderTypeEnum,
         "OrderObject.TypeEnum": OrderObject.TypeEnum,
@@ -172,6 +185,12 @@ let enumsMap: {[index: string]: any} = {
         "OrderObject.TimeInForceEnum": OrderObject.TimeInForceEnum,
         "OrderObject.StatusEnum": OrderObject.StatusEnum,
         "PatchOrder.TimeInForceEnum": PatchOrder.TimeInForceEnum,
+        "TradeActivity.TypeEnum": TradeActivity.TypeEnum,
+        "TradeActivity.SideEnum": TradeActivity.SideEnum,
+        "TradeActivity.OrderStatusEnum": TradeActivity.OrderStatusEnum,
+        "TradeActivityAllOf.TypeEnum": TradeActivityAllOf.TypeEnum,
+        "TradeActivityAllOf.SideEnum": TradeActivityAllOf.SideEnum,
+        "TradeActivityAllOf.OrderStatusEnum": TradeActivityAllOf.OrderStatusEnum,
         "TransferData.TransferTypeEnum": TransferData.TransferTypeEnum,
         "TransferData.TimingEnum": TransferData.TimingEnum,
         "TransferData.DirectionEnum": TransferData.DirectionEnum,
@@ -195,6 +214,8 @@ let typeMap: {[index: string]: any} = {
     "AccountCreationObject": AccountCreationObject,
     "AccountExtended": AccountExtended,
     "AccountUpdate": AccountUpdate,
+    "Activity": Activity,
+    "ActivityItem": ActivityItem,
     "Agreement": Agreement,
     "ApplicationDocument": ApplicationDocument,
     "BankData": BankData,
@@ -210,10 +231,8 @@ let typeMap: {[index: string]: any} = {
     "Identity": Identity,
     "InlineObject": InlineObject,
     "InlineObject1": InlineObject1,
-    "InlineObject2": InlineObject2,
     "InlineResponse200": InlineResponse200,
     "InlineResponse2001": InlineResponse2001,
-    "InlineResponse20010": InlineResponse20010,
     "InlineResponse2002": InlineResponse2002,
     "InlineResponse2003": InlineResponse2003,
     "InlineResponse2004": InlineResponse2004,
@@ -229,8 +248,12 @@ let typeMap: {[index: string]: any} = {
     "JournalResource": JournalResource,
     "KycResult": KycResult,
     "ModelError": ModelError,
+    "NonTradeActivity": NonTradeActivity,
+    "NonTradeActivityAllOf": NonTradeActivityAllOf,
     "OrderObject": OrderObject,
     "PatchOrder": PatchOrder,
+    "TradeActivity": TradeActivity,
+    "TradeActivityAllOf": TradeActivityAllOf,
     "TransferData": TransferData,
     "TransferDataAllOf": TransferDataAllOf,
     "TransferResource": TransferResource,

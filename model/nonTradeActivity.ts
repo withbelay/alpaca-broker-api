@@ -11,15 +11,21 @@
  */
 
 import { RequestFile } from './models';
+import { Activity } from './activity';
+import { ActivityType } from './activityType';
+import { NonTradeActivityAllOf } from './nonTradeActivityAllOf';
 
-export class InlineResponse20010 {
+export class NonTradeActivity {
     'id'?: string;
     'account_id'?: string;
-    'activity_type'?: InlineResponse20010.ActivityTypeEnum;
+    'activity_type'?: ActivityType;
     'date'?: string;
     'net_amount'?: string;
     'description'?: string;
-    'status'?: InlineResponse20010.StatusEnum;
+    'status'?: NonTradeActivity.StatusEnum;
+    'symbol'?: string;
+    'qty'?: string;
+    'per_share_amount'?: string;
 
     static discriminator: string | undefined = undefined;
 
@@ -37,7 +43,7 @@ export class InlineResponse20010 {
         {
             "name": "activity_type",
             "baseName": "activity_type",
-            "type": "InlineResponse20010.ActivityTypeEnum"
+            "type": "ActivityType"
         },
         {
             "name": "date",
@@ -57,40 +63,33 @@ export class InlineResponse20010 {
         {
             "name": "status",
             "baseName": "status",
-            "type": "InlineResponse20010.StatusEnum"
+            "type": "NonTradeActivity.StatusEnum"
+        },
+        {
+            "name": "symbol",
+            "baseName": "symbol",
+            "type": "string"
+        },
+        {
+            "name": "qty",
+            "baseName": "qty",
+            "type": "string"
+        },
+        {
+            "name": "per_share_amount",
+            "baseName": "per_share_amount",
+            "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
-        return InlineResponse20010.attributeTypeMap;
+        return NonTradeActivity.attributeTypeMap;
     }
 }
 
-export namespace InlineResponse20010 {
-    export enum ActivityTypeEnum {
-        Fill = <any> 'FILL',
-        Acatc = <any> 'ACATC',
-        Acats = <any> 'ACATS',
-        Csd = <any> 'CSD',
-        Csr = <any> 'CSR',
-        Csw = <any> 'CSW',
-        Div = <any> 'DIV',
-        Divcgl = <any> 'DIVCGL',
-        Divcgs = <any> 'DIVCGS',
-        Divnra = <any> 'DIVNRA',
-        Divroc = <any> 'DIVROC',
-        Divtxex = <any> 'DIVTXEX',
-        Int = <any> 'INT',
-        Jnlc = <any> 'JNLC',
-        Jnls = <any> 'JNLS',
-        Ma = <any> 'MA',
-        Nc = <any> 'NC',
-        Ptc = <any> 'PTC',
-        Reorg = <any> 'REORG',
-        Sso = <any> 'SSO',
-        Ssp = <any> 'SSP'
-    }
+export namespace NonTradeActivity {
     export enum StatusEnum {
         Executed = <any> 'executed',
+        Correct = <any> 'correct',
         Canceled = <any> 'canceled'
     }
 }

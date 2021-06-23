@@ -21,51 +21,28 @@ exports.InlineObject = InlineObject;
 InlineObject.discriminator = undefined;
 InlineObject.attributeTypeMap = [
     {
-        "name": "status",
-        "baseName": "status",
-        "type": "InlineObject.StatusEnum"
+        "name": "client_id",
+        "baseName": "client_id",
+        "type": "string"
     },
     {
-        "name": "limit",
-        "baseName": "limit",
-        "type": "number"
+        "name": "client_secret",
+        "baseName": "client_secret",
+        "type": "string"
     },
     {
-        "name": "after",
-        "baseName": "after",
-        "type": "Date"
+        "name": "redirect_uri",
+        "baseName": "redirect_uri",
+        "type": "string"
     },
     {
-        "name": "until",
-        "baseName": "until",
-        "type": "Date"
+        "name": "scope",
+        "baseName": "scope",
+        "type": "string"
     },
     {
-        "name": "direction",
-        "baseName": "direction",
-        "type": "InlineObject.DirectionEnum"
-    },
-    {
-        "name": "nested",
-        "baseName": "nested",
-        "type": "boolean"
-    },
-    {
-        "name": "symbols",
-        "baseName": "symbols",
+        "name": "account_id",
+        "baseName": "account_id",
         "type": "string"
     }
 ];
-(function (InlineObject) {
-    let StatusEnum;
-    (function (StatusEnum) {
-        StatusEnum[StatusEnum["Open"] = 'open'] = "Open";
-        StatusEnum[StatusEnum["Closed"] = 'closed'] = "Closed";
-        StatusEnum[StatusEnum["All"] = 'all'] = "All";
-    })(StatusEnum = InlineObject.StatusEnum || (InlineObject.StatusEnum = {}));
-    let DirectionEnum;
-    (function (DirectionEnum) {
-        DirectionEnum[DirectionEnum["Asc"] = 'asc'] = "Asc";
-        DirectionEnum[DirectionEnum["Desc"] = 'desc'] = "Desc";
-    })(DirectionEnum = InlineObject.DirectionEnum || (InlineObject.DirectionEnum = {}));
-})(InlineObject = exports.InlineObject || (exports.InlineObject = {}));

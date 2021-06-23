@@ -21,11 +21,11 @@ import { Account } from '../model/account';
 import { AccountCreationObject } from '../model/accountCreationObject';
 import { AccountExtended } from '../model/accountExtended';
 import { AccountUpdate } from '../model/accountUpdate';
+import { ActivityItem } from '../model/activityItem';
 import { BankData } from '../model/bankData';
 import { BankResource } from '../model/bankResource';
 import { DocumentUpload } from '../model/documentUpload';
 import { InlineResponse200 } from '../model/inlineResponse200';
-import { InlineResponse20010 } from '../model/inlineResponse20010';
 import { InlineResponse2005 } from '../model/inlineResponse2005';
 import { TransferData } from '../model/transferData';
 import { TransferResource } from '../model/transferResource';
@@ -194,8 +194,15 @@ export class AccountsApi {
      * 
      * @summary Retrieve specific account activities
      * @param activityType 
+     * @param date 
+     * @param until 
+     * @param after 
+     * @param direction 
+     * @param accountId 
+     * @param pageSize 
+     * @param pageToken 
      */
-    public async accountsActivitiesActivityTypeGet (activityType: 'FILL' | 'ACATC' | 'ACATS' | 'CSD' | 'CSR' | 'CSW' | 'DIV' | 'DIVCGL' | 'DIVCGS' | 'DIVNRA' | 'DIVROC' | 'DIVTXEX' | 'INT' | 'JNLC' | 'JNLS' | 'MA' | 'NC' | 'PTC' | 'REORG' | 'SSO' | 'SSP', options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: InlineResponse20010;  }> {
+    public async accountsActivitiesActivityTypeGet (activityType: 'FILL' | 'ACATC' | 'ACATS' | 'CSD' | 'CSR' | 'CSW' | 'DIV' | 'DIVCGL' | 'DIVCGS' | 'DIVNRA' | 'DIVROC' | 'DIVTXEX' | 'INT' | 'JNLC' | 'JNLS' | 'MA' | 'NC' | 'PTC' | 'REORG' | 'SSO' | 'SSP', date?: string, until?: string, after?: string, direction?: 'asc' | 'desc', accountId?: string, pageSize?: number, pageToken?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: Array<ActivityItem>;  }> {
         const localVarPath = this.basePath + '/accounts/activities/{activity_type}'
             .replace('{' + 'activity_type' + '}', encodeURIComponent(String(activityType)));
         let localVarQueryParameters: any = {};
@@ -214,6 +221,34 @@ export class AccountsApi {
             throw new Error('Required parameter activityType was null or undefined when calling accountsActivitiesActivityTypeGet.');
         }
 
+        if (date !== undefined) {
+            localVarQueryParameters['date'] = ObjectSerializer.serialize(date, "string");
+        }
+
+        if (until !== undefined) {
+            localVarQueryParameters['until'] = ObjectSerializer.serialize(until, "string");
+        }
+
+        if (after !== undefined) {
+            localVarQueryParameters['after'] = ObjectSerializer.serialize(after, "string");
+        }
+
+        if (direction !== undefined) {
+            localVarQueryParameters['direction'] = ObjectSerializer.serialize(direction, "'asc' | 'desc'");
+        }
+
+        if (accountId !== undefined) {
+            localVarQueryParameters['account_id'] = ObjectSerializer.serialize(accountId, "string");
+        }
+
+        if (pageSize !== undefined) {
+            localVarQueryParameters['page_size'] = ObjectSerializer.serialize(pageSize, "number");
+        }
+
+        if (pageToken !== undefined) {
+            localVarQueryParameters['page_token'] = ObjectSerializer.serialize(pageToken, "string");
+        }
+
         (<any>Object).assign(localVarHeaderParams, options.headers);
 
         let localVarUseFormData = false;
@@ -246,12 +281,12 @@ export class AccountsApi {
                     localVarRequestOptions.form = localVarFormParams;
                 }
             }
-            return new Promise<{ response: http.IncomingMessage; body: InlineResponse20010;  }>((resolve, reject) => {
+            return new Promise<{ response: http.IncomingMessage; body: Array<ActivityItem>;  }>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     if (error) {
                         reject(error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse20010");
+                        body = ObjectSerializer.deserialize(body, "Array<ActivityItem>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve({ response: response, body: body });
                         } else {
@@ -265,11 +300,15 @@ export class AccountsApi {
     /**
      * 
      * @summary Retrieve account activities
-     * @param activityType The type of activity you wish to query
      * @param date 
      * @param until 
+     * @param after 
+     * @param direction 
+     * @param accountId 
+     * @param pageSize 
+     * @param pageToken 
      */
-    public async accountsActivitiesGet (activityType?: 'FILL' | 'ACATC' | 'ACATS' | 'CSD' | 'CSR' | 'CSW' | 'DIV' | 'DIVCGL' | 'DIVCGS' | 'DIVNRA' | 'DIVROC' | 'DIVTXEX' | 'INT' | 'JNLC' | 'JNLS' | 'MA' | 'NC' | 'PTC' | 'REORG' | 'SSO' | 'SSP', date?: string, until?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: InlineResponse20010;  }> {
+    public async accountsActivitiesGet (date?: string, until?: string, after?: string, direction?: 'asc' | 'desc', accountId?: string, pageSize?: number, pageToken?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: Array<ActivityItem>;  }> {
         const localVarPath = this.basePath + '/accounts/activities';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -282,16 +321,32 @@ export class AccountsApi {
         }
         let localVarFormParams: any = {};
 
-        if (activityType !== undefined) {
-            localVarQueryParameters['activity_type'] = ObjectSerializer.serialize(activityType, "'FILL' | 'ACATC' | 'ACATS' | 'CSD' | 'CSR' | 'CSW' | 'DIV' | 'DIVCGL' | 'DIVCGS' | 'DIVNRA' | 'DIVROC' | 'DIVTXEX' | 'INT' | 'JNLC' | 'JNLS' | 'MA' | 'NC' | 'PTC' | 'REORG' | 'SSO' | 'SSP'");
-        }
-
         if (date !== undefined) {
             localVarQueryParameters['date'] = ObjectSerializer.serialize(date, "string");
         }
 
         if (until !== undefined) {
             localVarQueryParameters['until'] = ObjectSerializer.serialize(until, "string");
+        }
+
+        if (after !== undefined) {
+            localVarQueryParameters['after'] = ObjectSerializer.serialize(after, "string");
+        }
+
+        if (direction !== undefined) {
+            localVarQueryParameters['direction'] = ObjectSerializer.serialize(direction, "'asc' | 'desc'");
+        }
+
+        if (accountId !== undefined) {
+            localVarQueryParameters['account_id'] = ObjectSerializer.serialize(accountId, "string");
+        }
+
+        if (pageSize !== undefined) {
+            localVarQueryParameters['page_size'] = ObjectSerializer.serialize(pageSize, "number");
+        }
+
+        if (pageToken !== undefined) {
+            localVarQueryParameters['page_token'] = ObjectSerializer.serialize(pageToken, "string");
         }
 
         (<any>Object).assign(localVarHeaderParams, options.headers);
@@ -326,12 +381,12 @@ export class AccountsApi {
                     localVarRequestOptions.form = localVarFormParams;
                 }
             }
-            return new Promise<{ response: http.IncomingMessage; body: InlineResponse20010;  }>((resolve, reject) => {
+            return new Promise<{ response: http.IncomingMessage; body: Array<ActivityItem>;  }>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     if (error) {
                         reject(error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse20010");
+                        body = ObjectSerializer.deserialize(body, "Array<ActivityItem>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve({ response: response, body: body });
                         } else {

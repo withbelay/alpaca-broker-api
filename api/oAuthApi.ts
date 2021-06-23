@@ -15,8 +15,8 @@ import localVarRequest from 'request';
 import http from 'http';
 
 /* tslint:disable:no-unused-locals */
+import { InlineObject } from '../model/inlineObject';
 import { InlineObject1 } from '../model/inlineObject1';
-import { InlineObject2 } from '../model/inlineObject2';
 import { InlineResponse2007 } from '../model/inlineResponse2007';
 import { InlineResponse2008 } from '../model/inlineResponse2008';
 import { InlineResponse2009 } from '../model/inlineResponse2009';
@@ -106,9 +106,9 @@ export class OAuthApi {
     /**
      * The operation issues an OAuth code which can be used in the OAuth code flow. 
      * @summary Issue a code.
-     * @param inlineObject2 
+     * @param inlineObject1 
      */
-    public async oauthAuthorizePost (inlineObject2: InlineObject2, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: InlineResponse2009;  }> {
+    public async oauthAuthorizePost (inlineObject1: InlineObject1, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: InlineResponse2009;  }> {
         const localVarPath = this.basePath + '/oauth/authorize';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -121,9 +121,9 @@ export class OAuthApi {
         }
         let localVarFormParams: any = {};
 
-        // verify required parameter 'inlineObject2' is not null or undefined
-        if (inlineObject2 === null || inlineObject2 === undefined) {
-            throw new Error('Required parameter inlineObject2 was null or undefined when calling oauthAuthorizePost.');
+        // verify required parameter 'inlineObject1' is not null or undefined
+        if (inlineObject1 === null || inlineObject1 === undefined) {
+            throw new Error('Required parameter inlineObject1 was null or undefined when calling oauthAuthorizePost.');
         }
 
         (<any>Object).assign(localVarHeaderParams, options.headers);
@@ -137,7 +137,7 @@ export class OAuthApi {
             uri: localVarPath,
             useQuerystring: this._useQuerystring,
             json: true,
-            body: ObjectSerializer.serialize(inlineObject2, "InlineObject2")
+            body: ObjectSerializer.serialize(inlineObject1, "InlineObject1")
         };
 
         let authenticationPromise = Promise.resolve();
@@ -265,9 +265,9 @@ export class OAuthApi {
     /**
      * This operation issues an access token for an account. 
      * @summary Issue a token.
-     * @param inlineObject1 
+     * @param inlineObject 
      */
-    public async oauthTokenPost (inlineObject1: InlineObject1, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: InlineResponse2008;  }> {
+    public async oauthTokenPost (inlineObject: InlineObject, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: InlineResponse2008;  }> {
         const localVarPath = this.basePath + '/oauth/token';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -280,9 +280,9 @@ export class OAuthApi {
         }
         let localVarFormParams: any = {};
 
-        // verify required parameter 'inlineObject1' is not null or undefined
-        if (inlineObject1 === null || inlineObject1 === undefined) {
-            throw new Error('Required parameter inlineObject1 was null or undefined when calling oauthTokenPost.');
+        // verify required parameter 'inlineObject' is not null or undefined
+        if (inlineObject === null || inlineObject === undefined) {
+            throw new Error('Required parameter inlineObject was null or undefined when calling oauthTokenPost.');
         }
 
         (<any>Object).assign(localVarHeaderParams, options.headers);
@@ -296,7 +296,7 @@ export class OAuthApi {
             uri: localVarPath,
             useQuerystring: this._useQuerystring,
             json: true,
-            body: ObjectSerializer.serialize(inlineObject1, "InlineObject1")
+            body: ObjectSerializer.serialize(inlineObject, "InlineObject")
         };
 
         let authenticationPromise = Promise.resolve();

@@ -17,11 +17,11 @@ import { Account } from '../model/account';
 import { AccountCreationObject } from '../model/accountCreationObject';
 import { AccountExtended } from '../model/accountExtended';
 import { AccountUpdate } from '../model/accountUpdate';
+import { ActivityItem } from '../model/activityItem';
 import { BankData } from '../model/bankData';
 import { BankResource } from '../model/bankResource';
 import { DocumentUpload } from '../model/documentUpload';
 import { InlineResponse200 } from '../model/inlineResponse200';
-import { InlineResponse20010 } from '../model/inlineResponse20010';
 import { InlineResponse2005 } from '../model/inlineResponse2005';
 import { TransferData } from '../model/transferData';
 import { TransferResource } from '../model/transferResource';
@@ -68,29 +68,40 @@ export declare class AccountsApi {
      *
      * @summary Retrieve specific account activities
      * @param activityType
+     * @param date
+     * @param until
+     * @param after
+     * @param direction
+     * @param accountId
+     * @param pageSize
+     * @param pageToken
      */
-    accountsActivitiesActivityTypeGet(activityType: 'FILL' | 'ACATC' | 'ACATS' | 'CSD' | 'CSR' | 'CSW' | 'DIV' | 'DIVCGL' | 'DIVCGS' | 'DIVNRA' | 'DIVROC' | 'DIVTXEX' | 'INT' | 'JNLC' | 'JNLS' | 'MA' | 'NC' | 'PTC' | 'REORG' | 'SSO' | 'SSP', options?: {
+    accountsActivitiesActivityTypeGet(activityType: 'FILL' | 'ACATC' | 'ACATS' | 'CSD' | 'CSR' | 'CSW' | 'DIV' | 'DIVCGL' | 'DIVCGS' | 'DIVNRA' | 'DIVROC' | 'DIVTXEX' | 'INT' | 'JNLC' | 'JNLS' | 'MA' | 'NC' | 'PTC' | 'REORG' | 'SSO' | 'SSP', date?: string, until?: string, after?: string, direction?: 'asc' | 'desc', accountId?: string, pageSize?: number, pageToken?: string, options?: {
         headers: {
             [name: string]: string;
         };
     }): Promise<{
         response: http.IncomingMessage;
-        body: InlineResponse20010;
+        body: Array<ActivityItem>;
     }>;
     /**
      *
      * @summary Retrieve account activities
-     * @param activityType The type of activity you wish to query
      * @param date
      * @param until
+     * @param after
+     * @param direction
+     * @param accountId
+     * @param pageSize
+     * @param pageToken
      */
-    accountsActivitiesGet(activityType?: 'FILL' | 'ACATC' | 'ACATS' | 'CSD' | 'CSR' | 'CSW' | 'DIV' | 'DIVCGL' | 'DIVCGS' | 'DIVNRA' | 'DIVROC' | 'DIVTXEX' | 'INT' | 'JNLC' | 'JNLS' | 'MA' | 'NC' | 'PTC' | 'REORG' | 'SSO' | 'SSP', date?: string, until?: string, options?: {
+    accountsActivitiesGet(date?: string, until?: string, after?: string, direction?: 'asc' | 'desc', accountId?: string, pageSize?: number, pageToken?: string, options?: {
         headers: {
             [name: string]: string;
         };
     }): Promise<{
         response: http.IncomingMessage;
-        body: InlineResponse20010;
+        body: Array<ActivityItem>;
     }>;
     /**
      *

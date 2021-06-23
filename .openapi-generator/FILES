@@ -18,6 +18,9 @@ model/accountCreationObject.ts
 model/accountExtended.ts
 model/accountStatus.ts
 model/accountUpdate.ts
+model/activity.ts
+model/activityItem.ts
+model/activityType.ts
 model/agreement.ts
 model/applicationDocument.ts
 model/bankData.ts
@@ -34,10 +37,8 @@ model/identifiedResource.ts
 model/identity.ts
 model/inlineObject.ts
 model/inlineObject1.ts
-model/inlineObject2.ts
 model/inlineResponse200.ts
 model/inlineResponse2001.ts
-model/inlineResponse20010.ts
 model/inlineResponse2002.ts
 model/inlineResponse2003.ts
 model/inlineResponse2004.ts
@@ -54,8 +55,12 @@ model/journalResource.ts
 model/kycResult.ts
 model/modelError.ts
 model/models.ts
+model/nonTradeActivity.ts
+model/nonTradeActivityAllOf.ts
 model/orderObject.ts
 model/patchOrder.ts
+model/tradeActivity.ts
+model/tradeActivityAllOf.ts
 model/transferData.ts
 model/transferDataAllOf.ts
 model/transferResource.ts
