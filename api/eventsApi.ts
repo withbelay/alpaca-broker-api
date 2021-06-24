@@ -15,8 +15,8 @@ import localVarRequest from 'request';
 import http from 'http';
 
 /* tslint:disable:no-unused-locals */
+import { InlineResponse2004 } from '../model/inlineResponse2004';
 import { InlineResponse2005 } from '../model/inlineResponse2005';
-import { InlineResponse2006 } from '../model/inlineResponse2006';
 
 import { ObjectSerializer, Authentication, VoidAuth, Interceptor } from '../model/models';
 import { HttpBasicAuth, HttpBearerAuth, ApiKeyAuth, OAuth } from '../model/models';
@@ -108,8 +108,93 @@ export class EventsApi {
      * @param sinceId 
      * @param untilId 
      */
-    public async eventsAccountsStatusGet (since?: Date, until?: Date, sinceId?: number, untilId?: number, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: InlineResponse2005;  }> {
+    public async eventsAccountsStatusGet (since?: Date, until?: Date, sinceId?: number, untilId?: number, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: InlineResponse2004;  }> {
         const localVarPath = this.basePath + '/events/accounts/status';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        const produces = ['application/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams.Accept = 'application/json';
+        } else {
+            localVarHeaderParams.Accept = produces.join(',');
+        }
+        let localVarFormParams: any = {};
+
+        if (since !== undefined) {
+            localVarQueryParameters['since'] = ObjectSerializer.serialize(since, "Date");
+        }
+
+        if (until !== undefined) {
+            localVarQueryParameters['until'] = ObjectSerializer.serialize(until, "Date");
+        }
+
+        if (sinceId !== undefined) {
+            localVarQueryParameters['since_id'] = ObjectSerializer.serialize(sinceId, "number");
+        }
+
+        if (untilId !== undefined) {
+            localVarQueryParameters['until_id'] = ObjectSerializer.serialize(untilId, "number");
+        }
+
+        (<any>Object).assign(localVarHeaderParams, options.headers);
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        let authenticationPromise = Promise.resolve();
+        if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.BasicAuth.applyToRequest(localVarRequestOptions));
+        }
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+
+        let interceptorPromise = authenticationPromise;
+        for (const interceptor of this.interceptors) {
+            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+        }
+
+        return interceptorPromise.then(() => {
+            if (Object.keys(localVarFormParams).length) {
+                if (localVarUseFormData) {
+                    (<any>localVarRequestOptions).formData = localVarFormParams;
+                } else {
+                    localVarRequestOptions.form = localVarFormParams;
+                }
+            }
+            return new Promise<{ response: http.IncomingMessage; body: InlineResponse2004;  }>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse2004");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve({ response: response, body: body });
+                        } else {
+                            reject(new HttpError(response, body, response.statusCode));
+                        }
+                    }
+                });
+            });
+        });
+    }
+    /**
+     * Query Params Rules: - `since` required if `until` specified - `since_id` required if `until_id` specified - `since` and `since_id` can’t be used at the same time Behavior: - if `since` or `since_id` not specified this will not return any historic data - if `until` or `until_id` reached stream will end (status 200) 
+     * @summary Subscribe to journal events (SSE).
+     * @param since 
+     * @param until 
+     * @param sinceId 
+     * @param untilId 
+     */
+    public async eventsJournalsStatusGet (since?: Date, until?: Date, sinceId?: number, untilId?: number, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: InlineResponse2005;  }> {
+        const localVarPath = this.basePath + '/events/journals/status';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
         const produces = ['application/json'];
@@ -175,91 +260,6 @@ export class EventsApi {
                         reject(error);
                     } else {
                         body = ObjectSerializer.deserialize(body, "InlineResponse2005");
-                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                            resolve({ response: response, body: body });
-                        } else {
-                            reject(new HttpError(response, body, response.statusCode));
-                        }
-                    }
-                });
-            });
-        });
-    }
-    /**
-     * Query Params Rules: - `since` required if `until` specified - `since_id` required if `until_id` specified - `since` and `since_id` can’t be used at the same time Behavior: - if `since` or `since_id` not specified this will not return any historic data - if `until` or `until_id` reached stream will end (status 200) 
-     * @summary Subscribe to journal events (SSE).
-     * @param since 
-     * @param until 
-     * @param sinceId 
-     * @param untilId 
-     */
-    public async eventsJournalsStatusGet (since?: Date, until?: Date, sinceId?: number, untilId?: number, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: InlineResponse2006;  }> {
-        const localVarPath = this.basePath + '/events/journals/status';
-        let localVarQueryParameters: any = {};
-        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
-        const produces = ['application/json'];
-        // give precedence to 'application/json'
-        if (produces.indexOf('application/json') >= 0) {
-            localVarHeaderParams.Accept = 'application/json';
-        } else {
-            localVarHeaderParams.Accept = produces.join(',');
-        }
-        let localVarFormParams: any = {};
-
-        if (since !== undefined) {
-            localVarQueryParameters['since'] = ObjectSerializer.serialize(since, "Date");
-        }
-
-        if (until !== undefined) {
-            localVarQueryParameters['until'] = ObjectSerializer.serialize(until, "Date");
-        }
-
-        if (sinceId !== undefined) {
-            localVarQueryParameters['since_id'] = ObjectSerializer.serialize(sinceId, "number");
-        }
-
-        if (untilId !== undefined) {
-            localVarQueryParameters['until_id'] = ObjectSerializer.serialize(untilId, "number");
-        }
-
-        (<any>Object).assign(localVarHeaderParams, options.headers);
-
-        let localVarUseFormData = false;
-
-        let localVarRequestOptions: localVarRequest.Options = {
-            method: 'GET',
-            qs: localVarQueryParameters,
-            headers: localVarHeaderParams,
-            uri: localVarPath,
-            useQuerystring: this._useQuerystring,
-            json: true,
-        };
-
-        let authenticationPromise = Promise.resolve();
-        if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {
-            authenticationPromise = authenticationPromise.then(() => this.authentications.BasicAuth.applyToRequest(localVarRequestOptions));
-        }
-        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-
-        let interceptorPromise = authenticationPromise;
-        for (const interceptor of this.interceptors) {
-            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
-        }
-
-        return interceptorPromise.then(() => {
-            if (Object.keys(localVarFormParams).length) {
-                if (localVarUseFormData) {
-                    (<any>localVarRequestOptions).formData = localVarFormParams;
-                } else {
-                    localVarRequestOptions.form = localVarFormParams;
-                }
-            }
-            return new Promise<{ response: http.IncomingMessage; body: InlineResponse2006;  }>((resolve, reject) => {
-                localVarRequest(localVarRequestOptions, (error, response, body) => {
-                    if (error) {
-                        reject(error);
-                    } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse2006");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve({ response: response, body: body });
                         } else {

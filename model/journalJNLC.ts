@@ -131,6 +131,7 @@ export namespace JournalJNLC {
         Canceled = <any> 'canceled',
         Executed = <any> 'executed',
         Queued = <any> 'queued',
-        Rejected = <any> 'rejected'
+        Rejected = <any> 'rejected',
+        Deleted = <any> 'deleted'
     }
 }

@@ -22,7 +22,7 @@ import { BankData } from '../model/bankData';
 import { BankResource } from '../model/bankResource';
 import { DocumentUpload } from '../model/documentUpload';
 import { InlineResponse200 } from '../model/inlineResponse200';
-import { InlineResponse2005 } from '../model/inlineResponse2005';
+import { InlineResponse2004 } from '../model/inlineResponse2004';
 import { TransferData } from '../model/transferData';
 import { TransferResource } from '../model/transferResource';
 import { Authentication, Interceptor } from '../model/models';
@@ -198,7 +198,7 @@ export declare class AccountsApi {
         };
     }): Promise<{
         response: http.IncomingMessage;
-        body: InlineResponse2005;
+        body: InlineResponse2004;
     }>;
     /**
      * The response is an Account model.

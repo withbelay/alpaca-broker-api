@@ -23,9 +23,13 @@ model/activityItem.ts
 model/activityType.ts
 model/agreement.ts
 model/applicationDocument.ts
+model/assetResource.ts
 model/bankData.ts
 model/bankResource.ts
 model/bankResourceAllOf.ts
+model/batchJournalRequest.ts
+model/batchJournalRequestEntries.ts
+model/batchJournalResponse.ts
 model/contact.ts
 model/createOrder.ts
 model/createOrderStopLoss.ts
@@ -46,7 +50,6 @@ model/inlineResponse2005.ts
 model/inlineResponse2006.ts
 model/inlineResponse2007.ts
 model/inlineResponse2008.ts
-model/inlineResponse2009.ts
 model/inlineResponse207.ts
 model/journalData.ts
 model/journalJNLC.ts
@@ -59,6 +62,7 @@ model/nonTradeActivity.ts
 model/nonTradeActivityAllOf.ts
 model/orderObject.ts
 model/patchOrder.ts
+model/position.ts
 model/tradeActivity.ts
 model/tradeActivityAllOf.ts
 model/transferData.ts

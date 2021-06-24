@@ -10,12 +10,12 @@
  * Do not edit the class manually.
  */
 export declare class InlineResponse2004 {
-    'document_id'?: string;
-    /**
-    * such as \"account_statement\" and \"trade_confirmation\"
-    */
-    'document_type'?: string;
-    'document_date'?: string;
+    'account_id'?: string;
+    'account_number'?: string;
+    'status_from'?: string;
+    'status_to'?: string;
+    'reason'?: string;
+    'at'?: Date;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

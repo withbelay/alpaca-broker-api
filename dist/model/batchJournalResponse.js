@@ -11,24 +11,29 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.JournalJNLC = void 0;
-class JournalJNLC {
+exports.BatchJournalResponse = void 0;
+class BatchJournalResponse {
     static getAttributeTypeMap() {
-        return JournalJNLC.attributeTypeMap;
+        return BatchJournalResponse.attributeTypeMap;
     }
 }
-exports.JournalJNLC = JournalJNLC;
-JournalJNLC.discriminator = undefined;
-JournalJNLC.attributeTypeMap = [
+exports.BatchJournalResponse = BatchJournalResponse;
+BatchJournalResponse.discriminator = undefined;
+BatchJournalResponse.attributeTypeMap = [
     {
         "name": "id",
         "baseName": "id",
         "type": "string"
     },
     {
+        "name": "error_message",
+        "baseName": "error_message",
+        "type": "string"
+    },
+    {
         "name": "entry_type",
         "baseName": "entry_type",
-        "type": "string"
+        "type": "BatchJournalResponse.EntryTypeEnum"
     },
     {
         "name": "from_account",
@@ -41,9 +46,24 @@ JournalJNLC.attributeTypeMap = [
         "type": "string"
     },
     {
-        "name": "description",
-        "baseName": "description",
+        "name": "symbol",
+        "baseName": "symbol",
         "type": "string"
+    },
+    {
+        "name": "qty",
+        "baseName": "qty",
+        "type": "string"
+    },
+    {
+        "name": "price",
+        "baseName": "price",
+        "type": "string"
+    },
+    {
+        "name": "status",
+        "baseName": "status",
+        "type": "BatchJournalResponse.StatusEnum"
     },
     {
         "name": "settle_date",
@@ -51,9 +71,9 @@ JournalJNLC.attributeTypeMap = [
         "type": "string"
     },
     {
-        "name": "status",
-        "baseName": "status",
-        "type": "JournalJNLC.StatusEnum"
+        "name": "system_date",
+        "baseName": "system_date",
+        "type": "string"
     },
     {
         "name": "net_amount",
@@ -61,32 +81,16 @@ JournalJNLC.attributeTypeMap = [
         "type": "string"
     },
     {
-        "name": "transmitter_name",
-        "baseName": "transmitter_name",
+        "name": "description",
+        "baseName": "description",
         "type": "string"
-    },
-    {
-        "name": "transmitter_account_number",
-        "baseName": "transmitter_account_number",
-        "type": "string"
-    },
-    {
-        "name": "transmitter_address",
-        "baseName": "transmitter_address",
-        "type": "string"
-    },
-    {
-        "name": "transmitter_financial_institution",
-        "baseName": "transmitter_financial_institution",
-        "type": "string"
-    },
-    {
-        "name": "transmitter_timestamp",
-        "baseName": "transmitter_timestamp",
-        "type": "Date"
     }
 ];
-(function (JournalJNLC) {
+(function (BatchJournalResponse) {
+    let EntryTypeEnum;
+    (function (EntryTypeEnum) {
+        EntryTypeEnum[EntryTypeEnum["Jnlc"] = 'JNLC'] = "Jnlc";
+    })(EntryTypeEnum = BatchJournalResponse.EntryTypeEnum || (BatchJournalResponse.EntryTypeEnum = {}));
     let StatusEnum;
     (function (StatusEnum) {
         StatusEnum[StatusEnum["Pending"] = 'pending'] = "Pending";
@@ -95,5 +99,5 @@ JournalJNLC.attributeTypeMap = [
         StatusEnum[StatusEnum["Queued"] = 'queued'] = "Queued";
         StatusEnum[StatusEnum["Rejected"] = 'rejected'] = "Rejected";
         StatusEnum[StatusEnum["Deleted"] = 'deleted'] = "Deleted";
-    })(StatusEnum = JournalJNLC.StatusEnum || (JournalJNLC.StatusEnum = {}));
-})(JournalJNLC = exports.JournalJNLC || (exports.JournalJNLC = {}));
+    })(StatusEnum = BatchJournalResponse.StatusEnum || (BatchJournalResponse.StatusEnum = {}));
+})(BatchJournalResponse = exports.BatchJournalResponse || (exports.BatchJournalResponse = {}));

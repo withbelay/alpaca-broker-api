@@ -846,7 +846,7 @@ class AccountsApi {
                             reject(error);
                         }
                         else {
-                            body = models_1.ObjectSerializer.deserialize(body, "InlineResponse2005");
+                            body = models_1.ObjectSerializer.deserialize(body, "InlineResponse2004");
                             if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                                 resolve({ response: response, body: body });
                             }

@@ -129,11 +129,11 @@ See [Alpaca assets documentation](https://alpaca.markets/docs/broker/api-referen
 // assetsAssetIdGet(String, Options?)
 alpaca.assets.assetsAssetIdGet(assetId);
 
-// assetsGet(Options?)
-alpaca.assets.assetsGet();
-
 // assetsSymbolGet(String, Options?)
 alpaca.assets.assetsSymbolGet(symbol);
+
+// getAssets(Options?)
+alpaca.assets.getAssets();
 ```
 ### Calendar API
 
@@ -229,6 +229,9 @@ alpaca.journals.getJournals(after, before, status, entryType, toAccount, fromAcc
 
 // postJournals(JournalData, Options?)
 alpaca.journals.postJournals(journalData);
+
+// postJournalsBatch(BatchJournalRequest, Options?)
+alpaca.journals.postJournalsBatch(batchJournalRequest);
 ```
 
 ### OAuth API
@@ -262,6 +265,9 @@ alpaca.trading.getOrder(accountId, orderId);
 
 // getOrders(String, String?, Number?, Date?, Date?, String?, Boolean?, String?, Options?)
 alpaca.trading.getOrders(accountId, status, limit, after, until, direction, nested, symbols);
+
+// getPositions(String, Options?)
+alpaca.trading.getPositions(accountId);
 
 // patchOrder(String, String, PatchOrder, Options?)
 alpaca.trading.patchOrder(accountId, orderId, patchOrder);

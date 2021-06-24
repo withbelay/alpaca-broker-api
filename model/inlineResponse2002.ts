@@ -13,26 +13,32 @@
 import { RequestFile } from './models';
 
 export class InlineResponse2002 {
-    'date'?: string;
-    'open'?: string;
-    'close'?: string;
+    'timestamp'?: string;
+    'is_open'?: boolean;
+    'next_open'?: string;
+    'next_close'?: string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "date",
-            "baseName": "date",
+            "name": "timestamp",
+            "baseName": "timestamp",
             "type": "string"
         },
         {
-            "name": "open",
-            "baseName": "open",
+            "name": "is_open",
+            "baseName": "is_open",
+            "type": "boolean"
+        },
+        {
+            "name": "next_open",
+            "baseName": "next_open",
             "type": "string"
         },
         {
-            "name": "close",
-            "baseName": "close",
+            "name": "next_close",
+            "baseName": "next_close",
             "type": "string"
         }    ];
 

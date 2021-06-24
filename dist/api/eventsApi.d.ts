@@ -11,8 +11,8 @@
  */
 /// <reference types="node" />
 import http from 'http';
+import { InlineResponse2004 } from '../model/inlineResponse2004';
 import { InlineResponse2005 } from '../model/inlineResponse2005';
-import { InlineResponse2006 } from '../model/inlineResponse2006';
 import { Authentication, Interceptor } from '../model/models';
 import { HttpBasicAuth } from '../model/models';
 export declare enum EventsApiApiKeys {
@@ -52,7 +52,7 @@ export declare class EventsApi {
         };
     }): Promise<{
         response: http.IncomingMessage;
-        body: InlineResponse2005;
+        body: InlineResponse2004;
     }>;
     /**
      * Query Params Rules: - `since` required if `until` specified - `since_id` required if `until_id` specified - `since` and `since_id` can’t be used at the same time Behavior: - if `since` or `since_id` not specified this will not return any historic data - if `until` or `until_id` reached stream will end (status 200)
@@ -68,6 +68,6 @@ export declare class EventsApi {
         };
     }): Promise<{
         response: http.IncomingMessage;
-        body: InlineResponse2006;
+        body: InlineResponse2005;
     }>;
 }

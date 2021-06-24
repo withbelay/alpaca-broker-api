@@ -21,58 +21,18 @@ exports.InlineResponse2001 = InlineResponse2001;
 InlineResponse2001.discriminator = undefined;
 InlineResponse2001.attributeTypeMap = [
     {
-        "name": "id",
-        "baseName": "id",
+        "name": "date",
+        "baseName": "date",
         "type": "string"
     },
     {
-        "name": "_class",
-        "baseName": "class",
+        "name": "open",
+        "baseName": "open",
         "type": "string"
     },
     {
-        "name": "exchange",
-        "baseName": "exchange",
+        "name": "close",
+        "baseName": "close",
         "type": "string"
-    },
-    {
-        "name": "symbol",
-        "baseName": "symbol",
-        "type": "string"
-    },
-    {
-        "name": "name",
-        "baseName": "name",
-        "type": "string"
-    },
-    {
-        "name": "status",
-        "baseName": "status",
-        "type": "string"
-    },
-    {
-        "name": "tradable",
-        "baseName": "tradable",
-        "type": "boolean"
-    },
-    {
-        "name": "marginable",
-        "baseName": "marginable",
-        "type": "boolean"
-    },
-    {
-        "name": "shortable",
-        "baseName": "shortable",
-        "type": "boolean"
-    },
-    {
-        "name": "easy_to_borrow",
-        "baseName": "easy_to_borrow",
-        "type": "boolean"
-    },
-    {
-        "name": "fractionable",
-        "baseName": "fractionable",
-        "type": "boolean"
     }
 ];

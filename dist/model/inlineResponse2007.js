@@ -21,55 +21,18 @@ exports.InlineResponse2007 = InlineResponse2007;
 InlineResponse2007.discriminator = undefined;
 InlineResponse2007.attributeTypeMap = [
     {
-        "name": "client_id",
-        "baseName": "client_id",
+        "name": "access_token",
+        "baseName": "access_token",
         "type": "string"
     },
     {
-        "name": "name",
-        "baseName": "name",
+        "name": "token_type",
+        "baseName": "token_type",
         "type": "string"
     },
     {
-        "name": "description",
-        "baseName": "description",
+        "name": "scope",
+        "baseName": "scope",
         "type": "string"
-    },
-    {
-        "name": "url",
-        "baseName": "url",
-        "type": "string"
-    },
-    {
-        "name": "terms_of_use",
-        "baseName": "terms_of_use",
-        "type": "string"
-    },
-    {
-        "name": "privacy_policy",
-        "baseName": "privacy_policy",
-        "type": "string"
-    },
-    {
-        "name": "status",
-        "baseName": "status",
-        "type": "InlineResponse2007.StatusEnum"
-    },
-    {
-        "name": "redirect_uri",
-        "baseName": "redirect_uri",
-        "type": "Array<string>"
-    },
-    {
-        "name": "live_trading_approved",
-        "baseName": "live_trading_approved",
-        "type": "boolean"
     }
 ];
-(function (InlineResponse2007) {
-    let StatusEnum;
-    (function (StatusEnum) {
-        StatusEnum[StatusEnum["Active"] = 'ACTIVE'] = "Active";
-        StatusEnum[StatusEnum["Disabled"] = 'DISABLED'] = "Disabled";
-    })(StatusEnum = InlineResponse2007.StatusEnum || (InlineResponse2007.StatusEnum = {}));
-})(InlineResponse2007 = exports.InlineResponse2007 || (exports.InlineResponse2007 = {}));

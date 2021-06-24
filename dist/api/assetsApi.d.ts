@@ -11,7 +11,7 @@
  */
 /// <reference types="node" />
 import http from 'http';
-import { InlineResponse2001 } from '../model/inlineResponse2001';
+import { AssetResource } from '../model/assetResource';
 import { Authentication, Interceptor } from '../model/models';
 import { HttpBasicAuth } from '../model/models';
 export declare enum AssetsApiApiKeys {
@@ -51,18 +51,6 @@ export declare class AssetsApi {
         body?: any;
     }>;
     /**
-     * Returns all assets
-     * @summary Retrieve all assets
-     */
-    assetsGet(options?: {
-        headers: {
-            [name: string]: string;
-        };
-    }): Promise<{
-        response: http.IncomingMessage;
-        body: InlineResponse2001;
-    }>;
-    /**
      * Returns the requested asset, if found
      * @summary Retrieve an asset by symbol
      * @param symbol The symbol of the required asset
@@ -74,5 +62,17 @@ export declare class AssetsApi {
     }): Promise<{
         response: http.IncomingMessage;
         body?: any;
+    }>;
+    /**
+     * Returns all assets
+     * @summary Retrieve all assets
+     */
+    getAssets(options?: {
+        headers: {
+            [name: string]: string;
+        };
+    }): Promise<{
+        response: http.IncomingMessage;
+        body: Array<AssetResource>;
     }>;
 }

@@ -13,24 +13,28 @@
 import { RequestFile } from './models';
 
 export class InlineResponse2005 {
-    'account_id'?: string;
-    'account_number'?: string;
+    'event_id'?: number;
+    'at'?: Date;
+    'journal_id'?: string;
     'status_from'?: string;
     'status_to'?: string;
-    'reason'?: string;
-    'at'?: Date;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "account_id",
-            "baseName": "account_id",
-            "type": "string"
+            "name": "event_id",
+            "baseName": "event_id",
+            "type": "number"
         },
         {
-            "name": "account_number",
-            "baseName": "account_number",
+            "name": "at",
+            "baseName": "at",
+            "type": "Date"
+        },
+        {
+            "name": "journal_id",
+            "baseName": "journal_id",
             "type": "string"
         },
         {
@@ -42,16 +46,6 @@ export class InlineResponse2005 {
             "name": "status_to",
             "baseName": "status_to",
             "type": "string"
-        },
-        {
-            "name": "reason",
-            "baseName": "reason",
-            "type": "string"
-        },
-        {
-            "name": "at",
-            "baseName": "at",
-            "type": "Date"
         }    ];
 
     static getAttributeTypeMap() {

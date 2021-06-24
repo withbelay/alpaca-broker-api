@@ -11,28 +11,23 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.InlineResponse2009 = void 0;
-class InlineResponse2009 {
+exports.BatchJournalRequestEntries = void 0;
+class BatchJournalRequestEntries {
     static getAttributeTypeMap() {
-        return InlineResponse2009.attributeTypeMap;
+        return BatchJournalRequestEntries.attributeTypeMap;
     }
 }
-exports.InlineResponse2009 = InlineResponse2009;
-InlineResponse2009.discriminator = undefined;
-InlineResponse2009.attributeTypeMap = [
+exports.BatchJournalRequestEntries = BatchJournalRequestEntries;
+BatchJournalRequestEntries.discriminator = undefined;
+BatchJournalRequestEntries.attributeTypeMap = [
     {
-        "name": "code",
-        "baseName": "code",
+        "name": "to_account",
+        "baseName": "to_account",
         "type": "string"
     },
     {
-        "name": "redirect_uri",
-        "baseName": "redirect_uri",
-        "type": "string"
-    },
-    {
-        "name": "scope",
-        "baseName": "scope",
+        "name": "amount",
+        "baseName": "amount",
         "type": "string"
     }
 ];

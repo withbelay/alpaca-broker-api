@@ -11,7 +11,9 @@
  */
 /// <reference types="node" />
 import http from 'http';
-import { InlineResponse2006 } from '../model/inlineResponse2006';
+import { BatchJournalRequest } from '../model/batchJournalRequest';
+import { BatchJournalResponse } from '../model/batchJournalResponse';
+import { InlineResponse2005 } from '../model/inlineResponse2005';
 import { JournalData } from '../model/journalData';
 import { JournalResource } from '../model/journalResource';
 import { Authentication, Interceptor } from '../model/models';
@@ -66,7 +68,7 @@ export declare class JournalsApi {
         };
     }): Promise<{
         response: http.IncomingMessage;
-        body: InlineResponse2006;
+        body: InlineResponse2005;
     }>;
     /**
      *
@@ -98,5 +100,18 @@ export declare class JournalsApi {
     }): Promise<{
         response: http.IncomingMessage;
         body: JournalResource;
+    }>;
+    /**
+     *
+     * @summary Create a batch journal
+     * @param batchJournalRequest
+     */
+    postJournalsBatch(batchJournalRequest: BatchJournalRequest, options?: {
+        headers: {
+            [name: string]: string;
+        };
+    }): Promise<{
+        response: http.IncomingMessage;
+        body: Array<BatchJournalResponse>;
     }>;
 }

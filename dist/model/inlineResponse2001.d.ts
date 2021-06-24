@@ -10,17 +10,9 @@
  * Do not edit the class manually.
  */
 export declare class InlineResponse2001 {
-    'id'?: string;
-    '_class'?: string;
-    'exchange'?: string;
-    'symbol'?: string;
-    'name'?: string;
-    'status'?: string;
-    'tradable'?: boolean;
-    'marginable'?: boolean;
-    'shortable'?: boolean;
-    'easy_to_borrow'?: boolean;
-    'fractionable'?: boolean;
+    'date'?: string;
+    'open'?: string;
+    'close'?: string;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

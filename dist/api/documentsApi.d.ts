@@ -11,7 +11,7 @@
  */
 /// <reference types="node" />
 import http from 'http';
-import { InlineResponse2004 } from '../model/inlineResponse2004';
+import { InlineResponse2003 } from '../model/inlineResponse2003';
 import { Authentication, Interceptor } from '../model/models';
 import { HttpBasicAuth } from '../model/models';
 export declare enum DocumentsApiApiKeys {
@@ -64,7 +64,7 @@ export declare class DocumentsApi {
         };
     }): Promise<{
         response: http.IncomingMessage;
-        body: Array<InlineResponse2004>;
+        body: Array<InlineResponse2003>;
     }>;
     /**
      * The operation returns a pre-signed downloadable link as a redirect with HTTP status code 301 if one is found.

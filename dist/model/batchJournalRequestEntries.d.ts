@@ -9,12 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-export declare class InlineResponse2005 {
-    'event_id'?: number;
-    'at'?: Date;
-    'journal_id'?: string;
-    'status_from'?: string;
-    'status_to'?: string;
+export declare class BatchJournalRequestEntries {
+    'to_account': string;
+    'amount': string;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

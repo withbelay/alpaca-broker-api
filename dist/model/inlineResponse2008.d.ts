@@ -10,13 +10,16 @@
  * Do not edit the class manually.
  */
 export declare class InlineResponse2008 {
-    'access_token'?: string;
     /**
-    * constant `Bearer`
+    * OAuth code to exchange with a token later.
     */
-    'token_type'?: string;
+    'code'?: string;
     /**
-    * token\'s scope
+    * redirect URI
+    */
+    'redirect_uri'?: string;
+    /**
+    * granted scopes
     */
     'scope'?: string;
     static discriminator: string | undefined;

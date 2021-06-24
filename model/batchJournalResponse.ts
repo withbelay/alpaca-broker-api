@@ -12,28 +12,20 @@
 
 import { RequestFile } from './models';
 
-export class JournalJNLS {
-    /**
-    * journal ID
-    */
+export class BatchJournalResponse {
     'id': string;
-    /**
-    * JNLS (constant)
-    */
-    'entry_type': string;
-    /**
-    * account ID the shares go from
-    */
+    'error_message': string;
+    'entry_type': BatchJournalResponse.EntryTypeEnum;
     'from_account': string;
-    /**
-    * account ID the shares go to
-    */
     'to_account': string;
-    'settle_date': string | null;
-    'status'?: JournalJNLS.StatusEnum;
     'symbol': string;
-    'qty': string;
+    'qty': string | null;
     'price': string;
+    'status': BatchJournalResponse.StatusEnum;
+    'settle_date': string | null;
+    'system_date': string | null;
+    'net_amount': string;
+    'description': string;
 
     static discriminator: string | undefined = undefined;
 
@@ -44,9 +36,14 @@ export class JournalJNLS {
             "type": "string"
         },
         {
+            "name": "error_message",
+            "baseName": "error_message",
+            "type": "string"
+        },
+        {
             "name": "entry_type",
             "baseName": "entry_type",
-            "type": "string"
+            "type": "BatchJournalResponse.EntryTypeEnum"
         },
         {
             "name": "from_account",
@@ -57,16 +54,6 @@ export class JournalJNLS {
             "name": "to_account",
             "baseName": "to_account",
             "type": "string"
-        },
-        {
-            "name": "settle_date",
-            "baseName": "settle_date",
-            "type": "string"
-        },
-        {
-            "name": "status",
-            "baseName": "status",
-            "type": "JournalJNLS.StatusEnum"
         },
         {
             "name": "symbol",
@@ -82,14 +69,42 @@ export class JournalJNLS {
             "name": "price",
             "baseName": "price",
             "type": "string"
+        },
+        {
+            "name": "status",
+            "baseName": "status",
+            "type": "BatchJournalResponse.StatusEnum"
+        },
+        {
+            "name": "settle_date",
+            "baseName": "settle_date",
+            "type": "string"
+        },
+        {
+            "name": "system_date",
+            "baseName": "system_date",
+            "type": "string"
+        },
+        {
+            "name": "net_amount",
+            "baseName": "net_amount",
+            "type": "string"
+        },
+        {
+            "name": "description",
+            "baseName": "description",
+            "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
-        return JournalJNLS.attributeTypeMap;
+        return BatchJournalResponse.attributeTypeMap;
     }
 }
 
-export namespace JournalJNLS {
+export namespace BatchJournalResponse {
+    export enum EntryTypeEnum {
+        Jnlc = <any> 'JNLC'
+    }
     export enum StatusEnum {
         Pending = <any> 'pending',
         Canceled = <any> 'canceled',

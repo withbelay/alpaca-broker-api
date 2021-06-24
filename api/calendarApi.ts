@@ -15,7 +15,7 @@ import localVarRequest from 'request';
 import http from 'http';
 
 /* tslint:disable:no-unused-locals */
-import { InlineResponse2002 } from '../model/inlineResponse2002';
+import { InlineResponse2001 } from '../model/inlineResponse2001';
 
 import { ObjectSerializer, Authentication, VoidAuth, Interceptor } from '../model/models';
 import { HttpBasicAuth, HttpBearerAuth, ApiKeyAuth, OAuth } from '../model/models';
@@ -105,7 +105,7 @@ export class CalendarApi {
      * @param start The first date to retrieve data for. (Inclusive)
      * @param end The last date to retrieve data for. (Inclusive)
      */
-    public async calendarGet (start?: string, end?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: InlineResponse2002;  }> {
+    public async calendarGet (start?: string, end?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: InlineResponse2001;  }> {
         const localVarPath = this.basePath + '/calendar';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -158,12 +158,12 @@ export class CalendarApi {
                     localVarRequestOptions.form = localVarFormParams;
                 }
             }
-            return new Promise<{ response: http.IncomingMessage; body: InlineResponse2002;  }>((resolve, reject) => {
+            return new Promise<{ response: http.IncomingMessage; body: InlineResponse2001;  }>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     if (error) {
                         reject(error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse2002");
+                        body = ObjectSerializer.deserialize(body, "InlineResponse2001");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve({ response: response, body: body });
                         } else {

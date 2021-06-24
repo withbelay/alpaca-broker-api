@@ -13,30 +13,45 @@
 import { RequestFile } from './models';
 
 export class InlineResponse2004 {
-    'document_id'?: string;
-    /**
-    * such as \"account_statement\" and \"trade_confirmation\"
-    */
-    'document_type'?: string;
-    'document_date'?: string;
+    'account_id'?: string;
+    'account_number'?: string;
+    'status_from'?: string;
+    'status_to'?: string;
+    'reason'?: string;
+    'at'?: Date;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "document_id",
-            "baseName": "document_id",
+            "name": "account_id",
+            "baseName": "account_id",
             "type": "string"
         },
         {
-            "name": "document_type",
-            "baseName": "document_type",
+            "name": "account_number",
+            "baseName": "account_number",
             "type": "string"
         },
         {
-            "name": "document_date",
-            "baseName": "document_date",
+            "name": "status_from",
+            "baseName": "status_from",
             "type": "string"
+        },
+        {
+            "name": "status_to",
+            "baseName": "status_to",
+            "type": "string"
+        },
+        {
+            "name": "reason",
+            "baseName": "reason",
+            "type": "string"
+        },
+        {
+            "name": "at",
+            "baseName": "at",
+            "type": "Date"
         }    ];
 
     static getAttributeTypeMap() {

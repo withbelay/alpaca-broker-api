@@ -9,12 +9,12 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-export declare class InlineResponse2005 {
-    'event_id'?: number;
-    'at'?: Date;
-    'journal_id'?: string;
-    'status_from'?: string;
-    'status_to'?: string;
+import { BatchJournalRequestEntries } from './batchJournalRequestEntries';
+export declare class BatchJournalRequest {
+    'entry_type': BatchJournalRequest.EntryTypeEnum;
+    'from_account': string;
+    'description'?: string;
+    'entries'?: Array<BatchJournalRequestEntries>;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;
@@ -26,4 +26,9 @@ export declare class InlineResponse2005 {
         baseName: string;
         type: string;
     }[];
+}
+export declare namespace BatchJournalRequest {
+    enum EntryTypeEnum {
+        Jnlc
+    }
 }

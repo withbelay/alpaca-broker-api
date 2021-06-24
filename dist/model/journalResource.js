@@ -109,5 +109,6 @@ JournalResource.attributeTypeMap = [
         StatusEnum[StatusEnum["Executed"] = 'executed'] = "Executed";
         StatusEnum[StatusEnum["Queued"] = 'queued'] = "Queued";
         StatusEnum[StatusEnum["Rejected"] = 'rejected'] = "Rejected";
+        StatusEnum[StatusEnum["Deleted"] = 'deleted'] = "Deleted";
     })(StatusEnum = JournalResource.StatusEnum || (JournalResource.StatusEnum = {}));
 })(JournalResource = exports.JournalResource || (exports.JournalResource = {}));

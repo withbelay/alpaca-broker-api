@@ -49,6 +49,7 @@ export declare namespace JournalJNLS {
         Canceled,
         Executed,
         Queued,
-        Rejected
+        Rejected,
+        Deleted
     }
 }

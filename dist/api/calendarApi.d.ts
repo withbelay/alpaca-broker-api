@@ -11,7 +11,7 @@
  */
 /// <reference types="node" />
 import http from 'http';
-import { InlineResponse2002 } from '../model/inlineResponse2002';
+import { InlineResponse2001 } from '../model/inlineResponse2001';
 import { Authentication, Interceptor } from '../model/models';
 import { HttpBasicAuth } from '../model/models';
 export declare enum CalendarApiApiKeys {
@@ -49,6 +49,6 @@ export declare class CalendarApi {
         };
     }): Promise<{
         response: http.IncomingMessage;
-        body: InlineResponse2002;
+        body: InlineResponse2001;
     }>;
 }

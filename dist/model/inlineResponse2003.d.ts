@@ -10,10 +10,12 @@
  * Do not edit the class manually.
  */
 export declare class InlineResponse2003 {
-    'timestamp'?: string;
-    'is_open'?: boolean;
-    'next_open'?: string;
-    'next_close'?: string;
+    'document_id'?: string;
+    /**
+    * such as \"account_statement\" and \"trade_confirmation\"
+    */
+    'document_type'?: string;
+    'document_date'?: string;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

@@ -15,7 +15,9 @@ import localVarRequest from 'request';
 import http from 'http';
 
 /* tslint:disable:no-unused-locals */
-import { InlineResponse2006 } from '../model/inlineResponse2006';
+import { BatchJournalRequest } from '../model/batchJournalRequest';
+import { BatchJournalResponse } from '../model/batchJournalResponse';
+import { InlineResponse2005 } from '../model/inlineResponse2005';
 import { JournalData } from '../model/journalData';
 import { JournalResource } from '../model/journalResource';
 
@@ -173,7 +175,7 @@ export class JournalsApi {
      * @param sinceId 
      * @param untilId 
      */
-    public async eventsJournalsStatusGet (since?: Date, until?: Date, sinceId?: number, untilId?: number, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: InlineResponse2006;  }> {
+    public async eventsJournalsStatusGet (since?: Date, until?: Date, sinceId?: number, untilId?: number, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: InlineResponse2005;  }> {
         const localVarPath = this.basePath + '/events/journals/status';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -234,12 +236,12 @@ export class JournalsApi {
                     localVarRequestOptions.form = localVarFormParams;
                 }
             }
-            return new Promise<{ response: http.IncomingMessage; body: InlineResponse2006;  }>((resolve, reject) => {
+            return new Promise<{ response: http.IncomingMessage; body: InlineResponse2005;  }>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     if (error) {
                         reject(error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse2006");
+                        body = ObjectSerializer.deserialize(body, "InlineResponse2005");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve({ response: response, body: body });
                         } else {
@@ -407,6 +409,78 @@ export class JournalsApi {
                         reject(error);
                     } else {
                         body = ObjectSerializer.deserialize(body, "JournalResource");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve({ response: response, body: body });
+                        } else {
+                            reject(new HttpError(response, body, response.statusCode));
+                        }
+                    }
+                });
+            });
+        });
+    }
+    /**
+     * 
+     * @summary Create a batch journal
+     * @param batchJournalRequest 
+     */
+    public async postJournalsBatch (batchJournalRequest: BatchJournalRequest, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: Array<BatchJournalResponse>;  }> {
+        const localVarPath = this.basePath + '/journals/batch';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        const produces = ['application/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams.Accept = 'application/json';
+        } else {
+            localVarHeaderParams.Accept = produces.join(',');
+        }
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'batchJournalRequest' is not null or undefined
+        if (batchJournalRequest === null || batchJournalRequest === undefined) {
+            throw new Error('Required parameter batchJournalRequest was null or undefined when calling postJournalsBatch.');
+        }
+
+        (<any>Object).assign(localVarHeaderParams, options.headers);
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(batchJournalRequest, "BatchJournalRequest")
+        };
+
+        let authenticationPromise = Promise.resolve();
+        if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.BasicAuth.applyToRequest(localVarRequestOptions));
+        }
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+
+        let interceptorPromise = authenticationPromise;
+        for (const interceptor of this.interceptors) {
+            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+        }
+
+        return interceptorPromise.then(() => {
+            if (Object.keys(localVarFormParams).length) {
+                if (localVarUseFormData) {
+                    (<any>localVarRequestOptions).formData = localVarFormParams;
+                } else {
+                    localVarRequestOptions.form = localVarFormParams;
+                }
+            }
+            return new Promise<{ response: http.IncomingMessage; body: Array<BatchJournalResponse>;  }>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<BatchJournalResponse>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve({ response: response, body: body });
                         } else {

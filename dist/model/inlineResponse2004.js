@@ -21,18 +21,33 @@ exports.InlineResponse2004 = InlineResponse2004;
 InlineResponse2004.discriminator = undefined;
 InlineResponse2004.attributeTypeMap = [
     {
-        "name": "document_id",
-        "baseName": "document_id",
+        "name": "account_id",
+        "baseName": "account_id",
         "type": "string"
     },
     {
-        "name": "document_type",
-        "baseName": "document_type",
+        "name": "account_number",
+        "baseName": "account_number",
         "type": "string"
     },
     {
-        "name": "document_date",
-        "baseName": "document_date",
+        "name": "status_from",
+        "baseName": "status_from",
         "type": "string"
+    },
+    {
+        "name": "status_to",
+        "baseName": "status_to",
+        "type": "string"
+    },
+    {
+        "name": "reason",
+        "baseName": "reason",
+        "type": "string"
+    },
+    {
+        "name": "at",
+        "baseName": "at",
+        "type": "Date"
     }
 ];

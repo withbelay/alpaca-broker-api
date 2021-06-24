@@ -10,9 +10,10 @@
  * Do not edit the class manually.
  */
 export declare class InlineResponse2002 {
-    'date'?: string;
-    'open'?: string;
-    'close'?: string;
+    'timestamp'?: string;
+    'is_open'?: boolean;
+    'next_open'?: string;
+    'next_close'?: string;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

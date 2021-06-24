@@ -71,6 +71,7 @@ export declare namespace JournalResource {
         Canceled,
         Executed,
         Queued,
-        Rejected
+        Rejected,
+        Deleted
     }
 }

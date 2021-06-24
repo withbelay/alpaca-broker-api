@@ -140,7 +140,7 @@ class ClockApi {
                             reject(error);
                         }
                         else {
-                            body = models_1.ObjectSerializer.deserialize(body, "InlineResponse2003");
+                            body = models_1.ObjectSerializer.deserialize(body, "InlineResponse2002");
                             if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                                 resolve({ response: response, body: body });
                             }

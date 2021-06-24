@@ -17,9 +17,9 @@ import http from 'http';
 /* tslint:disable:no-unused-locals */
 import { InlineObject } from '../model/inlineObject';
 import { InlineObject1 } from '../model/inlineObject1';
+import { InlineResponse2006 } from '../model/inlineResponse2006';
 import { InlineResponse2007 } from '../model/inlineResponse2007';
 import { InlineResponse2008 } from '../model/inlineResponse2008';
-import { InlineResponse2009 } from '../model/inlineResponse2009';
 
 import { ObjectSerializer, Authentication, VoidAuth, Interceptor } from '../model/models';
 import { HttpBasicAuth, HttpBearerAuth, ApiKeyAuth, OAuth } from '../model/models';
@@ -108,7 +108,7 @@ export class OAuthApi {
      * @summary Issue a code.
      * @param inlineObject1 
      */
-    public async oauthAuthorizePost (inlineObject1: InlineObject1, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: InlineResponse2009;  }> {
+    public async oauthAuthorizePost (inlineObject1: InlineObject1, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: InlineResponse2008;  }> {
         const localVarPath = this.basePath + '/oauth/authorize';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -159,12 +159,12 @@ export class OAuthApi {
                     localVarRequestOptions.form = localVarFormParams;
                 }
             }
-            return new Promise<{ response: http.IncomingMessage; body: InlineResponse2009;  }>((resolve, reject) => {
+            return new Promise<{ response: http.IncomingMessage; body: InlineResponse2008;  }>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     if (error) {
                         reject(error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse2009");
+                        body = ObjectSerializer.deserialize(body, "InlineResponse2008");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve({ response: response, body: body });
                         } else {
@@ -183,7 +183,7 @@ export class OAuthApi {
      * @param redirectUri 
      * @param scope 
      */
-    public async oauthClientsClientIdGet (clientId: string, responseType?: 'code' | 'token', redirectUri?: string, scope?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: InlineResponse2007;  }> {
+    public async oauthClientsClientIdGet (clientId: string, responseType?: 'code' | 'token', redirectUri?: string, scope?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: InlineResponse2006;  }> {
         const localVarPath = this.basePath + '/oauth/clients/{client_id}'
             .replace('{' + 'client_id' + '}', encodeURIComponent(String(clientId)));
         let localVarQueryParameters: any = {};
@@ -246,12 +246,12 @@ export class OAuthApi {
                     localVarRequestOptions.form = localVarFormParams;
                 }
             }
-            return new Promise<{ response: http.IncomingMessage; body: InlineResponse2007;  }>((resolve, reject) => {
+            return new Promise<{ response: http.IncomingMessage; body: InlineResponse2006;  }>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     if (error) {
                         reject(error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse2007");
+                        body = ObjectSerializer.deserialize(body, "InlineResponse2006");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve({ response: response, body: body });
                         } else {
@@ -267,7 +267,7 @@ export class OAuthApi {
      * @summary Issue a token.
      * @param inlineObject 
      */
-    public async oauthTokenPost (inlineObject: InlineObject, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: InlineResponse2008;  }> {
+    public async oauthTokenPost (inlineObject: InlineObject, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: InlineResponse2007;  }> {
         const localVarPath = this.basePath + '/oauth/token';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -318,12 +318,12 @@ export class OAuthApi {
                     localVarRequestOptions.form = localVarFormParams;
                 }
             }
-            return new Promise<{ response: http.IncomingMessage; body: InlineResponse2008;  }>((resolve, reject) => {
+            return new Promise<{ response: http.IncomingMessage; body: InlineResponse2007;  }>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     if (error) {
                         reject(error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse2008");
+                        body = ObjectSerializer.deserialize(body, "InlineResponse2007");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve({ response: response, body: body });
                         } else {

@@ -412,6 +412,77 @@ class TradingApi {
         });
     }
     /**
+     *
+     * @summary List open positions for an account
+     * @param accountId Account identifier.
+     */
+    getPositions(accountId, options = { headers: {} }) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = this.basePath + '/trading/accounts/{account_id}/positions'
+                .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)));
+            let localVarQueryParameters = {};
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
+            const produces = ['application/json'];
+            // give precedence to 'application/json'
+            if (produces.indexOf('application/json') >= 0) {
+                localVarHeaderParams.Accept = 'application/json';
+            }
+            else {
+                localVarHeaderParams.Accept = produces.join(',');
+            }
+            let localVarFormParams = {};
+            // verify required parameter 'accountId' is not null or undefined
+            if (accountId === null || accountId === undefined) {
+                throw new Error('Required parameter accountId was null or undefined when calling getPositions.');
+            }
+            Object.assign(localVarHeaderParams, options.headers);
+            let localVarUseFormData = false;
+            let localVarRequestOptions = {
+                method: 'GET',
+                qs: localVarQueryParameters,
+                headers: localVarHeaderParams,
+                uri: localVarPath,
+                useQuerystring: this._useQuerystring,
+                json: true,
+            };
+            let authenticationPromise = Promise.resolve();
+            if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {
+                authenticationPromise = authenticationPromise.then(() => this.authentications.BasicAuth.applyToRequest(localVarRequestOptions));
+            }
+            authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
+                if (Object.keys(localVarFormParams).length) {
+                    if (localVarUseFormData) {
+                        localVarRequestOptions.formData = localVarFormParams;
+                    }
+                    else {
+                        localVarRequestOptions.form = localVarFormParams;
+                    }
+                }
+                return new Promise((resolve, reject) => {
+                    request_1.default(localVarRequestOptions, (error, response, body) => {
+                        if (error) {
+                            reject(error);
+                        }
+                        else {
+                            body = models_1.ObjectSerializer.deserialize(body, "Array<Position>");
+                            if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                                resolve({ response: response, body: body });
+                            }
+                            else {
+                                reject(new apis_1.HttpError(response, body, response.statusCode));
+                            }
+                        }
+                    });
+                });
+            });
+        });
+    }
+    /**
      * Replaces a single order with updated parameters. Each parameter overrides the corresponding attribute of the existing order.
      * @summary Replaces a single order with updated parameters. Each parameter overrides the corresponding attribute of the existing order.
      * @param accountId Account identifier.

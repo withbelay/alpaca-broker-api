@@ -13,75 +13,27 @@
 import { RequestFile } from './models';
 
 export class InlineResponse2001 {
-    'id'?: string;
-    '_class'?: string;
-    'exchange'?: string;
-    'symbol'?: string;
-    'name'?: string;
-    'status'?: string;
-    'tradable'?: boolean;
-    'marginable'?: boolean;
-    'shortable'?: boolean;
-    'easy_to_borrow'?: boolean;
-    'fractionable'?: boolean;
+    'date'?: string;
+    'open'?: string;
+    'close'?: string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "id",
-            "baseName": "id",
+            "name": "date",
+            "baseName": "date",
             "type": "string"
         },
         {
-            "name": "_class",
-            "baseName": "class",
+            "name": "open",
+            "baseName": "open",
             "type": "string"
         },
         {
-            "name": "exchange",
-            "baseName": "exchange",
+            "name": "close",
+            "baseName": "close",
             "type": "string"
-        },
-        {
-            "name": "symbol",
-            "baseName": "symbol",
-            "type": "string"
-        },
-        {
-            "name": "name",
-            "baseName": "name",
-            "type": "string"
-        },
-        {
-            "name": "status",
-            "baseName": "status",
-            "type": "string"
-        },
-        {
-            "name": "tradable",
-            "baseName": "tradable",
-            "type": "boolean"
-        },
-        {
-            "name": "marginable",
-            "baseName": "marginable",
-            "type": "boolean"
-        },
-        {
-            "name": "shortable",
-            "baseName": "shortable",
-            "type": "boolean"
-        },
-        {
-            "name": "easy_to_borrow",
-            "baseName": "easy_to_borrow",
-            "type": "boolean"
-        },
-        {
-            "name": "fractionable",
-            "baseName": "fractionable",
-            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {

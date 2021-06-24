@@ -11,7 +11,7 @@
  */
 /// <reference types="node" />
 import http from 'http';
-import { InlineResponse2003 } from '../model/inlineResponse2003';
+import { InlineResponse2002 } from '../model/inlineResponse2002';
 import { Authentication, Interceptor } from '../model/models';
 import { HttpBasicAuth } from '../model/models';
 export declare enum ClockApiApiKeys {
@@ -47,6 +47,6 @@ export declare class ClockApi {
         };
     }): Promise<{
         response: http.IncomingMessage;
-        body: InlineResponse2003;
+        body: InlineResponse2002;
     }>;
 }

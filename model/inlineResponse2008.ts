@@ -13,13 +13,16 @@
 import { RequestFile } from './models';
 
 export class InlineResponse2008 {
-    'access_token'?: string;
     /**
-    * constant `Bearer`
+    * OAuth code to exchange with a token later.
     */
-    'token_type'?: string;
+    'code'?: string;
     /**
-    * token\'s scope
+    * redirect URI
+    */
+    'redirect_uri'?: string;
+    /**
+    * granted scopes
     */
     'scope'?: string;
 
@@ -27,13 +30,13 @@ export class InlineResponse2008 {
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "access_token",
-            "baseName": "access_token",
+            "name": "code",
+            "baseName": "code",
             "type": "string"
         },
         {
-            "name": "token_type",
-            "baseName": "token_type",
+            "name": "redirect_uri",
+            "baseName": "redirect_uri",
             "type": "string"
         },
         {

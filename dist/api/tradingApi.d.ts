@@ -15,6 +15,7 @@ import { CreateOrder } from '../model/createOrder';
 import { InlineResponse207 } from '../model/inlineResponse207';
 import { OrderObject } from '../model/orderObject';
 import { PatchOrder } from '../model/patchOrder';
+import { Position } from '../model/position';
 import { Authentication, Interceptor } from '../model/models';
 import { HttpBasicAuth } from '../model/models';
 export declare enum TradingApiApiKeys {
@@ -100,6 +101,19 @@ export declare class TradingApi {
     }): Promise<{
         response: http.IncomingMessage;
         body: Array<OrderObject>;
+    }>;
+    /**
+     *
+     * @summary List open positions for an account
+     * @param accountId Account identifier.
+     */
+    getPositions(accountId: string, options?: {
+        headers: {
+            [name: string]: string;
+        };
+    }): Promise<{
+        response: http.IncomingMessage;
+        body: Array<Position>;
     }>;
     /**
      * Replaces a single order with updated parameters. Each parameter overrides the corresponding attribute of the existing order.

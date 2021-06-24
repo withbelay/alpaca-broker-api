@@ -21,18 +21,23 @@ exports.InlineResponse2002 = InlineResponse2002;
 InlineResponse2002.discriminator = undefined;
 InlineResponse2002.attributeTypeMap = [
     {
-        "name": "date",
-        "baseName": "date",
+        "name": "timestamp",
+        "baseName": "timestamp",
         "type": "string"
     },
     {
-        "name": "open",
-        "baseName": "open",
+        "name": "is_open",
+        "baseName": "is_open",
+        "type": "boolean"
+    },
+    {
+        "name": "next_open",
+        "baseName": "next_open",
         "type": "string"
     },
     {
-        "name": "close",
-        "baseName": "close",
+        "name": "next_close",
+        "baseName": "next_close",
         "type": "string"
     }
 ];

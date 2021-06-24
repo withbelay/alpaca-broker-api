@@ -15,7 +15,7 @@ import localVarRequest from 'request';
 import http from 'http';
 
 /* tslint:disable:no-unused-locals */
-import { InlineResponse2004 } from '../model/inlineResponse2004';
+import { InlineResponse2003 } from '../model/inlineResponse2003';
 
 import { ObjectSerializer, Authentication, VoidAuth, Interceptor } from '../model/models';
 import { HttpBasicAuth, HttpBearerAuth, ApiKeyAuth, OAuth } from '../model/models';
@@ -177,7 +177,7 @@ export class DocumentsApi {
      * @param startDate optional date value to filter the list (inclusive).
      * @param endDate optional date value to filter the list (inclusive).
      */
-    public async accountsAccountIdDocumentsGet (accountId: string, startDate?: string, endDate?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: Array<InlineResponse2004>;  }> {
+    public async accountsAccountIdDocumentsGet (accountId: string, startDate?: string, endDate?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: Array<InlineResponse2003>;  }> {
         const localVarPath = this.basePath + '/accounts/{account_id}/documents'
             .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)));
         let localVarQueryParameters: any = {};
@@ -236,12 +236,12 @@ export class DocumentsApi {
                     localVarRequestOptions.form = localVarFormParams;
                 }
             }
-            return new Promise<{ response: http.IncomingMessage; body: Array<InlineResponse2004>;  }>((resolve, reject) => {
+            return new Promise<{ response: http.IncomingMessage; body: Array<InlineResponse2003>;  }>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     if (error) {
                         reject(error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<InlineResponse2004>");
+                        body = ObjectSerializer.deserialize(body, "Array<InlineResponse2003>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve({ response: response, body: body });
                         } else {

@@ -10,21 +10,15 @@
  * Do not edit the class manually.
  */
 export declare class InlineResponse2007 {
-    'client_id'?: string;
-    'name'?: string;
-    'description'?: string;
-    'url'?: string;
+    'access_token'?: string;
     /**
-    * URL of Terms of Use
+    * constant `Bearer`
     */
-    'terms_of_use'?: string;
+    'token_type'?: string;
     /**
-    * URL of Privacy Policy
+    * token\'s scope
     */
-    'privacy_policy'?: string;
-    'status'?: InlineResponse2007.StatusEnum;
-    'redirect_uri'?: Array<string>;
-    'live_trading_approved'?: boolean;
+    'scope'?: string;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;
@@ -36,10 +30,4 @@ export declare class InlineResponse2007 {
         baseName: string;
         type: string;
     }[];
-}
-export declare namespace InlineResponse2007 {
-    enum StatusEnum {
-        Active,
-        Disabled
-    }
 }

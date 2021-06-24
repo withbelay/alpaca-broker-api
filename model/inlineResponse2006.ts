@@ -13,39 +13,69 @@
 import { RequestFile } from './models';
 
 export class InlineResponse2006 {
-    'event_id'?: number;
-    'at'?: Date;
-    'journal_id'?: string;
-    'status_from'?: string;
-    'status_to'?: string;
+    'client_id'?: string;
+    'name'?: string;
+    'description'?: string;
+    'url'?: string;
+    /**
+    * URL of Terms of Use
+    */
+    'terms_of_use'?: string;
+    /**
+    * URL of Privacy Policy
+    */
+    'privacy_policy'?: string;
+    'status'?: InlineResponse2006.StatusEnum;
+    'redirect_uri'?: Array<string>;
+    'live_trading_approved'?: boolean;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "event_id",
-            "baseName": "event_id",
-            "type": "number"
-        },
-        {
-            "name": "at",
-            "baseName": "at",
-            "type": "Date"
-        },
-        {
-            "name": "journal_id",
-            "baseName": "journal_id",
+            "name": "client_id",
+            "baseName": "client_id",
             "type": "string"
         },
         {
-            "name": "status_from",
-            "baseName": "status_from",
+            "name": "name",
+            "baseName": "name",
             "type": "string"
         },
         {
-            "name": "status_to",
-            "baseName": "status_to",
+            "name": "description",
+            "baseName": "description",
             "type": "string"
+        },
+        {
+            "name": "url",
+            "baseName": "url",
+            "type": "string"
+        },
+        {
+            "name": "terms_of_use",
+            "baseName": "terms_of_use",
+            "type": "string"
+        },
+        {
+            "name": "privacy_policy",
+            "baseName": "privacy_policy",
+            "type": "string"
+        },
+        {
+            "name": "status",
+            "baseName": "status",
+            "type": "InlineResponse2006.StatusEnum"
+        },
+        {
+            "name": "redirect_uri",
+            "baseName": "redirect_uri",
+            "type": "Array<string>"
+        },
+        {
+            "name": "live_trading_approved",
+            "baseName": "live_trading_approved",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {
@@ -53,3 +83,9 @@ export class InlineResponse2006 {
     }
 }
 
+export namespace InlineResponse2006 {
+    export enum StatusEnum {
+        Active = <any> 'ACTIVE',
+        Disabled = <any> 'DISABLED'
+    }
+}

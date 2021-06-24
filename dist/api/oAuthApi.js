@@ -146,7 +146,7 @@ class OAuthApi {
                             reject(error);
                         }
                         else {
-                            body = models_1.ObjectSerializer.deserialize(body, "InlineResponse2009");
+                            body = models_1.ObjectSerializer.deserialize(body, "InlineResponse2008");
                             if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                                 resolve({ response: response, body: body });
                             }
@@ -229,7 +229,7 @@ class OAuthApi {
                             reject(error);
                         }
                         else {
-                            body = models_1.ObjectSerializer.deserialize(body, "InlineResponse2007");
+                            body = models_1.ObjectSerializer.deserialize(body, "InlineResponse2006");
                             if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                                 resolve({ response: response, body: body });
                             }
@@ -300,7 +300,7 @@ class OAuthApi {
                             reject(error);
                         }
                         else {
-                            body = models_1.ObjectSerializer.deserialize(body, "InlineResponse2008");
+                            body = models_1.ObjectSerializer.deserialize(body, "InlineResponse2007");
                             if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                                 resolve({ response: response, body: body });
                             }

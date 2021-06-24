@@ -12,41 +12,26 @@
 
 import { RequestFile } from './models';
 
-export class InlineResponse2009 {
-    /**
-    * OAuth code to exchange with a token later.
-    */
-    'code'?: string;
-    /**
-    * redirect URI
-    */
-    'redirect_uri'?: string;
-    /**
-    * granted scopes
-    */
-    'scope'?: string;
+export class BatchJournalRequestEntries {
+    'to_account': string;
+    'amount': string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "code",
-            "baseName": "code",
+            "name": "to_account",
+            "baseName": "to_account",
             "type": "string"
         },
         {
-            "name": "redirect_uri",
-            "baseName": "redirect_uri",
-            "type": "string"
-        },
-        {
-            "name": "scope",
-            "baseName": "scope",
+            "name": "amount",
+            "baseName": "amount",
             "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
-        return InlineResponse2009.attributeTypeMap;
+        return BatchJournalRequestEntries.attributeTypeMap;
     }
 }
 

@@ -9,19 +9,18 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-export declare class InlineResponse2009 {
-    /**
-    * OAuth code to exchange with a token later.
-    */
-    'code'?: string;
-    /**
-    * redirect URI
-    */
-    'redirect_uri'?: string;
-    /**
-    * granted scopes
-    */
-    'scope'?: string;
+export declare class AssetResource {
+    'id'?: string;
+    '_class'?: string;
+    'exchange'?: string;
+    'symbol'?: string;
+    'name'?: string;
+    'status'?: string;
+    'tradable'?: boolean;
+    'marginable'?: boolean;
+    'shortable'?: boolean;
+    'easy_to_borrow'?: boolean;
+    'fractionable'?: boolean;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

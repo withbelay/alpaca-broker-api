@@ -26,7 +26,7 @@ import { BankData } from '../model/bankData';
 import { BankResource } from '../model/bankResource';
 import { DocumentUpload } from '../model/documentUpload';
 import { InlineResponse200 } from '../model/inlineResponse200';
-import { InlineResponse2005 } from '../model/inlineResponse2005';
+import { InlineResponse2004 } from '../model/inlineResponse2004';
 import { TransferData } from '../model/transferData';
 import { TransferResource } from '../model/transferResource';
 
@@ -838,7 +838,7 @@ export class AccountsApi {
      * @param sinceId 
      * @param untilId 
      */
-    public async eventsAccountsStatusGet (since?: Date, until?: Date, sinceId?: number, untilId?: number, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: InlineResponse2005;  }> {
+    public async eventsAccountsStatusGet (since?: Date, until?: Date, sinceId?: number, untilId?: number, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: InlineResponse2004;  }> {
         const localVarPath = this.basePath + '/events/accounts/status';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -899,12 +899,12 @@ export class AccountsApi {
                     localVarRequestOptions.form = localVarFormParams;
                 }
             }
-            return new Promise<{ response: http.IncomingMessage; body: InlineResponse2005;  }>((resolve, reject) => {
+            return new Promise<{ response: http.IncomingMessage; body: InlineResponse2004;  }>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     if (error) {
                         reject(error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse2005");
+                        body = ObjectSerializer.deserialize(body, "InlineResponse2004");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve({ response: response, body: body });
                         } else {

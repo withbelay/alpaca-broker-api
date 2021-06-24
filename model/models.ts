@@ -13,9 +13,13 @@ export * from './activityItem';
 export * from './activityType';
 export * from './agreement';
 export * from './applicationDocument';
+export * from './assetResource';
 export * from './bankData';
 export * from './bankResource';
 export * from './bankResourceAllOf';
+export * from './batchJournalRequest';
+export * from './batchJournalRequestEntries';
+export * from './batchJournalResponse';
 export * from './contact';
 export * from './createOrder';
 export * from './createOrderStopLoss';
@@ -36,7 +40,6 @@ export * from './inlineResponse2005';
 export * from './inlineResponse2006';
 export * from './inlineResponse2007';
 export * from './inlineResponse2008';
-export * from './inlineResponse2009';
 export * from './inlineResponse207';
 export * from './journalData';
 export * from './journalJNLC';
@@ -48,6 +51,7 @@ export * from './nonTradeActivity';
 export * from './nonTradeActivityAllOf';
 export * from './orderObject';
 export * from './patchOrder';
+export * from './position';
 export * from './tradeActivity';
 export * from './tradeActivityAllOf';
 export * from './transferData';
@@ -87,9 +91,13 @@ import { ActivityItem } from './activityItem';
 import { ActivityType } from './activityType';
 import { Agreement } from './agreement';
 import { ApplicationDocument } from './applicationDocument';
+import { AssetResource } from './assetResource';
 import { BankData } from './bankData';
 import { BankResource } from './bankResource';
 import { BankResourceAllOf } from './bankResourceAllOf';
+import { BatchJournalRequest } from './batchJournalRequest';
+import { BatchJournalRequestEntries } from './batchJournalRequestEntries';
+import { BatchJournalResponse } from './batchJournalResponse';
 import { Contact } from './contact';
 import { CreateOrder } from './createOrder';
 import { CreateOrderStopLoss } from './createOrderStopLoss';
@@ -110,7 +118,6 @@ import { InlineResponse2005 } from './inlineResponse2005';
 import { InlineResponse2006 } from './inlineResponse2006';
 import { InlineResponse2007 } from './inlineResponse2007';
 import { InlineResponse2008 } from './inlineResponse2008';
-import { InlineResponse2009 } from './inlineResponse2009';
 import { InlineResponse207 } from './inlineResponse207';
 import { JournalData } from './journalData';
 import { JournalJNLC } from './journalJNLC';
@@ -122,6 +129,7 @@ import { NonTradeActivity } from './nonTradeActivity';
 import { NonTradeActivityAllOf } from './nonTradeActivityAllOf';
 import { OrderObject } from './orderObject';
 import { PatchOrder } from './patchOrder';
+import { Position } from './position';
 import { TradeActivity } from './tradeActivity';
 import { TradeActivityAllOf } from './tradeActivityAllOf';
 import { TransferData } from './transferData';
@@ -163,6 +171,9 @@ let enumsMap: {[index: string]: any} = {
         "BankResource.BankCodeTypeEnum": BankResource.BankCodeTypeEnum,
         "BankResource.StatusEnum": BankResource.StatusEnum,
         "BankResourceAllOf.StatusEnum": BankResourceAllOf.StatusEnum,
+        "BatchJournalRequest.EntryTypeEnum": BatchJournalRequest.EntryTypeEnum,
+        "BatchJournalResponse.EntryTypeEnum": BatchJournalResponse.EntryTypeEnum,
+        "BatchJournalResponse.StatusEnum": BatchJournalResponse.StatusEnum,
         "CreateOrder.SideEnum": CreateOrder.SideEnum,
         "CreateOrder.TypeEnum": CreateOrder.TypeEnum,
         "CreateOrder.TimeInForceEnum": CreateOrder.TimeInForceEnum,
@@ -171,7 +182,7 @@ let enumsMap: {[index: string]: any} = {
         "DocumentType": DocumentType,
         "Identity.TaxIdTypeEnum": Identity.TaxIdTypeEnum,
         "Identity.FundingSourceEnum": Identity.FundingSourceEnum,
-        "InlineResponse2007.StatusEnum": InlineResponse2007.StatusEnum,
+        "InlineResponse2006.StatusEnum": InlineResponse2006.StatusEnum,
         "JournalData.EntryTypeEnum": JournalData.EntryTypeEnum,
         "JournalJNLC.StatusEnum": JournalJNLC.StatusEnum,
         "JournalJNLS.StatusEnum": JournalJNLS.StatusEnum,
@@ -218,9 +229,13 @@ let typeMap: {[index: string]: any} = {
     "ActivityItem": ActivityItem,
     "Agreement": Agreement,
     "ApplicationDocument": ApplicationDocument,
+    "AssetResource": AssetResource,
     "BankData": BankData,
     "BankResource": BankResource,
     "BankResourceAllOf": BankResourceAllOf,
+    "BatchJournalRequest": BatchJournalRequest,
+    "BatchJournalRequestEntries": BatchJournalRequestEntries,
+    "BatchJournalResponse": BatchJournalResponse,
     "Contact": Contact,
     "CreateOrder": CreateOrder,
     "CreateOrderStopLoss": CreateOrderStopLoss,
@@ -240,7 +255,6 @@ let typeMap: {[index: string]: any} = {
     "InlineResponse2006": InlineResponse2006,
     "InlineResponse2007": InlineResponse2007,
     "InlineResponse2008": InlineResponse2008,
-    "InlineResponse2009": InlineResponse2009,
     "InlineResponse207": InlineResponse207,
     "JournalData": JournalData,
     "JournalJNLC": JournalJNLC,
@@ -252,6 +266,7 @@ let typeMap: {[index: string]: any} = {
     "NonTradeActivityAllOf": NonTradeActivityAllOf,
     "OrderObject": OrderObject,
     "PatchOrder": PatchOrder,
+    "Position": Position,
     "TradeActivity": TradeActivity,
     "TradeActivityAllOf": TradeActivityAllOf,
     "TransferData": TransferData,

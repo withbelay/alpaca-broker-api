@@ -13,32 +13,29 @@
 import { RequestFile } from './models';
 
 export class InlineResponse2003 {
-    'timestamp'?: string;
-    'is_open'?: boolean;
-    'next_open'?: string;
-    'next_close'?: string;
+    'document_id'?: string;
+    /**
+    * such as \"account_statement\" and \"trade_confirmation\"
+    */
+    'document_type'?: string;
+    'document_date'?: string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "timestamp",
-            "baseName": "timestamp",
+            "name": "document_id",
+            "baseName": "document_id",
             "type": "string"
         },
         {
-            "name": "is_open",
-            "baseName": "is_open",
-            "type": "boolean"
-        },
-        {
-            "name": "next_open",
-            "baseName": "next_open",
+            "name": "document_type",
+            "baseName": "document_type",
             "type": "string"
         },
         {
-            "name": "next_close",
-            "baseName": "next_close",
+            "name": "document_date",
+            "baseName": "document_date",
             "type": "string"
         }    ];
 

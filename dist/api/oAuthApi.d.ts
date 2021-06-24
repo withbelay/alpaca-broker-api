@@ -13,9 +13,9 @@
 import http from 'http';
 import { InlineObject } from '../model/inlineObject';
 import { InlineObject1 } from '../model/inlineObject1';
+import { InlineResponse2006 } from '../model/inlineResponse2006';
 import { InlineResponse2007 } from '../model/inlineResponse2007';
 import { InlineResponse2008 } from '../model/inlineResponse2008';
-import { InlineResponse2009 } from '../model/inlineResponse2009';
 import { Authentication, Interceptor } from '../model/models';
 import { HttpBasicAuth } from '../model/models';
 export declare enum OAuthApiApiKeys {
@@ -52,7 +52,7 @@ export declare class OAuthApi {
         };
     }): Promise<{
         response: http.IncomingMessage;
-        body: InlineResponse2009;
+        body: InlineResponse2008;
     }>;
     /**
      * The endpoint returns the details of OAuth client to display in the authorization page.
@@ -68,7 +68,7 @@ export declare class OAuthApi {
         };
     }): Promise<{
         response: http.IncomingMessage;
-        body: InlineResponse2007;
+        body: InlineResponse2006;
     }>;
     /**
      * This operation issues an access token for an account.
@@ -81,6 +81,6 @@ export declare class OAuthApi {
         };
     }): Promise<{
         response: http.IncomingMessage;
-        body: InlineResponse2008;
+        body: InlineResponse2007;
     }>;
 }

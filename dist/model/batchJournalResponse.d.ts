@@ -9,44 +9,20 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-export declare class JournalJNLC {
-    /**
-    * journal ID
-    */
+export declare class BatchJournalResponse {
     'id': string;
-    /**
-    * JNLC (constant)
-    */
-    'entry_type': string;
-    /**
-    * account ID the amount goes from
-    */
+    'error_message': string;
+    'entry_type': BatchJournalResponse.EntryTypeEnum;
     'from_account': string;
     'to_account': string;
-    /**
-    * ID the amount goes to
-    */
-    'description'?: string;
+    'symbol': string;
+    'qty': string | null;
+    'price': string;
+    'status': BatchJournalResponse.StatusEnum;
     'settle_date': string | null;
-    'status'?: JournalJNLC.StatusEnum;
+    'system_date': string | null;
     'net_amount': string;
-    /**
-    * max 255 characters
-    */
-    'transmitter_name'?: string;
-    /**
-    * max 255 characters
-    */
-    'transmitter_account_number'?: string;
-    /**
-    * max 255 characters
-    */
-    'transmitter_address'?: string;
-    /**
-    * max 255 characters
-    */
-    'transmitter_financial_institution'?: string;
-    'transmitter_timestamp'?: Date;
+    'description': string;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;
@@ -59,7 +35,10 @@ export declare class JournalJNLC {
         type: string;
     }[];
 }
-export declare namespace JournalJNLC {
+export declare namespace BatchJournalResponse {
+    enum EntryTypeEnum {
+        Jnlc
+    }
     enum StatusEnum {
         Pending,
         Canceled,
