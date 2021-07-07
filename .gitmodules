@@ -1,0 +1,4 @@
+[submodule "bkdocs"]
+	path = bkdocs
+	url = https://github.com/alpacahq/bkdocs.git
+	branch = master
