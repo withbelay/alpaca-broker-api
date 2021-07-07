@@ -2,7 +2,7 @@
 
 [![Version](https://img.shields.io/npm/v/@investingwolf/alpaca-broker-api)](https://www.npmjs.com/package/@investingwolf/alpaca-broker-api)
 
-Node.js client for the Alpaca Broker API generated from the specs provided [here](https://github.com/alpacahq/bkdocs).
+Node.js client for the Alpaca Broker API generated from the specs provided [here](https://github.com/investingwolf/bkdocs).
 
 ## Installation
 
@@ -19,12 +19,15 @@ npm install @investingwolf/alpaca-broker-api
 You will need an Alpaca API key and API secret. You can then create an Alpaca client as follows:
 
 ```js
-const {AlpacaApi, AlpacaEnvironments} = require('@investingwolf/alpaca-broker-api');
+const {
+  AlpacaApi,
+  AlpacaEnvironments,
+} = require("@investingwolf/alpaca-broker-api");
 
 const alpaca = new AlpacaApi({
-    apiKey: 'your-api-key',
-    apiSecret: 'your-api-secret',
-    basePath: AlpacaEnvironments.sandbox, // or AlpacaEnvironments.production
+  apiKey: "your-api-key",
+  apiSecret: "your-api-secret",
+  basePath: AlpacaEnvironments.sandbox, // or AlpacaEnvironments.production
 });
 ```
 
@@ -33,10 +36,10 @@ const alpaca = new AlpacaApi({
 Here is an example API call:
 
 ```js
-const {body: account} = await alpaca.accounts.accountsPost({
+const { body: account } = await alpaca.accounts.accountsPost({
   contact: {
-    email_address: 'cool_alpaca@example.com',
-    phone_number: '555-666-7788',
+    email_address: "cool_alpaca@example.com",
+    phone_number: "555-666-7788",
     // ...
   },
   // ...
@@ -46,13 +49,15 @@ const {body: account} = await alpaca.accounts.accountsPost({
 All methods accept an optional `options` object as the last parameter, which can be used to set additional headers:
 
 ```js
-const {body: account} = await alpaca.accounts.accountsPost({
+const { body: account } = await alpaca.accounts.accountsPost(
+  {
     // ...
-}, {
-    headers: {'x-some-header': 'some-value'}
-});
+  },
+  {
+    headers: { "x-some-header": "some-value" },
+  }
+);
 ```
-
 
 ### Error Handling
 
@@ -67,10 +72,27 @@ See [Alpaca accounts documentation](https://alpaca.markets/docs/broker/api-refer
 alpaca.accounts.accountsAccountIdDocumentsUploadPost(accountId, documentUpload);
 
 // accountsActivitiesActivityTypeGet(String, String?, String?, String?, String?, String?, Number?, String?, Options?)
-alpaca.accounts.accountsActivitiesActivityTypeGet(activityType, date, until, after, direction, accountId, pageSize, pageToken);
+alpaca.accounts.accountsActivitiesActivityTypeGet(
+  activityType,
+  date,
+  until,
+  after,
+  direction,
+  accountId,
+  pageSize,
+  pageToken
+);
 
 // accountsActivitiesGet(String?, String?, String?, String?, String?, Number?, String?, Options?)
-alpaca.accounts.accountsActivitiesGet(date, until, after, direction, accountId, pageSize, pageToken);
+alpaca.accounts.accountsActivitiesGet(
+  date,
+  until,
+  after,
+  direction,
+  accountId,
+  pageSize,
+  pageToken
+);
 
 // accountsGet(String?, Options?)
 alpaca.accounts.accountsGet(query);
@@ -135,6 +157,7 @@ alpaca.assets.assetsSymbolGet(symbol);
 // getAssets(Options?)
 alpaca.assets.getAssets();
 ```
+
 ### Calendar API
 
 See [Alpaca calendar documentation](https://alpaca.markets/docs/broker/api-references/calendar/) for descriptions of each endpoint.
@@ -159,7 +182,10 @@ See [Alpaca documents documentation](https://alpaca.markets/docs/broker/api-refe
 
 ```js
 // accountsAccountIdDocumentsDocumentIdDownloadGet(String, String, Options?)
-alpaca.documents.accountsAccountIdDocumentsDocumentIdDownloadGet(accountId, documentId);
+alpaca.documents.accountsAccountIdDocumentsDocumentIdDownloadGet(
+  accountId,
+  documentId
+);
 
 // accountsAccountIdDocumentsGet(String, String?, String?, Options?)
 alpaca.documents.accountsAccountIdDocumentsGet(accountId, startDate, endDate);
@@ -225,7 +251,14 @@ alpaca.journals.deleteJournal(journalId);
 alpaca.journals.eventsJournalsStatusGet(since, until, sinceId, untilId);
 
 // getJournals(String?, String?, String?, String?, String?, String?, Options?)
-alpaca.journals.getJournals(after, before, status, entryType, toAccount, fromAccount);
+alpaca.journals.getJournals(
+  after,
+  before,
+  status,
+  entryType,
+  toAccount,
+  fromAccount
+);
 
 // postJournals(JournalData, Options?)
 alpaca.journals.postJournals(journalData);
@@ -243,7 +276,12 @@ See [Alpaca OAuth documentation](https://alpaca.markets/docs/broker/api-referenc
 alpaca.oauth.oauthAuthorizePost(oauthAuthorizeObject);
 
 // oauthClientsClientIdGet(String, String?, String?, String?, Options?)
-alpaca.oauth.oauthClientsClientIdGet(clientId, responseType, redirectUri, scope);
+alpaca.oauth.oauthClientsClientIdGet(
+  clientId,
+  responseType,
+  redirectUri,
+  scope
+);
 
 // oauthTokenPost(OAuthTokenObject, Options?)
 alpaca.oauth.oauthTokenPost(oauthTokenObject);
@@ -264,7 +302,16 @@ alpaca.trading.deleteOrders(accountId);
 alpaca.trading.getOrder(accountId, orderId);
 
 // getOrders(String, String?, Number?, Date?, Date?, String?, Boolean?, String?, Options?)
-alpaca.trading.getOrders(accountId, status, limit, after, until, direction, nested, symbols);
+alpaca.trading.getOrders(
+  accountId,
+  status,
+  limit,
+  after,
+  until,
+  direction,
+  nested,
+  symbols
+);
 
 // getPositions(String, Options?)
 alpaca.trading.getPositions(accountId);
