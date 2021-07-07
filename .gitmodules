@@ -1,4 +1,4 @@
 [submodule "bkdocs"]
 	path = bkdocs
-	url = https://github.com/investingwolf/bkdocs
+	url = https://github.com/investingwolf/bkdocs.git
 	branch = master
