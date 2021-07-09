@@ -269,9 +269,15 @@ alpaca.trading.getOrders(accountId, status, limit, after, until, direction, nest
 // getPositions(String, Options?)
 alpaca.trading.getPositions(accountId);
 
+// closePosition(String, String, String?, String?, Options?)
+alpaca.trading.closePosition(accountId, symbol, qty, percentage);
+
 // patchOrder(String, String, PatchOrder, Options?)
 alpaca.trading.patchOrder(accountId, orderId, patchOrder);
 
 // postOrders(String, CreateOrder, Options?)
 alpaca.trading.postOrders(accountId, createOrder);
+
+// getPortfolioHistory(String, String?, String?, String?, Boolean?, Options?)
+alpaca.trading.getPortfolioHistory(accountId, period, timeframe, dateEnd, extendedHours);
 ```

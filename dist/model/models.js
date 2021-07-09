@@ -62,6 +62,7 @@ __exportStar(require("./nonTradeActivity"), exports);
 __exportStar(require("./nonTradeActivityAllOf"), exports);
 __exportStar(require("./orderObject"), exports);
 __exportStar(require("./patchOrder"), exports);
+__exportStar(require("./portfolioHistory"), exports);
 __exportStar(require("./position"), exports);
 __exportStar(require("./tradeActivity"), exports);
 __exportStar(require("./tradeActivityAllOf"), exports);
@@ -126,6 +127,7 @@ const nonTradeActivity_1 = require("./nonTradeActivity");
 const nonTradeActivityAllOf_1 = require("./nonTradeActivityAllOf");
 const orderObject_1 = require("./orderObject");
 const patchOrder_1 = require("./patchOrder");
+const portfolioHistory_1 = require("./portfolioHistory");
 const position_1 = require("./position");
 const tradeActivity_1 = require("./tradeActivity");
 const tradeActivityAllOf_1 = require("./tradeActivityAllOf");
@@ -260,6 +262,7 @@ let typeMap = {
     "NonTradeActivityAllOf": nonTradeActivityAllOf_1.NonTradeActivityAllOf,
     "OrderObject": orderObject_1.OrderObject,
     "PatchOrder": patchOrder_1.PatchOrder,
+    "PortfolioHistory": portfolioHistory_1.PortfolioHistory,
     "Position": position_1.Position,
     "TradeActivity": tradeActivity_1.TradeActivity,
     "TradeActivityAllOf": tradeActivityAllOf_1.TradeActivityAllOf,

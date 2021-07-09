@@ -62,6 +62,7 @@ model/nonTradeActivity.ts
 model/nonTradeActivityAllOf.ts
 model/orderObject.ts
 model/patchOrder.ts
+model/portfolioHistory.ts
 model/position.ts
 model/tradeActivity.ts
 model/tradeActivityAllOf.ts

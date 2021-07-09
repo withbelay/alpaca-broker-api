@@ -51,6 +51,7 @@ export * from './nonTradeActivity';
 export * from './nonTradeActivityAllOf';
 export * from './orderObject';
 export * from './patchOrder';
+export * from './portfolioHistory';
 export * from './position';
 export * from './tradeActivity';
 export * from './tradeActivityAllOf';
@@ -129,6 +130,7 @@ import { NonTradeActivity } from './nonTradeActivity';
 import { NonTradeActivityAllOf } from './nonTradeActivityAllOf';
 import { OrderObject } from './orderObject';
 import { PatchOrder } from './patchOrder';
+import { PortfolioHistory } from './portfolioHistory';
 import { Position } from './position';
 import { TradeActivity } from './tradeActivity';
 import { TradeActivityAllOf } from './tradeActivityAllOf';
@@ -266,6 +268,7 @@ let typeMap: {[index: string]: any} = {
     "NonTradeActivityAllOf": NonTradeActivityAllOf,
     "OrderObject": OrderObject,
     "PatchOrder": PatchOrder,
+    "PortfolioHistory": PortfolioHistory,
     "Position": Position,
     "TradeActivity": TradeActivity,
     "TradeActivityAllOf": TradeActivityAllOf,

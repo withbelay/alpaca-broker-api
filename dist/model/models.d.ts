@@ -51,6 +51,7 @@ export * from './nonTradeActivity';
 export * from './nonTradeActivityAllOf';
 export * from './orderObject';
 export * from './patchOrder';
+export * from './portfolioHistory';
 export * from './position';
 export * from './tradeActivity';
 export * from './tradeActivityAllOf';

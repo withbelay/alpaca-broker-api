@@ -15,6 +15,7 @@ import { CreateOrder } from '../model/createOrder';
 import { InlineResponse207 } from '../model/inlineResponse207';
 import { OrderObject } from '../model/orderObject';
 import { PatchOrder } from '../model/patchOrder';
+import { PortfolioHistory } from '../model/portfolioHistory';
 import { Position } from '../model/position';
 import { Authentication, Interceptor } from '../model/models';
 import { HttpBasicAuth } from '../model/models';
@@ -41,6 +42,22 @@ export declare class TradingApi {
     set username(username: string);
     set password(password: string);
     addInterceptor(interceptor: Interceptor): void;
+    /**
+     *
+     * @summary Closes the account’s open position for the given symbol
+     * @param accountId Account identifier.
+     * @param symbol The symbol or asset_id
+     * @param qty The number of shares to liquidate
+     * @param percentage Percentage of position you want to liquidate
+     */
+    closePosition(accountId: string, symbol: string, qty?: string, percentage?: string, options?: {
+        headers: {
+            [name: string]: string;
+        };
+    }): Promise<{
+        response: http.IncomingMessage;
+        body: OrderObject;
+    }>;
     /**
      * Attempts to cancel an open order.
      * @summary Attempts to cancel an open order.
@@ -101,6 +118,23 @@ export declare class TradingApi {
     }): Promise<{
         response: http.IncomingMessage;
         body: Array<OrderObject>;
+    }>;
+    /**
+     *
+     * @summary Returns timeseries data about equity and profit/loss (P/L) of the account in requested timespan
+     * @param accountId Account identifier.
+     * @param period The duration of the data
+     * @param timeframe The resolution of time window
+     * @param dateEnd The date the data is returned up to, in “YYYY-MM-DD” format
+     * @param extendedHours If true, include extended hours in the result
+     */
+    getPortfolioHistory(accountId: string, period?: string, timeframe?: string, dateEnd?: string, extendedHours?: boolean, options?: {
+        headers: {
+            [name: string]: string;
+        };
+    }): Promise<{
+        response: http.IncomingMessage;
+        body: PortfolioHistory;
     }>;
     /**
      *
