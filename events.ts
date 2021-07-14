@@ -14,7 +14,7 @@ export const AlpacaEventStreams: {
 export class AlpacaEvents extends EventEmitter {
     authToken: string
     basePath: string
-    streams: {[name: string]: EventSource}
+    streams: {[name: string]: EventSource} = {}
 
     constructor ({apiKey, apiSecret, basePath}: {apiKey: string, apiSecret: string, basePath: string}) {
         super();
