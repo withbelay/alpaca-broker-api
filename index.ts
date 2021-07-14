@@ -3,6 +3,7 @@ import * as api from './api';
 
 // export all APIs and models so they can be used individually if desired
 export * from './api'
+export * from './events';
 
 interface AlpacaEnvironment {
     [env: string]: string
@@ -37,4 +38,10 @@ export class AlpacaApi {
         this.oauth = new api.OAuthApi(apiKey, apiSecret, basePath);
         this.trading = new api.TradingApi(apiKey, apiSecret, basePath);
     }
+}
+
+export enum AlpacaErrorCode {
+    INVALID_FORMAT = 40010000,
+    INSUFFICIENT_BUYING_POWER = 40310000,
+    ACH_ALREADY_ACTIVE = 40910000
 }

@@ -22,10 +22,11 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AlpacaApi = exports.AlpacaEnvironments = void 0;
+exports.AlpacaErrorCode = exports.AlpacaApi = exports.AlpacaEnvironments = void 0;
 const api = __importStar(require("./api"));
 // export all APIs and models so they can be used individually if desired
 __exportStar(require("./api"), exports);
+__exportStar(require("./events"), exports);
 exports.AlpacaEnvironments = {
     sandbox: 'https://broker-api.sandbox.alpaca.markets/v1',
     production: 'https://broker-api.alpaca.markets/v1',
@@ -45,3 +46,9 @@ class AlpacaApi {
     }
 }
 exports.AlpacaApi = AlpacaApi;
+var AlpacaErrorCode;
+(function (AlpacaErrorCode) {
+    AlpacaErrorCode[AlpacaErrorCode["INVALID_FORMAT"] = 40010000] = "INVALID_FORMAT";
+    AlpacaErrorCode[AlpacaErrorCode["INSUFFICIENT_BUYING_POWER"] = 40310000] = "INSUFFICIENT_BUYING_POWER";
+    AlpacaErrorCode[AlpacaErrorCode["ACH_ALREADY_ACTIVE"] = 40910000] = "ACH_ALREADY_ACTIVE";
+})(AlpacaErrorCode = exports.AlpacaErrorCode || (exports.AlpacaErrorCode = {}));
