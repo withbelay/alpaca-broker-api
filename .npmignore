@@ -1,5 +1,6 @@
 index.ts
 api.ts
+events.ts
 api/
 model/
 tsconfig.json

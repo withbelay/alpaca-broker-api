@@ -1,4 +1,4 @@
-import EventSource from 'eventsource'
+import EventSource from 'eventsource';
 import { EventEmitter } from 'stream';
 
 export const AlpacaEventStreams: {
@@ -18,7 +18,7 @@ export class AlpacaEvents extends EventEmitter {
 
     constructor ({apiKey, apiSecret, basePath}: {apiKey: string, apiSecret: string, basePath: string}) {
         super();
-        this.authToken = Buffer.from(`${apiKey}:${apiSecret}`).toString("base64")
+        this.authToken = Buffer.from(`Basic ${apiKey}:${apiSecret}`).toString("base64");
         this.basePath = basePath;
     }
 
@@ -26,10 +26,10 @@ export class AlpacaEvents extends EventEmitter {
         const es = new EventSource(this.basePath + stream, {headers: {authorization: this.authToken}});
         es.onmessage = (message) => {
             this.emit(stream, message);
-        }
+        };
         es.onerror = (error) => {
-            this.emit("error", error)
-        }
-        this.streams[stream] = es
+            this.emit("error", error);
+        };
+        this.streams[stream] = es;
     }
 }
