@@ -17,7 +17,7 @@ class AlpacaEvents extends stream_1.EventEmitter {
     constructor({ apiKey, apiSecret, basePath }) {
         super();
         this.streams = {};
-        this.authToken = Buffer.from(`Basic ${apiKey}:${apiSecret}`).toString("base64");
+        this.authToken = `Basic ${Buffer.from(`${apiKey}:${apiSecret}`).toString("base64")}`;
         this.basePath = basePath;
     }
     subscribe(stream) {

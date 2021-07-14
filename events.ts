@@ -18,7 +18,7 @@ export class AlpacaEvents extends EventEmitter {
 
     constructor ({apiKey, apiSecret, basePath}: {apiKey: string, apiSecret: string, basePath: string}) {
         super();
-        this.authToken = Buffer.from(`Basic ${apiKey}:${apiSecret}`).toString("base64");
+        this.authToken = `Basic ${Buffer.from(`${apiKey}:${apiSecret}`).toString("base64")}`;
         this.basePath = basePath;
     }
 
