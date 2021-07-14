@@ -23,7 +23,13 @@ class AlpacaEvents extends stream_1.EventEmitter {
     subscribe(stream) {
         const es = new eventsource_1.default(this.basePath + stream, { headers: { authorization: this.authToken } });
         es.onmessage = (message) => {
-            this.emit(stream, message);
+            try {
+                const data = JSON.parse(message.data);
+                this.emit(stream, data);
+            }
+            catch (error) {
+                this.emit("error", error);
+            }
         };
         es.onerror = (error) => {
             this.emit("error", error);
