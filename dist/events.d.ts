@@ -15,5 +15,5 @@ export declare class AlpacaEvents extends EventEmitter {
         apiSecret: string;
         basePath: string;
     });
-    subscribe(stream: string): void;
+    subscribe(stream: string, cb?: (data: any) => void): void;
 }

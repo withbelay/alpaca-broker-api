@@ -49,6 +49,6 @@ export declare class CalendarApi {
         };
     }): Promise<{
         response: http.IncomingMessage;
-        body: InlineResponse2001;
+        body: Array<InlineResponse2001>;
     }>;
 }

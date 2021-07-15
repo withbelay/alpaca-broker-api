@@ -22,7 +22,7 @@ export class AlpacaEvents extends EventEmitter {
         this.basePath = basePath;
     }
 
-    subscribe(stream: string) {
+    subscribe(stream: string, cb?: (data: any) => void) {
         const es = new EventSource(this.basePath + stream, {headers: {authorization: this.authToken}});
         es.onmessage = (message) => {
             try {
@@ -35,6 +35,9 @@ export class AlpacaEvents extends EventEmitter {
         es.onerror = (error) => {
             this.emit("error", error);
         };
+        if (cb) {
+            this.on(stream, cb);
+        }
         this.streams[stream] = es;
     }
 }

@@ -20,7 +20,7 @@ class AlpacaEvents extends stream_1.EventEmitter {
         this.authToken = `Basic ${Buffer.from(`${apiKey}:${apiSecret}`).toString("base64")}`;
         this.basePath = basePath;
     }
-    subscribe(stream) {
+    subscribe(stream, cb) {
         const es = new eventsource_1.default(this.basePath + stream, { headers: { authorization: this.authToken } });
         es.onmessage = (message) => {
             try {
@@ -34,6 +34,9 @@ class AlpacaEvents extends stream_1.EventEmitter {
         es.onerror = (error) => {
             this.emit("error", error);
         };
+        if (cb) {
+            this.on(stream, cb);
+        }
         this.streams[stream] = es;
     }
 }
