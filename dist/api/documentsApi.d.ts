@@ -11,6 +11,7 @@
  */
 /// <reference types="node" />
 import http from 'http';
+import { DocumentUpload } from '../model/documentUpload';
 import { InlineResponse2003 } from '../model/inlineResponse2003';
 import { Authentication, Interceptor } from '../model/models';
 import { HttpBasicAuth } from '../model/models';
@@ -78,5 +79,19 @@ export declare class DocumentsApi {
     }): Promise<{
         response: http.IncomingMessage;
         body: Array<InlineResponse2003>;
+    }>;
+    /**
+     *
+     * @summary Upload a document to an already existing account
+     * @param accountId Account identifier.
+     * @param documentUpload
+     */
+    postDocumentUpload(accountId: string, documentUpload: Array<DocumentUpload>, options?: {
+        headers: {
+            [name: string]: string;
+        };
+    }): Promise<{
+        response: http.IncomingMessage;
+        body?: any;
     }>;
 }

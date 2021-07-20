@@ -43,22 +43,6 @@ export declare class TradingApi {
     set password(password: string);
     addInterceptor(interceptor: Interceptor): void;
     /**
-     *
-     * @summary Closes the account’s open position for the given symbol
-     * @param accountId Account identifier.
-     * @param symbol The symbol or asset_id
-     * @param qty The number of shares to liquidate
-     * @param percentage Percentage of position you want to liquidate
-     */
-    closePosition(accountId: string, symbol: string, qty?: string, percentage?: string, options?: {
-        headers: {
-            [name: string]: string;
-        };
-    }): Promise<{
-        response: http.IncomingMessage;
-        body: OrderObject;
-    }>;
-    /**
      * Attempts to cancel an open order.
      * @summary Attempts to cancel an open order.
      * @param accountId Account identifier.
@@ -84,6 +68,22 @@ export declare class TradingApi {
     }): Promise<{
         response: http.IncomingMessage;
         body: Array<InlineResponse207>;
+    }>;
+    /**
+     *
+     * @summary Closes the account’s open position for the given symbol
+     * @param accountId Account identifier.
+     * @param symbol The symbol or asset_id
+     * @param qty The number of shares to liquidate
+     * @param percentage Percentage of position you want to liquidate
+     */
+    deletePosition(accountId: string, symbol: string, qty?: string, percentage?: string, options?: {
+        headers: {
+            [name: string]: string;
+        };
+    }): Promise<{
+        response: http.IncomingMessage;
+        body: OrderObject;
     }>;
     /**
      * Retrieves a single order for the given order_id.

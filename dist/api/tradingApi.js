@@ -89,91 +89,6 @@ class TradingApi {
         this.interceptors.push(interceptor);
     }
     /**
-     *
-     * @summary Closes the account’s open position for the given symbol
-     * @param accountId Account identifier.
-     * @param symbol The symbol or asset_id
-     * @param qty The number of shares to liquidate
-     * @param percentage Percentage of position you want to liquidate
-     */
-    closePosition(accountId, symbol, qty, percentage, options = { headers: {} }) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const localVarPath = this.basePath + '/trading/accounts/{account_id}/positions/{symbol}'
-                .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)))
-                .replace('{' + 'symbol' + '}', encodeURIComponent(String(symbol)));
-            let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
-            const produces = ['application/json'];
-            // give precedence to 'application/json'
-            if (produces.indexOf('application/json') >= 0) {
-                localVarHeaderParams.Accept = 'application/json';
-            }
-            else {
-                localVarHeaderParams.Accept = produces.join(',');
-            }
-            let localVarFormParams = {};
-            // verify required parameter 'accountId' is not null or undefined
-            if (accountId === null || accountId === undefined) {
-                throw new Error('Required parameter accountId was null or undefined when calling closePosition.');
-            }
-            // verify required parameter 'symbol' is not null or undefined
-            if (symbol === null || symbol === undefined) {
-                throw new Error('Required parameter symbol was null or undefined when calling closePosition.');
-            }
-            if (qty !== undefined) {
-                localVarQueryParameters['qty'] = models_1.ObjectSerializer.serialize(qty, "string");
-            }
-            if (percentage !== undefined) {
-                localVarQueryParameters['percentage'] = models_1.ObjectSerializer.serialize(percentage, "string");
-            }
-            Object.assign(localVarHeaderParams, options.headers);
-            let localVarUseFormData = false;
-            let localVarRequestOptions = {
-                method: 'DELETE',
-                qs: localVarQueryParameters,
-                headers: localVarHeaderParams,
-                uri: localVarPath,
-                useQuerystring: this._useQuerystring,
-                json: true,
-            };
-            let authenticationPromise = Promise.resolve();
-            if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {
-                authenticationPromise = authenticationPromise.then(() => this.authentications.BasicAuth.applyToRequest(localVarRequestOptions));
-            }
-            authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            let interceptorPromise = authenticationPromise;
-            for (const interceptor of this.interceptors) {
-                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
-            }
-            return interceptorPromise.then(() => {
-                if (Object.keys(localVarFormParams).length) {
-                    if (localVarUseFormData) {
-                        localVarRequestOptions.formData = localVarFormParams;
-                    }
-                    else {
-                        localVarRequestOptions.form = localVarFormParams;
-                    }
-                }
-                return new Promise((resolve, reject) => {
-                    request_1.default(localVarRequestOptions, (error, response, body) => {
-                        if (error) {
-                            reject(error);
-                        }
-                        else {
-                            body = models_1.ObjectSerializer.deserialize(body, "OrderObject");
-                            if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                                resolve({ response: response, body: body });
-                            }
-                            else {
-                                reject(new apis_1.HttpError(response, body, response.statusCode));
-                            }
-                        }
-                    });
-                });
-            });
-        });
-    }
-    /**
      * Attempts to cancel an open order.
      * @summary Attempts to cancel an open order.
      * @param accountId Account identifier.
@@ -308,6 +223,91 @@ class TradingApi {
                         }
                         else {
                             body = models_1.ObjectSerializer.deserialize(body, "Array<InlineResponse207>");
+                            if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                                resolve({ response: response, body: body });
+                            }
+                            else {
+                                reject(new apis_1.HttpError(response, body, response.statusCode));
+                            }
+                        }
+                    });
+                });
+            });
+        });
+    }
+    /**
+     *
+     * @summary Closes the account’s open position for the given symbol
+     * @param accountId Account identifier.
+     * @param symbol The symbol or asset_id
+     * @param qty The number of shares to liquidate
+     * @param percentage Percentage of position you want to liquidate
+     */
+    deletePosition(accountId, symbol, qty, percentage, options = { headers: {} }) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = this.basePath + '/trading/accounts/{account_id}/positions/{symbol}'
+                .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)))
+                .replace('{' + 'symbol' + '}', encodeURIComponent(String(symbol)));
+            let localVarQueryParameters = {};
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
+            const produces = ['application/json'];
+            // give precedence to 'application/json'
+            if (produces.indexOf('application/json') >= 0) {
+                localVarHeaderParams.Accept = 'application/json';
+            }
+            else {
+                localVarHeaderParams.Accept = produces.join(',');
+            }
+            let localVarFormParams = {};
+            // verify required parameter 'accountId' is not null or undefined
+            if (accountId === null || accountId === undefined) {
+                throw new Error('Required parameter accountId was null or undefined when calling deletePosition.');
+            }
+            // verify required parameter 'symbol' is not null or undefined
+            if (symbol === null || symbol === undefined) {
+                throw new Error('Required parameter symbol was null or undefined when calling deletePosition.');
+            }
+            if (qty !== undefined) {
+                localVarQueryParameters['qty'] = models_1.ObjectSerializer.serialize(qty, "string");
+            }
+            if (percentage !== undefined) {
+                localVarQueryParameters['percentage'] = models_1.ObjectSerializer.serialize(percentage, "string");
+            }
+            Object.assign(localVarHeaderParams, options.headers);
+            let localVarUseFormData = false;
+            let localVarRequestOptions = {
+                method: 'DELETE',
+                qs: localVarQueryParameters,
+                headers: localVarHeaderParams,
+                uri: localVarPath,
+                useQuerystring: this._useQuerystring,
+                json: true,
+            };
+            let authenticationPromise = Promise.resolve();
+            if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {
+                authenticationPromise = authenticationPromise.then(() => this.authentications.BasicAuth.applyToRequest(localVarRequestOptions));
+            }
+            authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
+                if (Object.keys(localVarFormParams).length) {
+                    if (localVarUseFormData) {
+                        localVarRequestOptions.formData = localVarFormParams;
+                    }
+                    else {
+                        localVarRequestOptions.form = localVarFormParams;
+                    }
+                }
+                return new Promise((resolve, reject) => {
+                    request_1.default(localVarRequestOptions, (error, response, body) => {
+                        if (error) {
+                            reject(error);
+                        }
+                        else {
+                            body = models_1.ObjectSerializer.deserialize(body, "OrderObject");
                             if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                                 resolve({ response: response, body: body });
                             }

@@ -86,9 +86,6 @@ alpaca.accounts.patchAccount(accountId, accountUpdate);
 
 // postAccount(AccountCreationObject, Options?)
 alpaca.accounts.postAccount(accountCreationObject);
-
-// postDocumentUpload(String, DocumentUpload, Options?)
-alpaca.accounts.postDocumentUpload(accountId, documentUpload);
 ```
 
 ### Assets API
@@ -136,6 +133,9 @@ alpaca.documents.getDocumentDownload(accountId, documentId);
 
 // getDocuments(String, String?, String?, Options?)
 alpaca.documents.getDocuments(accountId, startDate, endDate);
+
+// postDocumentUpload(String, DocumentUpload, Options?)
+alpaca.documents.postDocumentUpload(accountId, documentUpload);
 ```
 
 ### Events API
@@ -236,8 +236,8 @@ alpaca.trading.getOrders(accountId, status, limit, after, until, direction, nest
 // getPositions(String, Options?)
 alpaca.trading.getPositions(accountId);
 
-// closePosition(String, String, String?, String?, Options?)
-alpaca.trading.closePosition(accountId, symbol, qty, percentage);
+// deletePosition(String, String, String?, String?, Options?)
+alpaca.trading.deletePosition(accountId, symbol, qty, percentage);
 
 // patchOrder(String, String, PatchOrder, Options?)
 alpaca.trading.patchOrder(accountId, orderId, patchOrder);
