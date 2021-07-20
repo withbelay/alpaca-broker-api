@@ -9,9 +9,27 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { DocumentUpload } from './documentUpload';
 export declare class InlineObject {
-    'document_upload'?: DocumentUpload;
+    /**
+    * OAuth client ID
+    */
+    'client_id'?: string;
+    /**
+    * OAuth client secret
+    */
+    'client_secret'?: string;
+    /**
+    * redirect URI for the OAuth flow
+    */
+    'redirect_uri'?: string;
+    /**
+    * scopes requested by the OAuth flow
+    */
+    'scope'?: string;
+    /**
+    * end-user account ID
+    */
+    'account_id'?: string;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;

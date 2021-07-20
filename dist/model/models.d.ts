@@ -31,7 +31,6 @@ export * from './identifiedResource';
 export * from './identity';
 export * from './inlineObject';
 export * from './inlineObject1';
-export * from './inlineObject2';
 export * from './inlineResponse200';
 export * from './inlineResponse2001';
 export * from './inlineResponse2002';

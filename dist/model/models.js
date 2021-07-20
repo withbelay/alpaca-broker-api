@@ -42,7 +42,6 @@ __exportStar(require("./identifiedResource"), exports);
 __exportStar(require("./identity"), exports);
 __exportStar(require("./inlineObject"), exports);
 __exportStar(require("./inlineObject1"), exports);
-__exportStar(require("./inlineObject2"), exports);
 __exportStar(require("./inlineResponse200"), exports);
 __exportStar(require("./inlineResponse2001"), exports);
 __exportStar(require("./inlineResponse2002"), exports);
@@ -108,7 +107,6 @@ const identifiedResource_1 = require("./identifiedResource");
 const identity_1 = require("./identity");
 const inlineObject_1 = require("./inlineObject");
 const inlineObject1_1 = require("./inlineObject1");
-const inlineObject2_1 = require("./inlineObject2");
 const inlineResponse200_1 = require("./inlineResponse200");
 const inlineResponse2001_1 = require("./inlineResponse2001");
 const inlineResponse2002_1 = require("./inlineResponse2002");
@@ -244,7 +242,6 @@ let typeMap = {
     "Identity": identity_1.Identity,
     "InlineObject": inlineObject_1.InlineObject,
     "InlineObject1": inlineObject1_1.InlineObject1,
-    "InlineObject2": inlineObject2_1.InlineObject2,
     "InlineResponse200": inlineResponse200_1.InlineResponse200,
     "InlineResponse2001": inlineResponse2001_1.InlineResponse2001,
     "InlineResponse2002": inlineResponse2002_1.InlineResponse2002,

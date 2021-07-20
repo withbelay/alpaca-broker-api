@@ -705,9 +705,9 @@ class AccountsApi {
      *
      * @summary Upload a document to an already existing account
      * @param accountId Account identifier.
-     * @param inlineObject
+     * @param documentUpload
      */
-    postDocumentUpload(accountId, inlineObject, options = { headers: {} }) {
+    postDocumentUpload(accountId, documentUpload, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/accounts/{account_id}/documents/upload'
                 .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)));
@@ -726,9 +726,9 @@ class AccountsApi {
             if (accountId === null || accountId === undefined) {
                 throw new Error('Required parameter accountId was null or undefined when calling postDocumentUpload.');
             }
-            // verify required parameter 'inlineObject' is not null or undefined
-            if (inlineObject === null || inlineObject === undefined) {
-                throw new Error('Required parameter inlineObject was null or undefined when calling postDocumentUpload.');
+            // verify required parameter 'documentUpload' is not null or undefined
+            if (documentUpload === null || documentUpload === undefined) {
+                throw new Error('Required parameter documentUpload was null or undefined when calling postDocumentUpload.');
             }
             Object.assign(localVarHeaderParams, options.headers);
             let localVarUseFormData = false;
@@ -739,7 +739,7 @@ class AccountsApi {
                 uri: localVarPath,
                 useQuerystring: this._useQuerystring,
                 json: true,
-                body: models_1.ObjectSerializer.serialize(inlineObject, "InlineObject")
+                body: models_1.ObjectSerializer.serialize(documentUpload, "Array<DocumentUpload>")
             };
             let authenticationPromise = Promise.resolve();
             if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {

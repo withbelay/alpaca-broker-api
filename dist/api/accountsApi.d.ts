@@ -16,7 +16,7 @@ import { AccountCreationObject } from '../model/accountCreationObject';
 import { AccountExtended } from '../model/accountExtended';
 import { AccountUpdate } from '../model/accountUpdate';
 import { ActivityItem } from '../model/activityItem';
-import { InlineObject } from '../model/inlineObject';
+import { DocumentUpload } from '../model/documentUpload';
 import { InlineResponse200 } from '../model/inlineResponse200';
 import { Authentication, Interceptor } from '../model/models';
 import { HttpBasicAuth } from '../model/models';
@@ -165,9 +165,9 @@ export declare class AccountsApi {
      *
      * @summary Upload a document to an already existing account
      * @param accountId Account identifier.
-     * @param inlineObject
+     * @param documentUpload
      */
-    postDocumentUpload(accountId: string, inlineObject: InlineObject, options?: {
+    postDocumentUpload(accountId: string, documentUpload: Array<DocumentUpload>, options?: {
         headers: {
             [name: string]: string;
         };

@@ -31,7 +31,6 @@ export * from './identifiedResource';
 export * from './identity';
 export * from './inlineObject';
 export * from './inlineObject1';
-export * from './inlineObject2';
 export * from './inlineResponse200';
 export * from './inlineResponse2001';
 export * from './inlineResponse2002';
@@ -111,7 +110,6 @@ import { IdentifiedResource } from './identifiedResource';
 import { Identity } from './identity';
 import { InlineObject } from './inlineObject';
 import { InlineObject1 } from './inlineObject1';
-import { InlineObject2 } from './inlineObject2';
 import { InlineResponse200 } from './inlineResponse200';
 import { InlineResponse2001 } from './inlineResponse2001';
 import { InlineResponse2002 } from './inlineResponse2002';
@@ -250,7 +248,6 @@ let typeMap: {[index: string]: any} = {
     "Identity": Identity,
     "InlineObject": InlineObject,
     "InlineObject1": InlineObject1,
-    "InlineObject2": InlineObject2,
     "InlineResponse200": InlineResponse200,
     "InlineResponse2001": InlineResponse2001,
     "InlineResponse2002": InlineResponse2002,

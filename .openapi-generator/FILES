@@ -41,7 +41,6 @@ model/identifiedResource.ts
 model/identity.ts
 model/inlineObject.ts
 model/inlineObject1.ts
-model/inlineObject2.ts
 model/inlineResponse200.ts
 model/inlineResponse2001.ts
 model/inlineResponse2002.ts
