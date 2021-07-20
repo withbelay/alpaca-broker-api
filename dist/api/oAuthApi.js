@@ -91,9 +91,9 @@ class OAuthApi {
     /**
      * The operation issues an OAuth code which can be used in the OAuth code flow.
      * @summary Issue a code.
-     * @param inlineObject1
+     * @param inlineObject2
      */
-    oauthAuthorizePost(inlineObject1, options = { headers: {} }) {
+    oauthAuthorizePost(inlineObject2, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/oauth/authorize';
             let localVarQueryParameters = {};
@@ -107,9 +107,9 @@ class OAuthApi {
                 localVarHeaderParams.Accept = produces.join(',');
             }
             let localVarFormParams = {};
-            // verify required parameter 'inlineObject1' is not null or undefined
-            if (inlineObject1 === null || inlineObject1 === undefined) {
-                throw new Error('Required parameter inlineObject1 was null or undefined when calling oauthAuthorizePost.');
+            // verify required parameter 'inlineObject2' is not null or undefined
+            if (inlineObject2 === null || inlineObject2 === undefined) {
+                throw new Error('Required parameter inlineObject2 was null or undefined when calling oauthAuthorizePost.');
             }
             Object.assign(localVarHeaderParams, options.headers);
             let localVarUseFormData = false;
@@ -120,7 +120,7 @@ class OAuthApi {
                 uri: localVarPath,
                 useQuerystring: this._useQuerystring,
                 json: true,
-                body: models_1.ObjectSerializer.serialize(inlineObject1, "InlineObject1")
+                body: models_1.ObjectSerializer.serialize(inlineObject2, "InlineObject2")
             };
             let authenticationPromise = Promise.resolve();
             if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {
@@ -245,9 +245,9 @@ class OAuthApi {
     /**
      * This operation issues an access token for an account.
      * @summary Issue a token.
-     * @param inlineObject
+     * @param inlineObject1
      */
-    oauthTokenPost(inlineObject, options = { headers: {} }) {
+    oauthTokenPost(inlineObject1, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/oauth/token';
             let localVarQueryParameters = {};
@@ -261,9 +261,9 @@ class OAuthApi {
                 localVarHeaderParams.Accept = produces.join(',');
             }
             let localVarFormParams = {};
-            // verify required parameter 'inlineObject' is not null or undefined
-            if (inlineObject === null || inlineObject === undefined) {
-                throw new Error('Required parameter inlineObject was null or undefined when calling oauthTokenPost.');
+            // verify required parameter 'inlineObject1' is not null or undefined
+            if (inlineObject1 === null || inlineObject1 === undefined) {
+                throw new Error('Required parameter inlineObject1 was null or undefined when calling oauthTokenPost.');
             }
             Object.assign(localVarHeaderParams, options.headers);
             let localVarUseFormData = false;
@@ -274,7 +274,7 @@ class OAuthApi {
                 uri: localVarPath,
                 useQuerystring: this._useQuerystring,
                 json: true,
-                body: models_1.ObjectSerializer.serialize(inlineObject, "InlineObject")
+                body: models_1.ObjectSerializer.serialize(inlineObject1, "InlineObject1")
             };
             let authenticationPromise = Promise.resolve();
             if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {

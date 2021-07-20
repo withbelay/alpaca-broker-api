@@ -20,7 +20,7 @@ import { AccountCreationObject } from '../model/accountCreationObject';
 import { AccountExtended } from '../model/accountExtended';
 import { AccountUpdate } from '../model/accountUpdate';
 import { ActivityItem } from '../model/activityItem';
-import { DocumentUpload } from '../model/documentUpload';
+import { InlineObject } from '../model/inlineObject';
 import { InlineResponse200 } from '../model/inlineResponse200';
 
 import { ObjectSerializer, Authentication, VoidAuth, Interceptor } from '../model/models';
@@ -745,9 +745,9 @@ export class AccountsApi {
      * 
      * @summary Upload a document to an already existing account
      * @param accountId Account identifier.
-     * @param documentUpload 
+     * @param inlineObject 
      */
-    public async postDocumentUpload (accountId: string, documentUpload: DocumentUpload, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public async postDocumentUpload (accountId: string, inlineObject: InlineObject, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
         const localVarPath = this.basePath + '/accounts/{account_id}/documents/upload'
             .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)));
         let localVarQueryParameters: any = {};
@@ -766,9 +766,9 @@ export class AccountsApi {
             throw new Error('Required parameter accountId was null or undefined when calling postDocumentUpload.');
         }
 
-        // verify required parameter 'documentUpload' is not null or undefined
-        if (documentUpload === null || documentUpload === undefined) {
-            throw new Error('Required parameter documentUpload was null or undefined when calling postDocumentUpload.');
+        // verify required parameter 'inlineObject' is not null or undefined
+        if (inlineObject === null || inlineObject === undefined) {
+            throw new Error('Required parameter inlineObject was null or undefined when calling postDocumentUpload.');
         }
 
         (<any>Object).assign(localVarHeaderParams, options.headers);
@@ -782,7 +782,7 @@ export class AccountsApi {
             uri: localVarPath,
             useQuerystring: this._useQuerystring,
             json: true,
-            body: ObjectSerializer.serialize(documentUpload, "DocumentUpload")
+            body: ObjectSerializer.serialize(inlineObject, "InlineObject")
         };
 
         let authenticationPromise = Promise.resolve();

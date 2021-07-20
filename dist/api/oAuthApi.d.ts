@@ -11,8 +11,8 @@
  */
 /// <reference types="node" />
 import http from 'http';
-import { InlineObject } from '../model/inlineObject';
 import { InlineObject1 } from '../model/inlineObject1';
+import { InlineObject2 } from '../model/inlineObject2';
 import { InlineResponse2006 } from '../model/inlineResponse2006';
 import { InlineResponse2007 } from '../model/inlineResponse2007';
 import { InlineResponse2008 } from '../model/inlineResponse2008';
@@ -44,9 +44,9 @@ export declare class OAuthApi {
     /**
      * The operation issues an OAuth code which can be used in the OAuth code flow.
      * @summary Issue a code.
-     * @param inlineObject1
+     * @param inlineObject2
      */
-    oauthAuthorizePost(inlineObject1: InlineObject1, options?: {
+    oauthAuthorizePost(inlineObject2: InlineObject2, options?: {
         headers: {
             [name: string]: string;
         };
@@ -73,9 +73,9 @@ export declare class OAuthApi {
     /**
      * This operation issues an access token for an account.
      * @summary Issue a token.
-     * @param inlineObject
+     * @param inlineObject1
      */
-    oauthTokenPost(inlineObject: InlineObject, options?: {
+    oauthTokenPost(inlineObject1: InlineObject1, options?: {
         headers: {
             [name: string]: string;
         };

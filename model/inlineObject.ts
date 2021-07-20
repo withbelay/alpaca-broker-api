@@ -11,56 +11,18 @@
  */
 
 import { RequestFile } from './models';
+import { DocumentUpload } from './documentUpload';
 
 export class InlineObject {
-    /**
-    * OAuth client ID
-    */
-    'client_id'?: string;
-    /**
-    * OAuth client secret
-    */
-    'client_secret'?: string;
-    /**
-    * redirect URI for the OAuth flow
-    */
-    'redirect_uri'?: string;
-    /**
-    * scopes requested by the OAuth flow
-    */
-    'scope'?: string;
-    /**
-    * end-user account ID
-    */
-    'account_id'?: string;
+    'document_upload'?: DocumentUpload;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "client_id",
-            "baseName": "client_id",
-            "type": "string"
-        },
-        {
-            "name": "client_secret",
-            "baseName": "client_secret",
-            "type": "string"
-        },
-        {
-            "name": "redirect_uri",
-            "baseName": "redirect_uri",
-            "type": "string"
-        },
-        {
-            "name": "scope",
-            "baseName": "scope",
-            "type": "string"
-        },
-        {
-            "name": "account_id",
-            "baseName": "account_id",
-            "type": "string"
+            "name": "document_upload",
+            "baseName": "document_upload",
+            "type": "DocumentUpload"
         }    ];
 
     static getAttributeTypeMap() {

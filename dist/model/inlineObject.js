@@ -21,28 +21,8 @@ exports.InlineObject = InlineObject;
 InlineObject.discriminator = undefined;
 InlineObject.attributeTypeMap = [
     {
-        "name": "client_id",
-        "baseName": "client_id",
-        "type": "string"
-    },
-    {
-        "name": "client_secret",
-        "baseName": "client_secret",
-        "type": "string"
-    },
-    {
-        "name": "redirect_uri",
-        "baseName": "redirect_uri",
-        "type": "string"
-    },
-    {
-        "name": "scope",
-        "baseName": "scope",
-        "type": "string"
-    },
-    {
-        "name": "account_id",
-        "baseName": "account_id",
-        "type": "string"
+        "name": "document_upload",
+        "baseName": "document_upload",
+        "type": "DocumentUpload"
     }
 ];
