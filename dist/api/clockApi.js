@@ -92,7 +92,7 @@ class ClockApi {
      *
      * @summary Query market clock
      */
-    clockGet(options = { headers: {} }) {
+    getClock(options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/clock';
             let localVarQueryParameters = {};

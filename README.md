@@ -63,62 +63,32 @@ API errors are instances of the `HttpError` class (which can be imported). Error
 See [Alpaca accounts documentation](https://alpaca.markets/docs/broker/api-references/accounts/accounts/) for descriptions of each endpoint.
 
 ```js
-// accountsAccountIdDocumentsUploadPost(String, DocumentUpload, Options?)
-alpaca.accounts.accountsAccountIdDocumentsUploadPost(accountId, documentUpload);
-
-// accountsActivitiesActivityTypeGet(String, String?, String?, String?, String?, String?, Number?, String?, Options?)
-alpaca.accounts.accountsActivitiesActivityTypeGet(activityType, date, until, after, direction, accountId, pageSize, pageToken);
-
-// accountsActivitiesGet(String?, String?, String?, String?, String?, Number?, String?, Options?)
-alpaca.accounts.accountsActivitiesGet(date, until, after, direction, accountId, pageSize, pageToken);
-
-// accountsGet(String?, Options?)
-alpaca.accounts.accountsGet(query);
-
-// accountsPost(AccountCreationObject, Options?)
-alpaca.accounts.accountsPost(accountCreationObject);
-
 // deleteAccount(String, Options?)
 alpaca.accounts.deleteAccount(accountId);
-
-// deleteAchRelationship(String, String, Options?)
-alpaca.accounts.deleteAchRelationship(accountId, achRelationshipId);
-
-// deleteRecipientBank(String, String, Options?)
-alpaca.accounts.deleteRecipientBank(accountId, bankId);
-
-// deleteTransfer(String, String, Options?)
-alpaca.accounts.deleteTransfer(accountId, transferId);
-
-// eventsAccountsStatusGet(Date?, Date?, Number?, Number?, Options?)
-alpaca.accounts.eventsAccountsStatusGet(since, until, sinceId, untilId);
 
 // getAccount(String, Options?)
 alpaca.accounts.getAccount(accountId);
 
-// getAchRelationships(String, String? Options?)
-alpaca.accounts.getAchRelationships(accountId, statuses);
+// getAccounts(String?, Options?)
+alpaca.accounts.getAccounts(query);
 
-// getRecipientBanks(String, String?, String?, Options?)
-alpaca.accounts.getRecipientBanks(accountId, status, bankName);
+// getAccountActivities(String?, String?, String?, String?, String?, Number?, String?, Options?)
+alpaca.accounts.getAccountActivities(date, until, after, direction, accountId, pageSize, pageToken);
+
+// getAccountActivitiesByType(String, String?, String?, String?, String?, String?, Number?, String?, Options?)
+alpaca.accounts.getAccountActivitiesByType(activityType, date, until, after, direction, accountId, pageSize, pageToken);
 
 // getTradingAccount(String, Options?)
 alpaca.accounts.getTradingAccount(accountId);
 
-// getTransfers(String, String?, Number?, Number? Options?)
-alpaca.accounts.getTransfers(accountId, direction, limit, offset);
-
 // patchAccount(String, AccountUpdate, Options?)
 alpaca.accounts.patchAccount(accountId, accountUpdate);
 
-// postAchRelationships(String, AchRelationshipData, Options?)
-alpaca.accounts.postAchRelationships(accountId, achRelationshipData);
+// postAccount(AccountCreationObject, Options?)
+alpaca.accounts.postAccount(accountCreationObject);
 
-// postRecipientBanks(String, BankData, Options?)
-alpaca.accounts.postRecipientBanks(accountId, bankData);
-
-// postTransfers(String, TransferData, Options?)
-alpaca.accounts.postTransfers(accountId, transferData);
+// postDocumentUpload(String, DocumentUpload, Options?)
+alpaca.accounts.postDocumentUpload(accountId, documentUpload);
 ```
 
 ### Assets API
@@ -126,11 +96,11 @@ alpaca.accounts.postTransfers(accountId, transferData);
 See [Alpaca assets documentation](https://alpaca.markets/docs/broker/api-references/assets/) for descriptions of each endpoint.
 
 ```js
-// assetsAssetIdGet(String, Options?)
-alpaca.assets.assetsAssetIdGet(assetId);
+// getAssetById(String, Options?)
+alpaca.assets.getAssetById(assetId);
 
-// assetsSymbolGet(String, Options?)
-alpaca.assets.assetsSymbolGet(symbol);
+// getAssetBySymbol(String, Options?)
+alpaca.assets.getAssetBySymbol(symbol);
 
 // getAssets(Options?)
 alpaca.assets.getAssets();
@@ -140,8 +110,8 @@ alpaca.assets.getAssets();
 See [Alpaca calendar documentation](https://alpaca.markets/docs/broker/api-references/calendar/) for descriptions of each endpoint.
 
 ```js
-// calendarGet(String?, String?, Options?)
-alpaca.calendar.calendarGet(start, end);
+// getCalendar(String?, String?, Options?)
+alpaca.calendar.getCalendar(start, end);
 ```
 
 ### Clock API
@@ -149,8 +119,8 @@ alpaca.calendar.calendarGet(start, end);
 See [Alpaca clock documentation](https://alpaca.markets/docs/broker/api-references/clock/) for descriptions of each endpoint.
 
 ```js
-// clockGet(Options?)
-alpaca.clock.clockGet();
+// getClock(Options?)
+alpaca.clock.getClock();
 ```
 
 ### Documents API
@@ -158,14 +128,14 @@ alpaca.clock.clockGet();
 See [Alpaca documents documentation](https://alpaca.markets/docs/broker/api-references/documents/) for descriptions of each endpoint.
 
 ```js
-// accountsAccountIdDocumentsDocumentIdDownloadGet(String, String, Options?)
-alpaca.documents.accountsAccountIdDocumentsDocumentIdDownloadGet(accountId, documentId);
-
-// accountsAccountIdDocumentsGet(String, String?, String?, Options?)
-alpaca.documents.accountsAccountIdDocumentsGet(accountId, startDate, endDate);
-
 // documentsDocumentIdGet(String, Options?)
 alpaca.documents.documentsDocumentIdGet(documentId);
+
+// getDocumentDownload(String, String, Options?)
+alpaca.documents.getDocumentDownload(accountId, documentId);
+
+// getDocuments(String, String?, String?, Options?)
+alpaca.documents.getDocuments(accountId, startDate, endDate);
 ```
 
 ### Events API
@@ -203,14 +173,14 @@ alpaca.funding.getRecipientBanks(accountId, status, bankName);
 // getTransfers(String, String?, Number?, Number? Options?)
 alpaca.funding.getTransfers(accountId, direction, limit, offset);
 
-// postAchRelationships(String, AchRelationshipData, Options?)
-alpaca.funding.postAchRelationships(accountId, achRelationshipData);
+// postAchRelationship(String, AchRelationshipData, Options?)
+alpaca.funding.postAchRelationship(accountId, achRelationshipData);
 
-// postRecipientBanks(String, BankData, Options?)
-alpaca.funding.postRecipientBanks(accountId, bankData);
+// postRecipientBank(String, BankData, Options?)
+alpaca.funding.postRecipientBank(accountId, bankData);
 
-// postTransfers(String, TransferData, Options?)
-alpaca.funding.postTransfers(accountId, transferData);
+// postTransfer(String, TransferData, Options?)
+alpaca.funding.postTransfer(accountId, transferData);
 ```
 
 ### Journals API
@@ -220,9 +190,6 @@ See [Alpaca journals documentation](https://alpaca.markets/docs/broker/api-refer
 ```js
 // deleteJournal(String, Options?)
 alpaca.journals.deleteJournal(journalId);
-
-// eventsJournalsStatusGet(Date?, Date?, Number?, Number?, Options?)
-alpaca.journals.eventsJournalsStatusGet(since, until, sinceId, untilId);
 
 // getJournals(String?, String?, String?, String?, String?, String?, Options?)
 alpaca.journals.getJournals(after, before, status, entryType, toAccount, fromAccount);
@@ -275,8 +242,8 @@ alpaca.trading.closePosition(accountId, symbol, qty, percentage);
 // patchOrder(String, String, PatchOrder, Options?)
 alpaca.trading.patchOrder(accountId, orderId, patchOrder);
 
-// postOrders(String, CreateOrder, Options?)
-alpaca.trading.postOrders(accountId, createOrder);
+// postOrder(String, CreateOrder, Options?)
+alpaca.trading.postOrder(accountId, createOrder);
 
 // getPortfolioHistory(String, String?, String?, String?, Boolean?, Options?)
 alpaca.trading.getPortfolioHistory(accountId, period, timeframe, dateEnd, extendedHours);

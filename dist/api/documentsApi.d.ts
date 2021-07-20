@@ -39,11 +39,24 @@ export declare class DocumentsApi {
     addInterceptor(interceptor: Interceptor): void;
     /**
      * The operation returns a pre-signed downloadable link as a redirect with HTTP status code 301 if one is found.
+     * @summary Download a document file directly
+     * @param documentId
+     */
+    documentsDocumentIdGet(documentId: string, options?: {
+        headers: {
+            [name: string]: string;
+        };
+    }): Promise<{
+        response: http.IncomingMessage;
+        body?: any;
+    }>;
+    /**
+     * The operation returns a pre-signed downloadable link as a redirect with HTTP status code 301 if one is found.
      * @summary Download a document file that belongs to an account.
      * @param accountId Account identifier.
      * @param documentId
      */
-    accountsAccountIdDocumentsDocumentIdDownloadGet(accountId: string, documentId: string, options?: {
+    getDocumentDownload(accountId: string, documentId: string, options?: {
         headers: {
             [name: string]: string;
         };
@@ -58,25 +71,12 @@ export declare class DocumentsApi {
      * @param startDate optional date value to filter the list (inclusive).
      * @param endDate optional date value to filter the list (inclusive).
      */
-    accountsAccountIdDocumentsGet(accountId: string, startDate?: string, endDate?: string, options?: {
+    getDocuments(accountId: string, startDate?: string, endDate?: string, options?: {
         headers: {
             [name: string]: string;
         };
     }): Promise<{
         response: http.IncomingMessage;
         body: Array<InlineResponse2003>;
-    }>;
-    /**
-     * The operation returns a pre-signed downloadable link as a redirect with HTTP status code 301 if one is found.
-     * @summary Download a document file directly
-     * @param documentId
-     */
-    documentsDocumentIdGet(documentId: string, options?: {
-        headers: {
-            [name: string]: string;
-        };
-    }): Promise<{
-        response: http.IncomingMessage;
-        body?: any;
     }>;
 }

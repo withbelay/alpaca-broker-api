@@ -101,11 +101,75 @@ export class DocumentsApi {
 
     /**
      * The operation returns a pre-signed downloadable link as a redirect with HTTP status code 301 if one is found. 
+     * @summary Download a document file directly
+     * @param documentId 
+     */
+    public async documentsDocumentIdGet (documentId: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+        const localVarPath = this.basePath + '/documents/{document_id}'
+            .replace('{' + 'document_id' + '}', encodeURIComponent(String(documentId)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'documentId' is not null or undefined
+        if (documentId === null || documentId === undefined) {
+            throw new Error('Required parameter documentId was null or undefined when calling documentsDocumentIdGet.');
+        }
+
+        (<any>Object).assign(localVarHeaderParams, options.headers);
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        let authenticationPromise = Promise.resolve();
+        if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.BasicAuth.applyToRequest(localVarRequestOptions));
+        }
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+
+        let interceptorPromise = authenticationPromise;
+        for (const interceptor of this.interceptors) {
+            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+        }
+
+        return interceptorPromise.then(() => {
+            if (Object.keys(localVarFormParams).length) {
+                if (localVarUseFormData) {
+                    (<any>localVarRequestOptions).formData = localVarFormParams;
+                } else {
+                    localVarRequestOptions.form = localVarFormParams;
+                }
+            }
+            return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve({ response: response, body: body });
+                        } else {
+                            reject(new HttpError(response, body, response.statusCode));
+                        }
+                    }
+                });
+            });
+        });
+    }
+    /**
+     * The operation returns a pre-signed downloadable link as a redirect with HTTP status code 301 if one is found. 
      * @summary Download a document file that belongs to an account.
      * @param accountId Account identifier.
      * @param documentId 
      */
-    public async accountsAccountIdDocumentsDocumentIdDownloadGet (accountId: string, documentId: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public async getDocumentDownload (accountId: string, documentId: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
         const localVarPath = this.basePath + '/accounts/{account_id}/documents/{document_id}/download'
             .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)))
             .replace('{' + 'document_id' + '}', encodeURIComponent(String(documentId)));
@@ -115,12 +179,12 @@ export class DocumentsApi {
 
         // verify required parameter 'accountId' is not null or undefined
         if (accountId === null || accountId === undefined) {
-            throw new Error('Required parameter accountId was null or undefined when calling accountsAccountIdDocumentsDocumentIdDownloadGet.');
+            throw new Error('Required parameter accountId was null or undefined when calling getDocumentDownload.');
         }
 
         // verify required parameter 'documentId' is not null or undefined
         if (documentId === null || documentId === undefined) {
-            throw new Error('Required parameter documentId was null or undefined when calling accountsAccountIdDocumentsDocumentIdDownloadGet.');
+            throw new Error('Required parameter documentId was null or undefined when calling getDocumentDownload.');
         }
 
         (<any>Object).assign(localVarHeaderParams, options.headers);
@@ -177,7 +241,7 @@ export class DocumentsApi {
      * @param startDate optional date value to filter the list (inclusive).
      * @param endDate optional date value to filter the list (inclusive).
      */
-    public async accountsAccountIdDocumentsGet (accountId: string, startDate?: string, endDate?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: Array<InlineResponse2003>;  }> {
+    public async getDocuments (accountId: string, startDate?: string, endDate?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: Array<InlineResponse2003>;  }> {
         const localVarPath = this.basePath + '/accounts/{account_id}/documents'
             .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)));
         let localVarQueryParameters: any = {};
@@ -193,7 +257,7 @@ export class DocumentsApi {
 
         // verify required parameter 'accountId' is not null or undefined
         if (accountId === null || accountId === undefined) {
-            throw new Error('Required parameter accountId was null or undefined when calling accountsAccountIdDocumentsGet.');
+            throw new Error('Required parameter accountId was null or undefined when calling getDocuments.');
         }
 
         if (startDate !== undefined) {
@@ -242,70 +306,6 @@ export class DocumentsApi {
                         reject(error);
                     } else {
                         body = ObjectSerializer.deserialize(body, "Array<InlineResponse2003>");
-                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                            resolve({ response: response, body: body });
-                        } else {
-                            reject(new HttpError(response, body, response.statusCode));
-                        }
-                    }
-                });
-            });
-        });
-    }
-    /**
-     * The operation returns a pre-signed downloadable link as a redirect with HTTP status code 301 if one is found. 
-     * @summary Download a document file directly
-     * @param documentId 
-     */
-    public async documentsDocumentIdGet (documentId: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
-        const localVarPath = this.basePath + '/documents/{document_id}'
-            .replace('{' + 'document_id' + '}', encodeURIComponent(String(documentId)));
-        let localVarQueryParameters: any = {};
-        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
-        let localVarFormParams: any = {};
-
-        // verify required parameter 'documentId' is not null or undefined
-        if (documentId === null || documentId === undefined) {
-            throw new Error('Required parameter documentId was null or undefined when calling documentsDocumentIdGet.');
-        }
-
-        (<any>Object).assign(localVarHeaderParams, options.headers);
-
-        let localVarUseFormData = false;
-
-        let localVarRequestOptions: localVarRequest.Options = {
-            method: 'GET',
-            qs: localVarQueryParameters,
-            headers: localVarHeaderParams,
-            uri: localVarPath,
-            useQuerystring: this._useQuerystring,
-            json: true,
-        };
-
-        let authenticationPromise = Promise.resolve();
-        if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {
-            authenticationPromise = authenticationPromise.then(() => this.authentications.BasicAuth.applyToRequest(localVarRequestOptions));
-        }
-        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-
-        let interceptorPromise = authenticationPromise;
-        for (const interceptor of this.interceptors) {
-            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
-        }
-
-        return interceptorPromise.then(() => {
-            if (Object.keys(localVarFormParams).length) {
-                if (localVarUseFormData) {
-                    (<any>localVarRequestOptions).formData = localVarFormParams;
-                } else {
-                    localVarRequestOptions.form = localVarFormParams;
-                }
-            }
-            return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
-                localVarRequest(localVarRequestOptions, (error, response, body) => {
-                    if (error) {
-                        reject(error);
-                    } else {
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve({ response: response, body: body });
                         } else {

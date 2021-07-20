@@ -743,7 +743,7 @@ class TradingApi {
      * @param accountId Account identifier.
      * @param createOrder
      */
-    postOrders(accountId, createOrder, options = { headers: {} }) {
+    postOrder(accountId, createOrder, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/trading/accounts/{account_id}/orders'
                 .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)));
@@ -760,11 +760,11 @@ class TradingApi {
             let localVarFormParams = {};
             // verify required parameter 'accountId' is not null or undefined
             if (accountId === null || accountId === undefined) {
-                throw new Error('Required parameter accountId was null or undefined when calling postOrders.');
+                throw new Error('Required parameter accountId was null or undefined when calling postOrder.');
             }
             // verify required parameter 'createOrder' is not null or undefined
             if (createOrder === null || createOrder === undefined) {
-                throw new Error('Required parameter createOrder was null or undefined when calling postOrders.');
+                throw new Error('Required parameter createOrder was null or undefined when calling postOrder.');
             }
             Object.assign(localVarHeaderParams, options.headers);
             let localVarUseFormData = false;

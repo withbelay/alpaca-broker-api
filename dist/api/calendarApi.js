@@ -94,7 +94,7 @@ class CalendarApi {
      * @param start The first date to retrieve data for. (Inclusive)
      * @param end The last date to retrieve data for. (Inclusive)
      */
-    calendarGet(start, end, options = { headers: {} }) {
+    getCalendar(start, end, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/calendar';
             let localVarQueryParameters = {};

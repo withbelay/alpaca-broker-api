@@ -15,20 +15,13 @@ import localVarRequest from 'request';
 import http from 'http';
 
 /* tslint:disable:no-unused-locals */
-import { ACHRelationshipData } from '../model/aCHRelationshipData';
-import { ACHRelationshipResource } from '../model/aCHRelationshipResource';
 import { Account } from '../model/account';
 import { AccountCreationObject } from '../model/accountCreationObject';
 import { AccountExtended } from '../model/accountExtended';
 import { AccountUpdate } from '../model/accountUpdate';
 import { ActivityItem } from '../model/activityItem';
-import { BankData } from '../model/bankData';
-import { BankResource } from '../model/bankResource';
 import { DocumentUpload } from '../model/documentUpload';
 import { InlineResponse200 } from '../model/inlineResponse200';
-import { InlineResponse2004 } from '../model/inlineResponse2004';
-import { TransferData } from '../model/transferData';
-import { TransferResource } from '../model/transferResource';
 
 import { ObjectSerializer, Authentication, VoidAuth, Interceptor } from '../model/models';
 import { HttpBasicAuth, HttpBearerAuth, ApiKeyAuth, OAuth } from '../model/models';
@@ -114,32 +107,19 @@ export class AccountsApi {
 
     /**
      * 
-     * @summary Upload a document to an already existing account
+     * @summary Request to close an account
      * @param accountId Account identifier.
-     * @param documentUpload 
      */
-    public async accountsAccountIdDocumentsUploadPost (accountId: string, documentUpload: DocumentUpload, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
-        const localVarPath = this.basePath + '/accounts/{account_id}/documents/upload'
+    public async deleteAccount (accountId: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+        const localVarPath = this.basePath + '/accounts/{account_id}'
             .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
-        const produces = ['application/json'];
-        // give precedence to 'application/json'
-        if (produces.indexOf('application/json') >= 0) {
-            localVarHeaderParams.Accept = 'application/json';
-        } else {
-            localVarHeaderParams.Accept = produces.join(',');
-        }
         let localVarFormParams: any = {};
 
         // verify required parameter 'accountId' is not null or undefined
         if (accountId === null || accountId === undefined) {
-            throw new Error('Required parameter accountId was null or undefined when calling accountsAccountIdDocumentsUploadPost.');
-        }
-
-        // verify required parameter 'documentUpload' is not null or undefined
-        if (documentUpload === null || documentUpload === undefined) {
-            throw new Error('Required parameter documentUpload was null or undefined when calling accountsAccountIdDocumentsUploadPost.');
+            throw new Error('Required parameter accountId was null or undefined when calling deleteAccount.');
         }
 
         (<any>Object).assign(localVarHeaderParams, options.headers);
@@ -147,13 +127,12 @@ export class AccountsApi {
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
-            method: 'POST',
+            method: 'DELETE',
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
             useQuerystring: this._useQuerystring,
             json: true,
-            body: ObjectSerializer.serialize(documentUpload, "DocumentUpload")
         };
 
         let authenticationPromise = Promise.resolve();
@@ -191,20 +170,13 @@ export class AccountsApi {
         });
     }
     /**
-     * 
-     * @summary Retrieve specific account activities
-     * @param activityType 
-     * @param date 
-     * @param until 
-     * @param after 
-     * @param direction 
-     * @param accountId 
-     * @param pageSize 
-     * @param pageToken 
+     * The response is an Account model.
+     * @summary Retrieve an account.
+     * @param accountId Account identifier.
      */
-    public async accountsActivitiesActivityTypeGet (activityType: 'FILL' | 'ACATC' | 'ACATS' | 'CSD' | 'CSR' | 'CSW' | 'DIV' | 'DIVCGL' | 'DIVCGS' | 'DIVNRA' | 'DIVROC' | 'DIVTXEX' | 'INT' | 'JNLC' | 'JNLS' | 'MA' | 'NC' | 'PTC' | 'REORG' | 'SSO' | 'SSP', date?: string, until?: string, after?: string, direction?: 'asc' | 'desc', accountId?: string, pageSize?: number, pageToken?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: Array<ActivityItem>;  }> {
-        const localVarPath = this.basePath + '/accounts/activities/{activity_type}'
-            .replace('{' + 'activity_type' + '}', encodeURIComponent(String(activityType)));
+    public async getAccount (accountId: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: AccountExtended;  }> {
+        const localVarPath = this.basePath + '/accounts/{account_id}'
+            .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
         const produces = ['application/json'];
@@ -216,37 +188,9 @@ export class AccountsApi {
         }
         let localVarFormParams: any = {};
 
-        // verify required parameter 'activityType' is not null or undefined
-        if (activityType === null || activityType === undefined) {
-            throw new Error('Required parameter activityType was null or undefined when calling accountsActivitiesActivityTypeGet.');
-        }
-
-        if (date !== undefined) {
-            localVarQueryParameters['date'] = ObjectSerializer.serialize(date, "string");
-        }
-
-        if (until !== undefined) {
-            localVarQueryParameters['until'] = ObjectSerializer.serialize(until, "string");
-        }
-
-        if (after !== undefined) {
-            localVarQueryParameters['after'] = ObjectSerializer.serialize(after, "string");
-        }
-
-        if (direction !== undefined) {
-            localVarQueryParameters['direction'] = ObjectSerializer.serialize(direction, "'asc' | 'desc'");
-        }
-
-        if (accountId !== undefined) {
-            localVarQueryParameters['account_id'] = ObjectSerializer.serialize(accountId, "string");
-        }
-
-        if (pageSize !== undefined) {
-            localVarQueryParameters['page_size'] = ObjectSerializer.serialize(pageSize, "number");
-        }
-
-        if (pageToken !== undefined) {
-            localVarQueryParameters['page_token'] = ObjectSerializer.serialize(pageToken, "string");
+        // verify required parameter 'accountId' is not null or undefined
+        if (accountId === null || accountId === undefined) {
+            throw new Error('Required parameter accountId was null or undefined when calling getAccount.');
         }
 
         (<any>Object).assign(localVarHeaderParams, options.headers);
@@ -281,12 +225,12 @@ export class AccountsApi {
                     localVarRequestOptions.form = localVarFormParams;
                 }
             }
-            return new Promise<{ response: http.IncomingMessage; body: Array<ActivityItem>;  }>((resolve, reject) => {
+            return new Promise<{ response: http.IncomingMessage; body: AccountExtended;  }>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     if (error) {
                         reject(error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ActivityItem>");
+                        body = ObjectSerializer.deserialize(body, "AccountExtended");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve({ response: response, body: body });
                         } else {
@@ -308,7 +252,7 @@ export class AccountsApi {
      * @param pageSize 
      * @param pageToken 
      */
-    public async accountsActivitiesGet (date?: string, until?: string, after?: string, direction?: 'asc' | 'desc', accountId?: string, pageSize?: number, pageToken?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: Array<ActivityItem>;  }> {
+    public async getAccountActivities (date?: string, until?: string, after?: string, direction?: 'asc' | 'desc', accountId?: string, pageSize?: number, pageToken?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: Array<ActivityItem>;  }> {
         const localVarPath = this.basePath + '/accounts/activities';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -399,10 +343,117 @@ export class AccountsApi {
     }
     /**
      * 
+     * @summary Retrieve specific account activities
+     * @param activityType 
+     * @param date 
+     * @param until 
+     * @param after 
+     * @param direction 
+     * @param accountId 
+     * @param pageSize 
+     * @param pageToken 
+     */
+    public async getAccountActivitiesByType (activityType: 'FILL' | 'ACATC' | 'ACATS' | 'CSD' | 'CSR' | 'CSW' | 'DIV' | 'DIVCGL' | 'DIVCGS' | 'DIVNRA' | 'DIVROC' | 'DIVTXEX' | 'INT' | 'JNLC' | 'JNLS' | 'MA' | 'NC' | 'PTC' | 'REORG' | 'SSO' | 'SSP', date?: string, until?: string, after?: string, direction?: 'asc' | 'desc', accountId?: string, pageSize?: number, pageToken?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: Array<ActivityItem>;  }> {
+        const localVarPath = this.basePath + '/accounts/activities/{activity_type}'
+            .replace('{' + 'activity_type' + '}', encodeURIComponent(String(activityType)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        const produces = ['application/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams.Accept = 'application/json';
+        } else {
+            localVarHeaderParams.Accept = produces.join(',');
+        }
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'activityType' is not null or undefined
+        if (activityType === null || activityType === undefined) {
+            throw new Error('Required parameter activityType was null or undefined when calling getAccountActivitiesByType.');
+        }
+
+        if (date !== undefined) {
+            localVarQueryParameters['date'] = ObjectSerializer.serialize(date, "string");
+        }
+
+        if (until !== undefined) {
+            localVarQueryParameters['until'] = ObjectSerializer.serialize(until, "string");
+        }
+
+        if (after !== undefined) {
+            localVarQueryParameters['after'] = ObjectSerializer.serialize(after, "string");
+        }
+
+        if (direction !== undefined) {
+            localVarQueryParameters['direction'] = ObjectSerializer.serialize(direction, "'asc' | 'desc'");
+        }
+
+        if (accountId !== undefined) {
+            localVarQueryParameters['account_id'] = ObjectSerializer.serialize(accountId, "string");
+        }
+
+        if (pageSize !== undefined) {
+            localVarQueryParameters['page_size'] = ObjectSerializer.serialize(pageSize, "number");
+        }
+
+        if (pageToken !== undefined) {
+            localVarQueryParameters['page_token'] = ObjectSerializer.serialize(pageToken, "string");
+        }
+
+        (<any>Object).assign(localVarHeaderParams, options.headers);
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        let authenticationPromise = Promise.resolve();
+        if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.BasicAuth.applyToRequest(localVarRequestOptions));
+        }
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+
+        let interceptorPromise = authenticationPromise;
+        for (const interceptor of this.interceptors) {
+            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+        }
+
+        return interceptorPromise.then(() => {
+            if (Object.keys(localVarFormParams).length) {
+                if (localVarUseFormData) {
+                    (<any>localVarRequestOptions).formData = localVarFormParams;
+                } else {
+                    localVarRequestOptions.form = localVarFormParams;
+                }
+            }
+            return new Promise<{ response: http.IncomingMessage; body: Array<ActivityItem>;  }>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<ActivityItem>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve({ response: response, body: body });
+                        } else {
+                            reject(new HttpError(response, body, response.statusCode));
+                        }
+                    }
+                });
+            });
+        });
+    }
+    /**
+     * 
      * @summary Retrieve all accounts
      * @param query The query supports partial match of account number, names, emails, etc.. Items can be space delimited. 
      */
-    public async accountsGet (query?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: Array<Account>;  }> {
+    public async getAccounts (query?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: Array<Account>;  }> {
         const localVarPath = this.basePath + '/accounts';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -457,685 +508,6 @@ export class AccountsApi {
                         reject(error);
                     } else {
                         body = ObjectSerializer.deserialize(body, "Array<Account>");
-                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                            resolve({ response: response, body: body });
-                        } else {
-                            reject(new HttpError(response, body, response.statusCode));
-                        }
-                    }
-                });
-            });
-        });
-    }
-    /**
-     * 
-     * @summary Create an account
-     * @param accountCreationObject 
-     */
-    public async accountsPost (accountCreationObject: AccountCreationObject, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: Account;  }> {
-        const localVarPath = this.basePath + '/accounts';
-        let localVarQueryParameters: any = {};
-        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
-        const produces = ['application/json'];
-        // give precedence to 'application/json'
-        if (produces.indexOf('application/json') >= 0) {
-            localVarHeaderParams.Accept = 'application/json';
-        } else {
-            localVarHeaderParams.Accept = produces.join(',');
-        }
-        let localVarFormParams: any = {};
-
-        // verify required parameter 'accountCreationObject' is not null or undefined
-        if (accountCreationObject === null || accountCreationObject === undefined) {
-            throw new Error('Required parameter accountCreationObject was null or undefined when calling accountsPost.');
-        }
-
-        (<any>Object).assign(localVarHeaderParams, options.headers);
-
-        let localVarUseFormData = false;
-
-        let localVarRequestOptions: localVarRequest.Options = {
-            method: 'POST',
-            qs: localVarQueryParameters,
-            headers: localVarHeaderParams,
-            uri: localVarPath,
-            useQuerystring: this._useQuerystring,
-            json: true,
-            body: ObjectSerializer.serialize(accountCreationObject, "AccountCreationObject")
-        };
-
-        let authenticationPromise = Promise.resolve();
-        if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {
-            authenticationPromise = authenticationPromise.then(() => this.authentications.BasicAuth.applyToRequest(localVarRequestOptions));
-        }
-        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-
-        let interceptorPromise = authenticationPromise;
-        for (const interceptor of this.interceptors) {
-            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
-        }
-
-        return interceptorPromise.then(() => {
-            if (Object.keys(localVarFormParams).length) {
-                if (localVarUseFormData) {
-                    (<any>localVarRequestOptions).formData = localVarFormParams;
-                } else {
-                    localVarRequestOptions.form = localVarFormParams;
-                }
-            }
-            return new Promise<{ response: http.IncomingMessage; body: Account;  }>((resolve, reject) => {
-                localVarRequest(localVarRequestOptions, (error, response, body) => {
-                    if (error) {
-                        reject(error);
-                    } else {
-                        body = ObjectSerializer.deserialize(body, "Account");
-                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                            resolve({ response: response, body: body });
-                        } else {
-                            reject(new HttpError(response, body, response.statusCode));
-                        }
-                    }
-                });
-            });
-        });
-    }
-    /**
-     * 
-     * @summary Request to close an account
-     * @param accountId Account identifier.
-     */
-    public async deleteAccount (accountId: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
-        const localVarPath = this.basePath + '/accounts/{account_id}'
-            .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)));
-        let localVarQueryParameters: any = {};
-        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
-        let localVarFormParams: any = {};
-
-        // verify required parameter 'accountId' is not null or undefined
-        if (accountId === null || accountId === undefined) {
-            throw new Error('Required parameter accountId was null or undefined when calling deleteAccount.');
-        }
-
-        (<any>Object).assign(localVarHeaderParams, options.headers);
-
-        let localVarUseFormData = false;
-
-        let localVarRequestOptions: localVarRequest.Options = {
-            method: 'DELETE',
-            qs: localVarQueryParameters,
-            headers: localVarHeaderParams,
-            uri: localVarPath,
-            useQuerystring: this._useQuerystring,
-            json: true,
-        };
-
-        let authenticationPromise = Promise.resolve();
-        if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {
-            authenticationPromise = authenticationPromise.then(() => this.authentications.BasicAuth.applyToRequest(localVarRequestOptions));
-        }
-        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-
-        let interceptorPromise = authenticationPromise;
-        for (const interceptor of this.interceptors) {
-            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
-        }
-
-        return interceptorPromise.then(() => {
-            if (Object.keys(localVarFormParams).length) {
-                if (localVarUseFormData) {
-                    (<any>localVarRequestOptions).formData = localVarFormParams;
-                } else {
-                    localVarRequestOptions.form = localVarFormParams;
-                }
-            }
-            return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
-                localVarRequest(localVarRequestOptions, (error, response, body) => {
-                    if (error) {
-                        reject(error);
-                    } else {
-                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                            resolve({ response: response, body: body });
-                        } else {
-                            reject(new HttpError(response, body, response.statusCode));
-                        }
-                    }
-                });
-            });
-        });
-    }
-    /**
-     * 
-     * @summary Delete an existing ACH relationship
-     * @param accountId Account identifier.
-     * @param achRelationshipId ACH relationship identifier
-     */
-    public async deleteAchRelationship (accountId: string, achRelationshipId: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
-        const localVarPath = this.basePath + '/accounts/{account_id}/ach_relationships/{ach_relationship_id}'
-            .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)))
-            .replace('{' + 'ach_relationship_id' + '}', encodeURIComponent(String(achRelationshipId)));
-        let localVarQueryParameters: any = {};
-        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
-        const produces = ['application/json'];
-        // give precedence to 'application/json'
-        if (produces.indexOf('application/json') >= 0) {
-            localVarHeaderParams.Accept = 'application/json';
-        } else {
-            localVarHeaderParams.Accept = produces.join(',');
-        }
-        let localVarFormParams: any = {};
-
-        // verify required parameter 'accountId' is not null or undefined
-        if (accountId === null || accountId === undefined) {
-            throw new Error('Required parameter accountId was null or undefined when calling deleteAchRelationship.');
-        }
-
-        // verify required parameter 'achRelationshipId' is not null or undefined
-        if (achRelationshipId === null || achRelationshipId === undefined) {
-            throw new Error('Required parameter achRelationshipId was null or undefined when calling deleteAchRelationship.');
-        }
-
-        (<any>Object).assign(localVarHeaderParams, options.headers);
-
-        let localVarUseFormData = false;
-
-        let localVarRequestOptions: localVarRequest.Options = {
-            method: 'DELETE',
-            qs: localVarQueryParameters,
-            headers: localVarHeaderParams,
-            uri: localVarPath,
-            useQuerystring: this._useQuerystring,
-            json: true,
-        };
-
-        let authenticationPromise = Promise.resolve();
-        if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {
-            authenticationPromise = authenticationPromise.then(() => this.authentications.BasicAuth.applyToRequest(localVarRequestOptions));
-        }
-        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-
-        let interceptorPromise = authenticationPromise;
-        for (const interceptor of this.interceptors) {
-            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
-        }
-
-        return interceptorPromise.then(() => {
-            if (Object.keys(localVarFormParams).length) {
-                if (localVarUseFormData) {
-                    (<any>localVarRequestOptions).formData = localVarFormParams;
-                } else {
-                    localVarRequestOptions.form = localVarFormParams;
-                }
-            }
-            return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
-                localVarRequest(localVarRequestOptions, (error, response, body) => {
-                    if (error) {
-                        reject(error);
-                    } else {
-                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                            resolve({ response: response, body: body });
-                        } else {
-                            reject(new HttpError(response, body, response.statusCode));
-                        }
-                    }
-                });
-            });
-        });
-    }
-    /**
-     * 
-     * @summary Delete a Bank Relationship for an account
-     * @param accountId Account identifier.
-     * @param bankId 
-     */
-    public async deleteRecipientBank (accountId: string, bankId: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
-        const localVarPath = this.basePath + '/accounts/{account_id}/recipient_banks/{bank_id}'
-            .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)))
-            .replace('{' + 'bank_id' + '}', encodeURIComponent(String(bankId)));
-        let localVarQueryParameters: any = {};
-        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
-        let localVarFormParams: any = {};
-
-        // verify required parameter 'accountId' is not null or undefined
-        if (accountId === null || accountId === undefined) {
-            throw new Error('Required parameter accountId was null or undefined when calling deleteRecipientBank.');
-        }
-
-        // verify required parameter 'bankId' is not null or undefined
-        if (bankId === null || bankId === undefined) {
-            throw new Error('Required parameter bankId was null or undefined when calling deleteRecipientBank.');
-        }
-
-        (<any>Object).assign(localVarHeaderParams, options.headers);
-
-        let localVarUseFormData = false;
-
-        let localVarRequestOptions: localVarRequest.Options = {
-            method: 'DELETE',
-            qs: localVarQueryParameters,
-            headers: localVarHeaderParams,
-            uri: localVarPath,
-            useQuerystring: this._useQuerystring,
-            json: true,
-        };
-
-        let authenticationPromise = Promise.resolve();
-        if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {
-            authenticationPromise = authenticationPromise.then(() => this.authentications.BasicAuth.applyToRequest(localVarRequestOptions));
-        }
-        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-
-        let interceptorPromise = authenticationPromise;
-        for (const interceptor of this.interceptors) {
-            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
-        }
-
-        return interceptorPromise.then(() => {
-            if (Object.keys(localVarFormParams).length) {
-                if (localVarUseFormData) {
-                    (<any>localVarRequestOptions).formData = localVarFormParams;
-                } else {
-                    localVarRequestOptions.form = localVarFormParams;
-                }
-            }
-            return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
-                localVarRequest(localVarRequestOptions, (error, response, body) => {
-                    if (error) {
-                        reject(error);
-                    } else {
-                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                            resolve({ response: response, body: body });
-                        } else {
-                            reject(new HttpError(response, body, response.statusCode));
-                        }
-                    }
-                });
-            });
-        });
-    }
-    /**
-     * 
-     * @summary Request to close a transfer
-     * @param accountId 
-     * @param transferId 
-     */
-    public async deleteTransfer (accountId: string, transferId: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
-        const localVarPath = this.basePath + '/accounts/{account_id}/transfers/{transfer_id}'
-            .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)))
-            .replace('{' + 'transfer_id' + '}', encodeURIComponent(String(transferId)));
-        let localVarQueryParameters: any = {};
-        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
-        const produces = ['application/json'];
-        // give precedence to 'application/json'
-        if (produces.indexOf('application/json') >= 0) {
-            localVarHeaderParams.Accept = 'application/json';
-        } else {
-            localVarHeaderParams.Accept = produces.join(',');
-        }
-        let localVarFormParams: any = {};
-
-        // verify required parameter 'accountId' is not null or undefined
-        if (accountId === null || accountId === undefined) {
-            throw new Error('Required parameter accountId was null or undefined when calling deleteTransfer.');
-        }
-
-        // verify required parameter 'transferId' is not null or undefined
-        if (transferId === null || transferId === undefined) {
-            throw new Error('Required parameter transferId was null or undefined when calling deleteTransfer.');
-        }
-
-        (<any>Object).assign(localVarHeaderParams, options.headers);
-
-        let localVarUseFormData = false;
-
-        let localVarRequestOptions: localVarRequest.Options = {
-            method: 'DELETE',
-            qs: localVarQueryParameters,
-            headers: localVarHeaderParams,
-            uri: localVarPath,
-            useQuerystring: this._useQuerystring,
-            json: true,
-        };
-
-        let authenticationPromise = Promise.resolve();
-        if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {
-            authenticationPromise = authenticationPromise.then(() => this.authentications.BasicAuth.applyToRequest(localVarRequestOptions));
-        }
-        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-
-        let interceptorPromise = authenticationPromise;
-        for (const interceptor of this.interceptors) {
-            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
-        }
-
-        return interceptorPromise.then(() => {
-            if (Object.keys(localVarFormParams).length) {
-                if (localVarUseFormData) {
-                    (<any>localVarRequestOptions).formData = localVarFormParams;
-                } else {
-                    localVarRequestOptions.form = localVarFormParams;
-                }
-            }
-            return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
-                localVarRequest(localVarRequestOptions, (error, response, body) => {
-                    if (error) {
-                        reject(error);
-                    } else {
-                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                            resolve({ response: response, body: body });
-                        } else {
-                            reject(new HttpError(response, body, response.statusCode));
-                        }
-                    }
-                });
-            });
-        });
-    }
-    /**
-     * Query Params Rules: - `since` required if `until` specified - `since_id` required if `until_id` specified - `since` and `since_id` can’t be used at the same time Behavior: - if `since` or `since_id` not specified this will not return any historic data - if `until` or `until_id` reached stream will end (status 200) 
-     * @summary Subscribe to account status events (SSE).
-     * @param since 
-     * @param until 
-     * @param sinceId 
-     * @param untilId 
-     */
-    public async eventsAccountsStatusGet (since?: Date, until?: Date, sinceId?: number, untilId?: number, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: InlineResponse2004;  }> {
-        const localVarPath = this.basePath + '/events/accounts/status';
-        let localVarQueryParameters: any = {};
-        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
-        const produces = ['application/json'];
-        // give precedence to 'application/json'
-        if (produces.indexOf('application/json') >= 0) {
-            localVarHeaderParams.Accept = 'application/json';
-        } else {
-            localVarHeaderParams.Accept = produces.join(',');
-        }
-        let localVarFormParams: any = {};
-
-        if (since !== undefined) {
-            localVarQueryParameters['since'] = ObjectSerializer.serialize(since, "Date");
-        }
-
-        if (until !== undefined) {
-            localVarQueryParameters['until'] = ObjectSerializer.serialize(until, "Date");
-        }
-
-        if (sinceId !== undefined) {
-            localVarQueryParameters['since_id'] = ObjectSerializer.serialize(sinceId, "number");
-        }
-
-        if (untilId !== undefined) {
-            localVarQueryParameters['until_id'] = ObjectSerializer.serialize(untilId, "number");
-        }
-
-        (<any>Object).assign(localVarHeaderParams, options.headers);
-
-        let localVarUseFormData = false;
-
-        let localVarRequestOptions: localVarRequest.Options = {
-            method: 'GET',
-            qs: localVarQueryParameters,
-            headers: localVarHeaderParams,
-            uri: localVarPath,
-            useQuerystring: this._useQuerystring,
-            json: true,
-        };
-
-        let authenticationPromise = Promise.resolve();
-        if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {
-            authenticationPromise = authenticationPromise.then(() => this.authentications.BasicAuth.applyToRequest(localVarRequestOptions));
-        }
-        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-
-        let interceptorPromise = authenticationPromise;
-        for (const interceptor of this.interceptors) {
-            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
-        }
-
-        return interceptorPromise.then(() => {
-            if (Object.keys(localVarFormParams).length) {
-                if (localVarUseFormData) {
-                    (<any>localVarRequestOptions).formData = localVarFormParams;
-                } else {
-                    localVarRequestOptions.form = localVarFormParams;
-                }
-            }
-            return new Promise<{ response: http.IncomingMessage; body: InlineResponse2004;  }>((resolve, reject) => {
-                localVarRequest(localVarRequestOptions, (error, response, body) => {
-                    if (error) {
-                        reject(error);
-                    } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse2004");
-                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                            resolve({ response: response, body: body });
-                        } else {
-                            reject(new HttpError(response, body, response.statusCode));
-                        }
-                    }
-                });
-            });
-        });
-    }
-    /**
-     * The response is an Account model.
-     * @summary Retrieve an account.
-     * @param accountId Account identifier.
-     */
-    public async getAccount (accountId: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: AccountExtended;  }> {
-        const localVarPath = this.basePath + '/accounts/{account_id}'
-            .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)));
-        let localVarQueryParameters: any = {};
-        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
-        const produces = ['application/json'];
-        // give precedence to 'application/json'
-        if (produces.indexOf('application/json') >= 0) {
-            localVarHeaderParams.Accept = 'application/json';
-        } else {
-            localVarHeaderParams.Accept = produces.join(',');
-        }
-        let localVarFormParams: any = {};
-
-        // verify required parameter 'accountId' is not null or undefined
-        if (accountId === null || accountId === undefined) {
-            throw new Error('Required parameter accountId was null or undefined when calling getAccount.');
-        }
-
-        (<any>Object).assign(localVarHeaderParams, options.headers);
-
-        let localVarUseFormData = false;
-
-        let localVarRequestOptions: localVarRequest.Options = {
-            method: 'GET',
-            qs: localVarQueryParameters,
-            headers: localVarHeaderParams,
-            uri: localVarPath,
-            useQuerystring: this._useQuerystring,
-            json: true,
-        };
-
-        let authenticationPromise = Promise.resolve();
-        if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {
-            authenticationPromise = authenticationPromise.then(() => this.authentications.BasicAuth.applyToRequest(localVarRequestOptions));
-        }
-        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-
-        let interceptorPromise = authenticationPromise;
-        for (const interceptor of this.interceptors) {
-            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
-        }
-
-        return interceptorPromise.then(() => {
-            if (Object.keys(localVarFormParams).length) {
-                if (localVarUseFormData) {
-                    (<any>localVarRequestOptions).formData = localVarFormParams;
-                } else {
-                    localVarRequestOptions.form = localVarFormParams;
-                }
-            }
-            return new Promise<{ response: http.IncomingMessage; body: AccountExtended;  }>((resolve, reject) => {
-                localVarRequest(localVarRequestOptions, (error, response, body) => {
-                    if (error) {
-                        reject(error);
-                    } else {
-                        body = ObjectSerializer.deserialize(body, "AccountExtended");
-                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                            resolve({ response: response, body: body });
-                        } else {
-                            reject(new HttpError(response, body, response.statusCode));
-                        }
-                    }
-                });
-            });
-        });
-    }
-    /**
-     * 
-     * @summary Retrieve ACH Relationships for an account
-     * @param accountId Account identifier.
-     * @param statuses Comma-separated status values
-     */
-    public async getAchRelationships (accountId: string, statuses?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: Array<ACHRelationshipResource>;  }> {
-        const localVarPath = this.basePath + '/accounts/{account_id}/ach_relationships'
-            .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)));
-        let localVarQueryParameters: any = {};
-        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
-        const produces = ['application/json'];
-        // give precedence to 'application/json'
-        if (produces.indexOf('application/json') >= 0) {
-            localVarHeaderParams.Accept = 'application/json';
-        } else {
-            localVarHeaderParams.Accept = produces.join(',');
-        }
-        let localVarFormParams: any = {};
-
-        // verify required parameter 'accountId' is not null or undefined
-        if (accountId === null || accountId === undefined) {
-            throw new Error('Required parameter accountId was null or undefined when calling getAchRelationships.');
-        }
-
-        if (statuses !== undefined) {
-            localVarQueryParameters['statuses'] = ObjectSerializer.serialize(statuses, "string");
-        }
-
-        (<any>Object).assign(localVarHeaderParams, options.headers);
-
-        let localVarUseFormData = false;
-
-        let localVarRequestOptions: localVarRequest.Options = {
-            method: 'GET',
-            qs: localVarQueryParameters,
-            headers: localVarHeaderParams,
-            uri: localVarPath,
-            useQuerystring: this._useQuerystring,
-            json: true,
-        };
-
-        let authenticationPromise = Promise.resolve();
-        if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {
-            authenticationPromise = authenticationPromise.then(() => this.authentications.BasicAuth.applyToRequest(localVarRequestOptions));
-        }
-        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-
-        let interceptorPromise = authenticationPromise;
-        for (const interceptor of this.interceptors) {
-            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
-        }
-
-        return interceptorPromise.then(() => {
-            if (Object.keys(localVarFormParams).length) {
-                if (localVarUseFormData) {
-                    (<any>localVarRequestOptions).formData = localVarFormParams;
-                } else {
-                    localVarRequestOptions.form = localVarFormParams;
-                }
-            }
-            return new Promise<{ response: http.IncomingMessage; body: Array<ACHRelationshipResource>;  }>((resolve, reject) => {
-                localVarRequest(localVarRequestOptions, (error, response, body) => {
-                    if (error) {
-                        reject(error);
-                    } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ACHRelationshipResource>");
-                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                            resolve({ response: response, body: body });
-                        } else {
-                            reject(new HttpError(response, body, response.statusCode));
-                        }
-                    }
-                });
-            });
-        });
-    }
-    /**
-     * 
-     * @summary Retrieve bank relationships for an account
-     * @param accountId 
-     * @param status 
-     * @param bankName 
-     */
-    public async getRecipientBanks (accountId: string, status?: string, bankName?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: Array<BankResource>;  }> {
-        const localVarPath = this.basePath + '/accounts/{account_id}/recipient_banks'
-            .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)));
-        let localVarQueryParameters: any = {};
-        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
-        const produces = ['application/json'];
-        // give precedence to 'application/json'
-        if (produces.indexOf('application/json') >= 0) {
-            localVarHeaderParams.Accept = 'application/json';
-        } else {
-            localVarHeaderParams.Accept = produces.join(',');
-        }
-        let localVarFormParams: any = {};
-
-        // verify required parameter 'accountId' is not null or undefined
-        if (accountId === null || accountId === undefined) {
-            throw new Error('Required parameter accountId was null or undefined when calling getRecipientBanks.');
-        }
-
-        if (status !== undefined) {
-            localVarQueryParameters['status'] = ObjectSerializer.serialize(status, "string");
-        }
-
-        if (bankName !== undefined) {
-            localVarQueryParameters['bank_name'] = ObjectSerializer.serialize(bankName, "string");
-        }
-
-        (<any>Object).assign(localVarHeaderParams, options.headers);
-
-        let localVarUseFormData = false;
-
-        let localVarRequestOptions: localVarRequest.Options = {
-            method: 'GET',
-            qs: localVarQueryParameters,
-            headers: localVarHeaderParams,
-            uri: localVarPath,
-            useQuerystring: this._useQuerystring,
-            json: true,
-        };
-
-        let authenticationPromise = Promise.resolve();
-        if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {
-            authenticationPromise = authenticationPromise.then(() => this.authentications.BasicAuth.applyToRequest(localVarRequestOptions));
-        }
-        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-
-        let interceptorPromise = authenticationPromise;
-        for (const interceptor of this.interceptors) {
-            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
-        }
-
-        return interceptorPromise.then(() => {
-            if (Object.keys(localVarFormParams).length) {
-                if (localVarUseFormData) {
-                    (<any>localVarRequestOptions).formData = localVarFormParams;
-                } else {
-                    localVarRequestOptions.form = localVarFormParams;
-                }
-            }
-            return new Promise<{ response: http.IncomingMessage; body: Array<BankResource>;  }>((resolve, reject) => {
-                localVarRequest(localVarRequestOptions, (error, response, body) => {
-                    if (error) {
-                        reject(error);
-                    } else {
-                        body = ObjectSerializer.deserialize(body, "Array<BankResource>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve({ response: response, body: body });
                         } else {
@@ -1208,93 +580,6 @@ export class AccountsApi {
                         reject(error);
                     } else {
                         body = ObjectSerializer.deserialize(body, "InlineResponse200");
-                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                            resolve({ response: response, body: body });
-                        } else {
-                            reject(new HttpError(response, body, response.statusCode));
-                        }
-                    }
-                });
-            });
-        });
-    }
-    /**
-     * You can filter requested transfers by values such as direction and status. 
-     * @summary Return a list of transfers for an account.
-     * @param accountId 
-     * @param direction 
-     * @param limit 
-     * @param offset 
-     */
-    public async getTransfers (accountId: string, direction?: 'INCOMING' | 'OUTGOING', limit?: number, offset?: number, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: Array<TransferResource>;  }> {
-        const localVarPath = this.basePath + '/accounts/{account_id}/transfers'
-            .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)));
-        let localVarQueryParameters: any = {};
-        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
-        const produces = ['application/json'];
-        // give precedence to 'application/json'
-        if (produces.indexOf('application/json') >= 0) {
-            localVarHeaderParams.Accept = 'application/json';
-        } else {
-            localVarHeaderParams.Accept = produces.join(',');
-        }
-        let localVarFormParams: any = {};
-
-        // verify required parameter 'accountId' is not null or undefined
-        if (accountId === null || accountId === undefined) {
-            throw new Error('Required parameter accountId was null or undefined when calling getTransfers.');
-        }
-
-        if (direction !== undefined) {
-            localVarQueryParameters['direction'] = ObjectSerializer.serialize(direction, "'INCOMING' | 'OUTGOING'");
-        }
-
-        if (limit !== undefined) {
-            localVarQueryParameters['limit'] = ObjectSerializer.serialize(limit, "number");
-        }
-
-        if (offset !== undefined) {
-            localVarQueryParameters['offset'] = ObjectSerializer.serialize(offset, "number");
-        }
-
-        (<any>Object).assign(localVarHeaderParams, options.headers);
-
-        let localVarUseFormData = false;
-
-        let localVarRequestOptions: localVarRequest.Options = {
-            method: 'GET',
-            qs: localVarQueryParameters,
-            headers: localVarHeaderParams,
-            uri: localVarPath,
-            useQuerystring: this._useQuerystring,
-            json: true,
-        };
-
-        let authenticationPromise = Promise.resolve();
-        if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {
-            authenticationPromise = authenticationPromise.then(() => this.authentications.BasicAuth.applyToRequest(localVarRequestOptions));
-        }
-        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-
-        let interceptorPromise = authenticationPromise;
-        for (const interceptor of this.interceptors) {
-            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
-        }
-
-        return interceptorPromise.then(() => {
-            if (Object.keys(localVarFormParams).length) {
-                if (localVarUseFormData) {
-                    (<any>localVarRequestOptions).formData = localVarFormParams;
-                } else {
-                    localVarRequestOptions.form = localVarFormParams;
-                }
-            }
-            return new Promise<{ response: http.IncomingMessage; body: Array<TransferResource>;  }>((resolve, reject) => {
-                localVarRequest(localVarRequestOptions, (error, response, body) => {
-                    if (error) {
-                        reject(error);
-                    } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TransferResource>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve({ response: response, body: body });
                         } else {
@@ -1386,13 +671,11 @@ export class AccountsApi {
     }
     /**
      * 
-     * @summary Create an ACH Relationship
-     * @param accountId Account identifier.
-     * @param aCHRelationshipData 
+     * @summary Create an account
+     * @param accountCreationObject 
      */
-    public async postAchRelationships (accountId: string, aCHRelationshipData: ACHRelationshipData, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: ACHRelationshipResource;  }> {
-        const localVarPath = this.basePath + '/accounts/{account_id}/ach_relationships'
-            .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)));
+    public async postAccount (accountCreationObject: AccountCreationObject, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: Account;  }> {
+        const localVarPath = this.basePath + '/accounts';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
         const produces = ['application/json'];
@@ -1404,14 +687,9 @@ export class AccountsApi {
         }
         let localVarFormParams: any = {};
 
-        // verify required parameter 'accountId' is not null or undefined
-        if (accountId === null || accountId === undefined) {
-            throw new Error('Required parameter accountId was null or undefined when calling postAchRelationships.');
-        }
-
-        // verify required parameter 'aCHRelationshipData' is not null or undefined
-        if (aCHRelationshipData === null || aCHRelationshipData === undefined) {
-            throw new Error('Required parameter aCHRelationshipData was null or undefined when calling postAchRelationships.');
+        // verify required parameter 'accountCreationObject' is not null or undefined
+        if (accountCreationObject === null || accountCreationObject === undefined) {
+            throw new Error('Required parameter accountCreationObject was null or undefined when calling postAccount.');
         }
 
         (<any>Object).assign(localVarHeaderParams, options.headers);
@@ -1425,7 +703,7 @@ export class AccountsApi {
             uri: localVarPath,
             useQuerystring: this._useQuerystring,
             json: true,
-            body: ObjectSerializer.serialize(aCHRelationshipData, "ACHRelationshipData")
+            body: ObjectSerializer.serialize(accountCreationObject, "AccountCreationObject")
         };
 
         let authenticationPromise = Promise.resolve();
@@ -1447,12 +725,12 @@ export class AccountsApi {
                     localVarRequestOptions.form = localVarFormParams;
                 }
             }
-            return new Promise<{ response: http.IncomingMessage; body: ACHRelationshipResource;  }>((resolve, reject) => {
+            return new Promise<{ response: http.IncomingMessage; body: Account;  }>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     if (error) {
                         reject(error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "ACHRelationshipResource");
+                        body = ObjectSerializer.deserialize(body, "Account");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve({ response: response, body: body });
                         } else {
@@ -1465,12 +743,12 @@ export class AccountsApi {
     }
     /**
      * 
-     * @summary Create a Bank Relationship for an account
+     * @summary Upload a document to an already existing account
      * @param accountId Account identifier.
-     * @param bankData 
+     * @param documentUpload 
      */
-    public async postRecipientBanks (accountId: string, bankData: BankData, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: BankResource;  }> {
-        const localVarPath = this.basePath + '/accounts/{account_id}/recipient_banks'
+    public async postDocumentUpload (accountId: string, documentUpload: DocumentUpload, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+        const localVarPath = this.basePath + '/accounts/{account_id}/documents/upload'
             .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -1485,12 +763,12 @@ export class AccountsApi {
 
         // verify required parameter 'accountId' is not null or undefined
         if (accountId === null || accountId === undefined) {
-            throw new Error('Required parameter accountId was null or undefined when calling postRecipientBanks.');
+            throw new Error('Required parameter accountId was null or undefined when calling postDocumentUpload.');
         }
 
-        // verify required parameter 'bankData' is not null or undefined
-        if (bankData === null || bankData === undefined) {
-            throw new Error('Required parameter bankData was null or undefined when calling postRecipientBanks.');
+        // verify required parameter 'documentUpload' is not null or undefined
+        if (documentUpload === null || documentUpload === undefined) {
+            throw new Error('Required parameter documentUpload was null or undefined when calling postDocumentUpload.');
         }
 
         (<any>Object).assign(localVarHeaderParams, options.headers);
@@ -1504,7 +782,7 @@ export class AccountsApi {
             uri: localVarPath,
             useQuerystring: this._useQuerystring,
             json: true,
-            body: ObjectSerializer.serialize(bankData, "BankData")
+            body: ObjectSerializer.serialize(documentUpload, "DocumentUpload")
         };
 
         let authenticationPromise = Promise.resolve();
@@ -1526,91 +804,11 @@ export class AccountsApi {
                     localVarRequestOptions.form = localVarFormParams;
                 }
             }
-            return new Promise<{ response: http.IncomingMessage; body: BankResource;  }>((resolve, reject) => {
+            return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     if (error) {
                         reject(error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "BankResource");
-                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                            resolve({ response: response, body: body });
-                        } else {
-                            reject(new HttpError(response, body, response.statusCode));
-                        }
-                    }
-                });
-            });
-        });
-    }
-    /**
-     * This operation allows you to fund an account with virtual money in the sandbox environment. 
-     * @summary Request a new transfer
-     * @param accountId 
-     * @param transferData 
-     */
-    public async postTransfers (accountId: string, transferData: TransferData, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: TransferResource;  }> {
-        const localVarPath = this.basePath + '/accounts/{account_id}/transfers'
-            .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)));
-        let localVarQueryParameters: any = {};
-        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
-        const produces = ['application/json'];
-        // give precedence to 'application/json'
-        if (produces.indexOf('application/json') >= 0) {
-            localVarHeaderParams.Accept = 'application/json';
-        } else {
-            localVarHeaderParams.Accept = produces.join(',');
-        }
-        let localVarFormParams: any = {};
-
-        // verify required parameter 'accountId' is not null or undefined
-        if (accountId === null || accountId === undefined) {
-            throw new Error('Required parameter accountId was null or undefined when calling postTransfers.');
-        }
-
-        // verify required parameter 'transferData' is not null or undefined
-        if (transferData === null || transferData === undefined) {
-            throw new Error('Required parameter transferData was null or undefined when calling postTransfers.');
-        }
-
-        (<any>Object).assign(localVarHeaderParams, options.headers);
-
-        let localVarUseFormData = false;
-
-        let localVarRequestOptions: localVarRequest.Options = {
-            method: 'POST',
-            qs: localVarQueryParameters,
-            headers: localVarHeaderParams,
-            uri: localVarPath,
-            useQuerystring: this._useQuerystring,
-            json: true,
-            body: ObjectSerializer.serialize(transferData, "TransferData")
-        };
-
-        let authenticationPromise = Promise.resolve();
-        if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {
-            authenticationPromise = authenticationPromise.then(() => this.authentications.BasicAuth.applyToRequest(localVarRequestOptions));
-        }
-        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-
-        let interceptorPromise = authenticationPromise;
-        for (const interceptor of this.interceptors) {
-            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
-        }
-
-        return interceptorPromise.then(() => {
-            if (Object.keys(localVarFormParams).length) {
-                if (localVarUseFormData) {
-                    (<any>localVarRequestOptions).formData = localVarFormParams;
-                } else {
-                    localVarRequestOptions.form = localVarFormParams;
-                }
-            }
-            return new Promise<{ response: http.IncomingMessage; body: TransferResource;  }>((resolve, reject) => {
-                localVarRequest(localVarRequestOptions, (error, response, body) => {
-                    if (error) {
-                        reject(error);
-                    } else {
-                        body = ObjectSerializer.deserialize(body, "TransferResource");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve({ response: response, body: body });
                         } else {

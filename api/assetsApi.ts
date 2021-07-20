@@ -104,7 +104,7 @@ export class AssetsApi {
      * @summary Retrieve an asset by UUID
      * @param assetId The UUID of the required asset
      */
-    public async assetsAssetIdGet (assetId: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public async getAssetById (assetId: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
         const localVarPath = this.basePath + '/assets/{asset_id}'
             .replace('{' + 'asset_id' + '}', encodeURIComponent(String(assetId)));
         let localVarQueryParameters: any = {};
@@ -113,7 +113,7 @@ export class AssetsApi {
 
         // verify required parameter 'assetId' is not null or undefined
         if (assetId === null || assetId === undefined) {
-            throw new Error('Required parameter assetId was null or undefined when calling assetsAssetIdGet.');
+            throw new Error('Required parameter assetId was null or undefined when calling getAssetById.');
         }
 
         (<any>Object).assign(localVarHeaderParams, options.headers);
@@ -168,7 +168,7 @@ export class AssetsApi {
      * @summary Retrieve an asset by symbol
      * @param symbol The symbol of the required asset
      */
-    public async assetsSymbolGet (symbol: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public async getAssetBySymbol (symbol: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
         const localVarPath = this.basePath + '/assets/{symbol}'
             .replace('{' + 'symbol' + '}', encodeURIComponent(String(symbol)));
         let localVarQueryParameters: any = {};
@@ -177,7 +177,7 @@ export class AssetsApi {
 
         // verify required parameter 'symbol' is not null or undefined
         if (symbol === null || symbol === undefined) {
-            throw new Error('Required parameter symbol was null or undefined when calling assetsSymbolGet.');
+            throw new Error('Required parameter symbol was null or undefined when calling getAssetBySymbol.');
         }
 
         (<any>Object).assign(localVarHeaderParams, options.headers);

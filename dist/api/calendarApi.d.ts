@@ -43,7 +43,7 @@ export declare class CalendarApi {
      * @param start The first date to retrieve data for. (Inclusive)
      * @param end The last date to retrieve data for. (Inclusive)
      */
-    calendarGet(start?: string, end?: string, options?: {
+    getCalendar(start?: string, end?: string, options?: {
         headers: {
             [name: string]: string;
         };

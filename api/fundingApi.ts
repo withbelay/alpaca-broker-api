@@ -583,7 +583,7 @@ export class FundingApi {
      * @param accountId Account identifier.
      * @param aCHRelationshipData 
      */
-    public async postAchRelationships (accountId: string, aCHRelationshipData: ACHRelationshipData, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: ACHRelationshipResource;  }> {
+    public async postAchRelationship (accountId: string, aCHRelationshipData: ACHRelationshipData, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: ACHRelationshipResource;  }> {
         const localVarPath = this.basePath + '/accounts/{account_id}/ach_relationships'
             .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)));
         let localVarQueryParameters: any = {};
@@ -599,12 +599,12 @@ export class FundingApi {
 
         // verify required parameter 'accountId' is not null or undefined
         if (accountId === null || accountId === undefined) {
-            throw new Error('Required parameter accountId was null or undefined when calling postAchRelationships.');
+            throw new Error('Required parameter accountId was null or undefined when calling postAchRelationship.');
         }
 
         // verify required parameter 'aCHRelationshipData' is not null or undefined
         if (aCHRelationshipData === null || aCHRelationshipData === undefined) {
-            throw new Error('Required parameter aCHRelationshipData was null or undefined when calling postAchRelationships.');
+            throw new Error('Required parameter aCHRelationshipData was null or undefined when calling postAchRelationship.');
         }
 
         (<any>Object).assign(localVarHeaderParams, options.headers);
@@ -662,7 +662,7 @@ export class FundingApi {
      * @param accountId Account identifier.
      * @param bankData 
      */
-    public async postRecipientBanks (accountId: string, bankData: BankData, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: BankResource;  }> {
+    public async postRecipientBank (accountId: string, bankData: BankData, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: BankResource;  }> {
         const localVarPath = this.basePath + '/accounts/{account_id}/recipient_banks'
             .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)));
         let localVarQueryParameters: any = {};
@@ -678,12 +678,12 @@ export class FundingApi {
 
         // verify required parameter 'accountId' is not null or undefined
         if (accountId === null || accountId === undefined) {
-            throw new Error('Required parameter accountId was null or undefined when calling postRecipientBanks.');
+            throw new Error('Required parameter accountId was null or undefined when calling postRecipientBank.');
         }
 
         // verify required parameter 'bankData' is not null or undefined
         if (bankData === null || bankData === undefined) {
-            throw new Error('Required parameter bankData was null or undefined when calling postRecipientBanks.');
+            throw new Error('Required parameter bankData was null or undefined when calling postRecipientBank.');
         }
 
         (<any>Object).assign(localVarHeaderParams, options.headers);
@@ -741,7 +741,7 @@ export class FundingApi {
      * @param accountId 
      * @param transferData 
      */
-    public async postTransfers (accountId: string, transferData: TransferData, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: TransferResource;  }> {
+    public async postTransfer (accountId: string, transferData: TransferData, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: TransferResource;  }> {
         const localVarPath = this.basePath + '/accounts/{account_id}/transfers'
             .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)));
         let localVarQueryParameters: any = {};
@@ -757,12 +757,12 @@ export class FundingApi {
 
         // verify required parameter 'accountId' is not null or undefined
         if (accountId === null || accountId === undefined) {
-            throw new Error('Required parameter accountId was null or undefined when calling postTransfers.');
+            throw new Error('Required parameter accountId was null or undefined when calling postTransfer.');
         }
 
         // verify required parameter 'transferData' is not null or undefined
         if (transferData === null || transferData === undefined) {
-            throw new Error('Required parameter transferData was null or undefined when calling postTransfers.');
+            throw new Error('Required parameter transferData was null or undefined when calling postTransfer.');
         }
 
         (<any>Object).assign(localVarHeaderParams, options.headers);

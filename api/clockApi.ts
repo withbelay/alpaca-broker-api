@@ -103,7 +103,7 @@ export class ClockApi {
      * 
      * @summary Query market clock
      */
-    public async clockGet (options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: InlineResponse2002;  }> {
+    public async getClock (options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: InlineResponse2002;  }> {
         const localVarPath = this.basePath + '/clock';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);

@@ -42,7 +42,7 @@ export declare class AssetsApi {
      * @summary Retrieve an asset by UUID
      * @param assetId The UUID of the required asset
      */
-    assetsAssetIdGet(assetId: string, options?: {
+    getAssetById(assetId: string, options?: {
         headers: {
             [name: string]: string;
         };
@@ -55,7 +55,7 @@ export declare class AssetsApi {
      * @summary Retrieve an asset by symbol
      * @param symbol The symbol of the required asset
      */
-    assetsSymbolGet(symbol: string, options?: {
+    getAssetBySymbol(symbol: string, options?: {
         headers: {
             [name: string]: string;
         };

@@ -551,7 +551,7 @@ class FundingApi {
      * @param accountId Account identifier.
      * @param aCHRelationshipData
      */
-    postAchRelationships(accountId, aCHRelationshipData, options = { headers: {} }) {
+    postAchRelationship(accountId, aCHRelationshipData, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/accounts/{account_id}/ach_relationships'
                 .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)));
@@ -568,11 +568,11 @@ class FundingApi {
             let localVarFormParams = {};
             // verify required parameter 'accountId' is not null or undefined
             if (accountId === null || accountId === undefined) {
-                throw new Error('Required parameter accountId was null or undefined when calling postAchRelationships.');
+                throw new Error('Required parameter accountId was null or undefined when calling postAchRelationship.');
             }
             // verify required parameter 'aCHRelationshipData' is not null or undefined
             if (aCHRelationshipData === null || aCHRelationshipData === undefined) {
-                throw new Error('Required parameter aCHRelationshipData was null or undefined when calling postAchRelationships.');
+                throw new Error('Required parameter aCHRelationshipData was null or undefined when calling postAchRelationship.');
             }
             Object.assign(localVarHeaderParams, options.headers);
             let localVarUseFormData = false;
@@ -628,7 +628,7 @@ class FundingApi {
      * @param accountId Account identifier.
      * @param bankData
      */
-    postRecipientBanks(accountId, bankData, options = { headers: {} }) {
+    postRecipientBank(accountId, bankData, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/accounts/{account_id}/recipient_banks'
                 .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)));
@@ -645,11 +645,11 @@ class FundingApi {
             let localVarFormParams = {};
             // verify required parameter 'accountId' is not null or undefined
             if (accountId === null || accountId === undefined) {
-                throw new Error('Required parameter accountId was null or undefined when calling postRecipientBanks.');
+                throw new Error('Required parameter accountId was null or undefined when calling postRecipientBank.');
             }
             // verify required parameter 'bankData' is not null or undefined
             if (bankData === null || bankData === undefined) {
-                throw new Error('Required parameter bankData was null or undefined when calling postRecipientBanks.');
+                throw new Error('Required parameter bankData was null or undefined when calling postRecipientBank.');
             }
             Object.assign(localVarHeaderParams, options.headers);
             let localVarUseFormData = false;
@@ -705,7 +705,7 @@ class FundingApi {
      * @param accountId
      * @param transferData
      */
-    postTransfers(accountId, transferData, options = { headers: {} }) {
+    postTransfer(accountId, transferData, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/accounts/{account_id}/transfers'
                 .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)));
@@ -722,11 +722,11 @@ class FundingApi {
             let localVarFormParams = {};
             // verify required parameter 'accountId' is not null or undefined
             if (accountId === null || accountId === undefined) {
-                throw new Error('Required parameter accountId was null or undefined when calling postTransfers.');
+                throw new Error('Required parameter accountId was null or undefined when calling postTransfer.');
             }
             // verify required parameter 'transferData' is not null or undefined
             if (transferData === null || transferData === undefined) {
-                throw new Error('Required parameter transferData was null or undefined when calling postTransfers.');
+                throw new Error('Required parameter transferData was null or undefined when calling postTransfer.');
             }
             Object.assign(localVarHeaderParams, options.headers);
             let localVarUseFormData = false;

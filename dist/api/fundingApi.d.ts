@@ -135,7 +135,7 @@ export declare class FundingApi {
      * @param accountId Account identifier.
      * @param aCHRelationshipData
      */
-    postAchRelationships(accountId: string, aCHRelationshipData: ACHRelationshipData, options?: {
+    postAchRelationship(accountId: string, aCHRelationshipData: ACHRelationshipData, options?: {
         headers: {
             [name: string]: string;
         };
@@ -149,7 +149,7 @@ export declare class FundingApi {
      * @param accountId Account identifier.
      * @param bankData
      */
-    postRecipientBanks(accountId: string, bankData: BankData, options?: {
+    postRecipientBank(accountId: string, bankData: BankData, options?: {
         headers: {
             [name: string]: string;
         };
@@ -163,7 +163,7 @@ export declare class FundingApi {
      * @param accountId
      * @param transferData
      */
-    postTransfers(accountId: string, transferData: TransferData, options?: {
+    postTransfer(accountId: string, transferData: TransferData, options?: {
         headers: {
             [name: string]: string;
         };

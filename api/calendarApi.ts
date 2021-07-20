@@ -105,7 +105,7 @@ export class CalendarApi {
      * @param start The first date to retrieve data for. (Inclusive)
      * @param end The last date to retrieve data for. (Inclusive)
      */
-    public async calendarGet (start?: string, end?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: Array<InlineResponse2001>;  }> {
+    public async getCalendar (start?: string, end?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: Array<InlineResponse2001>;  }> {
         const localVarPath = this.basePath + '/calendar';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);

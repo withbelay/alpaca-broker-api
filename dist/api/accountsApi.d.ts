@@ -11,20 +11,13 @@
  */
 /// <reference types="node" />
 import http from 'http';
-import { ACHRelationshipData } from '../model/aCHRelationshipData';
-import { ACHRelationshipResource } from '../model/aCHRelationshipResource';
 import { Account } from '../model/account';
 import { AccountCreationObject } from '../model/accountCreationObject';
 import { AccountExtended } from '../model/accountExtended';
 import { AccountUpdate } from '../model/accountUpdate';
 import { ActivityItem } from '../model/activityItem';
-import { BankData } from '../model/bankData';
-import { BankResource } from '../model/bankResource';
 import { DocumentUpload } from '../model/documentUpload';
 import { InlineResponse200 } from '../model/inlineResponse200';
-import { InlineResponse2004 } from '../model/inlineResponse2004';
-import { TransferData } from '../model/transferData';
-import { TransferResource } from '../model/transferResource';
 import { Authentication, Interceptor } from '../model/models';
 import { HttpBasicAuth } from '../model/models';
 export declare enum AccountsApiApiKeys {
@@ -52,85 +45,6 @@ export declare class AccountsApi {
     addInterceptor(interceptor: Interceptor): void;
     /**
      *
-     * @summary Upload a document to an already existing account
-     * @param accountId Account identifier.
-     * @param documentUpload
-     */
-    accountsAccountIdDocumentsUploadPost(accountId: string, documentUpload: DocumentUpload, options?: {
-        headers: {
-            [name: string]: string;
-        };
-    }): Promise<{
-        response: http.IncomingMessage;
-        body?: any;
-    }>;
-    /**
-     *
-     * @summary Retrieve specific account activities
-     * @param activityType
-     * @param date
-     * @param until
-     * @param after
-     * @param direction
-     * @param accountId
-     * @param pageSize
-     * @param pageToken
-     */
-    accountsActivitiesActivityTypeGet(activityType: 'FILL' | 'ACATC' | 'ACATS' | 'CSD' | 'CSR' | 'CSW' | 'DIV' | 'DIVCGL' | 'DIVCGS' | 'DIVNRA' | 'DIVROC' | 'DIVTXEX' | 'INT' | 'JNLC' | 'JNLS' | 'MA' | 'NC' | 'PTC' | 'REORG' | 'SSO' | 'SSP', date?: string, until?: string, after?: string, direction?: 'asc' | 'desc', accountId?: string, pageSize?: number, pageToken?: string, options?: {
-        headers: {
-            [name: string]: string;
-        };
-    }): Promise<{
-        response: http.IncomingMessage;
-        body: Array<ActivityItem>;
-    }>;
-    /**
-     *
-     * @summary Retrieve account activities
-     * @param date
-     * @param until
-     * @param after
-     * @param direction
-     * @param accountId
-     * @param pageSize
-     * @param pageToken
-     */
-    accountsActivitiesGet(date?: string, until?: string, after?: string, direction?: 'asc' | 'desc', accountId?: string, pageSize?: number, pageToken?: string, options?: {
-        headers: {
-            [name: string]: string;
-        };
-    }): Promise<{
-        response: http.IncomingMessage;
-        body: Array<ActivityItem>;
-    }>;
-    /**
-     *
-     * @summary Retrieve all accounts
-     * @param query The query supports partial match of account number, names, emails, etc.. Items can be space delimited.
-     */
-    accountsGet(query?: string, options?: {
-        headers: {
-            [name: string]: string;
-        };
-    }): Promise<{
-        response: http.IncomingMessage;
-        body: Array<Account>;
-    }>;
-    /**
-     *
-     * @summary Create an account
-     * @param accountCreationObject
-     */
-    accountsPost(accountCreationObject: AccountCreationObject, options?: {
-        headers: {
-            [name: string]: string;
-        };
-    }): Promise<{
-        response: http.IncomingMessage;
-        body: Account;
-    }>;
-    /**
-     *
      * @summary Request to close an account
      * @param accountId Account identifier.
      */
@@ -141,64 +55,6 @@ export declare class AccountsApi {
     }): Promise<{
         response: http.IncomingMessage;
         body?: any;
-    }>;
-    /**
-     *
-     * @summary Delete an existing ACH relationship
-     * @param accountId Account identifier.
-     * @param achRelationshipId ACH relationship identifier
-     */
-    deleteAchRelationship(accountId: string, achRelationshipId: string, options?: {
-        headers: {
-            [name: string]: string;
-        };
-    }): Promise<{
-        response: http.IncomingMessage;
-        body?: any;
-    }>;
-    /**
-     *
-     * @summary Delete a Bank Relationship for an account
-     * @param accountId Account identifier.
-     * @param bankId
-     */
-    deleteRecipientBank(accountId: string, bankId: string, options?: {
-        headers: {
-            [name: string]: string;
-        };
-    }): Promise<{
-        response: http.IncomingMessage;
-        body?: any;
-    }>;
-    /**
-     *
-     * @summary Request to close a transfer
-     * @param accountId
-     * @param transferId
-     */
-    deleteTransfer(accountId: string, transferId: string, options?: {
-        headers: {
-            [name: string]: string;
-        };
-    }): Promise<{
-        response: http.IncomingMessage;
-        body?: any;
-    }>;
-    /**
-     * Query Params Rules: - `since` required if `until` specified - `since_id` required if `until_id` specified - `since` and `since_id` can’t be used at the same time Behavior: - if `since` or `since_id` not specified this will not return any historic data - if `until` or `until_id` reached stream will end (status 200)
-     * @summary Subscribe to account status events (SSE).
-     * @param since
-     * @param until
-     * @param sinceId
-     * @param untilId
-     */
-    eventsAccountsStatusGet(since?: Date, until?: Date, sinceId?: number, untilId?: number, options?: {
-        headers: {
-            [name: string]: string;
-        };
-    }): Promise<{
-        response: http.IncomingMessage;
-        body: InlineResponse2004;
     }>;
     /**
      * The response is an Account model.
@@ -215,32 +71,55 @@ export declare class AccountsApi {
     }>;
     /**
      *
-     * @summary Retrieve ACH Relationships for an account
-     * @param accountId Account identifier.
-     * @param statuses Comma-separated status values
+     * @summary Retrieve account activities
+     * @param date
+     * @param until
+     * @param after
+     * @param direction
+     * @param accountId
+     * @param pageSize
+     * @param pageToken
      */
-    getAchRelationships(accountId: string, statuses?: string, options?: {
+    getAccountActivities(date?: string, until?: string, after?: string, direction?: 'asc' | 'desc', accountId?: string, pageSize?: number, pageToken?: string, options?: {
         headers: {
             [name: string]: string;
         };
     }): Promise<{
         response: http.IncomingMessage;
-        body: Array<ACHRelationshipResource>;
+        body: Array<ActivityItem>;
     }>;
     /**
      *
-     * @summary Retrieve bank relationships for an account
+     * @summary Retrieve specific account activities
+     * @param activityType
+     * @param date
+     * @param until
+     * @param after
+     * @param direction
      * @param accountId
-     * @param status
-     * @param bankName
+     * @param pageSize
+     * @param pageToken
      */
-    getRecipientBanks(accountId: string, status?: string, bankName?: string, options?: {
+    getAccountActivitiesByType(activityType: 'FILL' | 'ACATC' | 'ACATS' | 'CSD' | 'CSR' | 'CSW' | 'DIV' | 'DIVCGL' | 'DIVCGS' | 'DIVNRA' | 'DIVROC' | 'DIVTXEX' | 'INT' | 'JNLC' | 'JNLS' | 'MA' | 'NC' | 'PTC' | 'REORG' | 'SSO' | 'SSP', date?: string, until?: string, after?: string, direction?: 'asc' | 'desc', accountId?: string, pageSize?: number, pageToken?: string, options?: {
         headers: {
             [name: string]: string;
         };
     }): Promise<{
         response: http.IncomingMessage;
-        body: Array<BankResource>;
+        body: Array<ActivityItem>;
+    }>;
+    /**
+     *
+     * @summary Retrieve all accounts
+     * @param query The query supports partial match of account number, names, emails, etc.. Items can be space delimited.
+     */
+    getAccounts(query?: string, options?: {
+        headers: {
+            [name: string]: string;
+        };
+    }): Promise<{
+        response: http.IncomingMessage;
+        body: Array<Account>;
     }>;
     /**
      * The response is a Trading Account model.
@@ -254,22 +133,6 @@ export declare class AccountsApi {
     }): Promise<{
         response: http.IncomingMessage;
         body: InlineResponse200;
-    }>;
-    /**
-     * You can filter requested transfers by values such as direction and status.
-     * @summary Return a list of transfers for an account.
-     * @param accountId
-     * @param direction
-     * @param limit
-     * @param offset
-     */
-    getTransfers(accountId: string, direction?: 'INCOMING' | 'OUTGOING', limit?: number, offset?: number, options?: {
-        headers: {
-            [name: string]: string;
-        };
-    }): Promise<{
-        response: http.IncomingMessage;
-        body: Array<TransferResource>;
     }>;
     /**
      *
@@ -287,44 +150,29 @@ export declare class AccountsApi {
     }>;
     /**
      *
-     * @summary Create an ACH Relationship
-     * @param accountId Account identifier.
-     * @param aCHRelationshipData
+     * @summary Create an account
+     * @param accountCreationObject
      */
-    postAchRelationships(accountId: string, aCHRelationshipData: ACHRelationshipData, options?: {
+    postAccount(accountCreationObject: AccountCreationObject, options?: {
         headers: {
             [name: string]: string;
         };
     }): Promise<{
         response: http.IncomingMessage;
-        body: ACHRelationshipResource;
+        body: Account;
     }>;
     /**
      *
-     * @summary Create a Bank Relationship for an account
+     * @summary Upload a document to an already existing account
      * @param accountId Account identifier.
-     * @param bankData
+     * @param documentUpload
      */
-    postRecipientBanks(accountId: string, bankData: BankData, options?: {
+    postDocumentUpload(accountId: string, documentUpload: DocumentUpload, options?: {
         headers: {
             [name: string]: string;
         };
     }): Promise<{
         response: http.IncomingMessage;
-        body: BankResource;
-    }>;
-    /**
-     * This operation allows you to fund an account with virtual money in the sandbox environment.
-     * @summary Request a new transfer
-     * @param accountId
-     * @param transferData
-     */
-    postTransfers(accountId: string, transferData: TransferData, options?: {
-        headers: {
-            [name: string]: string;
-        };
-    }): Promise<{
-        response: http.IncomingMessage;
-        body: TransferResource;
+        body?: any;
     }>;
 }

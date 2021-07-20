@@ -13,7 +13,6 @@
 import http from 'http';
 import { BatchJournalRequest } from '../model/batchJournalRequest';
 import { BatchJournalResponse } from '../model/batchJournalResponse';
-import { InlineResponse2005 } from '../model/inlineResponse2005';
 import { JournalData } from '../model/journalData';
 import { JournalResource } from '../model/journalResource';
 import { Authentication, Interceptor } from '../model/models';
@@ -53,22 +52,6 @@ export declare class JournalsApi {
     }): Promise<{
         response: http.IncomingMessage;
         body?: any;
-    }>;
-    /**
-     * Query Params Rules: - `since` required if `until` specified - `since_id` required if `until_id` specified - `since` and `since_id` can’t be used at the same time Behavior: - if `since` or `since_id` not specified this will not return any historic data - if `until` or `until_id` reached stream will end (status 200)
-     * @summary Subscribe to journal events (SSE).
-     * @param since
-     * @param until
-     * @param sinceId
-     * @param untilId
-     */
-    eventsJournalsStatusGet(since?: Date, until?: Date, sinceId?: number, untilId?: number, options?: {
-        headers: {
-            [name: string]: string;
-        };
-    }): Promise<{
-        response: http.IncomingMessage;
-        body: InlineResponse2005;
     }>;
     /**
      *

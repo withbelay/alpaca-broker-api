@@ -785,7 +785,7 @@ export class TradingApi {
      * @param accountId Account identifier.
      * @param createOrder 
      */
-    public async postOrders (accountId: string, createOrder: CreateOrder, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: OrderObject;  }> {
+    public async postOrder (accountId: string, createOrder: CreateOrder, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: OrderObject;  }> {
         const localVarPath = this.basePath + '/trading/accounts/{account_id}/orders'
             .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)));
         let localVarQueryParameters: any = {};
@@ -801,12 +801,12 @@ export class TradingApi {
 
         // verify required parameter 'accountId' is not null or undefined
         if (accountId === null || accountId === undefined) {
-            throw new Error('Required parameter accountId was null or undefined when calling postOrders.');
+            throw new Error('Required parameter accountId was null or undefined when calling postOrder.');
         }
 
         // verify required parameter 'createOrder' is not null or undefined
         if (createOrder === null || createOrder === undefined) {
-            throw new Error('Required parameter createOrder was null or undefined when calling postOrders.');
+            throw new Error('Required parameter createOrder was null or undefined when calling postOrder.');
         }
 
         (<any>Object).assign(localVarHeaderParams, options.headers);

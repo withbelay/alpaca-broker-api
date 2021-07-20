@@ -41,7 +41,7 @@ export declare class ClockApi {
      *
      * @summary Query market clock
      */
-    clockGet(options?: {
+    getClock(options?: {
         headers: {
             [name: string]: string;
         };

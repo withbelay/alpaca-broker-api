@@ -93,7 +93,7 @@ class AssetsApi {
      * @summary Retrieve an asset by UUID
      * @param assetId The UUID of the required asset
      */
-    assetsAssetIdGet(assetId, options = { headers: {} }) {
+    getAssetById(assetId, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/assets/{asset_id}'
                 .replace('{' + 'asset_id' + '}', encodeURIComponent(String(assetId)));
@@ -102,7 +102,7 @@ class AssetsApi {
             let localVarFormParams = {};
             // verify required parameter 'assetId' is not null or undefined
             if (assetId === null || assetId === undefined) {
-                throw new Error('Required parameter assetId was null or undefined when calling assetsAssetIdGet.');
+                throw new Error('Required parameter assetId was null or undefined when calling getAssetById.');
             }
             Object.assign(localVarHeaderParams, options.headers);
             let localVarUseFormData = false;
@@ -155,7 +155,7 @@ class AssetsApi {
      * @summary Retrieve an asset by symbol
      * @param symbol The symbol of the required asset
      */
-    assetsSymbolGet(symbol, options = { headers: {} }) {
+    getAssetBySymbol(symbol, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
             const localVarPath = this.basePath + '/assets/{symbol}'
                 .replace('{' + 'symbol' + '}', encodeURIComponent(String(symbol)));
@@ -164,7 +164,7 @@ class AssetsApi {
             let localVarFormParams = {};
             // verify required parameter 'symbol' is not null or undefined
             if (symbol === null || symbol === undefined) {
-                throw new Error('Required parameter symbol was null or undefined when calling assetsSymbolGet.');
+                throw new Error('Required parameter symbol was null or undefined when calling getAssetBySymbol.');
             }
             Object.assign(localVarHeaderParams, options.headers);
             let localVarUseFormData = false;

@@ -90,414 +90,6 @@ class AccountsApi {
     }
     /**
      *
-     * @summary Upload a document to an already existing account
-     * @param accountId Account identifier.
-     * @param documentUpload
-     */
-    accountsAccountIdDocumentsUploadPost(accountId, documentUpload, options = { headers: {} }) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const localVarPath = this.basePath + '/accounts/{account_id}/documents/upload'
-                .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)));
-            let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
-            const produces = ['application/json'];
-            // give precedence to 'application/json'
-            if (produces.indexOf('application/json') >= 0) {
-                localVarHeaderParams.Accept = 'application/json';
-            }
-            else {
-                localVarHeaderParams.Accept = produces.join(',');
-            }
-            let localVarFormParams = {};
-            // verify required parameter 'accountId' is not null or undefined
-            if (accountId === null || accountId === undefined) {
-                throw new Error('Required parameter accountId was null or undefined when calling accountsAccountIdDocumentsUploadPost.');
-            }
-            // verify required parameter 'documentUpload' is not null or undefined
-            if (documentUpload === null || documentUpload === undefined) {
-                throw new Error('Required parameter documentUpload was null or undefined when calling accountsAccountIdDocumentsUploadPost.');
-            }
-            Object.assign(localVarHeaderParams, options.headers);
-            let localVarUseFormData = false;
-            let localVarRequestOptions = {
-                method: 'POST',
-                qs: localVarQueryParameters,
-                headers: localVarHeaderParams,
-                uri: localVarPath,
-                useQuerystring: this._useQuerystring,
-                json: true,
-                body: models_1.ObjectSerializer.serialize(documentUpload, "DocumentUpload")
-            };
-            let authenticationPromise = Promise.resolve();
-            if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {
-                authenticationPromise = authenticationPromise.then(() => this.authentications.BasicAuth.applyToRequest(localVarRequestOptions));
-            }
-            authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            let interceptorPromise = authenticationPromise;
-            for (const interceptor of this.interceptors) {
-                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
-            }
-            return interceptorPromise.then(() => {
-                if (Object.keys(localVarFormParams).length) {
-                    if (localVarUseFormData) {
-                        localVarRequestOptions.formData = localVarFormParams;
-                    }
-                    else {
-                        localVarRequestOptions.form = localVarFormParams;
-                    }
-                }
-                return new Promise((resolve, reject) => {
-                    request_1.default(localVarRequestOptions, (error, response, body) => {
-                        if (error) {
-                            reject(error);
-                        }
-                        else {
-                            if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                                resolve({ response: response, body: body });
-                            }
-                            else {
-                                reject(new apis_1.HttpError(response, body, response.statusCode));
-                            }
-                        }
-                    });
-                });
-            });
-        });
-    }
-    /**
-     *
-     * @summary Retrieve specific account activities
-     * @param activityType
-     * @param date
-     * @param until
-     * @param after
-     * @param direction
-     * @param accountId
-     * @param pageSize
-     * @param pageToken
-     */
-    accountsActivitiesActivityTypeGet(activityType, date, until, after, direction, accountId, pageSize, pageToken, options = { headers: {} }) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const localVarPath = this.basePath + '/accounts/activities/{activity_type}'
-                .replace('{' + 'activity_type' + '}', encodeURIComponent(String(activityType)));
-            let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
-            const produces = ['application/json'];
-            // give precedence to 'application/json'
-            if (produces.indexOf('application/json') >= 0) {
-                localVarHeaderParams.Accept = 'application/json';
-            }
-            else {
-                localVarHeaderParams.Accept = produces.join(',');
-            }
-            let localVarFormParams = {};
-            // verify required parameter 'activityType' is not null or undefined
-            if (activityType === null || activityType === undefined) {
-                throw new Error('Required parameter activityType was null or undefined when calling accountsActivitiesActivityTypeGet.');
-            }
-            if (date !== undefined) {
-                localVarQueryParameters['date'] = models_1.ObjectSerializer.serialize(date, "string");
-            }
-            if (until !== undefined) {
-                localVarQueryParameters['until'] = models_1.ObjectSerializer.serialize(until, "string");
-            }
-            if (after !== undefined) {
-                localVarQueryParameters['after'] = models_1.ObjectSerializer.serialize(after, "string");
-            }
-            if (direction !== undefined) {
-                localVarQueryParameters['direction'] = models_1.ObjectSerializer.serialize(direction, "'asc' | 'desc'");
-            }
-            if (accountId !== undefined) {
-                localVarQueryParameters['account_id'] = models_1.ObjectSerializer.serialize(accountId, "string");
-            }
-            if (pageSize !== undefined) {
-                localVarQueryParameters['page_size'] = models_1.ObjectSerializer.serialize(pageSize, "number");
-            }
-            if (pageToken !== undefined) {
-                localVarQueryParameters['page_token'] = models_1.ObjectSerializer.serialize(pageToken, "string");
-            }
-            Object.assign(localVarHeaderParams, options.headers);
-            let localVarUseFormData = false;
-            let localVarRequestOptions = {
-                method: 'GET',
-                qs: localVarQueryParameters,
-                headers: localVarHeaderParams,
-                uri: localVarPath,
-                useQuerystring: this._useQuerystring,
-                json: true,
-            };
-            let authenticationPromise = Promise.resolve();
-            if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {
-                authenticationPromise = authenticationPromise.then(() => this.authentications.BasicAuth.applyToRequest(localVarRequestOptions));
-            }
-            authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            let interceptorPromise = authenticationPromise;
-            for (const interceptor of this.interceptors) {
-                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
-            }
-            return interceptorPromise.then(() => {
-                if (Object.keys(localVarFormParams).length) {
-                    if (localVarUseFormData) {
-                        localVarRequestOptions.formData = localVarFormParams;
-                    }
-                    else {
-                        localVarRequestOptions.form = localVarFormParams;
-                    }
-                }
-                return new Promise((resolve, reject) => {
-                    request_1.default(localVarRequestOptions, (error, response, body) => {
-                        if (error) {
-                            reject(error);
-                        }
-                        else {
-                            body = models_1.ObjectSerializer.deserialize(body, "Array<ActivityItem>");
-                            if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                                resolve({ response: response, body: body });
-                            }
-                            else {
-                                reject(new apis_1.HttpError(response, body, response.statusCode));
-                            }
-                        }
-                    });
-                });
-            });
-        });
-    }
-    /**
-     *
-     * @summary Retrieve account activities
-     * @param date
-     * @param until
-     * @param after
-     * @param direction
-     * @param accountId
-     * @param pageSize
-     * @param pageToken
-     */
-    accountsActivitiesGet(date, until, after, direction, accountId, pageSize, pageToken, options = { headers: {} }) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const localVarPath = this.basePath + '/accounts/activities';
-            let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
-            const produces = ['application/json'];
-            // give precedence to 'application/json'
-            if (produces.indexOf('application/json') >= 0) {
-                localVarHeaderParams.Accept = 'application/json';
-            }
-            else {
-                localVarHeaderParams.Accept = produces.join(',');
-            }
-            let localVarFormParams = {};
-            if (date !== undefined) {
-                localVarQueryParameters['date'] = models_1.ObjectSerializer.serialize(date, "string");
-            }
-            if (until !== undefined) {
-                localVarQueryParameters['until'] = models_1.ObjectSerializer.serialize(until, "string");
-            }
-            if (after !== undefined) {
-                localVarQueryParameters['after'] = models_1.ObjectSerializer.serialize(after, "string");
-            }
-            if (direction !== undefined) {
-                localVarQueryParameters['direction'] = models_1.ObjectSerializer.serialize(direction, "'asc' | 'desc'");
-            }
-            if (accountId !== undefined) {
-                localVarQueryParameters['account_id'] = models_1.ObjectSerializer.serialize(accountId, "string");
-            }
-            if (pageSize !== undefined) {
-                localVarQueryParameters['page_size'] = models_1.ObjectSerializer.serialize(pageSize, "number");
-            }
-            if (pageToken !== undefined) {
-                localVarQueryParameters['page_token'] = models_1.ObjectSerializer.serialize(pageToken, "string");
-            }
-            Object.assign(localVarHeaderParams, options.headers);
-            let localVarUseFormData = false;
-            let localVarRequestOptions = {
-                method: 'GET',
-                qs: localVarQueryParameters,
-                headers: localVarHeaderParams,
-                uri: localVarPath,
-                useQuerystring: this._useQuerystring,
-                json: true,
-            };
-            let authenticationPromise = Promise.resolve();
-            if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {
-                authenticationPromise = authenticationPromise.then(() => this.authentications.BasicAuth.applyToRequest(localVarRequestOptions));
-            }
-            authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            let interceptorPromise = authenticationPromise;
-            for (const interceptor of this.interceptors) {
-                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
-            }
-            return interceptorPromise.then(() => {
-                if (Object.keys(localVarFormParams).length) {
-                    if (localVarUseFormData) {
-                        localVarRequestOptions.formData = localVarFormParams;
-                    }
-                    else {
-                        localVarRequestOptions.form = localVarFormParams;
-                    }
-                }
-                return new Promise((resolve, reject) => {
-                    request_1.default(localVarRequestOptions, (error, response, body) => {
-                        if (error) {
-                            reject(error);
-                        }
-                        else {
-                            body = models_1.ObjectSerializer.deserialize(body, "Array<ActivityItem>");
-                            if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                                resolve({ response: response, body: body });
-                            }
-                            else {
-                                reject(new apis_1.HttpError(response, body, response.statusCode));
-                            }
-                        }
-                    });
-                });
-            });
-        });
-    }
-    /**
-     *
-     * @summary Retrieve all accounts
-     * @param query The query supports partial match of account number, names, emails, etc.. Items can be space delimited.
-     */
-    accountsGet(query, options = { headers: {} }) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const localVarPath = this.basePath + '/accounts';
-            let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
-            const produces = ['application/json'];
-            // give precedence to 'application/json'
-            if (produces.indexOf('application/json') >= 0) {
-                localVarHeaderParams.Accept = 'application/json';
-            }
-            else {
-                localVarHeaderParams.Accept = produces.join(',');
-            }
-            let localVarFormParams = {};
-            if (query !== undefined) {
-                localVarQueryParameters['query'] = models_1.ObjectSerializer.serialize(query, "string");
-            }
-            Object.assign(localVarHeaderParams, options.headers);
-            let localVarUseFormData = false;
-            let localVarRequestOptions = {
-                method: 'GET',
-                qs: localVarQueryParameters,
-                headers: localVarHeaderParams,
-                uri: localVarPath,
-                useQuerystring: this._useQuerystring,
-                json: true,
-            };
-            let authenticationPromise = Promise.resolve();
-            if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {
-                authenticationPromise = authenticationPromise.then(() => this.authentications.BasicAuth.applyToRequest(localVarRequestOptions));
-            }
-            authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            let interceptorPromise = authenticationPromise;
-            for (const interceptor of this.interceptors) {
-                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
-            }
-            return interceptorPromise.then(() => {
-                if (Object.keys(localVarFormParams).length) {
-                    if (localVarUseFormData) {
-                        localVarRequestOptions.formData = localVarFormParams;
-                    }
-                    else {
-                        localVarRequestOptions.form = localVarFormParams;
-                    }
-                }
-                return new Promise((resolve, reject) => {
-                    request_1.default(localVarRequestOptions, (error, response, body) => {
-                        if (error) {
-                            reject(error);
-                        }
-                        else {
-                            body = models_1.ObjectSerializer.deserialize(body, "Array<Account>");
-                            if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                                resolve({ response: response, body: body });
-                            }
-                            else {
-                                reject(new apis_1.HttpError(response, body, response.statusCode));
-                            }
-                        }
-                    });
-                });
-            });
-        });
-    }
-    /**
-     *
-     * @summary Create an account
-     * @param accountCreationObject
-     */
-    accountsPost(accountCreationObject, options = { headers: {} }) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const localVarPath = this.basePath + '/accounts';
-            let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
-            const produces = ['application/json'];
-            // give precedence to 'application/json'
-            if (produces.indexOf('application/json') >= 0) {
-                localVarHeaderParams.Accept = 'application/json';
-            }
-            else {
-                localVarHeaderParams.Accept = produces.join(',');
-            }
-            let localVarFormParams = {};
-            // verify required parameter 'accountCreationObject' is not null or undefined
-            if (accountCreationObject === null || accountCreationObject === undefined) {
-                throw new Error('Required parameter accountCreationObject was null or undefined when calling accountsPost.');
-            }
-            Object.assign(localVarHeaderParams, options.headers);
-            let localVarUseFormData = false;
-            let localVarRequestOptions = {
-                method: 'POST',
-                qs: localVarQueryParameters,
-                headers: localVarHeaderParams,
-                uri: localVarPath,
-                useQuerystring: this._useQuerystring,
-                json: true,
-                body: models_1.ObjectSerializer.serialize(accountCreationObject, "AccountCreationObject")
-            };
-            let authenticationPromise = Promise.resolve();
-            if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {
-                authenticationPromise = authenticationPromise.then(() => this.authentications.BasicAuth.applyToRequest(localVarRequestOptions));
-            }
-            authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            let interceptorPromise = authenticationPromise;
-            for (const interceptor of this.interceptors) {
-                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
-            }
-            return interceptorPromise.then(() => {
-                if (Object.keys(localVarFormParams).length) {
-                    if (localVarUseFormData) {
-                        localVarRequestOptions.formData = localVarFormParams;
-                    }
-                    else {
-                        localVarRequestOptions.form = localVarFormParams;
-                    }
-                }
-                return new Promise((resolve, reject) => {
-                    request_1.default(localVarRequestOptions, (error, response, body) => {
-                        if (error) {
-                            reject(error);
-                        }
-                        else {
-                            body = models_1.ObjectSerializer.deserialize(body, "Account");
-                            if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                                resolve({ response: response, body: body });
-                            }
-                            else {
-                                reject(new apis_1.HttpError(response, body, response.statusCode));
-                            }
-                        }
-                    });
-                });
-            });
-        });
-    }
-    /**
-     *
      * @summary Request to close an account
      * @param accountId Account identifier.
      */
@@ -546,307 +138,6 @@ class AccountsApi {
                             reject(error);
                         }
                         else {
-                            if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                                resolve({ response: response, body: body });
-                            }
-                            else {
-                                reject(new apis_1.HttpError(response, body, response.statusCode));
-                            }
-                        }
-                    });
-                });
-            });
-        });
-    }
-    /**
-     *
-     * @summary Delete an existing ACH relationship
-     * @param accountId Account identifier.
-     * @param achRelationshipId ACH relationship identifier
-     */
-    deleteAchRelationship(accountId, achRelationshipId, options = { headers: {} }) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const localVarPath = this.basePath + '/accounts/{account_id}/ach_relationships/{ach_relationship_id}'
-                .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)))
-                .replace('{' + 'ach_relationship_id' + '}', encodeURIComponent(String(achRelationshipId)));
-            let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
-            const produces = ['application/json'];
-            // give precedence to 'application/json'
-            if (produces.indexOf('application/json') >= 0) {
-                localVarHeaderParams.Accept = 'application/json';
-            }
-            else {
-                localVarHeaderParams.Accept = produces.join(',');
-            }
-            let localVarFormParams = {};
-            // verify required parameter 'accountId' is not null or undefined
-            if (accountId === null || accountId === undefined) {
-                throw new Error('Required parameter accountId was null or undefined when calling deleteAchRelationship.');
-            }
-            // verify required parameter 'achRelationshipId' is not null or undefined
-            if (achRelationshipId === null || achRelationshipId === undefined) {
-                throw new Error('Required parameter achRelationshipId was null or undefined when calling deleteAchRelationship.');
-            }
-            Object.assign(localVarHeaderParams, options.headers);
-            let localVarUseFormData = false;
-            let localVarRequestOptions = {
-                method: 'DELETE',
-                qs: localVarQueryParameters,
-                headers: localVarHeaderParams,
-                uri: localVarPath,
-                useQuerystring: this._useQuerystring,
-                json: true,
-            };
-            let authenticationPromise = Promise.resolve();
-            if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {
-                authenticationPromise = authenticationPromise.then(() => this.authentications.BasicAuth.applyToRequest(localVarRequestOptions));
-            }
-            authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            let interceptorPromise = authenticationPromise;
-            for (const interceptor of this.interceptors) {
-                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
-            }
-            return interceptorPromise.then(() => {
-                if (Object.keys(localVarFormParams).length) {
-                    if (localVarUseFormData) {
-                        localVarRequestOptions.formData = localVarFormParams;
-                    }
-                    else {
-                        localVarRequestOptions.form = localVarFormParams;
-                    }
-                }
-                return new Promise((resolve, reject) => {
-                    request_1.default(localVarRequestOptions, (error, response, body) => {
-                        if (error) {
-                            reject(error);
-                        }
-                        else {
-                            if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                                resolve({ response: response, body: body });
-                            }
-                            else {
-                                reject(new apis_1.HttpError(response, body, response.statusCode));
-                            }
-                        }
-                    });
-                });
-            });
-        });
-    }
-    /**
-     *
-     * @summary Delete a Bank Relationship for an account
-     * @param accountId Account identifier.
-     * @param bankId
-     */
-    deleteRecipientBank(accountId, bankId, options = { headers: {} }) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const localVarPath = this.basePath + '/accounts/{account_id}/recipient_banks/{bank_id}'
-                .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)))
-                .replace('{' + 'bank_id' + '}', encodeURIComponent(String(bankId)));
-            let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
-            let localVarFormParams = {};
-            // verify required parameter 'accountId' is not null or undefined
-            if (accountId === null || accountId === undefined) {
-                throw new Error('Required parameter accountId was null or undefined when calling deleteRecipientBank.');
-            }
-            // verify required parameter 'bankId' is not null or undefined
-            if (bankId === null || bankId === undefined) {
-                throw new Error('Required parameter bankId was null or undefined when calling deleteRecipientBank.');
-            }
-            Object.assign(localVarHeaderParams, options.headers);
-            let localVarUseFormData = false;
-            let localVarRequestOptions = {
-                method: 'DELETE',
-                qs: localVarQueryParameters,
-                headers: localVarHeaderParams,
-                uri: localVarPath,
-                useQuerystring: this._useQuerystring,
-                json: true,
-            };
-            let authenticationPromise = Promise.resolve();
-            if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {
-                authenticationPromise = authenticationPromise.then(() => this.authentications.BasicAuth.applyToRequest(localVarRequestOptions));
-            }
-            authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            let interceptorPromise = authenticationPromise;
-            for (const interceptor of this.interceptors) {
-                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
-            }
-            return interceptorPromise.then(() => {
-                if (Object.keys(localVarFormParams).length) {
-                    if (localVarUseFormData) {
-                        localVarRequestOptions.formData = localVarFormParams;
-                    }
-                    else {
-                        localVarRequestOptions.form = localVarFormParams;
-                    }
-                }
-                return new Promise((resolve, reject) => {
-                    request_1.default(localVarRequestOptions, (error, response, body) => {
-                        if (error) {
-                            reject(error);
-                        }
-                        else {
-                            if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                                resolve({ response: response, body: body });
-                            }
-                            else {
-                                reject(new apis_1.HttpError(response, body, response.statusCode));
-                            }
-                        }
-                    });
-                });
-            });
-        });
-    }
-    /**
-     *
-     * @summary Request to close a transfer
-     * @param accountId
-     * @param transferId
-     */
-    deleteTransfer(accountId, transferId, options = { headers: {} }) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const localVarPath = this.basePath + '/accounts/{account_id}/transfers/{transfer_id}'
-                .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)))
-                .replace('{' + 'transfer_id' + '}', encodeURIComponent(String(transferId)));
-            let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
-            const produces = ['application/json'];
-            // give precedence to 'application/json'
-            if (produces.indexOf('application/json') >= 0) {
-                localVarHeaderParams.Accept = 'application/json';
-            }
-            else {
-                localVarHeaderParams.Accept = produces.join(',');
-            }
-            let localVarFormParams = {};
-            // verify required parameter 'accountId' is not null or undefined
-            if (accountId === null || accountId === undefined) {
-                throw new Error('Required parameter accountId was null or undefined when calling deleteTransfer.');
-            }
-            // verify required parameter 'transferId' is not null or undefined
-            if (transferId === null || transferId === undefined) {
-                throw new Error('Required parameter transferId was null or undefined when calling deleteTransfer.');
-            }
-            Object.assign(localVarHeaderParams, options.headers);
-            let localVarUseFormData = false;
-            let localVarRequestOptions = {
-                method: 'DELETE',
-                qs: localVarQueryParameters,
-                headers: localVarHeaderParams,
-                uri: localVarPath,
-                useQuerystring: this._useQuerystring,
-                json: true,
-            };
-            let authenticationPromise = Promise.resolve();
-            if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {
-                authenticationPromise = authenticationPromise.then(() => this.authentications.BasicAuth.applyToRequest(localVarRequestOptions));
-            }
-            authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            let interceptorPromise = authenticationPromise;
-            for (const interceptor of this.interceptors) {
-                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
-            }
-            return interceptorPromise.then(() => {
-                if (Object.keys(localVarFormParams).length) {
-                    if (localVarUseFormData) {
-                        localVarRequestOptions.formData = localVarFormParams;
-                    }
-                    else {
-                        localVarRequestOptions.form = localVarFormParams;
-                    }
-                }
-                return new Promise((resolve, reject) => {
-                    request_1.default(localVarRequestOptions, (error, response, body) => {
-                        if (error) {
-                            reject(error);
-                        }
-                        else {
-                            if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                                resolve({ response: response, body: body });
-                            }
-                            else {
-                                reject(new apis_1.HttpError(response, body, response.statusCode));
-                            }
-                        }
-                    });
-                });
-            });
-        });
-    }
-    /**
-     * Query Params Rules: - `since` required if `until` specified - `since_id` required if `until_id` specified - `since` and `since_id` can’t be used at the same time Behavior: - if `since` or `since_id` not specified this will not return any historic data - if `until` or `until_id` reached stream will end (status 200)
-     * @summary Subscribe to account status events (SSE).
-     * @param since
-     * @param until
-     * @param sinceId
-     * @param untilId
-     */
-    eventsAccountsStatusGet(since, until, sinceId, untilId, options = { headers: {} }) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const localVarPath = this.basePath + '/events/accounts/status';
-            let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
-            const produces = ['application/json'];
-            // give precedence to 'application/json'
-            if (produces.indexOf('application/json') >= 0) {
-                localVarHeaderParams.Accept = 'application/json';
-            }
-            else {
-                localVarHeaderParams.Accept = produces.join(',');
-            }
-            let localVarFormParams = {};
-            if (since !== undefined) {
-                localVarQueryParameters['since'] = models_1.ObjectSerializer.serialize(since, "Date");
-            }
-            if (until !== undefined) {
-                localVarQueryParameters['until'] = models_1.ObjectSerializer.serialize(until, "Date");
-            }
-            if (sinceId !== undefined) {
-                localVarQueryParameters['since_id'] = models_1.ObjectSerializer.serialize(sinceId, "number");
-            }
-            if (untilId !== undefined) {
-                localVarQueryParameters['until_id'] = models_1.ObjectSerializer.serialize(untilId, "number");
-            }
-            Object.assign(localVarHeaderParams, options.headers);
-            let localVarUseFormData = false;
-            let localVarRequestOptions = {
-                method: 'GET',
-                qs: localVarQueryParameters,
-                headers: localVarHeaderParams,
-                uri: localVarPath,
-                useQuerystring: this._useQuerystring,
-                json: true,
-            };
-            let authenticationPromise = Promise.resolve();
-            if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {
-                authenticationPromise = authenticationPromise.then(() => this.authentications.BasicAuth.applyToRequest(localVarRequestOptions));
-            }
-            authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            let interceptorPromise = authenticationPromise;
-            for (const interceptor of this.interceptors) {
-                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
-            }
-            return interceptorPromise.then(() => {
-                if (Object.keys(localVarFormParams).length) {
-                    if (localVarUseFormData) {
-                        localVarRequestOptions.formData = localVarFormParams;
-                    }
-                    else {
-                        localVarRequestOptions.form = localVarFormParams;
-                    }
-                }
-                return new Promise((resolve, reject) => {
-                    request_1.default(localVarRequestOptions, (error, response, body) => {
-                        if (error) {
-                            reject(error);
-                        }
-                        else {
-                            body = models_1.ObjectSerializer.deserialize(body, "InlineResponse2004");
                             if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                                 resolve({ response: response, body: body });
                             }
@@ -932,14 +223,18 @@ class AccountsApi {
     }
     /**
      *
-     * @summary Retrieve ACH Relationships for an account
-     * @param accountId Account identifier.
-     * @param statuses Comma-separated status values
+     * @summary Retrieve account activities
+     * @param date
+     * @param until
+     * @param after
+     * @param direction
+     * @param accountId
+     * @param pageSize
+     * @param pageToken
      */
-    getAchRelationships(accountId, statuses, options = { headers: {} }) {
+    getAccountActivities(date, until, after, direction, accountId, pageSize, pageToken, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
-            const localVarPath = this.basePath + '/accounts/{account_id}/ach_relationships'
-                .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)));
+            const localVarPath = this.basePath + '/accounts/activities';
             let localVarQueryParameters = {};
             let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
@@ -951,12 +246,26 @@ class AccountsApi {
                 localVarHeaderParams.Accept = produces.join(',');
             }
             let localVarFormParams = {};
-            // verify required parameter 'accountId' is not null or undefined
-            if (accountId === null || accountId === undefined) {
-                throw new Error('Required parameter accountId was null or undefined when calling getAchRelationships.');
+            if (date !== undefined) {
+                localVarQueryParameters['date'] = models_1.ObjectSerializer.serialize(date, "string");
             }
-            if (statuses !== undefined) {
-                localVarQueryParameters['statuses'] = models_1.ObjectSerializer.serialize(statuses, "string");
+            if (until !== undefined) {
+                localVarQueryParameters['until'] = models_1.ObjectSerializer.serialize(until, "string");
+            }
+            if (after !== undefined) {
+                localVarQueryParameters['after'] = models_1.ObjectSerializer.serialize(after, "string");
+            }
+            if (direction !== undefined) {
+                localVarQueryParameters['direction'] = models_1.ObjectSerializer.serialize(direction, "'asc' | 'desc'");
+            }
+            if (accountId !== undefined) {
+                localVarQueryParameters['account_id'] = models_1.ObjectSerializer.serialize(accountId, "string");
+            }
+            if (pageSize !== undefined) {
+                localVarQueryParameters['page_size'] = models_1.ObjectSerializer.serialize(pageSize, "number");
+            }
+            if (pageToken !== undefined) {
+                localVarQueryParameters['page_token'] = models_1.ObjectSerializer.serialize(pageToken, "string");
             }
             Object.assign(localVarHeaderParams, options.headers);
             let localVarUseFormData = false;
@@ -992,7 +301,7 @@ class AccountsApi {
                             reject(error);
                         }
                         else {
-                            body = models_1.ObjectSerializer.deserialize(body, "Array<ACHRelationshipResource>");
+                            body = models_1.ObjectSerializer.deserialize(body, "Array<ActivityItem>");
                             if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                                 resolve({ response: response, body: body });
                             }
@@ -1007,15 +316,20 @@ class AccountsApi {
     }
     /**
      *
-     * @summary Retrieve bank relationships for an account
+     * @summary Retrieve specific account activities
+     * @param activityType
+     * @param date
+     * @param until
+     * @param after
+     * @param direction
      * @param accountId
-     * @param status
-     * @param bankName
+     * @param pageSize
+     * @param pageToken
      */
-    getRecipientBanks(accountId, status, bankName, options = { headers: {} }) {
+    getAccountActivitiesByType(activityType, date, until, after, direction, accountId, pageSize, pageToken, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
-            const localVarPath = this.basePath + '/accounts/{account_id}/recipient_banks'
-                .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)));
+            const localVarPath = this.basePath + '/accounts/activities/{activity_type}'
+                .replace('{' + 'activity_type' + '}', encodeURIComponent(String(activityType)));
             let localVarQueryParameters = {};
             let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
@@ -1027,15 +341,30 @@ class AccountsApi {
                 localVarHeaderParams.Accept = produces.join(',');
             }
             let localVarFormParams = {};
-            // verify required parameter 'accountId' is not null or undefined
-            if (accountId === null || accountId === undefined) {
-                throw new Error('Required parameter accountId was null or undefined when calling getRecipientBanks.');
+            // verify required parameter 'activityType' is not null or undefined
+            if (activityType === null || activityType === undefined) {
+                throw new Error('Required parameter activityType was null or undefined when calling getAccountActivitiesByType.');
             }
-            if (status !== undefined) {
-                localVarQueryParameters['status'] = models_1.ObjectSerializer.serialize(status, "string");
+            if (date !== undefined) {
+                localVarQueryParameters['date'] = models_1.ObjectSerializer.serialize(date, "string");
             }
-            if (bankName !== undefined) {
-                localVarQueryParameters['bank_name'] = models_1.ObjectSerializer.serialize(bankName, "string");
+            if (until !== undefined) {
+                localVarQueryParameters['until'] = models_1.ObjectSerializer.serialize(until, "string");
+            }
+            if (after !== undefined) {
+                localVarQueryParameters['after'] = models_1.ObjectSerializer.serialize(after, "string");
+            }
+            if (direction !== undefined) {
+                localVarQueryParameters['direction'] = models_1.ObjectSerializer.serialize(direction, "'asc' | 'desc'");
+            }
+            if (accountId !== undefined) {
+                localVarQueryParameters['account_id'] = models_1.ObjectSerializer.serialize(accountId, "string");
+            }
+            if (pageSize !== undefined) {
+                localVarQueryParameters['page_size'] = models_1.ObjectSerializer.serialize(pageSize, "number");
+            }
+            if (pageToken !== undefined) {
+                localVarQueryParameters['page_token'] = models_1.ObjectSerializer.serialize(pageToken, "string");
             }
             Object.assign(localVarHeaderParams, options.headers);
             let localVarUseFormData = false;
@@ -1071,7 +400,76 @@ class AccountsApi {
                             reject(error);
                         }
                         else {
-                            body = models_1.ObjectSerializer.deserialize(body, "Array<BankResource>");
+                            body = models_1.ObjectSerializer.deserialize(body, "Array<ActivityItem>");
+                            if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                                resolve({ response: response, body: body });
+                            }
+                            else {
+                                reject(new apis_1.HttpError(response, body, response.statusCode));
+                            }
+                        }
+                    });
+                });
+            });
+        });
+    }
+    /**
+     *
+     * @summary Retrieve all accounts
+     * @param query The query supports partial match of account number, names, emails, etc.. Items can be space delimited.
+     */
+    getAccounts(query, options = { headers: {} }) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = this.basePath + '/accounts';
+            let localVarQueryParameters = {};
+            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
+            const produces = ['application/json'];
+            // give precedence to 'application/json'
+            if (produces.indexOf('application/json') >= 0) {
+                localVarHeaderParams.Accept = 'application/json';
+            }
+            else {
+                localVarHeaderParams.Accept = produces.join(',');
+            }
+            let localVarFormParams = {};
+            if (query !== undefined) {
+                localVarQueryParameters['query'] = models_1.ObjectSerializer.serialize(query, "string");
+            }
+            Object.assign(localVarHeaderParams, options.headers);
+            let localVarUseFormData = false;
+            let localVarRequestOptions = {
+                method: 'GET',
+                qs: localVarQueryParameters,
+                headers: localVarHeaderParams,
+                uri: localVarPath,
+                useQuerystring: this._useQuerystring,
+                json: true,
+            };
+            let authenticationPromise = Promise.resolve();
+            if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {
+                authenticationPromise = authenticationPromise.then(() => this.authentications.BasicAuth.applyToRequest(localVarRequestOptions));
+            }
+            authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+            let interceptorPromise = authenticationPromise;
+            for (const interceptor of this.interceptors) {
+                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+            }
+            return interceptorPromise.then(() => {
+                if (Object.keys(localVarFormParams).length) {
+                    if (localVarUseFormData) {
+                        localVarRequestOptions.formData = localVarFormParams;
+                    }
+                    else {
+                        localVarRequestOptions.form = localVarFormParams;
+                    }
+                }
+                return new Promise((resolve, reject) => {
+                    request_1.default(localVarRequestOptions, (error, response, body) => {
+                        if (error) {
+                            reject(error);
+                        }
+                        else {
+                            body = models_1.ObjectSerializer.deserialize(body, "Array<Account>");
                             if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                                 resolve({ response: response, body: body });
                             }
@@ -1143,89 +541,6 @@ class AccountsApi {
                         }
                         else {
                             body = models_1.ObjectSerializer.deserialize(body, "InlineResponse200");
-                            if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                                resolve({ response: response, body: body });
-                            }
-                            else {
-                                reject(new apis_1.HttpError(response, body, response.statusCode));
-                            }
-                        }
-                    });
-                });
-            });
-        });
-    }
-    /**
-     * You can filter requested transfers by values such as direction and status.
-     * @summary Return a list of transfers for an account.
-     * @param accountId
-     * @param direction
-     * @param limit
-     * @param offset
-     */
-    getTransfers(accountId, direction, limit, offset, options = { headers: {} }) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const localVarPath = this.basePath + '/accounts/{account_id}/transfers'
-                .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)));
-            let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
-            const produces = ['application/json'];
-            // give precedence to 'application/json'
-            if (produces.indexOf('application/json') >= 0) {
-                localVarHeaderParams.Accept = 'application/json';
-            }
-            else {
-                localVarHeaderParams.Accept = produces.join(',');
-            }
-            let localVarFormParams = {};
-            // verify required parameter 'accountId' is not null or undefined
-            if (accountId === null || accountId === undefined) {
-                throw new Error('Required parameter accountId was null or undefined when calling getTransfers.');
-            }
-            if (direction !== undefined) {
-                localVarQueryParameters['direction'] = models_1.ObjectSerializer.serialize(direction, "'INCOMING' | 'OUTGOING'");
-            }
-            if (limit !== undefined) {
-                localVarQueryParameters['limit'] = models_1.ObjectSerializer.serialize(limit, "number");
-            }
-            if (offset !== undefined) {
-                localVarQueryParameters['offset'] = models_1.ObjectSerializer.serialize(offset, "number");
-            }
-            Object.assign(localVarHeaderParams, options.headers);
-            let localVarUseFormData = false;
-            let localVarRequestOptions = {
-                method: 'GET',
-                qs: localVarQueryParameters,
-                headers: localVarHeaderParams,
-                uri: localVarPath,
-                useQuerystring: this._useQuerystring,
-                json: true,
-            };
-            let authenticationPromise = Promise.resolve();
-            if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {
-                authenticationPromise = authenticationPromise.then(() => this.authentications.BasicAuth.applyToRequest(localVarRequestOptions));
-            }
-            authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            let interceptorPromise = authenticationPromise;
-            for (const interceptor of this.interceptors) {
-                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
-            }
-            return interceptorPromise.then(() => {
-                if (Object.keys(localVarFormParams).length) {
-                    if (localVarUseFormData) {
-                        localVarRequestOptions.formData = localVarFormParams;
-                    }
-                    else {
-                        localVarRequestOptions.form = localVarFormParams;
-                    }
-                }
-                return new Promise((resolve, reject) => {
-                    request_1.default(localVarRequestOptions, (error, response, body) => {
-                        if (error) {
-                            reject(error);
-                        }
-                        else {
-                            body = models_1.ObjectSerializer.deserialize(body, "Array<TransferResource>");
                             if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                                 resolve({ response: response, body: body });
                             }
@@ -1317,14 +632,12 @@ class AccountsApi {
     }
     /**
      *
-     * @summary Create an ACH Relationship
-     * @param accountId Account identifier.
-     * @param aCHRelationshipData
+     * @summary Create an account
+     * @param accountCreationObject
      */
-    postAchRelationships(accountId, aCHRelationshipData, options = { headers: {} }) {
+    postAccount(accountCreationObject, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
-            const localVarPath = this.basePath + '/accounts/{account_id}/ach_relationships'
-                .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)));
+            const localVarPath = this.basePath + '/accounts';
             let localVarQueryParameters = {};
             let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
             const produces = ['application/json'];
@@ -1336,13 +649,9 @@ class AccountsApi {
                 localVarHeaderParams.Accept = produces.join(',');
             }
             let localVarFormParams = {};
-            // verify required parameter 'accountId' is not null or undefined
-            if (accountId === null || accountId === undefined) {
-                throw new Error('Required parameter accountId was null or undefined when calling postAchRelationships.');
-            }
-            // verify required parameter 'aCHRelationshipData' is not null or undefined
-            if (aCHRelationshipData === null || aCHRelationshipData === undefined) {
-                throw new Error('Required parameter aCHRelationshipData was null or undefined when calling postAchRelationships.');
+            // verify required parameter 'accountCreationObject' is not null or undefined
+            if (accountCreationObject === null || accountCreationObject === undefined) {
+                throw new Error('Required parameter accountCreationObject was null or undefined when calling postAccount.');
             }
             Object.assign(localVarHeaderParams, options.headers);
             let localVarUseFormData = false;
@@ -1353,7 +662,7 @@ class AccountsApi {
                 uri: localVarPath,
                 useQuerystring: this._useQuerystring,
                 json: true,
-                body: models_1.ObjectSerializer.serialize(aCHRelationshipData, "ACHRelationshipData")
+                body: models_1.ObjectSerializer.serialize(accountCreationObject, "AccountCreationObject")
             };
             let authenticationPromise = Promise.resolve();
             if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {
@@ -1379,7 +688,7 @@ class AccountsApi {
                             reject(error);
                         }
                         else {
-                            body = models_1.ObjectSerializer.deserialize(body, "ACHRelationshipResource");
+                            body = models_1.ObjectSerializer.deserialize(body, "Account");
                             if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                                 resolve({ response: response, body: body });
                             }
@@ -1394,13 +703,13 @@ class AccountsApi {
     }
     /**
      *
-     * @summary Create a Bank Relationship for an account
+     * @summary Upload a document to an already existing account
      * @param accountId Account identifier.
-     * @param bankData
+     * @param documentUpload
      */
-    postRecipientBanks(accountId, bankData, options = { headers: {} }) {
+    postDocumentUpload(accountId, documentUpload, options = { headers: {} }) {
         return __awaiter(this, void 0, void 0, function* () {
-            const localVarPath = this.basePath + '/accounts/{account_id}/recipient_banks'
+            const localVarPath = this.basePath + '/accounts/{account_id}/documents/upload'
                 .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)));
             let localVarQueryParameters = {};
             let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
@@ -1415,11 +724,11 @@ class AccountsApi {
             let localVarFormParams = {};
             // verify required parameter 'accountId' is not null or undefined
             if (accountId === null || accountId === undefined) {
-                throw new Error('Required parameter accountId was null or undefined when calling postRecipientBanks.');
+                throw new Error('Required parameter accountId was null or undefined when calling postDocumentUpload.');
             }
-            // verify required parameter 'bankData' is not null or undefined
-            if (bankData === null || bankData === undefined) {
-                throw new Error('Required parameter bankData was null or undefined when calling postRecipientBanks.');
+            // verify required parameter 'documentUpload' is not null or undefined
+            if (documentUpload === null || documentUpload === undefined) {
+                throw new Error('Required parameter documentUpload was null or undefined when calling postDocumentUpload.');
             }
             Object.assign(localVarHeaderParams, options.headers);
             let localVarUseFormData = false;
@@ -1430,7 +739,7 @@ class AccountsApi {
                 uri: localVarPath,
                 useQuerystring: this._useQuerystring,
                 json: true,
-                body: models_1.ObjectSerializer.serialize(bankData, "BankData")
+                body: models_1.ObjectSerializer.serialize(documentUpload, "DocumentUpload")
             };
             let authenticationPromise = Promise.resolve();
             if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {
@@ -1456,84 +765,6 @@ class AccountsApi {
                             reject(error);
                         }
                         else {
-                            body = models_1.ObjectSerializer.deserialize(body, "BankResource");
-                            if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                                resolve({ response: response, body: body });
-                            }
-                            else {
-                                reject(new apis_1.HttpError(response, body, response.statusCode));
-                            }
-                        }
-                    });
-                });
-            });
-        });
-    }
-    /**
-     * This operation allows you to fund an account with virtual money in the sandbox environment.
-     * @summary Request a new transfer
-     * @param accountId
-     * @param transferData
-     */
-    postTransfers(accountId, transferData, options = { headers: {} }) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const localVarPath = this.basePath + '/accounts/{account_id}/transfers'
-                .replace('{' + 'account_id' + '}', encodeURIComponent(String(accountId)));
-            let localVarQueryParameters = {};
-            let localVarHeaderParams = Object.assign({}, this._defaultHeaders);
-            const produces = ['application/json'];
-            // give precedence to 'application/json'
-            if (produces.indexOf('application/json') >= 0) {
-                localVarHeaderParams.Accept = 'application/json';
-            }
-            else {
-                localVarHeaderParams.Accept = produces.join(',');
-            }
-            let localVarFormParams = {};
-            // verify required parameter 'accountId' is not null or undefined
-            if (accountId === null || accountId === undefined) {
-                throw new Error('Required parameter accountId was null or undefined when calling postTransfers.');
-            }
-            // verify required parameter 'transferData' is not null or undefined
-            if (transferData === null || transferData === undefined) {
-                throw new Error('Required parameter transferData was null or undefined when calling postTransfers.');
-            }
-            Object.assign(localVarHeaderParams, options.headers);
-            let localVarUseFormData = false;
-            let localVarRequestOptions = {
-                method: 'POST',
-                qs: localVarQueryParameters,
-                headers: localVarHeaderParams,
-                uri: localVarPath,
-                useQuerystring: this._useQuerystring,
-                json: true,
-                body: models_1.ObjectSerializer.serialize(transferData, "TransferData")
-            };
-            let authenticationPromise = Promise.resolve();
-            if (this.authentications.BasicAuth.username && this.authentications.BasicAuth.password) {
-                authenticationPromise = authenticationPromise.then(() => this.authentications.BasicAuth.applyToRequest(localVarRequestOptions));
-            }
-            authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-            let interceptorPromise = authenticationPromise;
-            for (const interceptor of this.interceptors) {
-                interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
-            }
-            return interceptorPromise.then(() => {
-                if (Object.keys(localVarFormParams).length) {
-                    if (localVarUseFormData) {
-                        localVarRequestOptions.formData = localVarFormParams;
-                    }
-                    else {
-                        localVarRequestOptions.form = localVarFormParams;
-                    }
-                }
-                return new Promise((resolve, reject) => {
-                    request_1.default(localVarRequestOptions, (error, response, body) => {
-                        if (error) {
-                            reject(error);
-                        }
-                        else {
-                            body = models_1.ObjectSerializer.deserialize(body, "TransferResource");
                             if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                                 resolve({ response: response, body: body });
                             }

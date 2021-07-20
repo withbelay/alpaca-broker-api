@@ -170,7 +170,7 @@ export declare class TradingApi {
      * @param accountId Account identifier.
      * @param createOrder
      */
-    postOrders(accountId: string, createOrder: CreateOrder, options?: {
+    postOrder(accountId: string, createOrder: CreateOrder, options?: {
         headers: {
             [name: string]: string;
         };
